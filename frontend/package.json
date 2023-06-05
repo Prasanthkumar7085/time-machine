@@ -1,6 +1,8 @@
 {
-  "name": "frontend",
+  "name": "time-machine-frontend",
   "version": "0.1.0",
+  "description": "TimeMachine frontend",
+  "author": "Ehsan Jso <ehsan.jsoure@gmail.com>",
   "private": true,
   "dependencies": {
     "@nivo/core": "^0.83.0",
