@@ -1,23 +1,21 @@
-// RegisterScreen.js
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { registerUser } from "../../redux/user/userActions";
 
 export default function Signup() {
-  const { loading, userInfo, error, success } = useSelector(
-    (state) => state.user
-  );
+  const { loading, error } = useSelector((state) => state.user);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { register, handleSubmit } = useForm();
 
   const submitForm = (data) => {
-    // check if passwords match
     if (data.password !== data.confirmPassword) {
       alert("Password mismatch");
     }
-    // transform email string to lowercase to avoid case sensitivity issues in login
     data.email = data.email.toLowerCase();
     dispatch(registerUser(data));
+    navigate("/disclaimer");
   };
 
   return (
@@ -47,7 +45,6 @@ export default function Signup() {
         </div>
         <form onSubmit={handleSubmit(submitForm)}>
           <div className="flex flex-col gap-3 justify-center items-start">
-            {/* <h2 className="text-3xl">Join Time Machine!</h2> */}
             <div className="form-control">
               <label className="flex flex-col">
                 <span className="w-[250px] justify-end">Email</span>
