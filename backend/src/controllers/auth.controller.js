@@ -1,6 +1,7 @@
 const httpStatus = require('http-status');
 const catchAsync = require('../utils/catchAsync');
 const { authService, userService, tokenService, emailService } = require('../services');
+const { tokenTypes } = require('../config/tokens');
 
 const register = catchAsync(async (req, res) => {
   const user = await userService.createUser(req.body);
@@ -22,7 +23,13 @@ const logout = catchAsync(async (req, res) => {
 
 const refreshTokens = catchAsync(async (req, res) => {
   const tokens = await authService.refreshAuth(req.body.refreshToken);
-  res.send({ ...tokens });
+  console.log(tokens);
+  const refreshTokenDoc = await tokenService.verifyToken(tokens.refresh.token, tokenTypes.REFRESH);
+  const user = await userService.getUserById(refreshTokenDoc.user);
+  if (!user) {
+    throw new Error();
+  }
+  res.send({ tokens, user });
 });
 
 const forgotPassword = catchAsync(async (req, res) => {

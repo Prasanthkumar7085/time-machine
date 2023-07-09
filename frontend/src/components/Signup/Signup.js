@@ -1,12 +1,10 @@
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import { registerUser } from "../../redux/user/userActions";
 
 export default function Signup() {
   const { loading, error } = useSelector((state) => state.user);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const { register, handleSubmit } = useForm();
 
   const submitForm = (data) => {
@@ -15,7 +13,6 @@ export default function Signup() {
     }
     data.email = data.email.toLowerCase();
     dispatch(registerUser(data));
-    navigate("/disclaimer");
   };
 
   return (

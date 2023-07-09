@@ -9,6 +9,15 @@ const userSlice = createSlice({
     isDisclaimerAccepted: false,
     gameCompletionCount: 0,
   },
+  reducers: {
+    updateProfile(state, { payload }) {
+      return {
+        ...state,
+        ...payload.user,
+        tokens: payload.tokens,
+      };
+    },
+  },
   extraReducers: {
     [registerUser.pending]: (state) => {
       state.loading = true;
@@ -47,5 +56,5 @@ const userSlice = createSlice({
   },
 });
 
-export const { incremented, decremented } = userSlice.actions;
+export const { updateProfile } = userSlice.actions;
 export default userSlice.reducer;
