@@ -8,7 +8,7 @@ const userSchema = mongoose.Schema(
   {
     name: {
       type: String,
-      required: true,
+      required: false,
       trim: true,
     },
     email: {
@@ -43,6 +43,15 @@ const userSchema = mongoose.Schema(
     isEmailVerified: {
       type: Boolean,
       default: false,
+    },
+    isDisclaimerAccepted: {
+      type: Boolean,
+      default: false,
+      required: true,
+    },
+    gameCompletionCount: {
+      type: Number,
+      default: 0,
     },
   },
   {
