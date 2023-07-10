@@ -1,4 +1,4 @@
-import { Outlet, useNavigate } from "react-router-dom";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import Header from "../Header/Header";
 import { useEffect, useState } from "react";
@@ -8,6 +8,7 @@ import { updateProfile } from "../../redux/user/userReducer";
 const backendURL = process.env.REACT_APP_HOST;
 
 export default function Layout() {
+  const location = useLocation();
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
@@ -39,7 +40,7 @@ export default function Layout() {
       );
 
       dispatch(updateProfile(data));
-      navigate("/disclaimer");
+      navigate(location.pathname);
     } catch (error) {
       navigate("/login");
     }

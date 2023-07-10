@@ -1,300 +1,81 @@
-import MyResponsiveLine from "./Chart";
+import TerminalController from "./Terminal";
+import LineChart from "./Chart";
 
 const data = [
   {
-    id: "japan",
-    color: "hsl(311, 70%, 50%)",
-    data: [
-      {
-        x: "plane",
-        y: 65,
-      },
-      {
-        x: "helicopter",
-        y: 97,
-      },
-      {
-        x: "boat",
-        y: 151,
-      },
-      {
-        x: "train",
-        y: 177,
-      },
-      {
-        x: "subway",
-        y: 273,
-      },
-      {
-        x: "bus",
-        y: 59,
-      },
-      {
-        x: "car",
-        y: 248,
-      },
-      {
-        x: "moto",
-        y: 11,
-      },
-      {
-        x: "bicycle",
-        y: 268,
-      },
-      {
-        x: "horse",
-        y: 174,
-      },
-      {
-        x: "skateboard",
-        y: 181,
-      },
-      {
-        x: "others",
-        y: 73,
-      },
-    ],
+    symbol: "MSFT",
+    date: "2000-01-01",
+    Impressions: 39.81,
   },
   {
-    id: "france",
-    color: "hsl(122, 70%, 50%)",
-    data: [
-      {
-        x: "plane",
-        y: 278,
-      },
-      {
-        x: "helicopter",
-        y: 103,
-      },
-      {
-        x: "boat",
-        y: 211,
-      },
-      {
-        x: "train",
-        y: 146,
-      },
-      {
-        x: "subway",
-        y: 18,
-      },
-      {
-        x: "bus",
-        y: 83,
-      },
-      {
-        x: "car",
-        y: 190,
-      },
-      {
-        x: "moto",
-        y: 238,
-      },
-      {
-        x: "bicycle",
-        y: 15,
-      },
-      {
-        x: "horse",
-        y: 2,
-      },
-      {
-        x: "skateboard",
-        y: 73,
-      },
-      {
-        x: "others",
-        y: 114,
-      },
-    ],
+    symbol: "MSFT",
+    date: "2001-02-01",
+    Impressions: 36.35,
   },
   {
-    id: "us",
-    color: "hsl(326, 70%, 50%)",
-    data: [
-      {
-        x: "plane",
-        y: 20,
-      },
-      {
-        x: "helicopter",
-        y: 50,
-      },
-      {
-        x: "boat",
-        y: 229,
-      },
-      {
-        x: "train",
-        y: 38,
-      },
-      {
-        x: "subway",
-        y: 19,
-      },
-      {
-        x: "bus",
-        y: 184,
-      },
-      {
-        x: "car",
-        y: 71,
-      },
-      {
-        x: "moto",
-        y: 92,
-      },
-      {
-        x: "bicycle",
-        y: 45,
-      },
-      {
-        x: "horse",
-        y: 184,
-      },
-      {
-        x: "skateboard",
-        y: 236,
-      },
-      {
-        x: "others",
-        y: 298,
-      },
-    ],
+    symbol: "MSFT",
+    date: "2002-03-01",
+    Impressions: 43.22,
   },
   {
-    id: "germany",
-    color: "hsl(169, 70%, 50%)",
-    data: [
-      {
-        x: "plane",
-        y: 73,
-      },
-      {
-        x: "helicopter",
-        y: 196,
-      },
-      {
-        x: "boat",
-        y: 193,
-      },
-      {
-        x: "train",
-        y: 47,
-      },
-      {
-        x: "subway",
-        y: 71,
-      },
-      {
-        x: "bus",
-        y: 8,
-      },
-      {
-        x: "car",
-        y: 106,
-      },
-      {
-        x: "moto",
-        y: 182,
-      },
-      {
-        x: "bicycle",
-        y: 79,
-      },
-      {
-        x: "horse",
-        y: 270,
-      },
-      {
-        x: "skateboard",
-        y: 34,
-      },
-      {
-        x: "others",
-        y: 75,
-      },
-    ],
+    symbol: "MSFT",
+    date: "2003-04-01",
+    Impressions: 28.37,
   },
   {
-    id: "norway",
-    color: "hsl(51, 70%, 50%)",
-    data: [
-      {
-        x: "plane",
-        y: 232,
-      },
-      {
-        x: "helicopter",
-        y: 291,
-      },
-      {
-        x: "boat",
-        y: 174,
-      },
-      {
-        x: "train",
-        y: 123,
-      },
-      {
-        x: "subway",
-        y: 34,
-      },
-      {
-        x: "bus",
-        y: 94,
-      },
-      {
-        x: "car",
-        y: 140,
-      },
-      {
-        x: "moto",
-        y: 107,
-      },
-      {
-        x: "bicycle",
-        y: 4,
-      },
-      {
-        x: "horse",
-        y: 248,
-      },
-      {
-        x: "skateboard",
-        y: 23,
-      },
-      {
-        x: "others",
-        y: 18,
-      },
-    ],
+    symbol: "MSFT",
+    date: "2004-05-01",
+    Impressions: 25.45,
+  },
+  {
+    symbol: "MSFT",
+    date: "2005-06-01",
+    Impressions: 32.54,
+  },
+  {
+    symbol: "MSFT",
+    date: "2006-07-01",
+    Impressions: 28.4,
+  },
+  {
+    symbol: "MSFT",
+    date: "2007-08-01",
+    Impressions: 28.4,
+  },
+  {
+    symbol: "MSFT",
+    date: "2008-09-01",
+    Impressions: 24.53,
+  },
+  {
+    symbol: "MSFT",
+    date: "2009-10-01",
+    Impressions: 28.02,
+  },
+  {
+    symbol: "MSFT",
+    date: "2010-11-01",
+    Impressions: 23.34,
+  },
+  {
+    symbol: "MSFT",
+    date: "2011-12-01",
+    Impressions: 17.65,
   },
 ];
 
 export default function Question() {
   return (
-    <div className="flex w-full h-full justify-center items-center gap-5">
-      <div className="w-[500px] text-justify">
-        <p>
-          Welcome to 1980. Post-It Notes and the Rubik’s Cube have just hit the
-          stores.
-          <br />
-          <br />
-          Your job as a scientist in 1980 is to predict future global CO2
-          concentrations so humans can prepare for coming changes. Below, you
-          can see historical data for global CO2 concentrations for the past 20
-          years in parts per million. Your task is to predict concentrations in
-          1985. After you make your prediction, we will time travel ahead to
-          1985 to see how accurate you were.
-          <br />
-          <br />
-          What will global CO2 concentrations be in 1985 (in parts per million)?
-        </p>
-      </div>
-      <div className="w-[800px] h-[400px]">
-        <MyResponsiveLine data={data} />
+    <div className="flex w-full h-[calc(100%-4rem)] p-10">
+      <div className="h-full w-full flex relative shadow-md rounded-md overflow-hidden">
+        <div className="h-full w-[50%]">
+          <TerminalController />
+        </div>
+        <div className="w-[50%] h-full absolute top-0 right-0 flex items-center justify-center bg-[#252a33]">
+          <div className="w-[800px] h-[400px]">
+            <LineChart data_type="impressions" Data={data} />
+          </div>
+        </div>
       </div>
     </div>
   );

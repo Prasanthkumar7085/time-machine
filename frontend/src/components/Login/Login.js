@@ -15,7 +15,7 @@ export default function Login() {
     <div className="flex w-full h-full justify-center items-center">
       <div className="flex flex-row gap-5">
         <div>
-          <div className="mockup-code h-full w-[250px] shadow-lg">
+          <div className="mockup-code h-full w-[250px] shadow-lg bg-[#252a33]">
             <pre data-prefix=">" className="text-warning">
               <code>installing...</code>
             </pre>
