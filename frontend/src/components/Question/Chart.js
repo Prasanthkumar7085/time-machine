@@ -166,10 +166,24 @@ const LineChart = ({ Data, data_type }) => {
       .style("height", "1px")
       .style("left", dimensions.margins + "px");
 
-    var dot = container.append("circle").attr("r", 5).attr("fill", "#EF6262");
-    var centerDot = container
-      .append("circle")
-      .attr("r", 2)
+    // var dot = container.append("circle").attr("r", 5).attr("fill", "#EF6262");
+    // var centerDot = container
+    //   .append("circle")
+    //   .attr("r", 2)
+    //   .attr("fill", "#EF6262");
+    var rect = container
+      .append("rect")
+      .attr("width", 0)
+      .attr("height", 0)
+      .attr("fill", "#EF6262")
+      .attr("rx", "2px")
+      .attr("ry", "2px")
+      .style("opacity", 0);
+
+    var rectLine = container
+      .append("rect")
+      .attr("width", 0)
+      .attr("height", 0)
       .attr("fill", "#EF6262");
 
     let [x, y] = [0, 0];
@@ -240,24 +254,46 @@ const LineChart = ({ Data, data_type }) => {
           .on("start", function (event) {
             x = event.x;
             y = event.y;
-            dot
-              .attr("cx", event.x)
-              .attr("cy", event.y)
-              .attr("r", 5)
+            // dot
+            //   .attr("cx", event.x)
+            //   .attr("cy", event.y)
+            //   .attr("r", 5)
+            //   .attr("fill", "rgba(239,98,98,.5)")
+            //   .attr("stroke", "rgba(239,98,98,1)")
+            //   .attr("storke-width", 2);
+            // centerDot.attr("cx", event.x).attr("cy", event.y);
+            rect
+              .attr("x", event.x - 10)
+              .attr("y", event.y)
+              .attr("width", 20)
+              .attr("height", 5)
               .attr("fill", "rgba(239,98,98,.5)")
               .attr("stroke", "rgba(239,98,98,1)")
-              .attr("storke-width", 2);
-            centerDot.attr("cx", event.x).attr("cy", event.y);
+              .attr("storke-width", 2)
+              .style("opacity", 1);
+
+            rectLine
+              .attr("x", event.x - 10)
+              .attr("y", event.y)
+              .attr("width", 20)
+              .attr("height", 2);
           })
           .on("drag", function (event) {
             var a = x - event.x;
             var b = y - event.y;
 
             var c = Math.sqrt(a * a + b * b);
-            dot
-              .attr("cx", x)
-              .attr("cy", y)
-              .attr("r", c)
+            // dot
+            //   .attr("cx", x)
+            //   .attr("cy", y)
+            //   .attr("r", c)
+            //   .attr("fill", "rgba(239,98,98,.5)")
+            //   .attr("stroke", "rgba(239,98,98,1)")
+            //   .attr("storke-width", 2);
+
+            rect
+              .attr("y", y - c)
+              .attr("height", 2 * c)
               .attr("fill", "rgba(239,98,98,.5)")
               .attr("stroke", "rgba(239,98,98,1)")
               .attr("storke-width", 2);

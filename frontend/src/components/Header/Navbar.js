@@ -1,49 +1,58 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { Link, useLocation } from "react-router-dom";
+import { logoutUser } from "../../redux/user/userActions";
 
 export default function Navbar() {
+  const location = useLocation();
+  const dispatch = useDispatch();
+
+  const logout = () => {
+    dispatch(logoutUser());
+  };
+  const renderMenu = () => {
+    switch (location.pathname) {
+      case "/login":
+        return (
+          <li>
+            <Link to="/signup">Join Time Machine!</Link>
+          </li>
+        );
+      case "/signup":
+        return (
+          <li>
+            <Link to="/login">Login</Link>
+          </li>
+        );
+      case "/disclaimer":
+        return (
+          <li>
+            <Link to="/welcome">Home</Link>
+          </li>
+        );
+      default:
+      case "/demographics":
+        return (
+          <li>
+            <Link to="/welcome">Home</Link>
+          </li>
+        );
+    }
+  };
   return (
     <div className="flex-none">
       <div className="text-sm breadcrumbs">
         <ul>
-          <li>
-            <a>Home</a>
-          </li>
-          <li>
-            <a>Documents</a>
-          </li>
-          <li>Add Document</li>
+          {renderMenu()}
+          {!(
+            location.pathname === "/login" || location.pathname === "/signup"
+          ) && (
+            <li className="cursor-pointer" onClick={logout}>
+              Logout
+            </li>
+          )}
         </ul>
       </div>
-      {/* <ul className="menu menu-horizontal px-1">
-      <li>
-        <a>Item 1</a>
-      </li>
-      <li tabIndex={0}>
-        <a>
-          Parent
-          <svg
-            className="fill-current"
-            xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-          >
-            <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
-          </svg>
-        </a>
-        <ul className="p-2 bg-base-100">
-          <li>
-            <a>Submenu 1</a>
-          </li>
-          <li>
-            <a>Submenu 2</a>
-          </li>
-        </ul>
-      </li>
-      <li>
-        <a>Item 3</a>
-      </li>
-    </ul> */}
     </div>
   );
 }

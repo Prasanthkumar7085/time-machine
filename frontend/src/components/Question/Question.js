@@ -68,10 +68,10 @@ export default function Question() {
   return (
     <div className="flex w-full h-[calc(100%-4rem)] p-10">
       <div className="h-full w-full flex relative shadow-md rounded-md overflow-hidden">
-        <div className="h-full w-[50%]">
+        <div className="h-full w-[34%]">
           <TerminalController />
         </div>
-        <div className="w-[50%] h-full absolute top-0 right-0 flex items-center justify-center bg-[#252a33]">
+        <div className="w-[66%] h-full absolute top-0 right-0 flex items-center justify-center bg-[#252a33]">
           <div className="w-[800px] h-[400px]">
             <LineChart data_type="impressions" Data={data} />
           </div>

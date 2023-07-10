@@ -6,6 +6,7 @@ export default function Disclaimer() {
   const onAccept = () => {
     dispatch(acceptDisclaimer());
   };
+  console.log("hii");
   return (
     <div className="flex w-full h-full justify-center items-center">
       <div className="flex flex-col gap-5">

@@ -106,3 +106,34 @@ export const acceptDisclaimer = createAsyncThunk(
     }
   }
 );
+
+export const logoutUser = createAsyncThunk(
+  "auth/login",
+  async (__, { rejectWithValue }) => {
+    const tokens = JSON.parse(localStorage.getItem("time-machine"));
+    try {
+      const config = {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      };
+      await axios.post(
+        `${backendURL}/v1/auth/logout`,
+        {
+          refreshToken: tokens.refresh,
+        },
+        config
+      );
+
+      localStorage.removeItem("time-machine");
+
+      router.navigate("/login");
+    } catch (error) {
+      if (error.response && error.response.data.message) {
+        return rejectWithValue(error.response.data.message);
+      } else {
+        return rejectWithValue(error.message);
+      }
+    }
+  }
+);

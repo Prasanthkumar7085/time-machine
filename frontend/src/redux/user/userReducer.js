@@ -1,14 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { loginUser, registerUser } from "./userActions";
+import { loginUser, registerUser, logoutUser } from "./userActions";
+
+const initialState = {
+  email: undefined,
+  password: undefined,
+  isDisclaimerAccepted: false,
+  gameCompletionCount: 0,
+};
 
 const userSlice = createSlice({
   name: "user",
-  initialState: {
-    email: undefined,
-    password: undefined,
-    isDisclaimerAccepted: false,
-    gameCompletionCount: 0,
-  },
+  initialState,
   reducers: {
     updateProfile(state, { payload }) {
       return {
@@ -50,6 +52,21 @@ const userSlice = createSlice({
       };
     },
     [loginUser.rejected]: (state, { payload }) => {
+      state.loading = false;
+      state.error = payload;
+    },
+    [logoutUser.pending]: (state) => {
+      state.loading = true;
+      state.error = null;
+    },
+    [logoutUser.fulfilled]: (state, { payload }) => {
+      return {
+        ...initialState,
+        loading: false,
+        success: true,
+      };
+    },
+    [logoutUser.rejected]: (state, { payload }) => {
       state.loading = false;
       state.error = payload;
     },

@@ -40,7 +40,12 @@ export default function Layout() {
       );
 
       dispatch(updateProfile(data));
-      navigate(location.pathname);
+
+      if (location.pathname !== "/login" && location.pathname !== "/signup") {
+        navigate(location.pathname);
+      } else {
+        navigate("/disclaimer");
+      }
     } catch (error) {
       navigate("/login");
     }
