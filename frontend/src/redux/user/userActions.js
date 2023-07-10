@@ -75,3 +75,34 @@ export const loginUser = createAsyncThunk(
     }
   }
 );
+
+export const acceptDisclaimer = createAsyncThunk(
+  "auth/disclaimer",
+  async (__, { rejectWithValue, getState }) => {
+    const state = getState();
+    const tokens = JSON.parse(localStorage.getItem("time-machine"));
+    try {
+      const config = {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${tokens.access}`,
+        },
+      };
+      const { data } = await axios.post(
+        `${backendURL}/v1/auth/update-disclaimer`,
+        { email: state.user.email },
+        config
+      );
+
+      router.navigate("/demographics");
+
+      return data;
+    } catch (error) {
+      if (error.response && error.response.data.message) {
+        return rejectWithValue(error.response.data.message);
+      } else {
+        return rejectWithValue(error.message);
+      }
+    }
+  }
+);

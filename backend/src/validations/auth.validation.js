@@ -27,6 +27,12 @@ const refreshTokens = {
   }),
 };
 
+const updateDisclaimer = {
+  body: Joi.object().keys({
+    email: Joi.string().email().required(),
+  }),
+};
+
 const forgotPassword = {
   body: Joi.object().keys({
     email: Joi.string().email().required(),
@@ -53,6 +59,7 @@ module.exports = {
   login,
   logout,
   refreshTokens,
+  updateDisclaimer,
   forgotPassword,
   resetPassword,
   verifyEmail,

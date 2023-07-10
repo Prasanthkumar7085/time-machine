@@ -52,6 +52,20 @@ const refreshAuth = async (refreshToken) => {
 };
 
 /**
+ * update Disclaimer
+ * @param {string} email
+ * @returns {Promise<User>}
+ */
+const updateDisclaimer = async (email) => {
+  const user = await userService.getUserByEmail(email);
+  if (!user) {
+    throw new ApiError(httpStatus.UNAUTHORIZED, 'Please authenticate');
+  }
+  await userService.updateUserById(user.id, { isDisclaimerAccepted: true });
+  return user;
+};
+
+/**
  * Reset password
  * @param {string} resetPasswordToken
  * @param {string} newPassword
@@ -94,6 +108,7 @@ module.exports = {
   loginUserWithEmailAndPassword,
   logout,
   refreshAuth,
+  updateDisclaimer,
   resetPassword,
   verifyEmail,
 };

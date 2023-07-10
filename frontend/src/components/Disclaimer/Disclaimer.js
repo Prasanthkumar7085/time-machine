@@ -1,4 +1,11 @@
+import { useDispatch } from "react-redux";
+import { acceptDisclaimer } from "../../redux/user/userActions";
+
 export default function Disclaimer() {
+  const dispatch = useDispatch();
+  const onAccept = () => {
+    dispatch(acceptDisclaimer());
+  };
   return (
     <div className="flex w-full h-full justify-center items-center">
       <div className="flex flex-col gap-5">
@@ -36,8 +43,10 @@ export default function Disclaimer() {
           </p>
         </div>
         <div className="flex gap-3">
-          <button className="btn btn-sm btn-primary">I Agree!</button>
-          <button className="btn btn-sm btn-ghost">
+          <button className="btn btn-sm btn-primary" onClick={onAccept}>
+            I Agree!
+          </button>
+          <button className="btn btn-sm btn-ghost" onClick={undefined}>
             I Don't want to participate!
           </button>
         </div>

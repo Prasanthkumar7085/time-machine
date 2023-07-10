@@ -23,13 +23,17 @@ const logout = catchAsync(async (req, res) => {
 
 const refreshTokens = catchAsync(async (req, res) => {
   const tokens = await authService.refreshAuth(req.body.refreshToken);
-  console.log(tokens);
   const refreshTokenDoc = await tokenService.verifyToken(tokens.refresh.token, tokenTypes.REFRESH);
   const user = await userService.getUserById(refreshTokenDoc.user);
   if (!user) {
     throw new Error();
   }
   res.send({ tokens, user });
+});
+
+const updateDisclaimer = catchAsync(async (req, res) => {
+  await authService.updateDisclaimer(req.body.email);
+  res.status(httpStatus.NO_CONTENT).send();
 });
 
 const forgotPassword = catchAsync(async (req, res) => {
@@ -59,6 +63,7 @@ module.exports = {
   login,
   logout,
   refreshTokens,
+  updateDisclaimer,
   forgotPassword,
   resetPassword,
   sendVerificationEmail,

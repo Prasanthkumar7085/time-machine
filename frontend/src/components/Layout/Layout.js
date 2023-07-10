@@ -12,7 +12,6 @@ export default function Layout() {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    console.log("layout");
     const tokens = JSON.parse(localStorage.getItem("time-machine"));
     login(tokens);
     // eslint-disable-next-line react-hooks/exhaustive-deps
