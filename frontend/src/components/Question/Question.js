@@ -9,58 +9,63 @@ const data = [
   },
   {
     symbol: "MSFT",
-    date: "2001-02-01",
+    date: "2001-01-01",
     Impressions: 36.35,
   },
   {
     symbol: "MSFT",
-    date: "2002-03-01",
+    date: "2002-01-01",
     Impressions: 43.22,
   },
   {
     symbol: "MSFT",
-    date: "2003-04-01",
+    date: "2003-01-01",
     Impressions: 28.37,
   },
   {
     symbol: "MSFT",
-    date: "2004-05-01",
+    date: "2004-01-01",
     Impressions: 25.45,
   },
   {
     symbol: "MSFT",
-    date: "2005-06-01",
+    date: "2005-01-01",
     Impressions: 32.54,
   },
   {
     symbol: "MSFT",
-    date: "2006-07-01",
+    date: "2006-01-01",
     Impressions: 28.4,
   },
   {
     symbol: "MSFT",
-    date: "2007-08-01",
+    date: "2007-01-01",
     Impressions: 28.4,
   },
   {
     symbol: "MSFT",
-    date: "2008-09-01",
+    date: "2008-01-01",
     Impressions: 24.53,
   },
   {
     symbol: "MSFT",
-    date: "2009-10-01",
+    date: "2009-01-01",
     Impressions: 28.02,
   },
   {
     symbol: "MSFT",
-    date: "2010-11-01",
+    date: "2010-01-01",
     Impressions: 23.34,
   },
   {
     symbol: "MSFT",
-    date: "2011-12-01",
+    date: "2011-01-01",
     Impressions: 17.65,
+  },
+  {
+    symbol: "MSFT",
+    date: "2012-01-01",
+    Impressions: null,
   },
 ];
 

@@ -64,6 +64,7 @@ const LineChart = ({ Data, data_type }) => {
       width: width, // width from state
       height: height, // height from state
       margins: 50,
+      predictionMargin: 50,
     };
 
     dimensions.containerWidth = dimensions.width - dimensions.margins * 2;
@@ -109,6 +110,10 @@ const LineChart = ({ Data, data_type }) => {
       .scaleTime()
       .domain(d3.extent(Data, xAccessor))
       .range([0, dimensions.containerWidth]);
+
+    const dateDistance =
+      xScale(xAccessor(Data[Data.length - 1])) -
+      xScale(xAccessor(Data[Data.length - 2]));
 
     // Line Generator
     const lineGenerator = d3
@@ -171,6 +176,28 @@ const LineChart = ({ Data, data_type }) => {
     //   .append("circle")
     //   .attr("r", 2)
     //   .attr("fill", "#EF6262");
+    var estimateZone = container
+      .append("rect")
+      .attr("width", dateDistance)
+      .attr("height", dimensions.containerHeight)
+      .attr("fill", "#252a33")
+      .attr("stroke", "#EF6262")
+      .attr("stroke-width", 2)
+      .attr("stroke-dasharray", "5,5")
+      .attr("rx", "2px")
+      .attr("ry", "2px")
+      .attr("x", dimensions.containerWidth - dateDistance)
+      .attr("y", 0);
+
+    var estimateText = container
+      .append("text")
+      .attr("x", -dimensions.containerHeight / 2)
+      .attr("y", dimensions.containerWidth + 40)
+      .attr("fill", "#EF6262")
+      .text("Estimate Zone")
+      .style("font-size", "1rem")
+      .style("transform", "rotate(270deg)")
+      .style("text-anchor", "middle");
     var rect = container
       .append("rect")
       .attr("width", 0)
@@ -263,9 +290,9 @@ const LineChart = ({ Data, data_type }) => {
             //   .attr("storke-width", 2);
             // centerDot.attr("cx", event.x).attr("cy", event.y);
             rect
-              .attr("x", event.x - 10)
+              .attr("x", dimensions.containerWidth - dateDistance + 5)
               .attr("y", event.y)
-              .attr("width", 20)
+              .attr("width", dateDistance - 10)
               .attr("height", 5)
               .attr("fill", "rgba(239,98,98,.5)")
               .attr("stroke", "rgba(239,98,98,1)")
@@ -273,9 +300,9 @@ const LineChart = ({ Data, data_type }) => {
               .style("opacity", 1);
 
             rectLine
-              .attr("x", event.x - 10)
+              .attr("x", dimensions.containerWidth - dateDistance + 5)
               .attr("y", event.y)
-              .attr("width", 20)
+              .attr("width", dateDistance - 10)
               .attr("height", 2);
           })
           .on("drag", function (event) {
@@ -291,6 +318,8 @@ const LineChart = ({ Data, data_type }) => {
             //   .attr("stroke", "rgba(239,98,98,1)")
             //   .attr("storke-width", 2);
 
+            if (y - c < 0 || y + c > dimensions.containerHeight) return;
+
             rect
               .attr("y", y - c)
               .attr("height", 2 * c)
@@ -304,8 +333,8 @@ const LineChart = ({ Data, data_type }) => {
   return (
     <div ref={svgContainer} className="line-chart relative">
       <svg ref={svgRef} />
-      <div className="absolute w-1 h-1 bg-transparent left-6 top-6 xindicator border-dashed border border-white z-50" />
-      <div className="absolute w-1 h-1 bg-transparent left-6 top-6 yindicator border-dashed border border-white z-50" />
+      <div className="absolute w-1 h-1 bg-transparent left-6 top-6 xindicator border-dashed border border-[rgba(255,255,255,.3)] z-50" />
+      <div className="absolute w-1 h-1 bg-transparent left-6 top-6 yindicator border-dashed border border-[rgba(255,255,255,.3)] z-50" />
       <div ref={tooltipRef} className="lc-tooltip">
         <div className="data"></div>
         <div className="date"></div>
