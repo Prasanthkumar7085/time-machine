@@ -64,7 +64,7 @@ export const loginUser = createAsyncThunk(
       );
 
       router.navigate("/disclaimer");
-
+      console.log(data);
       return data;
     } catch (error) {
       if (error.response && error.response.data.message) {
@@ -108,7 +108,7 @@ export const acceptDisclaimer = createAsyncThunk(
 );
 
 export const logoutUser = createAsyncThunk(
-  "auth/login",
+  "auth/logout",
   async (__, { rejectWithValue }) => {
     const tokens = JSON.parse(localStorage.getItem("time-machine"));
     try {

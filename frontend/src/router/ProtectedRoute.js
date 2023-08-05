@@ -6,18 +6,13 @@ export const ProtectedRoute = () => {
   const { tokens, isDisclaimerAccepted } = useSelector((state) => state.user);
 
   if (tokens) {
-    console.log(isDisclaimerAccepted);
-    if (isDisclaimerAccepted) {
-      if (location.pathname === "/disclaimer") {
-        return <Navigate to="/demographics" />;
-      }
-      return <Outlet />;
-    } else {
+    if (!isDisclaimerAccepted) {
       if (location.pathname === "/disclaimer") {
         return <Outlet />;
       }
       return <Navigate to="/disclaimer" />;
     }
+    return <Outlet />;
   }
 
   return <Navigate to="/login" />;

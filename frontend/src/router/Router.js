@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { Navigate, createBrowserRouter } from "react-router-dom";
 
 import Login from "../components/Login";
 import Signup from "../components/Signup";
@@ -10,6 +10,7 @@ import Welcome from "../components/Welcome";
 import Question from "../components/Question";
 import Summary from "../components/Summary";
 import { ProtectedRoute } from "./ProtectedRoute";
+import { PublicRoute } from "./PublicRoute";
 
 export const router = createBrowserRouter([
   {
@@ -19,12 +20,13 @@ export const router = createBrowserRouter([
         element: <ProtectedRoute />,
         children: [
           {
-            path: "/disclaimer",
-            element: <Disclaimer />,
+            path: "/",
+            exact: true,
+            element: <Navigate to="/disclaimer" />,
           },
           {
-            path: "/demographics",
-            element: <Demographics />,
+            path: "/disclaimer",
+            element: <Disclaimer />,
           },
           {
             path: "/scientist-name",
@@ -39,18 +41,27 @@ export const router = createBrowserRouter([
             element: <Question />,
           },
           {
+            path: "/demographics",
+            element: <Demographics />,
+          },
+          {
             path: "/summary",
             element: <Summary />,
           },
         ],
       },
       {
-        path: "/signup",
-        element: <Signup />,
-      },
-      {
-        path: "/login",
-        element: <Login />,
+        element: <PublicRoute />,
+        children: [
+          {
+            path: "/signup",
+            element: <Signup />,
+          },
+          {
+            path: "/login",
+            element: <Login />,
+          },
+        ],
       },
     ],
   },

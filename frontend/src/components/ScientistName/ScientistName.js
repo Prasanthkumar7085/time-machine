@@ -1,6 +1,7 @@
 import { TypeAnimation } from "react-type-animation";
 
 export default function ScientistName() {
+  console.log("ScientistName");
   return (
     <div className="flex w-full h-full justify-center items-center">
       <div className="flex flex-row gap-5 w-[500px]">

@@ -20,12 +20,12 @@ const userSlice = createSlice({
       };
     },
   },
-  extraReducers: {
-    [registerUser.pending]: (state) => {
+  extraReducers: (builder) => {
+    builder.addCase(registerUser.pending, (state) => {
       state.loading = true;
       state.error = null;
-    },
-    [registerUser.fulfilled]: (state, { payload }) => {
+    });
+    builder.addCase(registerUser.fulfilled, (state, { payload }) => {
       return {
         ...state,
         ...payload.user,
@@ -33,16 +33,16 @@ const userSlice = createSlice({
         loading: false,
         success: true,
       };
-    },
-    [registerUser.rejected]: (state, { payload }) => {
+    });
+    builder.addCase(registerUser.rejected, (state, { payload }) => {
       state.loading = false;
       state.error = payload;
-    },
-    [loginUser.pending]: (state) => {
+    });
+    builder.addCase(loginUser.pending, (state) => {
       state.loading = true;
       state.error = null;
-    },
-    [loginUser.fulfilled]: (state, { payload }) => {
+    });
+    builder.addCase(loginUser.fulfilled, (state, { payload }) => {
       return {
         ...state,
         ...payload.user,
@@ -50,26 +50,26 @@ const userSlice = createSlice({
         loading: false,
         success: true,
       };
-    },
-    [loginUser.rejected]: (state, { payload }) => {
+    });
+    builder.addCase(loginUser.rejected, (state, { payload }) => {
       state.loading = false;
       state.error = payload;
-    },
-    [logoutUser.pending]: (state) => {
+    });
+    builder.addCase(logoutUser.pending, (state) => {
       state.loading = true;
       state.error = null;
-    },
-    [logoutUser.fulfilled]: (state, { payload }) => {
+    });
+    builder.addCase(logoutUser.fulfilled, () => {
       return {
         ...initialState,
         loading: false,
         success: true,
       };
-    },
-    [logoutUser.rejected]: (state, { payload }) => {
+    });
+    builder.addCase(logoutUser.rejected, (state, { payload }) => {
       state.loading = false;
       state.error = payload;
-    },
+    });
   },
 });
 

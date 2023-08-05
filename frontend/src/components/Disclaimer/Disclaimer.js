@@ -1,12 +1,23 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { acceptDisclaimer } from "../../redux/user/userActions";
+import { useEffect } from "react";
 
 export default function Disclaimer() {
+  const { isDisclaimerAccepted } = useSelector((state) => state.user);
+  const navigate = useNavigate();
   const dispatch = useDispatch();
+
   const onAccept = () => {
     dispatch(acceptDisclaimer());
   };
-  console.log("hii");
+
+  useEffect(() => {
+    if (isDisclaimerAccepted) {
+      navigate("/login");
+    }
+  }, []);
+
   return (
     <div className="flex w-full h-full justify-center items-center">
       <div className="flex flex-col gap-5">
