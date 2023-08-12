@@ -26,10 +26,10 @@ export default function Welcome() {
   }, [counterState, runCounter]);
 
   return (
-    <>
+    <div className="bg-black h-full">
       {/* <Background /> */}
-      <Text number={counterState} />
+      {/* <Text number={counterState} /> */}
       <Spaceship number={counterState} setRunCounter={setRunCounter} />
-    </>
+    </div>
   );
 }

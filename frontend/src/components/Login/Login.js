@@ -12,7 +12,7 @@ export default function Login() {
     dispatch(loginUser(data));
   };
   return (
-    <div className="flex w-full h-full justify-center items-center">
+    <div className="flex w-full h-[calc(100%-4rem)] justify-center items-center">
       <div className="flex flex-row gap-5">
         <div>
           <div className="mockup-code h-full w-[250px] shadow-lg bg-[#252a33]">

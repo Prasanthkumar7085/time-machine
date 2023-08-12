@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { SoftShadows, OrbitControls, Stars } from "@react-three/drei";
+import { SoftShadows, OrbitControls, Stars, Text } from "@react-three/drei";
+import { Instances, Computers } from "./Computers";
 
 function Sphere({ position = [0, 0, 0], setRunCounter, ...props }) {
   const ref = useRef();
@@ -28,7 +29,7 @@ function Sphere({ position = [0, 0, 0], setRunCounter, ...props }) {
       onPointerOver={() => setHovered(true)}
       onPointerOut={() => setHovered(false)}
     >
-      <sphereBufferGeometry attach="geometry" args={[0.5, 32, 32]} />
+      <sphereBufferGeometry attach="geometry" args={[1, 32, 32]} />
       <meshStandardMaterial
         attach="material"
         color="lightblue"
@@ -42,7 +43,7 @@ function Sphere({ position = [0, 0, 0], setRunCounter, ...props }) {
 function Spheres({ number, setRunCounter }) {
   const ref = useRef();
   return (
-    <group ref={ref}>
+    <group ref={ref} position={[0, 1.5, 0]}>
       <Sphere
         position={[0, 0, 0]}
         number={number}
@@ -56,7 +57,7 @@ export default function Spaceship({ number, setRunCounter }) {
   return (
     <Canvas shadows camera={{ position: [-5, 2, 10], fov: 60 }}>
       <SoftShadows />
-      <fog attach="fog" args={["white", 0, 40]} />
+      {/* <fog attach="fog" args={["white", 0, 40]} /> */}
       <ambientLight intensity={0.2} />
       <directionalLight
         castShadow
@@ -83,7 +84,35 @@ export default function Spaceship({ number, setRunCounter }) {
           {/* <shadowMaterial attach="material" opacity={0.8} color="red" /> */}
         </mesh>
         <Spheres number={number} setRunCounter={setRunCounter} />
+        <group rotation={[0, -Math.PI / 7, 0]}>
+          <Text
+            color="white"
+            anchorX="center"
+            anchorY="middle"
+            position={[0, 6.7, 0]}
+            scale={0.3}
+          >
+            Welcome, Dr. Van Nostrand.
+          </Text>
+          <Text
+            color="white"
+            anchorX="center"
+            anchorY="middle"
+            position={[0, 6.2, 0]}
+            scale={0.3}
+          >
+            Please step into time machine.
+          </Text>
+        </group>
       </group>
+      <Instances>
+        <Computers
+          scale={2}
+          position={[1, -3.5, -2]}
+          rotation={[0, -Math.PI / 8, 0]}
+          name="Dr.Van Nostrand"
+        />
+      </Instances>
       <OrbitControls
         enablePan={false}
         maxPolarAngle={Math.PI / 2}

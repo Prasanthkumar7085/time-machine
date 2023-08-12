@@ -19,7 +19,7 @@ export default function Disclaimer() {
   }, []);
 
   return (
-    <div className="flex w-full h-full justify-center items-center">
+    <div className="flex w-full h-[calc(100%-4rem)] justify-center items-center">
       <div className="flex flex-col gap-5">
         <div className="w-[600px] text-justify space-y-2">
           <p>
