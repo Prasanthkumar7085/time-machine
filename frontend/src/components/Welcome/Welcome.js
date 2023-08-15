@@ -2,6 +2,7 @@ import React from "react";
 import Background from "../Spaceship/Background";
 import Spaceship from "../Spaceship/Spaceship";
 import Text from "../Spaceship/Text";
+import { useNavigate } from "react-router-dom";
 
 let timer;
 const easeInOutCubic = (t) => {
@@ -11,12 +12,14 @@ const easeInOutCubic = (t) => {
 export default function Welcome() {
   const [counterState, setCounter] = React.useState(0.4);
   const [runCounter, setRunCounter] = React.useState(false);
+  const navigate = useNavigate();
   React.useEffect(() => {
     if (!runCounter) return;
     clearInterval(timer);
     timer = setInterval(() => {
-      if (counterState >= 100) {
+      if (counterState >= 10) {
         clearInterval(timer);
+        navigate("/intro");
         return;
       }
       setCounter((prev) => prev + easeInOutCubic(prev));
@@ -26,7 +29,7 @@ export default function Welcome() {
   }, [counterState, runCounter]);
 
   return (
-    <div className="bg-black h-full">
+    <div className="h-full">
       {/* <Background /> */}
       {/* <Text number={counterState} /> */}
       <Spaceship number={counterState} setRunCounter={setRunCounter} />

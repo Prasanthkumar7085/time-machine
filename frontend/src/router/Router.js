@@ -11,6 +11,7 @@ import Question from "../components/Question";
 import Summary from "../components/Summary";
 import { ProtectedRoute } from "./ProtectedRoute";
 import { PublicRoute } from "./PublicRoute";
+import Intro from "../components/Intro/Intro";
 
 export const router = createBrowserRouter([
   {
@@ -35,6 +36,10 @@ export const router = createBrowserRouter([
           {
             path: "/welcome",
             element: <Welcome />,
+          },
+          {
+            path: "/intro",
+            element: <Intro />,
           },
           {
             path: "/question",

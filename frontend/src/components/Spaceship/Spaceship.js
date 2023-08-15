@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { SoftShadows, OrbitControls, Stars, Text } from "@react-three/drei";
+import { SoftShadows, Stars, Text } from "@react-three/drei";
 import { Instances, Computers } from "./Computers";
 
 function Sphere({ position = [0, 0, 0], setRunCounter, ...props }) {
@@ -57,7 +57,6 @@ export default function Spaceship({ number, setRunCounter }) {
   return (
     <Canvas shadows camera={{ position: [-5, 2, 10], fov: 60 }}>
       <SoftShadows />
-      {/* <fog attach="fog" args={["white", 0, 40]} /> */}
       <ambientLight intensity={0.2} />
       <directionalLight
         castShadow
@@ -80,7 +79,7 @@ export default function Spaceship({ number, setRunCounter }) {
           receiveShadow
         >
           <planeBufferGeometry attach="geometry" args={[100, 100]} />
-          <meshStandardMaterial attach="material" color="#c2c5cc" />
+          <meshStandardMaterial attach="material" color="#080f24" />
           {/* <shadowMaterial attach="material" opacity={0.8} color="red" /> */}
         </mesh>
         <Spheres number={number} setRunCounter={setRunCounter} />
@@ -113,12 +112,8 @@ export default function Spaceship({ number, setRunCounter }) {
           name="Dr.Van Nostrand"
         />
       </Instances>
-      <OrbitControls
-        enablePan={false}
-        maxPolarAngle={Math.PI / 2}
-        minPolarAngle={Math.PI / 2}
-      />
-      <Stars radius={300} depth={50} count={1000} factor={10} />
+
+      <Stars radius={300} depth={50} count={4000} factor={10} />
     </Canvas>
   );
 }
