@@ -53,7 +53,7 @@ function Spheres({ number, setRunCounter }) {
   );
 }
 
-export default function Spaceship({ number, setRunCounter }) {
+export default function Spaceship({ number, setRunCounter, scientistName }) {
   return (
     <Canvas shadows camera={{ position: [-5, 2, 10], fov: 60 }}>
       <SoftShadows />
@@ -91,7 +91,7 @@ export default function Spaceship({ number, setRunCounter }) {
             position={[0, 6.7, 0]}
             scale={0.3}
           >
-            Welcome, Dr. Van Nostrand.
+            Welcome, {scientistName}.
           </Text>
           <Text
             color="white"
@@ -109,7 +109,7 @@ export default function Spaceship({ number, setRunCounter }) {
           scale={2}
           position={[1, -3.5, -2]}
           rotation={[0, -Math.PI / 8, 0]}
-          name="Dr.Van Nostrand"
+          name={scientistName}
         />
       </Instances>
 

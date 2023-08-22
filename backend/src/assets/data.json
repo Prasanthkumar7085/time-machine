@@ -1,0 +1,1081 @@
+{
+  "co2-concentrations": [
+    {
+      "date": "1959",
+      "value": "315.52",
+      "legend": "CO2 Concentrations",
+      "yLabel": "Parts Per Million (PPM)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "1962",
+      "value": "317.88",
+      "legend": "CO2 Concentrations",
+      "yLabel": "Parts Per Million (PPM)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "1965",
+      "value": "319.38",
+      "legend": "CO2 Concentrations",
+      "yLabel": "Parts Per Million (PPM)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "1968",
+      "value": "322.51",
+      "legend": "CO2 Concentrations",
+      "yLabel": "Parts Per Million (PPM)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "1971",
+      "value": "326.11",
+      "legend": "CO2 Concentrations",
+      "yLabel": "Parts Per Million (PPM)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "1974",
+      "value": "329.3",
+      "legend": "CO2 Concentrations",
+      "yLabel": "Parts Per Million (PPM)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "1977",
+      "value": "332.88",
+      "legend": "CO2 Concentrations",
+      "yLabel": "Parts Per Million (PPM)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "1980",
+      "value": "337.97",
+      "legend": "CO2 Concentrations",
+      "yLabel": "Parts Per Million (PPM)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "1983",
+      "value": "341.33",
+      "legend": "CO2 Concentrations",
+      "yLabel": "Parts Per Million (PPM)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "1986",
+      "value": "346.21",
+      "legend": "CO2 Concentrations",
+      "yLabel": "Parts Per Million (PPM)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "1989",
+      "value": "352.49",
+      "legend": "CO2 Concentrations",
+      "yLabel": "Parts Per Million (PPM)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "1992",
+      "value": "355.72",
+      "legend": "CO2 Concentrations",
+      "yLabel": "Parts Per Million (PPM)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "1995",
+      "value": "359.74",
+      "legend": "CO2 Concentrations",
+      "yLabel": "Parts Per Million (PPM)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "1998",
+      "value": "365.15",
+      "legend": "CO2 Concentrations",
+      "yLabel": "Parts Per Million (PPM)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "2001",
+      "value": "370.13",
+      "legend": "CO2 Concentrations",
+      "yLabel": "Parts Per Million (PPM)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "2004",
+      "value": "376.66",
+      "legend": "CO2 Concentrations",
+      "yLabel": "Parts Per Million (PPM)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "2007",
+      "value": "382.49",
+      "legend": "CO2 Concentrations",
+      "yLabel": "Parts Per Million (PPM)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "2010",
+      "value": "388.49",
+      "legend": "CO2 Concentrations",
+      "yLabel": "Parts Per Million (PPM)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "2013",
+      "value": "395.63",
+      "legend": "CO2 Concentrations",
+      "yLabel": "Parts Per Million (PPM)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "2016",
+      "value": "402.51",
+      "legend": "CO2 Concentrations",
+      "yLabel": "Parts Per Million (PPM)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "2019",
+      "value": "410.78",
+      "legend": "CO2 Concentrations",
+      "yLabel": "Parts Per Million (PPM)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "2022",
+      "value": "419.48",
+      "legend": "CO2 Concentrations",
+      "yLabel": "Parts Per Million (PPM)",
+      "xLabel": "Date"
+    }
+  ],
+  "infant-mortality-rate": [
+    {
+      "date": "1990",
+      "value": "64.6",
+      "legend": "Infant Mortality Rate",
+      "yLabel": "Global Infant Mortality (Deaths per 1,000 Live Births)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "1991",
+      "value": "64.4",
+      "legend": "Infant Mortality Rate",
+      "yLabel": "Global Infant Mortality (Deaths per 1,000 Live Births)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "1992",
+      "value": "63.6",
+      "legend": "Infant Mortality Rate",
+      "yLabel": "Global Infant Mortality (Deaths per 1,000 Live Births)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "1993",
+      "value": "62.7",
+      "legend": "Infant Mortality Rate",
+      "yLabel": "Global Infant Mortality (Deaths per 1,000 Live Births)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "1994",
+      "value": "61.9",
+      "legend": "Infant Mortality Rate",
+      "yLabel": "Global Infant Mortality (Deaths per 1,000 Live Births)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "1995",
+      "value": "60.6",
+      "legend": "Infant Mortality Rate",
+      "yLabel": "Global Infant Mortality (Deaths per 1,000 Live Births)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "1996",
+      "value": "59.4",
+      "legend": "Infant Mortality Rate",
+      "yLabel": "Global Infant Mortality (Deaths per 1,000 Live Births)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "1997",
+      "value": "58.0",
+      "legend": "Infant Mortality Rate",
+      "yLabel": "Global Infant Mortality (Deaths per 1,000 Live Births)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "1998",
+      "value": "56.5",
+      "legend": "Infant Mortality Rate",
+      "yLabel": "Global Infant Mortality (Deaths per 1,000 Live Births)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "1999",
+      "value": "55.0",
+      "legend": "Infant Mortality Rate",
+      "yLabel": "Global Infant Mortality (Deaths per 1,000 Live Births)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "2000",
+      "value": "53.1",
+      "legend": "Infant Mortality Rate",
+      "yLabel": "Global Infant Mortality (Deaths per 1,000 Live Births)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "2001",
+      "value": "51.6",
+      "legend": "Infant Mortality Rate",
+      "yLabel": "Global Infant Mortality (Deaths per 1,000 Live Births)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "2002",
+      "value": "49.9",
+      "legend": "Infant Mortality Rate",
+      "yLabel": "Global Infant Mortality (Deaths per 1,000 Live Births)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "2003",
+      "value": "48.1",
+      "legend": "Infant Mortality Rate",
+      "yLabel": "Global Infant Mortality (Deaths per 1,000 Live Births)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "2004",
+      "value": "46.4",
+      "legend": "Infant Mortality Rate",
+      "yLabel": "Global Infant Mortality (Deaths per 1,000 Live Births)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "2005",
+      "value": "44.6",
+      "legend": "Infant Mortality Rate",
+      "yLabel": "Global Infant Mortality (Deaths per 1,000 Live Births)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "2006",
+      "value": "42.9",
+      "legend": "Infant Mortality Rate",
+      "yLabel": "Global Infant Mortality (Deaths per 1,000 Live Births)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "2007",
+      "value": "41.3",
+      "legend": "Infant Mortality Rate",
+      "yLabel": "Global Infant Mortality (Deaths per 1,000 Live Births)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "2008",
+      "value": "39.8",
+      "legend": "Infant Mortality Rate",
+      "yLabel": "Global Infant Mortality (Deaths per 1,000 Live Births)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "2009",
+      "value": "38.3",
+      "legend": "Infant Mortality Rate",
+      "yLabel": "Global Infant Mortality (Deaths per 1,000 Live Births)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "2010",
+      "value": "37.1",
+      "legend": "Infant Mortality Rate",
+      "yLabel": "Global Infant Mortality (Deaths per 1,000 Live Births)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "2011",
+      "value": "35.9",
+      "legend": "Infant Mortality Rate",
+      "yLabel": "Global Infant Mortality (Deaths per 1,000 Live Births)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "2012",
+      "value": "34.6",
+      "legend": "Infant Mortality Rate",
+      "yLabel": "Global Infant Mortality (Deaths per 1,000 Live Births)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "2013",
+      "value": "33.7",
+      "legend": "Infant Mortality Rate",
+      "yLabel": "Global Infant Mortality (Deaths per 1,000 Live Births)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "2014",
+      "value": "32.5",
+      "legend": "Infant Mortality Rate",
+      "yLabel": "Global Infant Mortality (Deaths per 1,000 Live Births)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "2015",
+      "value": "31.8",
+      "legend": "Infant Mortality Rate",
+      "yLabel": "Global Infant Mortality (Deaths per 1,000 Live Births)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "2016",
+      "value": "30.9",
+      "legend": "Infant Mortality Rate",
+      "yLabel": "Global Infant Mortality (Deaths per 1,000 Live Births)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "2017",
+      "value": "30.0",
+      "legend": "Infant Mortality Rate",
+      "yLabel": "Global Infant Mortality (Deaths per 1,000 Live Births)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "2018",
+      "value": "29.7",
+      "legend": "Infant Mortality Rate",
+      "yLabel": "Global Infant Mortality (Deaths per 1,000 Live Births)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "2019",
+      "value": "29.2",
+      "legend": "Infant Mortality Rate",
+      "yLabel": "Global Infant Mortality (Deaths per 1,000 Live Births)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "2020",
+      "value": "28.9",
+      "legend": "Infant Mortality Rate",
+      "yLabel": "Global Infant Mortality (Deaths per 1,000 Live Births)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "2021",
+      "value": "28.4",
+      "legend": "Infant Mortality Rate",
+      "yLabel": "Global Infant Mortality (Deaths per 1,000 Live Births)",
+      "xLabel": "Date"
+    }
+  ],
+  "non-state-conflict": [
+    {
+      "date": "1989",
+      "value": "19",
+      "legend": "Non-State Conflicts (Globally)",
+      "yLabel": "Number of Non-State Conflicts",
+      "xLabel": "Date"
+    },
+    {
+      "date": "1990",
+      "value": "19",
+      "legend": "Non-State Conflicts (Globally)",
+      "yLabel": "Number of Non-State Conflicts",
+      "xLabel": "Date"
+    },
+    {
+      "date": "1991",
+      "value": "22",
+      "legend": "Non-State Conflicts (Globally)",
+      "yLabel": "Number of Non-State Conflicts",
+      "xLabel": "Date"
+    },
+    {
+      "date": "1992",
+      "value": "32",
+      "legend": "Non-State Conflicts (Globally)",
+      "yLabel": "Number of Non-State Conflicts",
+      "xLabel": "Date"
+    },
+    {
+      "date": "1993",
+      "value": "34",
+      "legend": "Non-State Conflicts (Globally)",
+      "yLabel": "Number of Non-State Conflicts",
+      "xLabel": "Date"
+    },
+    {
+      "date": "1994",
+      "value": "27",
+      "legend": "Non-State Conflicts (Globally)",
+      "yLabel": "Number of Non-State Conflicts",
+      "xLabel": "Date"
+    },
+    {
+      "date": "1995",
+      "value": "26",
+      "legend": "Non-State Conflicts (Globally)",
+      "yLabel": "Number of Non-State Conflicts",
+      "xLabel": "Date"
+    },
+    {
+      "date": "1996",
+      "value": "23",
+      "legend": "Non-State Conflicts (Globally)",
+      "yLabel": "Number of Non-State Conflicts",
+      "xLabel": "Date"
+    },
+    {
+      "date": "1997",
+      "value": "28",
+      "legend": "Non-State Conflicts (Globally)",
+      "yLabel": "Number of Non-State Conflicts",
+      "xLabel": "Date"
+    },
+    {
+      "date": "1998",
+      "value": "37",
+      "legend": "Non-State Conflicts (Globally)",
+      "yLabel": "Number of Non-State Conflicts",
+      "xLabel": "Date"
+    },
+    {
+      "date": "1999",
+      "value": "35",
+      "legend": "Non-State Conflicts (Globally)",
+      "yLabel": "Number of Non-State Conflicts",
+      "xLabel": "Date"
+    },
+    {
+      "date": "2000",
+      "value": "50",
+      "legend": "Non-State Conflicts (Globally)",
+      "yLabel": "Number of Non-State Conflicts",
+      "xLabel": "Date"
+    },
+    {
+      "date": "2001",
+      "value": "38",
+      "legend": "Non-State Conflicts (Globally)",
+      "yLabel": "Number of Non-State Conflicts",
+      "xLabel": "Date"
+    },
+    {
+      "date": "2002",
+      "value": "39",
+      "legend": "Non-State Conflicts (Globally)",
+      "yLabel": "Number of Non-State Conflicts",
+      "xLabel": "Date"
+    },
+    {
+      "date": "2003",
+      "value": "41",
+      "legend": "Non-State Conflicts (Globally)",
+      "yLabel": "Number of Non-State Conflicts",
+      "xLabel": "Date"
+    },
+    {
+      "date": "2004",
+      "value": "33",
+      "legend": "Non-State Conflicts (Globally)",
+      "yLabel": "Number of Non-State Conflicts",
+      "xLabel": "Date"
+    },
+    {
+      "date": "2005",
+      "value": "30",
+      "legend": "Non-State Conflicts (Globally)",
+      "yLabel": "Number of Non-State Conflicts",
+      "xLabel": "Date"
+    },
+    {
+      "date": "2006",
+      "value": "29",
+      "legend": "Non-State Conflicts (Globally)",
+      "yLabel": "Number of Non-State Conflicts",
+      "xLabel": "Date"
+    },
+    {
+      "date": "2007",
+      "value": "25",
+      "legend": "Non-State Conflicts (Globally)",
+      "yLabel": "Number of Non-State Conflicts",
+      "xLabel": "Date"
+    },
+    {
+      "date": "2008",
+      "value": "36",
+      "legend": "Non-State Conflicts (Globally)",
+      "yLabel": "Number of Non-State Conflicts",
+      "xLabel": "Date"
+    },
+    {
+      "date": "2009",
+      "value": "32",
+      "legend": "Non-State Conflicts (Globally)",
+      "yLabel": "Number of Non-State Conflicts",
+      "xLabel": "Date"
+    },
+    {
+      "date": "2010",
+      "value": "30",
+      "legend": "Non-State Conflicts (Globally)",
+      "yLabel": "Number of Non-State Conflicts",
+      "xLabel": "Date"
+    },
+    {
+      "date": "2011",
+      "value": "42",
+      "legend": "Non-State Conflicts (Globally)",
+      "yLabel": "Number of Non-State Conflicts",
+      "xLabel": "Date"
+    },
+    {
+      "date": "2012",
+      "value": "49",
+      "legend": "Non-State Conflicts (Globally)",
+      "yLabel": "Number of Non-State Conflicts",
+      "xLabel": "Date"
+    },
+    {
+      "date": "2013",
+      "value": "57",
+      "legend": "Non-State Conflicts (Globally)",
+      "yLabel": "Number of Non-State Conflicts",
+      "xLabel": "Date"
+    },
+    {
+      "date": "2014",
+      "value": "79",
+      "legend": "Non-State Conflicts (Globally)",
+      "yLabel": "Number of Non-State Conflicts",
+      "xLabel": "Date"
+    },
+    {
+      "date": "2015",
+      "value": "74",
+      "legend": "Non-State Conflicts (Globally)",
+      "yLabel": "Number of Non-State Conflicts",
+      "xLabel": "Date"
+    },
+    {
+      "date": "2016",
+      "value": "69",
+      "legend": "Non-State Conflicts (Globally)",
+      "yLabel": "Number of Non-State Conflicts",
+      "xLabel": "Date"
+    },
+    {
+      "date": "2017",
+      "value": "87",
+      "legend": "Non-State Conflicts (Globally)",
+      "yLabel": "Number of Non-State Conflicts",
+      "xLabel": "Date"
+    },
+    {
+      "date": "2018",
+      "value": "81",
+      "legend": "Non-State Conflicts (Globally)",
+      "yLabel": "Number of Non-State Conflicts",
+      "xLabel": "Date"
+    },
+    {
+      "date": "2019",
+      "value": "70",
+      "legend": "Non-State Conflicts (Globally)",
+      "yLabel": "Number of Non-State Conflicts",
+      "xLabel": "Date"
+    },
+    {
+      "date": "2020",
+      "value": "73",
+      "legend": "Non-State Conflicts (Globally)",
+      "yLabel": "Number of Non-State Conflicts",
+      "xLabel": "Date"
+    },
+    {
+      "date": "2021",
+      "value": "76",
+      "legend": "Non-State Conflicts (Globally)",
+      "yLabel": "Number of Non-State Conflicts",
+      "xLabel": "Date"
+    },
+    {
+      "date": "2022",
+      "value": "83",
+      "legend": "Non-State Conflicts (Globally)",
+      "yLabel": "Number of Non-State Conflicts",
+      "xLabel": "Date"
+    }
+  ],
+  "us-poverty": [
+    {
+      "date": "1959",
+      "value": "22.4",
+      "legend": "United States Poverty Rate (% of Population)",
+      "yLabel": "United States Poverty Rate (% of Population)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "1960",
+      "value": "22.2",
+      "legend": "United States Poverty Rate (% of Population)",
+      "yLabel": "United States Poverty Rate (% of Population)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "1961",
+      "value": "21.9",
+      "legend": "United States Poverty Rate (% of Population)",
+      "yLabel": "United States Poverty Rate (% of Population)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "1962",
+      "value": "21",
+      "legend": "United States Poverty Rate (% of Population)",
+      "yLabel": "United States Poverty Rate (% of Population)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "1963",
+      "value": "19.5",
+      "legend": "United States Poverty Rate (% of Population)",
+      "yLabel": "United States Poverty Rate (% of Population)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "1964",
+      "value": "19",
+      "legend": "United States Poverty Rate (% of Population)",
+      "yLabel": "United States Poverty Rate (% of Population)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "1965",
+      "value": "17.3",
+      "legend": "United States Poverty Rate (% of Population)",
+      "yLabel": "United States Poverty Rate (% of Population)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "1966",
+      "value": "14.7",
+      "legend": "United States Poverty Rate (% of Population)",
+      "yLabel": "United States Poverty Rate (% of Population)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "1967",
+      "value": "14.2",
+      "legend": "United States Poverty Rate (% of Population)",
+      "yLabel": "United States Poverty Rate (% of Population)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "1968",
+      "value": "12.8",
+      "legend": "United States Poverty Rate (% of Population)",
+      "yLabel": "United States Poverty Rate (% of Population)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "1969",
+      "value": "12.1",
+      "legend": "United States Poverty Rate (% of Population)",
+      "yLabel": "United States Poverty Rate (% of Population)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "1970",
+      "value": "12.6",
+      "legend": "United States Poverty Rate (% of Population)",
+      "yLabel": "United States Poverty Rate (% of Population)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "1971",
+      "value": "12.5",
+      "legend": "United States Poverty Rate (% of Population)",
+      "yLabel": "United States Poverty Rate (% of Population)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "1972",
+      "value": "11.9",
+      "legend": "United States Poverty Rate (% of Population)",
+      "yLabel": "United States Poverty Rate (% of Population)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "1973",
+      "value": "11.1",
+      "legend": "United States Poverty Rate (% of Population)",
+      "yLabel": "United States Poverty Rate (% of Population)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "1974",
+      "value": "11.2",
+      "legend": "United States Poverty Rate (% of Population)",
+      "yLabel": "United States Poverty Rate (% of Population)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "1975",
+      "value": "12.3",
+      "legend": "United States Poverty Rate (% of Population)",
+      "yLabel": "United States Poverty Rate (% of Population)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "1976",
+      "value": "11.8",
+      "legend": "United States Poverty Rate (% of Population)",
+      "yLabel": "United States Poverty Rate (% of Population)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "1977",
+      "value": "11.6",
+      "legend": "United States Poverty Rate (% of Population)",
+      "yLabel": "United States Poverty Rate (% of Population)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "1978",
+      "value": "11.4",
+      "legend": "United States Poverty Rate (% of Population)",
+      "yLabel": "United States Poverty Rate (% of Population)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "1979",
+      "value": "11.7",
+      "legend": "United States Poverty Rate (% of Population)",
+      "yLabel": "United States Poverty Rate (% of Population)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "1980",
+      "value": "13",
+      "legend": "United States Poverty Rate (% of Population)",
+      "yLabel": "United States Poverty Rate (% of Population)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "1981",
+      "value": "14",
+      "legend": "United States Poverty Rate (% of Population)",
+      "yLabel": "United States Poverty Rate (% of Population)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "1982",
+      "value": "15",
+      "legend": "United States Poverty Rate (% of Population)",
+      "yLabel": "United States Poverty Rate (% of Population)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "1983",
+      "value": "15.2",
+      "legend": "United States Poverty Rate (% of Population)",
+      "yLabel": "United States Poverty Rate (% of Population)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "1984",
+      "value": "14.4",
+      "legend": "United States Poverty Rate (% of Population)",
+      "yLabel": "United States Poverty Rate (% of Population)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "1985",
+      "value": "14",
+      "legend": "United States Poverty Rate (% of Population)",
+      "yLabel": "United States Poverty Rate (% of Population)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "1986",
+      "value": "13.6",
+      "legend": "United States Poverty Rate (% of Population)",
+      "yLabel": "United States Poverty Rate (% of Population)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "1987",
+      "value": "13.4",
+      "legend": "United States Poverty Rate (% of Population)",
+      "yLabel": "United States Poverty Rate (% of Population)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "1988",
+      "value": "13",
+      "legend": "United States Poverty Rate (% of Population)",
+      "yLabel": "United States Poverty Rate (% of Population)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "1989",
+      "value": "12.8",
+      "legend": "United States Poverty Rate (% of Population)",
+      "yLabel": "United States Poverty Rate (% of Population)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "1990",
+      "value": "13.5",
+      "legend": "United States Poverty Rate (% of Population)",
+      "yLabel": "United States Poverty Rate (% of Population)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "1991",
+      "value": "14.2",
+      "legend": "United States Poverty Rate (% of Population)",
+      "yLabel": "United States Poverty Rate (% of Population)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "1992",
+      "value": "14.8",
+      "legend": "United States Poverty Rate (% of Population)",
+      "yLabel": "United States Poverty Rate (% of Population)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "1993",
+      "value": "15.1",
+      "legend": "United States Poverty Rate (% of Population)",
+      "yLabel": "United States Poverty Rate (% of Population)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "1994",
+      "value": "14.5",
+      "legend": "United States Poverty Rate (% of Population)",
+      "yLabel": "United States Poverty Rate (% of Population)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "1995",
+      "value": "13.8",
+      "legend": "United States Poverty Rate (% of Population)",
+      "yLabel": "United States Poverty Rate (% of Population)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "1996",
+      "value": "13.7",
+      "legend": "United States Poverty Rate (% of Population)",
+      "yLabel": "United States Poverty Rate (% of Population)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "1997",
+      "value": "13.3",
+      "legend": "United States Poverty Rate (% of Population)",
+      "yLabel": "United States Poverty Rate (% of Population)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "1998",
+      "value": "12.7",
+      "legend": "United States Poverty Rate (% of Population)",
+      "yLabel": "United States Poverty Rate (% of Population)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "1999",
+      "value": "11.9",
+      "legend": "United States Poverty Rate (% of Population)",
+      "yLabel": "United States Poverty Rate (% of Population)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "2000",
+      "value": "11.3",
+      "legend": "United States Poverty Rate (% of Population)",
+      "yLabel": "United States Poverty Rate (% of Population)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "2001",
+      "value": "11.7",
+      "legend": "United States Poverty Rate (% of Population)",
+      "yLabel": "United States Poverty Rate (% of Population)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "2002",
+      "value": "12.1",
+      "legend": "United States Poverty Rate (% of Population)",
+      "yLabel": "United States Poverty Rate (% of Population)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "2003",
+      "value": "12.5",
+      "legend": "United States Poverty Rate (% of Population)",
+      "yLabel": "United States Poverty Rate (% of Population)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "2004",
+      "value": "12.7",
+      "legend": "United States Poverty Rate (% of Population)",
+      "yLabel": "United States Poverty Rate (% of Population)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "2005",
+      "value": "12.6",
+      "legend": "United States Poverty Rate (% of Population)",
+      "yLabel": "United States Poverty Rate (% of Population)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "2006",
+      "value": "12.3",
+      "legend": "United States Poverty Rate (% of Population)",
+      "yLabel": "United States Poverty Rate (% of Population)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "2007",
+      "value": "12.5",
+      "legend": "United States Poverty Rate (% of Population)",
+      "yLabel": "United States Poverty Rate (% of Population)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "2008",
+      "value": "13.2",
+      "legend": "United States Poverty Rate (% of Population)",
+      "yLabel": "United States Poverty Rate (% of Population)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "2009",
+      "value": "14.3",
+      "legend": "United States Poverty Rate (% of Population)",
+      "yLabel": "United States Poverty Rate (% of Population)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "2010",
+      "value": "15.1",
+      "legend": "United States Poverty Rate (% of Population)",
+      "yLabel": "United States Poverty Rate (% of Population)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "2011",
+      "value": "15",
+      "legend": "United States Poverty Rate (% of Population)",
+      "yLabel": "United States Poverty Rate (% of Population)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "2012",
+      "value": "15",
+      "legend": "United States Poverty Rate (% of Population)",
+      "yLabel": "United States Poverty Rate (% of Population)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "2013",
+      "value": "14.8",
+      "legend": "United States Poverty Rate (% of Population)",
+      "yLabel": "United States Poverty Rate (% of Population)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "2013",
+      "value": "14.5",
+      "legend": "United States Poverty Rate (% of Population)",
+      "yLabel": "United States Poverty Rate (% of Population)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "2014",
+      "value": "14.8",
+      "legend": "United States Poverty Rate (% of Population)",
+      "yLabel": "United States Poverty Rate (% of Population)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "2015",
+      "value": "13.5",
+      "legend": "United States Poverty Rate (% of Population)",
+      "yLabel": "United States Poverty Rate (% of Population)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "2016",
+      "value": "12.7",
+      "legend": "United States Poverty Rate (% of Population)",
+      "yLabel": "United States Poverty Rate (% of Population)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "2017",
+      "value": "12.3",
+      "legend": "United States Poverty Rate (% of Population)",
+      "yLabel": "United States Poverty Rate (% of Population)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "2017",
+      "value": "12.3",
+      "legend": "United States Poverty Rate (% of Population)",
+      "yLabel": "United States Poverty Rate (% of Population)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "2018",
+      "value": "11.8",
+      "legend": "United States Poverty Rate (% of Population)",
+      "yLabel": "United States Poverty Rate (% of Population)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "2019",
+      "value": "10.5",
+      "legend": "United States Poverty Rate (% of Population)",
+      "yLabel": "United States Poverty Rate (% of Population)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "2020",
+      "value": "11.5",
+      "legend": "United States Poverty Rate (% of Population)",
+      "yLabel": "United States Poverty Rate (% of Population)",
+      "xLabel": "Date"
+    },
+    {
+      "date": "2021",
+      "value": "11.6",
+      "legend": "United States Poverty Rate (% of Population)",
+      "yLabel": "United States Poverty Rate (% of Population)",
+      "xLabel": "Date"
+    }
+  ]
+}
