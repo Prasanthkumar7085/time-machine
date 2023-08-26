@@ -1,6 +1,5 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { router } from "../../router/Router";
 import { backendURL } from "../../utils/constants";
 
 export const registerUser = createAsyncThunk(
@@ -25,8 +24,6 @@ export const registerUser = createAsyncThunk(
           refresh: data.tokens.refresh.token,
         })
       );
-
-      router.navigate("/disclaimer");
 
       return data;
     } catch (error) {
@@ -62,8 +59,6 @@ export const loginUser = createAsyncThunk(
         })
       );
 
-      router.navigate("/disclaimer");
-      console.log(data);
       return data;
     } catch (error) {
       if (error.response && error.response.data.message) {
@@ -92,8 +87,6 @@ export const acceptDisclaimer = createAsyncThunk(
         { email: state.user.email },
         config
       );
-
-      router.navigate("/demographics");
 
       return data;
     } catch (error) {
@@ -125,8 +118,6 @@ export const logoutUser = createAsyncThunk(
       );
 
       localStorage.removeItem("time-machine");
-
-      router.navigate("/login");
     } catch (error) {
       if (error.response && error.response.data.message) {
         return rejectWithValue(error.response.data.message);

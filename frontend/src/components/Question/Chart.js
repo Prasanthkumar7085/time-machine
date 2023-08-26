@@ -5,6 +5,7 @@ import * as d3 from "d3";
 // Data.date must be provided in ASC order (ascending, oldest to newest)
 // *********************************************************************
 const LineChart = ({ Data, data_type }) => {
+  console.log(Data);
   // Element References
   const svgRef = useRef(null);
   const tooltipRef = useRef(null);
@@ -44,15 +45,15 @@ const LineChart = ({ Data, data_type }) => {
     // variable accessor depending on datatype
     switch (data_type) {
       case "test":
-        parseDate = d3.timeParse("%Y-%m-%d");
+        parseDate = d3.timeParse("%Y");
         xAccessor = (d) => parseDate(d.date);
-        yAccessor = (d) => d.Impressions;
+        yAccessor = (d) => Number(d.value);
         yAxisLabel = "Test Label";
         break;
       case "impressions":
-        parseDate = d3.timeParse("%Y-%m-%d");
+        parseDate = d3.timeParse("%Y");
         xAccessor = (d) => parseDate(d.date);
-        yAccessor = (d) => d.Impressions;
+        yAccessor = (d) => Number(d.value);
         yAxisLabel = "Impressions";
         break;
       default:

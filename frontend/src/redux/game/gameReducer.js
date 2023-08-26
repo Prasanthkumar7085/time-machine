@@ -44,8 +44,24 @@ const gameSlice = createSlice({
   name: "game",
   initialState,
   reducers: {},
-  extraReducers: (builder) => {},
+  extraReducers: (builder) => {
+    builder.addCase(createGame.pending, (state) => {
+      state.loading = true;
+      state.error = null;
+    });
+    builder.addCase(createGame.fulfilled, (state, { payload }) => {
+      return {
+        ...state,
+        ...payload,
+        loading: false,
+        success: true,
+      };
+    });
+    builder.addCase(createGame.rejected, (state, { payload }) => {
+      state.loading = false;
+      state.error = payload;
+    });
+  },
 });
 
-// export const { updateProfile } = gameSlice.actions;
 export default gameSlice.reducer;

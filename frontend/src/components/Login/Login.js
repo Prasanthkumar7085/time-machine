@@ -1,15 +1,19 @@
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "../../redux/user/userActions";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
   const { loading } = useSelector((state) => state.user);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { register, handleSubmit } = useForm();
 
   const submitForm = (data) => {
     data.email = data.email.toLowerCase();
-    dispatch(loginUser(data));
+    dispatch(loginUser(data)).then(() => {
+      navigate("/disclaimer");
+    });
   };
   return (
     <div className="flex w-full h-[calc(100%-4rem)] justify-center items-center">

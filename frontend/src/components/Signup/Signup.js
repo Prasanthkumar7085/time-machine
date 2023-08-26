@@ -1,10 +1,12 @@
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { registerUser } from "../../redux/user/userActions";
+import { useNavigate } from "react-router-dom";
 
 export default function Signup() {
   const { loading, error } = useSelector((state) => state.user);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { register, handleSubmit } = useForm();
 
   const submitForm = (data) => {
@@ -12,7 +14,9 @@ export default function Signup() {
       alert("Password mismatch");
     }
     data.email = data.email.toLowerCase();
-    dispatch(registerUser(data));
+    dispatch(registerUser(data)).then(() => {
+      navigate("/disclaimer");
+    });
   };
 
   return (

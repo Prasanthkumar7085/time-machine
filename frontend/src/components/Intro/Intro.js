@@ -5,7 +5,7 @@ import { MeshLine, MeshLineMaterial } from "./MeshLine";
 import Space from "./Space";
 import Details from "./Details";
 import { Stars } from "@react-three/drei";
-import { useLocation } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 extend({ MeshLine, MeshLineMaterial, OrbitControls });
 
@@ -14,13 +14,11 @@ const colors = {
 };
 
 export default function Intro() {
-  const location = useLocation();
-  const scientistName = location?.state?.scientistName;
+  const scientistName = useSelector((state) => state.user.scientistName);
 
   return (
     <div className="w-full h-[calc(100%-4rem)]">
       <Canvas
-        pixelRatio={window.devicePixelRatio}
         camera={{ fov: 100, position: [0, 0, 30] }}
         onCreated={({ gl, size, camera }) => {
           if (size.width < 600) {
@@ -30,7 +28,7 @@ export default function Intro() {
         }}
       >
         <Space count={1000} colors={colors.sunnyRainbow} />
-        <Stars radius={100} depth={50} count={5000} factor={4} />
+        <Stars radius={100} depth={50} count={5000} factor={2} />
       </Canvas>
       <Details scientistName={scientistName} />
     </div>

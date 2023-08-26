@@ -1,6 +1,5 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { router } from "../../router/Router";
 import { backendURL } from "../../utils/constants";
 
 export const createGame = createAsyncThunk(
@@ -19,8 +18,6 @@ export const createGame = createAsyncThunk(
         { name: scientistName },
         config
       );
-
-      console.log(data);
 
       return data;
     } catch (error) {

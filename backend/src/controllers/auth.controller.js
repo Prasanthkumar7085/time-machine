@@ -32,8 +32,8 @@ const refreshTokens = catchAsync(async (req, res) => {
 });
 
 const updateDisclaimer = catchAsync(async (req, res) => {
-  await authService.updateDisclaimer(req.body.email);
-  res.status(httpStatus.NO_CONTENT).send();
+  const updatedUser = await authService.updateDisclaimer(req.body.email);
+  res.send({ user: updatedUser });
 });
 
 const forgotPassword = catchAsync(async (req, res) => {

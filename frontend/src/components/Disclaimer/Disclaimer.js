@@ -9,12 +9,15 @@ export default function Disclaimer() {
   const dispatch = useDispatch();
 
   const onAccept = () => {
-    dispatch(acceptDisclaimer());
+    dispatch(acceptDisclaimer()).then(() => {
+      console.log("hi");
+      navigate("/welcome");
+    });
   };
 
   useEffect(() => {
     if (isDisclaimerAccepted) {
-      navigate("/login");
+      navigate("/welcome");
     }
   }, []);
 

@@ -61,8 +61,8 @@ const updateDisclaimer = async (email) => {
   if (!user) {
     throw new ApiError(httpStatus.UNAUTHORIZED, 'Please authenticate');
   }
-  await userService.updateUserById(user.id, { isDisclaimerAccepted: true });
-  return user;
+  const updatedUser = await userService.updateUserById(user.id, { isDisclaimerAccepted: true });
+  return updatedUser;
 };
 
 /**

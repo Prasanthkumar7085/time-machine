@@ -5,9 +5,12 @@ import Terminal, {
   TerminalInput,
 } from "react-terminal-ui";
 import { useNavigate } from "react-router-dom";
+import { updateScientistName } from "../../redux/user/userReducer";
+import { useDispatch } from "react-redux";
 
 const TerminalController = (props = {}) => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const [lineData, setLineData] = useState([
     <TerminalOutput>What is your scientist name?</TerminalOutput>,
@@ -16,12 +19,14 @@ const TerminalController = (props = {}) => {
   ]);
 
   function onInput(input) {
+    console.log(input);
     let ld = [...lineData];
     ld.push(<TerminalInput>{input}</TerminalInput>);
     if (!input) {
       ld.push(<TerminalOutput>Name must be filled!</TerminalOutput>);
     }
     setLineData(ld);
+    dispatch(updateScientistName({ scientistName: input }));
     navigate("/welcome", { state: { scientistName: input } });
   }
 

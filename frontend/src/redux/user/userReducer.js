@@ -1,5 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { loginUser, registerUser, logoutUser } from "./userActions";
+import {
+  loginUser,
+  registerUser,
+  logoutUser,
+  acceptDisclaimer,
+} from "./userActions";
 
 const initialState = {
   email: undefined,
@@ -17,6 +22,12 @@ const userSlice = createSlice({
         ...state,
         ...payload.user,
         tokens: payload.tokens,
+      };
+    },
+    updateScientistName(state, { payload }) {
+      return {
+        ...state,
+        scientistName: payload.scientistName,
       };
     },
   },
@@ -70,8 +81,24 @@ const userSlice = createSlice({
       state.loading = false;
       state.error = payload;
     });
+    builder.addCase(acceptDisclaimer.pending, (state) => {
+      state.loading = true;
+      state.error = null;
+    });
+    builder.addCase(acceptDisclaimer.fulfilled, (state, { payload }) => {
+      return {
+        ...state,
+        isDisclaimerAccepted: payload.user.isDisclaimerAccepted,
+        loading: false,
+        success: true,
+      };
+    });
+    builder.addCase(acceptDisclaimer.rejected, (state, { payload }) => {
+      state.loading = false;
+      state.error = payload;
+    });
   },
 });
 
-export const { updateProfile } = userSlice.actions;
+export const { updateProfile, updateScientistName } = userSlice.actions;
 export default userSlice.reducer;

@@ -2,7 +2,7 @@ const httpStatus = require('http-status');
 const { Game } = require('../models');
 const ApiError = require('../utils/ApiError');
 
-export const GAME_TYPES = ['co2-concentrations', 'infant-mortality-rate', 'non-state-conflict', 'us-poverty'];
+const GAME_TYPES = ['co2-concentrations', 'infant-mortality-rate', 'non-state-conflict', 'us-poverty'];
 
 /**
  * Create a user
@@ -12,12 +12,16 @@ export const GAME_TYPES = ['co2-concentrations', 'infant-mortality-rate', 'non-s
 const createGame = async (gameBody, user) => {
   const userId = user._id;
   const games = await Game.find({ user: userId });
-  const remainingTypes = GAME_TYPES.filter((type) => !games.some((game) => game.type === type && game.finished === true));
-  console.log(remainingTypes);
-  // if (await User.isEmailTaken(userBody.email)) {
-  //   throw new ApiError(httpStatus.BAD_REQUEST, 'Email already taken');
+  const remainingTypes = GAME_TYPES.filter((type) => {
+    const hasThisType = games.some((game) => game.type === type && game.finished === true);
+    return !hasThisType;
+  });
+  // if (remainingTypes.length === 0) {
+  //   throw new ApiError(httpStatus.UNAUTHORIZED, 'Sorry, you have already played all the games!');
   // }
-  // return User.create(userBody);
+  const random = Math.floor(Math.random() * remainingTypes.length);
+  const tempType = 'co2-concentrations';
+  return Game.create({ ...gameBody, user: userId, type: tempType });
 };
 
 module.exports = {

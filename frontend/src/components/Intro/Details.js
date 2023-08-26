@@ -1,12 +1,16 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { createGame } from "../../redux/game/gameActions";
+import { useNavigate } from "react-router-dom";
 
 export default function Details({ scientistName }) {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const initiateGame = () => {
-    dispatch(createGame({ scientistName }));
+    dispatch(createGame({ scientistName })).then(() => {
+      navigate("/question");
+    });
   };
   return (
     <div className="absolute top-[4rem] left-0 w-full h-[calc(100%-4rem)] flex justify-center items-center flex-col gap-3">

@@ -47,6 +47,10 @@ const gameSchema = mongoose.Schema(
           type: Number,
           required: true,
         },
+        explanation: {
+          type: String,
+          required: false,
+        },
         required: false,
       },
     ],

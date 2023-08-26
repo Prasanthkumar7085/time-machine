@@ -1,14 +1,17 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { logoutUser } from "../../redux/user/userActions";
 
 export default function Navbar() {
   const location = useLocation();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const logout = () => {
-    dispatch(logoutUser());
+    dispatch(logoutUser()).then(() => {
+      navigate("/login");
+    });
   };
   const renderMenu = () => {
     switch (location.pathname) {
