@@ -4,8 +4,7 @@ import * as d3 from "d3";
 // *********************************************************************
 // Data.date must be provided in ASC order (ascending, oldest to newest)
 // *********************************************************************
-const LineChart = ({ Data, data_type }) => {
-  console.log(Data);
+const LineChart = ({ Data, updateChartData }) => {
   // Element References
   const svgRef = useRef(null);
   const tooltipRef = useRef(null);
@@ -34,6 +33,8 @@ const LineChart = ({ Data, data_type }) => {
   }, []);
 
   useEffect(() => {
+    const hasEstimate =
+      Data[Data.length - 2] && Data[Data.length - 2].value !== null;
     // D3 Code
 
     // data_type variables switch
@@ -43,22 +44,15 @@ const LineChart = ({ Data, data_type }) => {
     let parseDate;
 
     // variable accessor depending on datatype
-    switch (data_type) {
-      case "test":
-        parseDate = d3.timeParse("%Y");
-        xAccessor = (d) => parseDate(d.date);
-        yAccessor = (d) => Number(d.value);
-        yAxisLabel = "Test Label";
-        break;
-      case "impressions":
-        parseDate = d3.timeParse("%Y");
-        xAccessor = (d) => parseDate(d.date);
-        yAccessor = (d) => Number(d.value);
-        yAxisLabel = "Impressions";
-        break;
-      default:
-        throw new Error(`${data_type} is an unknown data_type prop`);
-    }
+    parseDate = d3.timeParse("%Y");
+    xAccessor = (d) => parseDate(d.date);
+    yAccessor = (d, i) => {
+      if (i === Data.length - 2 && hasEstimate) {
+        return Number(d.value);
+      }
+      return Number(d.value);
+    };
+    yAxisLabel = "Impressions";
 
     // Dimensions
     let dimensions = {
@@ -101,6 +95,8 @@ const LineChart = ({ Data, data_type }) => {
       .style("opacity", 0)
       .style("pointer-events", "none");
 
+    const maxVal = d3.max(Data, yAccessor);
+
     // Scales
     const yScale = d3
       .scaleLinear()
@@ -125,11 +121,14 @@ const LineChart = ({ Data, data_type }) => {
     // Draw Line
     container
       .append("path")
-      .datum(Data)
+      .datum(hasEstimate ? Data.slice(0, -1) : Data.slice(0, -2))
       .attr("d", lineGenerator)
       .attr("fill", "none")
       .attr("stroke", "#468B97")
-      .attr("stroke-width", 2);
+      .attr("stroke-width", 2)
+      .attr("stroke-dasharray", "5,15")
+      .attr("stroke-linejoin", "round")
+      .attr("stroke-linecap", "round");
 
     // Axis
     const yAxis = d3.axisLeft(yScale).tickFormat((d) => `${d}`);
@@ -151,7 +150,10 @@ const LineChart = ({ Data, data_type }) => {
       .style("transform", "rotate(270deg)")
       .style("text-anchor", "middle");
 
-    const xAxis = d3.axisBottom(xScale);
+    const xAxis = d3
+      .axisBottom(xScale)
+      .tickSizeOuter(0)
+      .tickValues(Data.slice(0, -1).map((d) => xAccessor(d)));
 
     container
       .append("g")
@@ -181,13 +183,13 @@ const LineChart = ({ Data, data_type }) => {
       .append("rect")
       .attr("width", dateDistance)
       .attr("height", dimensions.containerHeight)
-      .attr("fill", "#252a33")
+      .attr("fill", "transparent")
       .attr("stroke", "#EF6262")
       .attr("stroke-width", 2)
       .attr("stroke-dasharray", "5,5")
       .attr("rx", "2px")
       .attr("ry", "2px")
-      .attr("x", dimensions.containerWidth - dateDistance)
+      .attr("x", dimensions.containerWidth - 1.5 * dateDistance)
       .attr("y", 0);
 
     var estimateText = container
@@ -199,19 +201,27 @@ const LineChart = ({ Data, data_type }) => {
       .style("font-size", "1rem")
       .style("transform", "rotate(270deg)")
       .style("text-anchor", "middle");
+
+    const estimateMarginY = yScale(Data[Data.length - 2].estimateMargin);
+
     var rect = container
       .append("rect")
-      .attr("width", 0)
-      .attr("height", 0)
-      .attr("fill", "#EF6262")
+      .attr("x", dimensions.containerWidth - 1.5 * dateDistance + 5)
+      .attr("y", yScale(yAccessor(Data[Data.length - 2])) - estimateMarginY)
+      .attr("width", dateDistance - 10)
+      .attr("height", 2 * estimateMarginY)
+      .attr("fill", "rgba(239,98,98,.5)")
+      .attr("stroke", "rgba(239,98,98,1)")
+      .attr("storke-width", 2)
       .attr("rx", "2px")
-      .attr("ry", "2px")
-      .style("opacity", 0);
+      .attr("ry", "2px");
 
     var rectLine = container
       .append("rect")
-      .attr("width", 0)
-      .attr("height", 0)
+      .attr("x", dimensions.containerWidth - 1.5 * dateDistance + 5)
+      .attr("y", hasEstimate ? yScale(yAccessor(Data[Data.length - 2])) : 0)
+      .attr("width", dateDistance - 10)
+      .attr("height", 2)
       .attr("fill", "#EF6262");
 
     let [x, y] = [0, 0];
@@ -291,7 +301,7 @@ const LineChart = ({ Data, data_type }) => {
             //   .attr("storke-width", 2);
             // centerDot.attr("cx", event.x).attr("cy", event.y);
             rect
-              .attr("x", dimensions.containerWidth - dateDistance + 5)
+              .attr("x", dimensions.containerWidth - 1.5 * dateDistance + 5)
               .attr("y", event.y)
               .attr("width", dateDistance - 10)
               .attr("height", 5)
@@ -301,7 +311,7 @@ const LineChart = ({ Data, data_type }) => {
               .style("opacity", 1);
 
             rectLine
-              .attr("x", dimensions.containerWidth - dateDistance + 5)
+              .attr("x", dimensions.containerWidth - 1.5 * dateDistance + 5)
               .attr("y", event.y)
               .attr("width", dateDistance - 10)
               .attr("height", 2);
@@ -328,8 +338,18 @@ const LineChart = ({ Data, data_type }) => {
               .attr("stroke", "rgba(239,98,98,1)")
               .attr("storke-width", 2);
           })
+          .on("end", function (event) {
+            var a = x - event.x;
+            var b = y - event.y;
+
+            var c = Math.sqrt(a * a + b * b);
+            if (y - c < 0 || y + c > dimensions.containerHeight) return;
+
+            updateChartData(yScale.invert(y), yScale.invert(c));
+          })
       );
-  }, [Data, data_type, width, height]); // redraw chart if data or dimensions change
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [Data, width, height]); // redraw chart if data or dimensions change
 
   return (
     <div ref={svgContainer} className="line-chart relative">

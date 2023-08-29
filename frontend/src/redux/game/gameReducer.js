@@ -7,6 +7,15 @@ const initialState = {
   answers: [],
 };
 
+const tempInitalState = {
+  answers: [],
+  finished: false,
+  id: "64ed47079d54440c9f4d7730",
+  name: "asqar",
+  type: "co2-concentrations",
+  user: "64ea06884ee39501df15dbf6",
+};
+
 // answers: [
 //   {
 //     guessCenter: {
@@ -42,7 +51,7 @@ const initialState = {
 
 const gameSlice = createSlice({
   name: "game",
-  initialState,
+  initialState: tempInitalState,
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(createGame.pending, (state) => {
