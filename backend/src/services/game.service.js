@@ -33,7 +33,6 @@ const updateGame = async (body, user, gameId) => {
   const userId = user._id;
   const { answer } = body;
   const game = await Game.findById(gameId);
-  console.log(body);
   if (!game) {
     throw new ApiError(httpStatus.NOT_FOUND, 'Game not found');
   }

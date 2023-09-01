@@ -47,9 +47,7 @@ export const updateGame = createAsyncThunk(
         config
       );
 
-      console.log(data);
-
-      // return data;
+      return data.answers;
     } catch (error) {
       if (error.response && error.response.data.message) {
         return rejectWithValue(error.response.data.message);

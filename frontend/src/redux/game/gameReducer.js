@@ -16,39 +16,6 @@ const tempInitalState = {
   user: "64ea06884ee39501df15dbf6",
 };
 
-// answers: [
-//   {
-//     guessCenter: {
-//       type: Number,
-//       required: true,
-//     },
-//     guessRange: {
-//       type: Number,
-//       required: true,
-//     },
-//     correctAnswer: {
-//       type: Number,
-//       required: true,
-//     },
-//     predictiveAccuracy: {
-//       type: Number,
-//       required: true,
-//     },
-//     confidentBandAccuracy: {
-//       type: Number,
-//       required: true,
-//     },
-//     percisionOfConfidentBand: {
-//       type: Number,
-//       required: true,
-//     },
-//     year: {
-//       type: Number,
-//       required: true,
-//     },
-//   },
-// ],
-
 const gameSlice = createSlice({
   name: "game",
   initialState: tempInitalState,
