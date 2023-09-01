@@ -29,3 +29,33 @@ export const createGame = createAsyncThunk(
     }
   }
 );
+
+export const updateGame = createAsyncThunk(
+  "game/update",
+  async ({ answer, gameId }, { rejectWithValue }) => {
+    const tokens = JSON.parse(localStorage.getItem("time-machine"));
+    try {
+      const config = {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${tokens.access}`,
+        },
+      };
+      const { data } = await axios.post(
+        `${backendURL}/v1/game/update-game/${gameId}`,
+        { answer },
+        config
+      );
+
+      console.log(data);
+
+      // return data;
+    } catch (error) {
+      if (error.response && error.response.data.message) {
+        return rejectWithValue(error.response.data.message);
+      } else {
+        return rejectWithValue(error.message);
+      }
+    }
+  }
+);

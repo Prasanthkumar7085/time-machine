@@ -9,6 +9,12 @@ const createGame = catchAsync(async (req, res) => {
   res.status(httpStatus.CREATED).send(game);
 });
 
+const updateGame = catchAsync(async (req, res) => {
+  const game = await gameService.updateGame(req.body, req.user, req.params.gameId);
+  res.status(httpStatus.CREATED).send(game);
+});
+
 module.exports = {
   createGame,
+  updateGame,
 };

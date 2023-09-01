@@ -6,6 +6,13 @@ const createGame = {
   }),
 };
 
+const updateGame = {
+  body: Joi.object().keys({
+    answer: Joi.object().required(),
+  }),
+};
+
 module.exports = {
   createGame,
+  updateGame,
 };

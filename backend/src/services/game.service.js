@@ -24,6 +24,25 @@ const createGame = async (gameBody, user) => {
   return Game.create({ ...gameBody, user: userId, type: tempType });
 };
 
+/**
+ * Create a user
+ * @param {Object} gameBody
+ * @returns {Promise<Game>}
+ */
+const updateGame = async (body, user, gameId) => {
+  const userId = user._id;
+  const { answer } = body;
+  const game = await Game.findById(gameId);
+  console.log(body);
+  if (!game) {
+    throw new ApiError(httpStatus.NOT_FOUND, 'Game not found');
+  }
+  game.answers.push(answer);
+  await game.save();
+  return game;
+};
+
 module.exports = {
   createGame,
+  updateGame,
 };

@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { createGame } from "./gameActions";
+import { createGame, updateGame } from "./gameActions";
 
 const initialState = {
   name: undefined,
@@ -10,7 +10,7 @@ const initialState = {
 const tempInitalState = {
   answers: [],
   finished: false,
-  id: "64ed47079d54440c9f4d7730",
+  _id: "64ea12195c38111ba163fec1",
   name: "asqar",
   type: "co2-concentrations",
   user: "64ea06884ee39501df15dbf6",
@@ -67,6 +67,22 @@ const gameSlice = createSlice({
       };
     });
     builder.addCase(createGame.rejected, (state, { payload }) => {
+      state.loading = false;
+      state.error = payload;
+    });
+    builder.addCase(updateGame.pending, (state) => {
+      state.loading = true;
+      state.error = null;
+    });
+    builder.addCase(updateGame.fulfilled, (state, { payload }) => {
+      return {
+        ...state,
+        ...payload,
+        loading: false,
+        success: true,
+      };
+    });
+    builder.addCase(updateGame.rejected, (state, { payload }) => {
       state.loading = false;
       state.error = payload;
     });

@@ -16,7 +16,7 @@ module.exports = {
     logs: true,
     rtl: false,
     prefix: "",
-    darkTheme: ["cyberpunk", "light", "cyberpunk"],
-    themes: ["cyberpunk", "light", "cyberpunk"],
+    darkTheme: ["dark", "light", "cyberpunk"],
+    themes: ["dark", "light", "cyberpunk"],
   },
 };

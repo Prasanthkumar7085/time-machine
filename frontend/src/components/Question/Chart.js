@@ -1,37 +1,19 @@
 import React, { useRef, useEffect, useState } from "react";
 import * as d3 from "d3";
+import useResizeObserver from "use-resize-observer";
 
 // *********************************************************************
 // Data.date must be provided in ASC order (ascending, oldest to newest)
 // *********************************************************************
-const LineChart = ({ Data, updateChartData }) => {
+const LineChart = ({ Data, updateChartData, chartRef }) => {
   // Element References
   const svgRef = useRef(null);
   const tooltipRef = useRef(null);
-  const svgContainer = useRef(null); // The PARENT of the SVG
 
-  // State to track width and height of SVG Container
-  const [width, setWidth] = useState();
-  const [height, setHeight] = useState();
-
-  // This function calculates width and height of the container
-  const getSvgContainerSize = () => {
-    const newWidth = svgContainer.current.clientWidth;
-    setWidth(newWidth);
-
-    const newHeight = Math.max(svgContainer.current.clientHeight, 350);
-    setHeight(newHeight);
-  };
-
-  useEffect(() => {
-    // detect 'width' and 'height' on render
-    getSvgContainerSize();
-    // listen for resize changes, and detect dimensions again when they change
-    window.addEventListener("resize", getSvgContainerSize);
-    // cleanup event listener
-    return () => window.removeEventListener("resize", getSvgContainerSize);
-  }, []);
-
+  const { width, height } = useResizeObserver({
+    box: "border-box",
+    ref: chartRef,
+  });
   useEffect(() => {
     const hasEstimate =
       Data[Data.length - 2] && Data[Data.length - 2].value !== null;
@@ -52,12 +34,12 @@ const LineChart = ({ Data, updateChartData }) => {
       }
       return Number(d.value);
     };
-    yAxisLabel = "Impressions";
+    yAxisLabel = Data[0].yLabel;
 
     // Dimensions
     let dimensions = {
-      width: width, // width from state
-      height: height, // height from state
+      width: width - 50, // width from state
+      height: Math.min(height, 350), // height from state
       margins: 50,
       predictionMargin: 50,
     };
@@ -95,8 +77,6 @@ const LineChart = ({ Data, updateChartData }) => {
       .style("opacity", 0)
       .style("pointer-events", "none");
 
-    const maxVal = d3.max(Data, yAccessor);
-
     // Scales
     const yScale = d3
       .scaleLinear()
@@ -130,6 +110,22 @@ const LineChart = ({ Data, updateChartData }) => {
       .attr("stroke-linejoin", "round")
       .attr("stroke-linecap", "round");
 
+    // Add the points
+    container
+      .append("g")
+      .selectAll("dot")
+      .data(hasEstimate ? Data.slice(0, -1) : Data.slice(0, -2))
+      .enter()
+      .append("circle")
+      .attr("cx", function (d) {
+        return xScale(xAccessor(d));
+      })
+      .attr("cy", function (d) {
+        return yScale(yAccessor(d));
+      })
+      .attr("r", 5)
+      .attr("fill", "#69b3a2");
+
     // Axis
     const yAxis = d3.axisLeft(yScale).tickFormat((d) => `${d}`);
 
@@ -137,13 +133,14 @@ const LineChart = ({ Data, updateChartData }) => {
       .append("g")
       .classed("yAxis", true)
       .style("color", "white")
+      .style("font-size", ".8rem")
       .call(yAxis);
 
     // y-axis label
     yAxisGroup
       .append("text")
       .attr("x", -dimensions.containerHeight / 2)
-      .attr("y", -dimensions.margins + 10)
+      .attr("y", -dimensions.margins + 15)
       .attr("fill", "white")
       .text(yAxisLabel)
       .style("font-size", "1rem")
@@ -160,6 +157,7 @@ const LineChart = ({ Data, updateChartData }) => {
       .classed("xAxis", true)
       .style("transform", `translateY(${dimensions.containerHeight}px)`)
       .style("color", "white")
+      .style("font-size", ".8rem")
       .call(xAxis);
 
     var verticalx = d3
@@ -195,14 +193,16 @@ const LineChart = ({ Data, updateChartData }) => {
     var estimateText = container
       .append("text")
       .attr("x", -dimensions.containerHeight / 2)
-      .attr("y", dimensions.containerWidth + 40)
+      .attr("y", dimensions.containerWidth)
       .attr("fill", "#EF6262")
-      .text("Estimate Zone")
+      .text("Estimation Zone")
       .style("font-size", "1rem")
       .style("transform", "rotate(270deg)")
       .style("text-anchor", "middle");
 
-    const estimateMarginY = yScale(Data[Data.length - 2].estimateMargin);
+    const estimateMarginY =
+      yScale(yAccessor(Data[0])) -
+      yScale(yAccessor(Data[0]) + Data[Data.length - 2].estimateMargin);
 
     var rect = container
       .append("rect")
@@ -214,7 +214,8 @@ const LineChart = ({ Data, updateChartData }) => {
       .attr("stroke", "rgba(239,98,98,1)")
       .attr("storke-width", 2)
       .attr("rx", "2px")
-      .attr("ry", "2px");
+      .attr("ry", "2px")
+      .style("opacity", hasEstimate ? 1 : 0);
 
     var rectLine = container
       .append("rect")
@@ -222,7 +223,8 @@ const LineChart = ({ Data, updateChartData }) => {
       .attr("y", hasEstimate ? yScale(yAccessor(Data[Data.length - 2])) : 0)
       .attr("width", dateDistance - 10)
       .attr("height", 2)
-      .attr("fill", "#EF6262");
+      .attr("fill", "#EF6262")
+      .style("opacity", hasEstimate ? 1 : 0);
 
     let [x, y] = [0, 0];
 
@@ -235,20 +237,8 @@ const LineChart = ({ Data, updateChartData }) => {
       .style("z-index", 100000)
       .style("opacity", 0)
       .on("mousemove", function (event) {
+        const dataPoints = hasEstimate ? Data.slice(0, -1) : Data.slice(0, -2);
         const mousePos = d3.pointer(event, this);
-
-        verticalx
-          .style("left", mousePos[0] + dimensions.margins - 3 + "px")
-          .style(
-            "height",
-            dimensions.height - 2 * dimensions.margins - mousePos[1] + "px"
-          )
-          .style("top", mousePos[1] + dimensions.margins - 3 + "px");
-
-        verticaly
-          .style("top", mousePos[1] + dimensions.margins - 3 + "px")
-          .style("left", dimensions.margins + "px")
-          .style("width", mousePos[0] + "px");
 
         // x coordinate stored in mousePos index 0
         const date = xScale.invert(mousePos[0]);
@@ -256,10 +246,35 @@ const LineChart = ({ Data, updateChartData }) => {
         // Custom Bisector - left, center, right
         const dateBisector = d3.bisector(xAccessor).center;
 
-        const bisectionIndex = dateBisector(Data, date);
+        const bisectionIndex = dateBisector(dataPoints, date);
         //console.log(bisectionIndex);
         // math.max prevents negative index reference error
-        const hoveredIndexData = Data[Math.max(0, bisectionIndex)];
+        const hoveredIndexData = dataPoints[Math.max(0, bisectionIndex)];
+
+        verticalx
+          .style(
+            "left",
+            xScale(xAccessor(hoveredIndexData)) + dimensions.margins + "px"
+          )
+          .style(
+            "height",
+            dimensions.height -
+              2 * dimensions.margins -
+              yScale(yAccessor(hoveredIndexData)) +
+              "px"
+          )
+          .style(
+            "top",
+            yScale(yAccessor(hoveredIndexData)) + dimensions.margins + "px"
+          );
+
+        verticaly
+          .style(
+            "top",
+            yScale(yAccessor(hoveredIndexData)) + dimensions.margins + "px"
+          )
+          .style("left", dimensions.margins + "px")
+          .style("width", xScale(xAccessor(hoveredIndexData)) + "px");
 
         // Update Image
         tooltipDot
@@ -270,7 +285,7 @@ const LineChart = ({ Data, updateChartData }) => {
 
         tooltip
           .style("display", "block")
-          .style("top", `${yScale(yAccessor(hoveredIndexData)) - 50}px`)
+          .style("top", `${dimensions.height}px`)
           .style("left", `${xScale(xAccessor(hoveredIndexData))}px`)
           .style("color", "white");
 
@@ -314,7 +329,8 @@ const LineChart = ({ Data, updateChartData }) => {
               .attr("x", dimensions.containerWidth - 1.5 * dateDistance + 5)
               .attr("y", event.y)
               .attr("width", dateDistance - 10)
-              .attr("height", 2);
+              .attr("height", 2)
+              .style("opacity", 1);
           })
           .on("drag", function (event) {
             var a = x - event.x;
@@ -329,7 +345,19 @@ const LineChart = ({ Data, updateChartData }) => {
             //   .attr("stroke", "rgba(239,98,98,1)")
             //   .attr("storke-width", 2);
 
-            if (y - c < 0 || y + c > dimensions.containerHeight) return;
+            if (y - c < 0 || y + c > dimensions.containerHeight) {
+              const estimateMargin = Math.min(
+                c,
+                dimensions.containerHeight - y,
+                dimensions.containerHeight - (dimensions.containerHeight - y)
+              );
+              updateChartData(
+                yScale.invert(y),
+                yAccessor(Data[0]) -
+                  yScale.invert(yScale(yAccessor(Data[0])) + estimateMargin)
+              );
+              return;
+            }
 
             rect
               .attr("y", y - c)
@@ -344,19 +372,21 @@ const LineChart = ({ Data, updateChartData }) => {
 
             var c = Math.sqrt(a * a + b * b);
             if (y - c < 0 || y + c > dimensions.containerHeight) return;
-
-            updateChartData(yScale.invert(y), yScale.invert(c));
+            updateChartData(
+              yScale.invert(y),
+              yAccessor(Data[0]) - yScale.invert(yScale(yAccessor(Data[0])) + c)
+            );
           })
       );
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [Data, width, height]); // redraw chart if data or dimensions change
 
   return (
-    <div ref={svgContainer} className="line-chart relative">
+    <div className="line-chart relative w-full">
+      <div className="absolute w-1 h-1 bg-transparent left-6 top-6 xindicator border-dashed border border-[rgba(255,255,255,.3)] z-0" />
+      <div className="absolute w-1 h-1 bg-transparent left-6 top-6 yindicator border-dashed border border-[rgba(255,255,255,.3)] z-0" />
       <svg ref={svgRef} />
-      <div className="absolute w-1 h-1 bg-transparent left-6 top-6 xindicator border-dashed border border-[rgba(255,255,255,.3)] z-50" />
-      <div className="absolute w-1 h-1 bg-transparent left-6 top-6 yindicator border-dashed border border-[rgba(255,255,255,.3)] z-50" />
-      <div ref={tooltipRef} className="lc-tooltip">
+      <div ref={tooltipRef} className="lc-tooltip absolute">
         <div className="data"></div>
         <div className="date"></div>
       </div>
