@@ -44,7 +44,7 @@ const gameSlice = createSlice({
     builder.addCase(updateGame.fulfilled, (state, { payload }) => {
       return {
         ...state,
-        ...payload,
+        answers: [...payload],
         loading: false,
         success: true,
       };

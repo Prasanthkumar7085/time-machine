@@ -44,6 +44,15 @@ export default function Question() {
     (item) => item.date === String(estimateYear)
   );
   const dataToShow = gameData?.slice(0, gameIndex);
+  const answers = game.answers;
+
+  useEffect(() => {
+    setChartData([
+      ...dataToShow,
+      { date: String(estimateYear), value: null },
+      { date: String(estimateYear + GAME_STEPS[gameType]), value: null },
+    ]);
+  }, [estimateYear]);
 
   const [chartData, setChartData] = useState([
     ...dataToShow,
@@ -141,6 +150,7 @@ export default function Question() {
               <LineChart
                 Data={chartData}
                 updateChartData={updateChartData}
+                answers={answers}
                 chartRef={ref}
               />
             )}

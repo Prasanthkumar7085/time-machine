@@ -5,7 +5,7 @@ import useResizeObserver from "use-resize-observer";
 // *********************************************************************
 // Data.date must be provided in ASC order (ascending, oldest to newest)
 // *********************************************************************
-const LineChart = ({ Data, updateChartData, chartRef }) => {
+const LineChart = ({ Data, updateChartData, chartRef, answers }) => {
   // Element References
   const svgRef = useRef(null);
   const tooltipRef = useRef(null);
@@ -27,8 +27,16 @@ const LineChart = ({ Data, updateChartData, chartRef }) => {
 
     // variable accessor depending on datatype
     parseDate = d3.timeParse("%Y");
-    xAccessor = (d) => parseDate(d.date);
+    xAccessor = (d) => {
+      if ("year" in d) {
+        return parseDate(d.year);
+      }
+      return parseDate(d.date);
+    };
     yAccessor = (d, i) => {
+      if ("guessCenter" in d) {
+        return Number(d.guessCenter);
+      }
       if (i === Data.length - 2 && hasEstimate) {
         return Number(d.value);
       }
@@ -125,6 +133,32 @@ const LineChart = ({ Data, updateChartData, chartRef }) => {
       })
       .attr("r", 5)
       .attr("fill", "#69b3a2");
+
+    container
+      .append("path")
+      .datum(answers)
+      .attr("d", lineGenerator)
+      .attr("fill", "none")
+      .attr("stroke", "#A8DF8E")
+      .attr("stroke-width", 2)
+      .attr("stroke-dasharray", "5,15")
+      .attr("stroke-linejoin", "round")
+      .attr("stroke-linecap", "round");
+
+    container
+      .append("g")
+      .selectAll("answer-dot")
+      .data(answers)
+      .enter()
+      .append("circle")
+      .attr("cx", function (d) {
+        return xScale(xAccessor(d));
+      })
+      .attr("cy", function (d) {
+        return yScale(yAccessor(d));
+      })
+      .attr("r", 5)
+      .attr("fill", "#A8DF8E");
 
     // Axis
     const yAxis = d3.axisLeft(yScale).tickFormat((d) => `${d}`);
@@ -225,6 +259,29 @@ const LineChart = ({ Data, updateChartData, chartRef }) => {
       .attr("height", 2)
       .attr("fill", "#EF6262")
       .style("opacity", hasEstimate ? 1 : 0);
+
+    var answerRect = container
+      .selectAll("answer-rect")
+      .data(answers)
+      .enter()
+      .append("rect")
+      .attr("x", function (d) {
+        return xScale(xAccessor(d)) - 0.5 * dateDistance + 15;
+      })
+      .attr("y", function (d) {
+        return yScale(yAccessor(d) + d.guessRange);
+      })
+      .attr("width", dateDistance - 30)
+      .attr("height", function (d) {
+        const estimateMargin =
+          yScale(yAccessor(d)) - yScale(yAccessor(d) + d.guessRange);
+        return 2 * estimateMargin;
+      })
+      .attr("fill", "rgba(239,98,98,.2)")
+      .attr("stroke", "rgba(239,98,98,.5)")
+      .attr("storke-width", 2)
+      .attr("rx", "2px")
+      .attr("ry", "2px");
 
     let [x, y] = [0, 0];
 
