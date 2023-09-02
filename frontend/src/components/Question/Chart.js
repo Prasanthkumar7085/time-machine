@@ -47,7 +47,7 @@ const LineChart = ({ Data, updateChartData, chartRef, answers }) => {
     // Dimensions
     let dimensions = {
       width: width - 50, // width from state
-      height: Math.min(height, 350), // height from state
+      height: Math.min(height, 450), // height from state
       margins: 50,
       predictionMargin: 50,
     };
@@ -85,10 +85,13 @@ const LineChart = ({ Data, updateChartData, chartRef, answers }) => {
       .style("opacity", 0)
       .style("pointer-events", "none");
 
+    const y_extent = d3.extent(Data, yAccessor);
+    const y_extent_diff = 0.4 * Math.abs(y_extent[1] - y_extent[0]);
+
     // Scales
     const yScale = d3
       .scaleLinear()
-      .domain([0, d3.max(Data, yAccessor)])
+      .domain([0, d3.max(Data, yAccessor) + y_extent_diff])
       .range([dimensions.containerHeight, 0])
       .nice();
     const xScale = d3
