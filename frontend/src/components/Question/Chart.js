@@ -280,8 +280,18 @@ const LineChart = ({ Data, updateChartData, chartRef, answers }) => {
           yScale(yAccessor(d)) - yScale(yAccessor(d) + d.guessRange);
         return 2 * estimateMargin;
       })
-      .attr("fill", "rgba(239,98,98,.2)")
-      .attr("stroke", "rgba(239,98,98,.5)")
+      .attr("fill", function (d) {
+        if (d.confidentBandAccuracy !== 0) {
+          return "rgba(158,179,132,.2)";
+        }
+        return "rgba(239,98,98,.2)";
+      })
+      .attr("stroke", function (d) {
+        if (d.confidentBandAccuracy !== 0) {
+          return "rgba(158,179,132,.5)";
+        }
+        return "rgba(239,98,98,.5)";
+      })
       .attr("storke-width", 2)
       .attr("rx", "2px")
       .attr("ry", "2px");

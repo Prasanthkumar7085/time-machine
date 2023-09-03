@@ -1,9 +1,15 @@
 import LineChart from "./Chart";
 import data from "../../assets/data.json";
 import { useDispatch, useSelector } from "react-redux";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState, useMemo } from "react";
 import { createGame, updateGame } from "../../redux/game/gameActions";
-import { GAME_STARTING_YEAR, GAME_STEPS } from "../../utils/constants";
+import {
+  GAME_STARTING_YEAR,
+  GAME_STEPS,
+  gameBodyGenerator,
+  gameNoteGenerator,
+  gameQuestionGenerator,
+} from "../../utils/constants";
 import Terminal from "../Terminal";
 
 function standardDeviation(numArray) {
@@ -17,29 +23,17 @@ export default function Question() {
   const dispatch = useDispatch();
   const ref = useRef(null);
   const [hasEstimate, setHasEstimate] = useState(false);
-  const [lines, setLines] = useState([
-    {
-      type: "text",
-      value:
-        "Welcome to 1980. Post-It Notes and the Rubik’s Cube have just hit the stores.",
-    },
-    {
-      type: "text",
-      value:
-        "Your job as a scientist in 1980 is to predict future global CO2 concentrations so humans can prepare for coming changes. Below, you can see historical data for global CO2 concentrations for the past 20 years in parts per million. Your task is to predict concentrations in 1985. After you make your prediction, we will time travel ahead to 1985 to see how accurate you were.",
-    },
-    {
-      type: "text",
-      value:
-        "What will global CO2 concentrations be in 1985 (in parts per million)?",
-    },
-  ]);
+  const [lines, setLines] = useState([]);
+  const [chartData, setChartData] = useState([]);
   const game = useSelector((state) => state.game);
   const gameType = game.type;
   const gameId = game._id;
   const gameData = data[gameType];
-  const estimateYear =
-    GAME_STARTING_YEAR[gameType] + game.answers.length * GAME_STEPS[gameType];
+  const estimateYear = useMemo(
+    () =>
+      GAME_STARTING_YEAR[gameType] + game.answers.length * GAME_STEPS[gameType],
+    [gameType, game.answers.length]
+  );
   const gameIndex = gameData?.findIndex(
     (item) => item.date === String(estimateYear)
   );
@@ -52,13 +46,48 @@ export default function Question() {
       { date: String(estimateYear), value: null },
       { date: String(estimateYear + GAME_STEPS[gameType]), value: null },
     ]);
-  }, [estimateYear]);
 
-  const [chartData, setChartData] = useState([
-    ...dataToShow,
-    { date: String(estimateYear), value: null },
-    { date: String(estimateYear + GAME_STEPS[gameType]), value: null },
-  ]);
+    const gameText = [
+      {
+        type: "text",
+        value: gameNoteGenerator(estimateYear - GAME_STEPS[gameType]),
+      },
+      ...(answers.length > 0 ? [] : []),
+      ...(answers.length > 0
+        ? [
+            {
+              type: "text",
+              value: `Let's see how you did.
+The graph on the right shows your best guess and Estimate Zone and the realized outcome. Here are your points for this round:`,
+            },
+            {
+              type: "list",
+              value: [
+                `Predictive Accuracy (60 points): ${answers[
+                  answers.length - 1
+                ].predictiveAccuracy.toFixed(2)}%`,
+                `Confidence Band Accuracy (30 points): ${answers[
+                  answers.length - 1
+                ].confidentBandAccuracy.toFixed(2)}%`,
+                `Precision of Confidence Band (10 points): ${answers[
+                  answers.length - 1
+                ].percisionOfConfidentBand.toFixed(2)}%`,
+              ],
+            },
+          ]
+        : []),
+      {
+        type: "text",
+        value: gameBodyGenerator(estimateYear, gameType, dataToShow.length),
+      },
+      {
+        type: "text",
+        value: gameQuestionGenerator(estimateYear, gameType),
+      },
+    ];
+
+    setLines(gameText);
+  }, [estimateYear]);
 
   const updateChartData = (value, estimateMargin) => {
     const newData = [...chartData];
@@ -108,8 +137,8 @@ export default function Question() {
       const confidentBandAccuracy =
         guessCenter + guessRange < correctAnswer ||
         guessCenter - guessRange > correctAnswer
-          ? 30
-          : 0;
+          ? 0
+          : 30;
       const sd = standardDeviation(
         chartData.slice(-2).map((item) => Number(item.value))
       );

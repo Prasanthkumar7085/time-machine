@@ -50,12 +50,38 @@ export default function Terminal({
   return (
     <div
       className={classNames(
-        "mockup-code h-full w-full shadow-lg border-r border-r-[rgba(255,255,255,0.1)] overflow-auto relative",
+        "mockup-code h-full w-full shadow-lg border-r border-r-[rgba(255,255,255,0.1)] overflow-auto pb-0",
         notRounded ? "rounded-none" : ""
       )}
     >
-      <div className="pt-6">
+      <div>
         {lines.map((line, i) => {
+          if (line.type === "list") {
+            return (
+              <div className="flex mb-3 flex-col px-4 border-t border-t-[rgba(255,255,255,0.1)]">
+                <code className="flex gap-2 flex-wrap my-2">
+                  <p>~/bin/time</p>
+                  <p className="text-warning">machine[1]</p>
+                  <p className="text-primary">({randomNumbers[i]}s)</p>
+                </code>
+                <code
+                  className={classNames(
+                    "whitespace-normal flex-1",
+                    textTypeClass(line.type)
+                  )}
+                >
+                  {line.value.map((item, index) => {
+                    return (
+                      <div key={index} className="flex flex-row gap-2">
+                        <p>{">"} </p>
+                        <p>{item}</p>
+                      </div>
+                    );
+                  })}
+                </code>
+              </div>
+            );
+          }
           return (
             <div className="flex mb-3 flex-col px-4 border-t border-t-[rgba(255,255,255,0.1)]">
               <code className="flex gap-2 flex-wrap my-2">
@@ -65,7 +91,7 @@ export default function Terminal({
               </code>
               <code
                 className={classNames(
-                  "whitespace-normal flex-1 text-justify",
+                  "whitespace-normal flex-1",
                   textTypeClass(line.type)
                 )}
               >
@@ -104,7 +130,7 @@ export default function Terminal({
               </code>
             </div> */}
             <button
-              className="btn btn-primary absolute bottom-0 right-0 mb-3 mr-3"
+              className="btn btn-primary sticky bottom-3 left-full mb-3 mr-3"
               onClick={() => {
                 submitAnswer(currentValue);
               }}
