@@ -27,6 +27,25 @@ export default function Details({ scientistName }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [play, setPlay] = useState(false);
+  const [showReadyButton, setShowReadyButton] = useState(false);
+
+  useEffect(() => {
+    const delayedFunctionForPlay = () => {
+      setPlay(true);
+    };
+
+    const delayedFunctionForReady = () => {
+      setShowReadyButton(true);
+    };
+
+    const timeoutIdPlay = setTimeout(delayedFunctionForPlay, 12000);
+    const timeoutIdReady = setTimeout(delayedFunctionForReady, 50000);
+
+    return () => {
+      clearTimeout(timeoutIdPlay);
+      clearTimeout(timeoutIdReady);
+    };
+  }, []);
 
   useEffect(() => {
     const delayedFunction = () => {
@@ -83,10 +102,11 @@ export default function Details({ scientistName }) {
           </div>
         </div>
       </div>
-
-      <button className="btn btn-primary" onClick={initiateGame}>
-        Ready!
-      </button>
+      {showReadyButton && (
+        <button className="btn btn-primary" onClick={initiateGame}>
+          Ready!
+        </button>
+      )}
     </div>
   );
 }
