@@ -48,7 +48,7 @@ const LineChart = ({ Data, updateChartData, chartRef, answers }) => {
     let dimensions = {
       width: width - 50, // width from state
       height: Math.min(height, 450), // height from state
-      margins: 50,
+      margins: 60,
       predictionMargin: 50,
     };
 
@@ -189,13 +189,22 @@ const LineChart = ({ Data, updateChartData, chartRef, answers }) => {
       .tickSizeOuter(0)
       .tickValues(Data.slice(0, -1).map((d) => xAccessor(d)));
 
-    container
+    const xAxisGroup = container
       .append("g")
       .classed("xAxis", true)
       .style("transform", `translateY(${dimensions.containerHeight}px)`)
       .style("color", "white")
       .style("font-size", ".8rem")
       .call(xAxis);
+
+    xAxisGroup
+      .append("text")
+      .attr("x", dimensions.containerWidth / 2)
+      .attr("y", 50)
+      .attr("fill", "white")
+      .text("Year")
+      .style("font-size", "1rem")
+      .style("text-anchor", "middle");
 
     var verticalx = d3
       .select(".xindicator")
@@ -208,6 +217,37 @@ const LineChart = ({ Data, updateChartData, chartRef, answers }) => {
       .style("width", dimensions.width - 2 * dimensions.margins + "px")
       .style("height", "1px")
       .style("left", dimensions.margins + "px");
+
+    // container
+    //   .append("circle")
+    //   .attr("cx", 30)
+    //   .attr("cy", 0)
+    //   .attr("r", 6)
+    //   .style("fill", "#69b3a2");
+    // container
+    //   .append("circle")
+    //   .attr("cx", 30)
+    //   .attr("cy", 30)
+    //   .attr("r", 6)
+    //   .style("opacity", answers.length > 0 ? 1 : 0)
+    //   .style("fill", "#A8DF8E");
+    // container
+    //   .append("text")
+    //   .attr("x", 40)
+    //   .attr("y", 0)
+    //   .text("variable A")
+    //   .style("font-size", "15px")
+    //   .style("fill", "white")
+    //   .attr("alignment-baseline", "middle");
+    // container
+    //   .append("text")
+    //   .attr("x", 40)
+    //   .attr("y", 30)
+    //   .text("variable B")
+    //   .style("font-size", "15px")
+    //   .style("fill", "white")
+    //   .style("opacity", answers.length > 0 ? 1 : 0)
+    //   .attr("alignment-baseline", "middle");
 
     // var dot = container.append("circle").attr("r", 5).attr("fill", "#EF6262");
     // var centerDot = container
@@ -375,8 +415,12 @@ const LineChart = ({ Data, updateChartData, chartRef, answers }) => {
         d3
           .drag()
           .on("start", function (event) {
+            if (event.x < dimensions.containerWidth - 1.5 * dateDistance) {
+              return;
+            }
             x = event.x;
             y = event.y;
+
             // dot
             //   .attr("cx", event.x)
             //   .attr("cy", event.y)
@@ -403,6 +447,7 @@ const LineChart = ({ Data, updateChartData, chartRef, answers }) => {
               .style("opacity", 1);
           })
           .on("drag", function (event) {
+            if (x === 0 || y === 0) return;
             var a = x - event.x;
             var b = y - event.y;
 

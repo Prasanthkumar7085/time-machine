@@ -9,16 +9,6 @@ export default function Terminal({
 }) {
   const textareaRef = useRef(null);
   const [currentValue, setCurrentValue] = useState("> ");
-  const [randomNumbers, setRandomNumbers] = useState([]);
-
-  useEffect(() => {
-    setRandomNumbers(
-      lines.map(() => {
-        var randomnum = Math.floor(Math.random() * (1000 - 100) + 100) / 100;
-        return randomnum;
-      })
-    );
-  }, []);
 
   const textTypeClass = (type) => {
     switch (type) {
@@ -62,7 +52,7 @@ export default function Terminal({
                 <code className="flex gap-2 flex-wrap my-2">
                   <p>~/bin/time</p>
                   <p className="text-warning">machine[1]</p>
-                  <p className="text-primary">({randomNumbers[i]}s)</p>
+                  <p className="text-primary">({line.time}s)</p>
                 </code>
                 <code
                   className={classNames(
@@ -74,7 +64,14 @@ export default function Terminal({
                     return (
                       <div key={index} className="flex flex-row gap-2">
                         <p>{">"} </p>
-                        <p>{item}</p>
+                        <p
+                          className={classNames(
+                            "whitespace-normal flex-1",
+                            textTypeClass("info")
+                          )}
+                        >
+                          {item}
+                        </p>
                       </div>
                     );
                   })}
@@ -87,7 +84,7 @@ export default function Terminal({
               <code className="flex gap-2 flex-wrap my-2">
                 <p>~/bin/time</p>
                 <p className="text-warning">machine[1]</p>
-                <p className="text-primary">({randomNumbers[i]}s)</p>
+                <p className="text-primary">({line.time}s)</p>
               </code>
               <code
                 className={classNames(
@@ -118,21 +115,11 @@ export default function Terminal({
                 {"> "}
               </textarea>
             </div>
-            {/* <div className="flex mb-3 px-4">
-              <code>{"> "}</code>
-              <code
-                className="whitespace-normal flex-1 text-justify underline cursor-pointer hover:text-primary ml-3"
-                onClick={() => {
-                  submitAnswer(currentValue);
-                }}
-              >
-                Next question
-              </code>
-            </div> */}
             <button
               className="btn btn-primary sticky bottom-3 left-full mb-3 mr-3"
               onClick={() => {
                 submitAnswer(currentValue);
+                setCurrentValue("> ");
               }}
             >
               Next question

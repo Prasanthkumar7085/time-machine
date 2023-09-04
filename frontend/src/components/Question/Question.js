@@ -19,6 +19,11 @@ function standardDeviation(numArray) {
   return Math.sqrt(variance);
 }
 
+function generateRandomTime() {
+  var randomnum = Math.floor(Math.random() * (1000 - 100) + 100) / 100;
+  return randomnum;
+}
+
 export default function Question() {
   const dispatch = useDispatch();
   const ref = useRef(null);
@@ -51,6 +56,7 @@ export default function Question() {
       {
         type: "text",
         value: gameNoteGenerator(estimateYear - GAME_STEPS[gameType]),
+        time: generateRandomTime(),
       },
       ...(answers.length > 0 ? [] : []),
       ...(answers.length > 0
@@ -59,6 +65,7 @@ export default function Question() {
               type: "text",
               value: `Let's see how you did.
 The graph on the right shows your best guess and Estimate Zone and the realized outcome. Here are your points for this round:`,
+              time: generateRandomTime(),
             },
             {
               type: "list",
@@ -73,16 +80,19 @@ The graph on the right shows your best guess and Estimate Zone and the realized 
                   answers.length - 1
                 ].percisionOfConfidentBand.toFixed(2)}%`,
               ],
+              time: generateRandomTime(),
             },
           ]
         : []),
       {
         type: "text",
         value: gameBodyGenerator(estimateYear, gameType, dataToShow.length),
+        time: generateRandomTime(),
       },
       {
         type: "text",
         value: gameQuestionGenerator(estimateYear, gameType),
+        time: generateRandomTime(),
       },
     ];
 
@@ -100,12 +110,19 @@ The graph on the right shows your best guess and Estimate Zone and the realized 
     setChartData(updatedData);
     setHasEstimate(true);
     setLines((prevData) => {
+      if (
+        prevData[prevData.length - 1].value ===
+        "[Optional]: You can explain the rational behind your estimation here."
+      ) {
+        return prevData;
+      }
       return [
         ...prevData,
         {
           type: "info",
           value:
             "[Optional]: You can explain the rational behind your estimation here.",
+          time: generateRandomTime(),
         },
       ];
     });
@@ -155,12 +172,13 @@ The graph on the right shows your best guess and Estimate Zone and the realized 
         explanation,
       };
       dispatch(updateGame({ answer, gameId }));
+      setHasEstimate(false);
     },
     [chartData, gameData, hasEstimate, estimateYear, gameId]
   );
 
   return (
-    <div className="flex w-full h-[calc(100%-4rem)] p-10 ">
+    <div className="flex w-full h-[calc(100%-4rem)] p-8 pt-2">
       <div className="h-full w-full flex relative shadow-md rounded-md overflow-hidden bg-[#191D24]">
         <div className="h-full w-[34%]">
           <Terminal
