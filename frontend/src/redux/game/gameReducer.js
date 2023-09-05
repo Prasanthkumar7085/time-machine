@@ -18,7 +18,7 @@ const tempInitalState = {
 
 const gameSlice = createSlice({
   name: "game",
-  initialState: tempInitalState,
+  initialState: initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(createGame.pending, (state) => {
@@ -44,7 +44,8 @@ const gameSlice = createSlice({
     builder.addCase(updateGame.fulfilled, (state, { payload }) => {
       return {
         ...state,
-        answers: [...payload],
+        answers: [...payload.answers],
+        finished: payload.finished,
         loading: false,
         success: true,
       };

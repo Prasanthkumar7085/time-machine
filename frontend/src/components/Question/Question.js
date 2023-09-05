@@ -6,11 +6,13 @@ import { createGame, updateGame } from "../../redux/game/gameActions";
 import {
   GAME_STARTING_YEAR,
   GAME_STEPS,
+  GAME_ROUNDS,
   gameBodyGenerator,
   gameNoteGenerator,
   gameQuestionGenerator,
 } from "../../utils/constants";
 import Terminal from "../Terminal";
+import { useNavigate } from "react-router-dom";
 
 function standardDeviation(numArray) {
   const mean = numArray.reduce((s, n) => s + n) / numArray.length;
@@ -26,13 +28,14 @@ function generateRandomTime() {
 
 export default function Question() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const ref = useRef(null);
   const [hasEstimate, setHasEstimate] = useState(false);
   const [lines, setLines] = useState([]);
   const [chartData, setChartData] = useState([]);
   const game = useSelector((state) => state.game);
   const gameType = game.type;
-  const gameId = game._id;
+  const gameId = game.id;
   const gameData = data[gameType];
   const estimateYear = useMemo(
     () =>
@@ -171,10 +174,27 @@ The graph on the right shows your best guess and Estimate Zone and the realized 
         year: estimateYear,
         explanation,
       };
-      dispatch(updateGame({ answer, gameId }));
+      const finished = GAME_ROUNDS[gameType] === answers.length + 1;
+      dispatch(updateGame({ answer, gameId, finished })).then(() => {
+        if (finished) {
+          navigate("/summary");
+        }
+      });
       setHasEstimate(false);
+      if (finished) {
+        setLines((prevData) => {
+          return [
+            ...prevData,
+            {
+              type: "text",
+              value: "Congratulations! You have completed the game.",
+              time: generateRandomTime(),
+            },
+          ];
+        });
+      }
     },
-    [chartData, gameData, hasEstimate, estimateYear, gameId]
+    [chartData, gameData, hasEstimate, estimateYear, gameId, answers, gameType]
   );
 
   return (

@@ -10,7 +10,6 @@ export default function Disclaimer() {
 
   const onAccept = () => {
     dispatch(acceptDisclaimer()).then(() => {
-      console.log("hi");
       navigate("/welcome");
     });
   };

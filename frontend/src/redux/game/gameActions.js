@@ -32,7 +32,7 @@ export const createGame = createAsyncThunk(
 
 export const updateGame = createAsyncThunk(
   "game/update",
-  async ({ answer, gameId }, { rejectWithValue }) => {
+  async ({ answer, gameId, finished }, { rejectWithValue }) => {
     const tokens = JSON.parse(localStorage.getItem("time-machine"));
     try {
       const config = {
@@ -43,11 +43,11 @@ export const updateGame = createAsyncThunk(
       };
       const { data } = await axios.post(
         `${backendURL}/v1/game/update-game/${gameId}`,
-        { answer },
+        { answer, finished },
         config
       );
 
-      return data.answers;
+      return data;
     } catch (error) {
       if (error.response && error.response.data.message) {
         return rejectWithValue(error.response.data.message);

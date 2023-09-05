@@ -9,6 +9,7 @@ const createGame = {
 const updateGame = {
   body: Joi.object().keys({
     answer: Joi.object().required(),
+    finished: Joi.boolean().required(),
   }),
 };
 

@@ -18,9 +18,16 @@ export const GAME_STEPS = {
 
 export const GAME_STARTING_YEAR = {
   "co2-concentrations": 1980,
-  "infant-mortality-rate": 1980,
-  "non-state-conflict": 1980,
-  "us-poverty": 1980,
+  "infant-mortality-rate": 1997,
+  "non-state-conflict": 2000,
+  "us-poverty": 1976,
+};
+
+export const GAME_ROUNDS = {
+  "co2-concentrations": 5,
+  "infant-mortality-rate": 5,
+  "non-state-conflict": 5,
+  "us-poverty": 5,
 };
 
 export const gameQuestionGenerator = (year, type) => {
