@@ -12,6 +12,7 @@ const GAME_TYPES = ['co2-concentrations', 'infant-mortality-rate', 'non-state-co
 const createGame = async (gameBody, user) => {
   const userId = user._id;
   const games = await Game.find({ user: userId });
+  console.log(games);
   const remainingTypes = GAME_TYPES.filter((type) => {
     const hasThisType = games.some((game) => game.type === type && game.finished === true);
     return !hasThisType;
@@ -20,7 +21,7 @@ const createGame = async (gameBody, user) => {
     throw new ApiError(httpStatus.UNAUTHORIZED, 'Sorry, you have already played all the games!');
   }
   const random = Math.floor(Math.random() * remainingTypes.length);
-  const tempType = GAME_TYPES[random];
+  const tempType = remainingTypes[random];
   return Game.create({ ...gameBody, user: userId, type: tempType });
 };
 
