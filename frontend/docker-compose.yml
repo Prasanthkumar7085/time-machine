@@ -6,6 +6,6 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "3000:80"
+      - "3001:80"
     environment:
-      - REACT_APP_HOST=//test.com:8080
+      - REACT_APP_HOST=//humanwelfare.uwaterloo.ca:8080
