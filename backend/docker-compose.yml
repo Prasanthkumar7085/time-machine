@@ -2,16 +2,18 @@ version: '3'
 
 services:
   node-app:
-    build: .
-    image: node-app
-    environment:
-      - MONGODB_URL=mongodb://mongodb:27017/node-boilerplate
+    tty: true
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
-      - '3000:3000'
+      - '8080:8080'
+    links:
+      - mongo
     depends_on:
       - mongodb
     volumes:
-      - .:/usr/src/node-app
+      - .:/app
     networks:
       - node-network
 
