@@ -1,12 +1,12 @@
-FROM node:latest
+FROM node:alpine
 
 WORKDIR /app/
 
-ADD package.json yarn.lock ./
-RUN yarn
+ADD package.json package-lock.json ./
+RUN npm i
 
 ADD . /app/
-RUN yarn build
+RUN npm run build
 
 FROM staticdeploy/app-server:cra-runtime
 COPY --from=0 /app/build /build
