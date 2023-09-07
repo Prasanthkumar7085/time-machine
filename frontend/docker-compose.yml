@@ -1,0 +1,11 @@
+version: "3"
+services:
+  game-frontend:
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:80"
+    environment:
+      - REACT_APP_HOST=//test.com:8080
