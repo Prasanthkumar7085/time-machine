@@ -2,7 +2,7 @@ version: '3'
 
 services:
   node-app:
-    tty: true
+    restart: always
     build:
       context: .
       dockerfile: Dockerfile

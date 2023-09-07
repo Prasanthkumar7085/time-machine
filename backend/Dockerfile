@@ -1,9 +1,15 @@
-FROM node:latest
+FROM node:alpine
 
-WORKDIR /app/
+RUN mkdir -p /usr/src/node-app && chown -R node:node /usr/src/node-app
 
-ADD package.json yarn.lock ./
+WORKDIR /usr/src/node-app
 
-RUN yarn
+COPY package.json yarn.lock ./
+
+USER node
+
+RUN yarn install --pure-lockfile
+
+COPY --chown=node:node . .
 
 CMD ["yarn", "start"]
