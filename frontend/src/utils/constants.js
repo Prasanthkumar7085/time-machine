@@ -1,6 +1,6 @@
 import NOTES from "../assets/question-year.json";
 
-export const backendURL = process.env.REACT_APP_HOST;
+export const backendURL = process.env.BACKEND_URL;
 
 export const GAME_TYPES = [
   "co2-concentrations",

@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "TimeMachine frontend",
   "author": "Ehsan Jso <ehsan.jsoure@gmail.com>",
+  "homepage": "https://humanwelfare.uwaterloo.ca/game/",
   "private": true,
   "dependencies": {
     "@nivo/core": "^0.83.0",

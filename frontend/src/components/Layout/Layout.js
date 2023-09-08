@@ -4,8 +4,7 @@ import Header from "../Header/Header";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { updateProfile } from "../../redux/user/userReducer";
-
-const backendURL = process.env.REACT_APP_HOST;
+import { backendURL } from "../../utils/constants";
 
 export default function Layout() {
   const location = useLocation();

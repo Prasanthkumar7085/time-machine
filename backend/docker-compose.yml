@@ -7,15 +7,13 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - '8080:8080'
-    links:
-      - mongo
+      - 8080:8080
     depends_on:
       - mongodb
     volumes:
       - .:/usr/src/node-app
     networks:
-      - node-network
+      - node_network
 
   mongodb:
     image: mongo:4.2.1-bionic
@@ -24,11 +22,10 @@ services:
     volumes:
       - dbdata:/data/db
     networks:
-      - node-network
+      - node_network
 
 volumes:
   dbdata:
 
 networks:
-  node-network:
-    driver: bridge
+  node_network:
