@@ -45,7 +45,7 @@ export default function Login() {
                 <input
                   type="email"
                   placeholder="Type here"
-                  className="input input-bordered input-md text-black"
+                  className="input input-bordered input-md text-white"
                   {...register("email")}
                   required
                 />
@@ -57,7 +57,7 @@ export default function Login() {
                 <input
                   type="password"
                   placeholder="Type here"
-                  className="input input-bordered input-md text-black"
+                  className="input input-bordered input-md text-white"
                   {...register("password")}
                   required
                 />

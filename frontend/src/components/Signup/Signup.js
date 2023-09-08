@@ -52,7 +52,7 @@ export default function Signup() {
                 <input
                   type="email"
                   placeholder="Type here"
-                  className="input input-bordered input-md text-black"
+                  className="input input-bordered input-md text-white"
                   {...register("email")}
                   required
                 />
@@ -64,7 +64,7 @@ export default function Signup() {
                 <input
                   type="password"
                   placeholder="Type here"
-                  className="input input-bordered input-md text-black"
+                  className="input input-bordered input-md text-white"
                   {...register("password")}
                   required
                 />
@@ -76,7 +76,7 @@ export default function Signup() {
                 <input
                   type="password"
                   placeholder="Type here"
-                  className="input input-bordered input-md text-black"
+                  className="input input-bordered input-md text-white"
                   {...register("confirmPassword")}
                   required
                 />
