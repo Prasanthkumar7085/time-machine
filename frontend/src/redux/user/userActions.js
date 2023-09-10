@@ -1,6 +1,8 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { backendURL } from "../../utils/constants";
+import { toast } from "react-hot-toast";
+import { errorHandler } from "../../utils/utils";
 
 export const registerUser = createAsyncThunk(
   "auth/register",
@@ -27,11 +29,9 @@ export const registerUser = createAsyncThunk(
 
       return data;
     } catch (error) {
-      if (error.response && error.response.data.message) {
-        return rejectWithValue(error.response.data.message);
-      } else {
-        return rejectWithValue(error.message);
-      }
+      const errorMessage = errorHandler(error);
+      toast.error(errorMessage);
+      return rejectWithValue(errorMessage);
     }
   }
 );
@@ -61,11 +61,9 @@ export const loginUser = createAsyncThunk(
 
       return data;
     } catch (error) {
-      if (error.response && error.response.data.message) {
-        return rejectWithValue(error.response.data.message);
-      } else {
-        return rejectWithValue(error.message);
-      }
+      const errorMessage = errorHandler(error);
+      toast.error(errorMessage);
+      return rejectWithValue(errorMessage);
     }
   }
 );
@@ -90,11 +88,9 @@ export const acceptDisclaimer = createAsyncThunk(
 
       return data;
     } catch (error) {
-      if (error.response && error.response.data.message) {
-        return rejectWithValue(error.response.data.message);
-      } else {
-        return rejectWithValue(error.message);
-      }
+      const errorMessage = errorHandler(error);
+      toast.error(errorMessage);
+      return rejectWithValue(errorMessage);
     }
   }
 );
@@ -119,11 +115,9 @@ export const logoutUser = createAsyncThunk(
 
       localStorage.removeItem("time-machine");
     } catch (error) {
-      if (error.response && error.response.data.message) {
-        return rejectWithValue(error.response.data.message);
-      } else {
-        return rejectWithValue(error.message);
-      }
+      const errorMessage = errorHandler(error);
+      toast.error(errorMessage);
+      return rejectWithValue(errorMessage);
     }
   }
 );

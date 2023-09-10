@@ -1,6 +1,8 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { backendURL } from "../../utils/constants";
+import { errorHandler } from "../../utils/utils";
+import { toast } from "react-hot-toast";
 
 export const createGame = createAsyncThunk(
   "game/create",
@@ -21,11 +23,9 @@ export const createGame = createAsyncThunk(
 
       return data;
     } catch (error) {
-      if (error.response && error.response.data.message) {
-        return rejectWithValue(error.response.data.message);
-      } else {
-        return rejectWithValue(error.message);
-      }
+      const errorMessage = errorHandler(error);
+      toast.error(errorMessage);
+      return rejectWithValue(errorMessage);
     }
   }
 );
@@ -49,11 +49,9 @@ export const updateGame = createAsyncThunk(
 
       return data;
     } catch (error) {
-      if (error.response && error.response.data.message) {
-        return rejectWithValue(error.response.data.message);
-      } else {
-        return rejectWithValue(error.message);
-      }
+      const errorMessage = errorHandler(error);
+      toast.error(errorMessage);
+      return rejectWithValue(errorMessage);
     }
   }
 );

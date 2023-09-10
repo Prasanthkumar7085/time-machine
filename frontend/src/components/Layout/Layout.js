@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { updateProfile } from "../../redux/user/userReducer";
 import { backendURL } from "../../utils/constants";
+import { Toaster } from "react-hot-toast";
 
 export default function Layout() {
   const location = useLocation();
@@ -54,6 +55,7 @@ export default function Layout() {
     <>
       <Header />
       {!loading && <Outlet />}
+      <Toaster position="top-center" />
     </>
   );
 }

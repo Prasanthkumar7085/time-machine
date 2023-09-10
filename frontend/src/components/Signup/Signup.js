@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { registerUser } from "../../redux/user/userActions";
 import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 export default function Signup() {
   const { loading, error } = useSelector((state) => state.user);
@@ -11,7 +12,8 @@ export default function Signup() {
 
   const submitForm = (data) => {
     if (data.password !== data.confirmPassword) {
-      alert("Password mismatch");
+      toast.error("Password mismatch!");
+      return;
     }
     data.email = data.email.toLowerCase();
     dispatch(registerUser(data)).then(() => {
