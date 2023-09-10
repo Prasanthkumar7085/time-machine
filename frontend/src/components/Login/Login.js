@@ -11,8 +11,10 @@ export default function Login() {
 
   const submitForm = (data) => {
     data.email = data.email.toLowerCase();
-    dispatch(loginUser(data)).then(() => {
-      navigate("/disclaimer");
+    dispatch(loginUser(data)).then((res) => {
+      if (!res.error) {
+        navigate("/disclaimer");
+      }
     });
   };
   return (

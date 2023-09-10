@@ -16,8 +16,10 @@ export default function Signup() {
       return;
     }
     data.email = data.email.toLowerCase();
-    dispatch(registerUser(data)).then(() => {
-      navigate("/disclaimer");
+    dispatch(registerUser(data)).then((res) => {
+      if (!res.error) {
+        navigate("/disclaimer");
+      }
     });
   };
 
