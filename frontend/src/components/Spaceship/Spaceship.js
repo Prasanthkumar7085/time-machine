@@ -1,7 +1,8 @@
 import React, { useRef, useState, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { SoftShadows, Stars, Text } from "@react-three/drei";
+import { SoftShadows, Stars, Text, Bounds } from "@react-three/drei";
 import { Instances, Computers } from "./Computers";
+import Cursor from "./Cursor";
 
 function Sphere({ position = [0, 0, 0], setRunCounter, ...props }) {
   const ref = useRef();
@@ -102,6 +103,11 @@ export default function Spaceship({ number, setRunCounter, scientistName }) {
           >
             Please step into time machine.
           </Text>
+          <Cursor
+            scale={[0.25, 0.35, 0.25]}
+            position={[0, 5.5, 0]}
+            rotation={[0, -Math.PI / 2, -Math.PI]}
+          />
         </group>
       </group>
       <Instances>

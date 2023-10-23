@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 
 let timer;
 const easeInOutCubic = (t) => {
-  return t / 100;
+  return t / 25;
 };
 
 export default function Welcome() {
