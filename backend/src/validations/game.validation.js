@@ -9,6 +9,8 @@ const createGame = {
 const startGame = {
   body: Joi.object().keys({
     name: Joi.string().required(),
+    gameId: Joi.string().optional().allow(null),
+    gameType: Joi.string().required(),
   }),
 };
 

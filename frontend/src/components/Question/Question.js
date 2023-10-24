@@ -26,6 +26,22 @@ function generateRandomTime() {
   return randomnum;
 }
 
+export const InfoIcon = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+    class="stroke-current shrink-0 w-6 h-6"
+  >
+    <path
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+    ></path>
+  </svg>
+);
+
 export default function Question() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -61,7 +77,6 @@ export default function Question() {
         value: gameNoteGenerator(estimateYear - GAME_STEPS[gameType]),
         time: generateRandomTime(),
       },
-      ...(answers.length > 0 ? [] : []),
       ...(answers.length > 0
         ? [
             {
@@ -197,6 +212,36 @@ The graph on the right shows your best guess and Estimate Zone and the realized 
     [chartData, gameData, hasEstimate, estimateYear, gameId, answers, gameType]
   );
 
+  const averagePredictiveAccuracy = useMemo(() => {
+    const total = answers.reduce((acc, answer) => {
+      return acc + answer.predictiveAccuracy;
+    }, 0);
+    if (answers.length === 0) {
+      return 0;
+    }
+    return (total / answers.length).toFixed(1);
+  }, [answers]);
+
+  const averageConfidentBandAccuracy = useMemo(() => {
+    const total = answers.reduce((acc, answer) => {
+      return acc + answer.confidentBandAccuracy;
+    }, 0);
+    if (answers.length === 0) {
+      return 0;
+    }
+    return (total / answers.length).toFixed(1);
+  }, [answers]);
+
+  const averagePercisionOfConfidentBand = useMemo(() => {
+    const total = answers.reduce((acc, answer) => {
+      return acc + answer.percisionOfConfidentBand;
+    }, 0);
+    if (answers.length === 0) {
+      return 0;
+    }
+    return (total / answers.length).toFixed(1);
+  }, [answers]);
+
   return (
     <div className="flex w-full h-[calc(100%-4rem)] p-8 pt-2">
       <div className="h-full w-full flex relative shadow-md rounded-md overflow-hidden bg-[#191D24]">
@@ -209,9 +254,68 @@ The graph on the right shows your best guess and Estimate Zone and the realized 
           />
         </div>
         <div
-          className="w-[66%] h-full absolute top-0 right-0 flex items-center justify-center bg-[#191D24] px-10"
+          className="w-[66%] h-full relative top-0 right-0 flex items-center justify-center bg-[#191D24] px-10"
           ref={ref}
         >
+          <div className="stats bg-transparent w-full absolute top-0 py-6 z-50">
+            <div className="pl-3 mb-1 w-full">
+              <h2 className="text-2xl font-bold">Stats:</h2>
+              <p className="text-gray-400 mt-1">
+                The stats displayed represent the average of each measurement.
+              </p>
+            </div>
+            <div className="stat place-items-center">
+              <div
+                className="tooltip tooltip-bottom"
+                data-tip="Predict next year's data point. If you're spot on, you get 60 points. For every 1% off, you lose 0.6 points."
+              >
+                <div className="stat-title flex gap-2 whitespace-normal">
+                  Predictive Accuracy
+                  <InfoIcon />
+                </div>
+              </div>
+              <div className="stat-value mt-2 flex">
+                {averagePredictiveAccuracy}
+                <div className="ml-1 text-info text-2xl font-semibold">/60</div>
+              </div>
+              {/* <div className="stat-desc">From January 1st to February 1st</div> */}
+            </div>
+
+            <div className="stat place-items-center">
+              <div
+                className="tooltip tooltip-bottom"
+                data-tip="Guess a range for the data point. If it's within, you get 30 points; if not, you get 0."
+              >
+                <div className="stat-title flex gap-2 whitespace-normal">
+                  Confidence Band Accuracy
+                  <InfoIcon />
+                </div>
+              </div>
+              <div className="stat-value mt-2 flex">
+                {averageConfidentBandAccuracy}
+                <div className="ml-1 text-info text-2xl font-semibold">/30</div>
+              </div>
+              {/* <div className="stat-desc text-secondary">↗︎ 40 (2%)</div> */}
+            </div>
+
+            <div className="stat place-items-center">
+              <div
+                className="tooltip tooltip-bottom"
+                data-tip="Set a narrow range for better precision. If it's tighter than a set standard, you get 10 points. If wider, your points decrease proportionally."
+              >
+                <div className="stat-title flex gap-2 whitespace-normal">
+                  Precision of Confidence Band
+                  <InfoIcon />
+                </div>
+              </div>
+              <div className="stat-value mt-2 flex">
+                {averagePercisionOfConfidentBand}
+                <div className="ml-1 text-info text-2xl font-semibold">/10</div>
+              </div>
+
+              {/* <div className="stat-desc">↘︎ 90 (14%)</div> */}
+            </div>
+          </div>
           <div className="w-[full] h-[400px] flex-grow">
             {chartData.length > 0 && (
               <LineChart

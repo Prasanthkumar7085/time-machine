@@ -399,9 +399,9 @@ const LineChart = ({ Data, updateChartData, chartRef, answers }) => {
           .style("left", `${xScale(xAccessor(hoveredIndexData))}px`)
           .style("color", "white");
 
-        tooltip.select(".data").text(`${yAccessor(hoveredIndexData)}`);
+        tooltip.select(".data").text(`value: ${yAccessor(hoveredIndexData)}`);
 
-        const dateFormatter = d3.timeFormat("%B %-d, %Y");
+        const dateFormatter = d3.timeFormat("year: %Y");
 
         tooltip
           .select(".date")

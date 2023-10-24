@@ -31,15 +31,18 @@ const createGame = async (gameBody, user) => {
  */
 const startGame = async (gameBody, user) => {
   const userId = user._id;
-  const games = await Game.find({ user: userId, type: gameBody.type });
-  if (games.length > 0) {
-    if (games[0].finished === false) {
-      return games[0];
+  const game = await Game.findById(gameBody.gameId);
+  if (game) {
+    if (game.finished === false) {
+      return game;
     } else {
       throw new ApiError(httpStatus.UNAUTHORIZED, `Sorry, you have already played this ${gameBody.type}!`);
     }
   }
-  return Game.create({ ...gameBody, user: userId });
+  const gameType = gameBody.gameType;
+  delete gameBody['gameId'];
+  delete gameBody['gameType'];
+  return Game.create({ ...gameBody, user: userId, type: gameType });
 };
 
 /**

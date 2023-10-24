@@ -6,7 +6,7 @@ import classNames from "classnames";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getGames } from "../../redux/game/gameActions";
-import { updateSelectedType } from "../../redux/game/gameReducer";
+import { updateSelectedGame } from "../../redux/game/gameReducer";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
@@ -64,11 +64,11 @@ export default function Categories() {
     if (!game) {
       return;
     }
-    const { finished, type } = game;
+    const { finished, id, type } = game;
     if (finished) {
       toast.error("You have already finished this topic!");
     } else {
-      dispatch(updateSelectedType({ selectedType: type }));
+      dispatch(updateSelectedGame({ selectedGameId: id, selectedType: type }));
       navigate("/welcome");
     }
   };

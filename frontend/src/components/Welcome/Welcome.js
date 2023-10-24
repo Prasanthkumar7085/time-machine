@@ -1,7 +1,5 @@
 import React, { useEffect } from "react";
-import Background from "../Spaceship/Background";
 import Spaceship from "../Spaceship/Spaceship";
-import Text from "../Spaceship/Text";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 
@@ -39,7 +37,7 @@ export default function Welcome() {
   }, [counterState, runCounter]);
 
   return (
-    <div className="h-full">
+    <div className="h-[calc(100%-4rem)]">
       <Spaceship
         number={counterState}
         setRunCounter={setRunCounter}

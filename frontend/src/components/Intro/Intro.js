@@ -15,6 +15,8 @@ const colors = {
 
 export default function Intro() {
   const scientistName = useSelector((state) => state.user.scientistName);
+  const selectedGameId = useSelector((state) => state.game.selectedGameId);
+  const selectedType = useSelector((state) => state.game.selectedType);
 
   return (
     <div className="w-full h-[calc(100%-4rem)]">
@@ -30,7 +32,11 @@ export default function Intro() {
         <Space count={1000} colors={colors.sunnyRainbow} />
         <Stars radius={100} depth={50} count={5000} factor={2} />
       </Canvas>
-      <Details scientistName={scientistName} />
+      <Details
+        scientistName={scientistName}
+        gameId={selectedGameId}
+        selectedType={selectedType}
+      />
     </div>
   );
 }

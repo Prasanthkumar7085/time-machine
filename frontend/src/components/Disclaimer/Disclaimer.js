@@ -10,13 +10,13 @@ export default function Disclaimer() {
 
   const onAccept = () => {
     dispatch(acceptDisclaimer()).then(() => {
-      navigate("/welcome");
+      navigate("/scientist-name");
     });
   };
 
   useEffect(() => {
     if (isDisclaimerAccepted) {
-      navigate("/welcome");
+      navigate("/scientist-name");
     }
   }, []);
 

@@ -30,32 +30,44 @@ export default function Navbar() {
       case "/disclaimer":
         return (
           <li>
-            <Link to="/welcome">Home</Link>
+            <Link to="/">Home</Link>
           </li>
         );
-      default:
       case "/demographics":
         return (
           <li>
-            <Link to="/welcome">Home</Link>
+            <Link to="/">Home</Link>
           </li>
         );
+      case "/stats":
+        return (
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+        );
+      default:
+        return null;
     }
   };
   return (
     <div className="flex-none">
-      <div className="text-sm breadcrumbs">
-        <ul>
-          {renderMenu()}
-          {!(
-            location.pathname === "/login" || location.pathname === "/signup"
-          ) && (
+      <ul className="menu menu-horizontal px-1">
+        {renderMenu()}
+        {!(
+          location.pathname === "/login" || location.pathname === "/signup"
+        ) && (
+          <>
+            {location.pathname !== "/stats" && (
+              <li>
+                <Link to="/stats">Stats</Link>
+              </li>
+            )}
             <li className="cursor-pointer" onClick={logout}>
-              Logout
+              <Link>Logout</Link>
             </li>
-          )}
-        </ul>
-      </div>
+          </>
+        )}
+      </ul>
     </div>
   );
 }

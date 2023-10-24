@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useCallback, useState } from "react";
 import { useDispatch } from "react-redux";
-import { createGame } from "../../redux/game/gameActions";
+import { createGame, startGame } from "../../redux/game/gameActions";
 import { useNavigate } from "react-router-dom";
 import { TypeAnimation } from "react-type-animation";
 import Tutorial from "../../assets/tutorial.mp4";
@@ -23,7 +23,7 @@ const introText = [
   5000,
 ];
 
-export default function Details({ scientistName }) {
+export default function Details({ scientistName, gameId, selectedType }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [play, setPlay] = useState(false);
@@ -58,15 +58,22 @@ export default function Details({ scientistName }) {
   }, []);
 
   const initiateGame = () => {
-    dispatch(createGame({ scientistName })).then(() => {
+    dispatch(startGame({ scientistName, gameId, selectedType })).then(() => {
       navigate("/question");
     });
   };
   return (
     <div className="absolute top-[4rem] left-0 w-full h-[calc(100%-4rem)] flex justify-center items-center flex-col gap-3 p-10">
       <div className="mockup-window border border-base-300">
+        <div className="pl-3 mb-1 w-full">
+          <h2 className="text-2xl font-bold">Instructions:</h2>
+          <p className="text-gray-400 mt-1">
+            If it's your first time, please watch the instructions. If you've
+            seen them before, click the 'READY' button to proceed.
+          </p>
+        </div>
         <div className="w-full p-3 relative max-w-[1300px]">
-          <MediaPlayer src={Tutorial} className="max-w-[1300px]" muted>
+          <MediaPlayer src={Tutorial} className="max-w-[1300px]" muted controls>
             <MediaOutlet>
               <MediaGesture
                 className="top-0 left-0 h-full w-full"
@@ -88,10 +95,9 @@ export default function Details({ scientistName }) {
                 event="dblpointerup"
                 action="seek:10"
               />
-              <MediaAutoPlay play={play} />
             </MediaOutlet>
           </MediaPlayer>
-          <div className="absolute top-[70px] right-[70px] w-[750px] h-fit border border-base-300 p-3 rounded-xl">
+          {/* <div className="absolute top-[70px] right-[70px] w-[750px] h-fit border border-base-300 p-3 rounded-xl">
             <TypeAnimation
               sequence={introText}
               speed={50}
@@ -99,14 +105,14 @@ export default function Details({ scientistName }) {
               cursor={true}
               className="font-mono"
             />
-          </div>
+          </div> */}
         </div>
       </div>
-      {showReadyButton && (
-        <button className="btn btn-primary" onClick={initiateGame}>
-          Ready!
-        </button>
-      )}
+      {/* {true && ( */}
+      <button className="btn btn-primary" onClick={initiateGame}>
+        Ready!
+      </button>
+      {/* )} */}
     </div>
   );
 }

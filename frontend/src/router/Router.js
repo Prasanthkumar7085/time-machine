@@ -35,6 +35,14 @@ export const router = createBrowserRouter(
               element: <ScientistName />,
             },
             {
+              path: "/categories",
+              element: <Categories />,
+            },
+            {
+              path: "/stats",
+              element: <Stats />,
+            },
+            {
               path: "/welcome",
               element: <Welcome />,
             },
