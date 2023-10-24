@@ -19,7 +19,6 @@ const TerminalController = (props = {}) => {
   ]);
 
   function onInput(input) {
-    console.log(input);
     let ld = [...lineData];
     ld.push(<TerminalInput>{input}</TerminalInput>);
     if (!input) {
@@ -27,7 +26,7 @@ const TerminalController = (props = {}) => {
     }
     setLineData(ld);
     dispatch(updateScientistName({ scientistName: input }));
-    navigate("/welcome", { state: { scientistName: input } });
+    navigate("/categories", { state: { scientistName: input } });
   }
 
   return (

@@ -9,6 +9,16 @@ const createGame = catchAsync(async (req, res) => {
   res.status(httpStatus.CREATED).send(game);
 });
 
+const startGame = catchAsync(async (req, res) => {
+  const game = await gameService.startGame(req.body, req.user);
+  res.status(httpStatus.CREATED).send(game);
+});
+
+const getGames = catchAsync(async (req, res) => {
+  const games = await gameService.getGames(req.user);
+  res.status(httpStatus.CREATED).send(games);
+});
+
 const updateGame = catchAsync(async (req, res) => {
   const game = await gameService.updateGame(req.body, req.user, req.params.gameId);
   res.status(httpStatus.CREATED).send(game);
@@ -17,4 +27,6 @@ const updateGame = catchAsync(async (req, res) => {
 module.exports = {
   createGame,
   updateGame,
+  getGames,
+  startGame,
 };

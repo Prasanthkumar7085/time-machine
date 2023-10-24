@@ -12,7 +12,6 @@ const GAME_TYPES = ['co2-concentrations', 'infant-mortality-rate', 'non-state-co
 const createGame = async (gameBody, user) => {
   const userId = user._id;
   const games = await Game.find({ user: userId });
-  console.log(games);
   const remainingTypes = GAME_TYPES.filter((type) => {
     const hasThisType = games.some((game) => game.type === type && game.finished === true);
     return !hasThisType;
@@ -23,6 +22,35 @@ const createGame = async (gameBody, user) => {
   const random = Math.floor(Math.random() * remainingTypes.length);
   const tempType = remainingTypes[random];
   return Game.create({ ...gameBody, user: userId, type: tempType });
+};
+
+/**
+ * Create a user
+ * @param {Object} gameBody
+ * @returns {Promise<Game>}
+ */
+const startGame = async (gameBody, user) => {
+  const userId = user._id;
+  const games = await Game.find({ user: userId, type: gameBody.type });
+  if (games.length > 0) {
+    if (games[0].finished === false) {
+      return games[0];
+    } else {
+      throw new ApiError(httpStatus.UNAUTHORIZED, `Sorry, you have already played this ${gameBody.type}!`);
+    }
+  }
+  return Game.create({ ...gameBody, user: userId });
+};
+
+/**
+ * Create a user
+ * @param {Object} gameBody
+ * @returns {Promise<Game>}
+ */
+const getGames = async (user) => {
+  const userId = user._id;
+  const games = await Game.find({ user: userId });
+  return games;
 };
 
 /**
@@ -46,4 +74,6 @@ const updateGame = async (body, user, gameId) => {
 module.exports = {
   createGame,
   updateGame,
+  getGames,
+  startGame,
 };

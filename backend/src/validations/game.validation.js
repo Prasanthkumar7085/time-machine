@@ -6,6 +6,14 @@ const createGame = {
   }),
 };
 
+const startGame = {
+  body: Joi.object().keys({
+    name: Joi.string().required(),
+  }),
+};
+
+const getGames = {};
+
 const updateGame = {
   body: Joi.object().keys({
     answer: Joi.object().required(),
@@ -16,4 +24,6 @@ const updateGame = {
 module.exports = {
   createGame,
   updateGame,
+  startGame,
+  getGames,
 };
