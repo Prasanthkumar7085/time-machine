@@ -1,14 +1,17 @@
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { registerUser } from "../../redux/user/userActions";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
+import PasswordChecklist from "./PasswordChecklist";
 
 export default function Signup() {
   const { loading, error } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, watch } = useForm();
+  // const [isPasswordFocused, setIsPasswordFocused] = useState(false);
 
   const submitForm = (data) => {
     if (data.password !== data.confirmPassword) {
@@ -23,13 +26,19 @@ export default function Signup() {
     });
   };
 
+  const { password, confirmPassword } = watch();
+  const letter = password ? password.match(/[a-zA-Z]/) : false;
+  const number = password ? password.match(/\d/) : false;
+  const moreThanEight = password ? password.length >= 8 : 0;
+  const passwordMatch = moreThanEight && password === confirmPassword;
+
   return (
     <div className="flex w-full h-[calc(100%-4rem)] justify-center items-center">
       <div className="flex flex-row gap-5">
-        <div>
-          <div className="mockup-code h-full w-[250px] shadow-lg bg-[#252a33]">
+        <div className="flex flex-col gap-2">
+          <div className="mockup-code h-full min-h-[180px] w-[250px] shadow-lg bg-[#191D24]">
             <pre data-prefix=">" className="text-warning">
-              <code>installing...</code>
+              <code>Installing...</code>
             </pre>
             <pre data-prefix=">" className="text-success">
               <code>Done!</code>
@@ -43,46 +52,62 @@ export default function Signup() {
             <pre data-prefix="">
               <code>fill the form ...</code>
             </pre>
-            <pre data-prefix=">">
-              <code>{error && error}</code>
-            </pre>
           </div>
+
+          {/* {isPasswordFocused && (
+            <> */}
+          <h2 class="text-md font-semibold text-white mt-1">
+            Password requirements:
+          </h2>
+          <PasswordChecklist
+            letter={letter}
+            number={number}
+            moreThanEight={moreThanEight}
+            passwordMatch={passwordMatch}
+          />
+          {/* </>
+          )} */}
         </div>
         <form onSubmit={handleSubmit(submitForm)}>
-          <div className="flex flex-col gap-3 justify-center items-start">
+          <div className="flex flex-col gap-5 justify-center items-start">
             <div className="form-control">
               <label className="flex flex-col">
-                <span className="w-[250px] justify-end">Email</span>
+                <span className="w-[250px] justify-end mb-1">Email</span>
                 <input
                   type="email"
-                  placeholder="Type here"
+                  placeholder="email@example.com"
                   className="input input-bordered input-md text-white"
                   {...register("email")}
                   required
+                  // onFocus={() => setIsPasswordFocused(false)}
                 />
               </label>
             </div>
-            <div className="form-control">
+            <div className="form-control relative">
               <label className="flex flex-col">
-                <span className="w-[250px] justify-end">Password</span>
+                <span className="w-[250px] justify-end mb-1">Password</span>
                 <input
                   type="password"
-                  placeholder="Type here"
+                  placeholder="password123"
                   className="input input-bordered input-md text-white"
                   {...register("password")}
                   required
+                  // onFocus={() => setIsPasswordFocused(true)}
                 />
               </label>
             </div>
             <div className="form-control">
               <label className="flex flex-col">
-                <span className="w-[250px] justify-end">Repeat Password</span>
+                <span className="w-[250px] justify-end mb-1">
+                  Repeat Password
+                </span>
                 <input
                   type="password"
-                  placeholder="Type here"
+                  placeholder="password123"
                   className="input input-bordered input-md text-white"
                   {...register("confirmPassword")}
                   required
+                  // onFocus={() => setIsPasswordFocused(true)}
                 />
               </label>
             </div>
