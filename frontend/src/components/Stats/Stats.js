@@ -89,7 +89,10 @@ export default function Stats() {
               return (total / answers.length).toFixed(1);
             };
             return (
-              <div className="card card-side bg-base-100 shadow-xl mb-8 overflow-visible">
+              <div
+                className="card card-side bg-base-100 shadow-xl mb-8 overflow-visible"
+                key={gameType}
+              >
                 <figure className="w-[150px] h-[150px] flex-shrink-0 flex-grow relative">
                   <img src={getGameImage(gameType)} alt="game" />
                   <p className="absolute px-4 text-lg text-white bg-[#191D24] rounded-md mx-2 left-0 bottom-2 w-auto h-auto">
