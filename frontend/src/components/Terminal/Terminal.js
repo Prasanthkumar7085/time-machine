@@ -48,12 +48,12 @@ export default function Terminal({
         {lines.map((line, i) => {
           if (line.type === "list") {
             return (
-              <div className="flex mb-3 flex-col px-4 border-t border-t-[rgba(255,255,255,0.1)]">
-                <code className="flex gap-2 flex-wrap my-2">
+              <div className="flex flex-col px-4 border-t border-t-[rgba(255,255,255,0.1)] py-2">
+                {/* <code className="flex gap-2 flex-wrap my-2">
                   <p>~/bin/time</p>
                   <p className="text-warning">machine[1]</p>
                   <p className="text-primary">({line.time}s)</p>
-                </code>
+                </code> */}
                 <code
                   className={classNames(
                     "whitespace-normal flex-1",
@@ -80,12 +80,12 @@ export default function Terminal({
             );
           }
           return (
-            <div className="flex mb-3 flex-col px-4 border-t border-t-[rgba(255,255,255,0.1)]">
-              <code className="flex gap-2 flex-wrap my-2">
+            <div className="flex flex-col px-4 border-t border-t-[rgba(255,255,255,0.1)] py-2">
+              {/* <code className="flex gap-2 flex-wrap my-2">
                 <p>~/bin/time</p>
                 <p className="text-warning">machine[1]</p>
                 <p className="text-primary">({line.time}s)</p>
-              </code>
+              </code> */}
               <code
                 className={classNames(
                   "whitespace-normal flex-1",

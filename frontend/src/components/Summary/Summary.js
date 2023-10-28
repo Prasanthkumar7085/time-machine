@@ -91,7 +91,7 @@ export default function Summary() {
                     data-tip="Predict next year's data point. If you're spot on, you get 60 points. For every 1% off, you lose 0.6 points."
                   >
                     <div className="stat-title flex gap-2 whitespace-normal">
-                      Predictive Accuracy
+                      Average Predictive Accuracy
                       <InfoIcon />
                     </div>
                   </div>
@@ -110,7 +110,7 @@ export default function Summary() {
                     data-tip="Guess a range for the data point. If it's within, you get 30 points; if not, you get 0."
                   >
                     <div className="stat-title flex gap-2 whitespace-normal">
-                      Confidence Band Accuracy
+                      Average Confidence Band Accuracy
                       <InfoIcon />
                     </div>
                   </div>
@@ -129,7 +129,7 @@ export default function Summary() {
                     data-tip="Set a narrow range for better precision. If it's tighter than a set standard, you get 10 points. If wider, your points decrease proportionally."
                   >
                     <div className="stat-title flex gap-2 whitespace-normal">
-                      Precision of Confidence Band
+                      Average Precision of Confidence Band
                       <InfoIcon />
                     </div>
                   </div>

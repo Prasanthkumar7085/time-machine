@@ -162,7 +162,7 @@ export default function Categories() {
                 "group-hover:scale-110 transition duration-300 ease-in-out",
                 getDisabledStyle(gamesHistory["co2-concentrations"])
               )}
-              src={Infant}
+              src={CO2}
               alt="CO2 Concentrations"
             />
           </div>
@@ -191,7 +191,7 @@ export default function Categories() {
                 "group-hover:scale-110 transition duration-300 ease-in-out",
                 getDisabledStyle(gamesHistory["infant-mortality-rate"])
               )}
-              src={CO2}
+              src={Infant}
               alt="Infant Mortality Rate"
             />
           </div>

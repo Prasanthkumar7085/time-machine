@@ -89,8 +89,8 @@ export default function Spaceship({ number, setRunCounter, scientistName }) {
             color="white"
             anchorX="center"
             anchorY="middle"
-            position={[0, 6.7, 0]}
-            scale={0.3}
+            position={[0, 7, 0]}
+            scale={0.5}
           >
             Welcome, {scientistName}.
           </Text>
@@ -98,14 +98,14 @@ export default function Spaceship({ number, setRunCounter, scientistName }) {
             color="white"
             anchorX="center"
             anchorY="middle"
-            position={[0, 6.2, 0]}
-            scale={0.3}
+            position={[0, 6.5, 0]}
+            scale={0.5}
           >
             Please step into time machine.
           </Text>
           <Cursor
-            scale={[0.25, 0.35, 0.25]}
-            position={[0, 5.5, 0]}
+            scale={[0.3, 0.4, 0.3]}
+            position={[0, 5.6, 0]}
             rotation={[0, -Math.PI / 2, -Math.PI]}
           />
         </group>

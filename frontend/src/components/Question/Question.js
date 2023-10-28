@@ -14,16 +14,92 @@ import {
 import Terminal from "../Terminal";
 import { useNavigate } from "react-router-dom";
 
-function standardDeviation(numArray) {
-  const mean = numArray.reduce((s, n) => s + n) / numArray.length;
-  const variance =
-    numArray.reduce((s, n) => s + (n - mean) ** 2, 0) / (numArray.length - 1);
+/**
+ * Calculate the standard deviation for an array of objects where values are stored in item.value.
+ *
+ * @param {Array} data - Array of objects with a "value" property.
+ * @returns {number} - Standard deviation of the values.
+ */
+function standardDeviation(data) {
+  if (data.length === 0) {
+    return 0;
+  }
+
+  // Calculate the mean
+  let sum = data.reduce((acc, item) => acc + Number(item.value), 0);
+  let mean = sum / data.length;
+
+  // Calculate the variance
+  let variance =
+    data.reduce(
+      (acc, item) => acc + Math.pow(Number(item.value) - mean, 2),
+      0
+    ) / data.length;
+
+  // Return the standard deviation (square root of variance)
   return Math.sqrt(variance);
 }
 
 function generateRandomTime() {
   var randomnum = Math.floor(Math.random() * (1000 - 100) + 100) / 100;
   return randomnum;
+}
+
+/**
+ * Calculate player's score based on prediction accuracy.
+ *
+ * @param {number} prediction - Player's predicted data point for the next year.
+ * @param {number} actual - Actual data point for the next year.
+ * @param {number} [maxScore=60] - Maximum score a player can get. Default is 60.
+ * @returns {number} - Player's score.
+ */
+function calculatePredectiveAccuracy(prediction, actual, maxScore = 60) {
+  // Calculate the percentage error.
+  const errorPercentage = Math.abs((prediction - actual) / actual) * 100;
+
+  // Determine the accuracy percentage.
+  const accuracyPercentage = 100 - errorPercentage;
+
+  // Return the player's score based on accuracy percentage.
+  return (accuracyPercentage / 100) * maxScore;
+}
+
+/**
+ * Calculate player's score based on confidence band accuracy.
+ *
+ * @param {number} lowerBound - Lower bound of the player's confidence band.
+ * @param {number} upperBound - Upper bound of the player's confidence band.
+ * @param {number} actual - Actual data point for the next year.
+ * @param {number} [maxScore=30] - Maximum score a player can get for this category. Default is 30.
+ * @returns {number} - Player's score.
+ */
+function confidenceBandScore(lowerBound, upperBound, actual, maxScore = 30) {
+  if (actual >= lowerBound && actual <= upperBound) {
+    return maxScore;
+  } else {
+    return 0;
+  }
+}
+
+/**
+ * Calculate player's score based on the precision of their confidence band.
+ *
+ * @param {number} lowerBound - Lower bound of the player's confidence band.
+ * @param {number} upperBound - Upper bound of the player's confidence band.
+ * @param {number} threshold - Threshold for the precision, e.g., standard deviation of previous data points.
+ * @param {number} [maxScore=10] - Maximum score a player can get for this category. Default is 10.
+ * @returns {number} - Player's score.
+ */
+function precisionScore(lowerBound, upperBound, threshold, maxScore = 10) {
+  const bandWidth = upperBound - lowerBound;
+
+  // If bandWidth is less than or equal to threshold, return maxScore
+  if (bandWidth <= threshold) {
+    return maxScore;
+  } else {
+    // Proportionally decrease the score based on how much wider the bandWidth is compared to the threshold
+    return maxScore * (threshold / bandWidth);
+  }
 }
 
 export const InfoIcon = () => (
@@ -90,13 +166,13 @@ The graph on the right shows your best guess and Estimate Zone and the realized 
               value: [
                 `Predictive Accuracy (60 points): ${answers[
                   answers.length - 1
-                ].predictiveAccuracy.toFixed(2)}%`,
+                ].predictiveAccuracy.toFixed(2)}`,
                 `Confidence Band Accuracy (30 points): ${answers[
                   answers.length - 1
-                ].confidentBandAccuracy.toFixed(2)}%`,
+                ].confidentBandAccuracy.toFixed(2)}`,
                 `Precision of Confidence Band (10 points): ${answers[
                   answers.length - 1
-                ].percisionOfConfidentBand.toFixed(2)}%`,
+                ].percisionOfConfidentBand.toFixed(2)}`,
               ],
               time: generateRandomTime(),
             },
@@ -163,22 +239,25 @@ The graph on the right shows your best guess and Estimate Zone and the realized 
       const explanation = value.substring(2);
       const guessCenter = Number(chartData[chartData.length - 2].value);
       const guessRange = Number(chartData[chartData.length - 2].estimateMargin);
-      const correctAnswer = Number(gameData[chartData.length - 1].value);
-      const predictiveAccuracy =
-        60 *
-        (1 -
-          Math.min(Math.abs(guessCenter - correctAnswer), correctAnswer) /
-            correctAnswer);
-      const confidentBandAccuracy =
-        guessCenter + guessRange < correctAnswer ||
-        guessCenter - guessRange > correctAnswer
-          ? 0
-          : 30;
-      const sd = standardDeviation(
-        chartData.slice(-2).map((item) => Number(item.value))
+      const correctAnswer = Number(gameData[chartData.length - 2].value);
+      const predictiveAccuracy = calculatePredectiveAccuracy(
+        guessCenter,
+        correctAnswer,
+        60
       );
-      const percisionOfConfidentBand =
-        guessRange - sd < 0 ? 10 : 10 - sd / guessRange;
+      const confidentBandAccuracy = confidenceBandScore(
+        guessCenter - guessRange,
+        guessCenter + guessRange,
+        correctAnswer,
+        30
+      );
+      const sd = standardDeviation(chartData.slice(-2));
+      const percisionOfConfidentBand = precisionScore(
+        guessCenter - guessRange,
+        guessCenter + guessRange,
+        sd / 4,
+        10
+      );
       const answer = {
         guessCenter,
         guessRange,
@@ -245,7 +324,7 @@ The graph on the right shows your best guess and Estimate Zone and the realized 
   return (
     <div className="flex w-full h-[calc(100%-4rem)] p-8 pt-2">
       <div className="h-full w-full flex relative shadow-md rounded-md overflow-hidden bg-[#191D24]">
-        <div className="h-full w-[34%]">
+        <div className="h-full w-[28%]">
           <Terminal
             lines={lines}
             hasEstimate={hasEstimate}
@@ -254,23 +333,23 @@ The graph on the right shows your best guess and Estimate Zone and the realized 
           />
         </div>
         <div
-          className="w-[66%] h-full relative top-0 right-0 flex items-center justify-center bg-[#191D24] px-10"
+          className="w-[72%] h-full relative top-0 right-0 flex items-center justify-center bg-[#191D24] px-10"
           ref={ref}
         >
           <div className="stats bg-transparent w-full absolute top-0 py-6 z-50">
-            <div className="pl-3 mb-1 w-full">
+            {/* <div className="pl-3 mb-1 w-full">
               <h2 className="text-2xl font-bold">Stats:</h2>
               <p className="text-gray-400 mt-1">
                 The stats displayed represent the average of each measurement.
               </p>
-            </div>
+            </div> */}
             <div className="stat place-items-center">
               <div
                 className="tooltip tooltip-bottom"
                 data-tip="Predict next year's data point. If you're spot on, you get 60 points. For every 1% off, you lose 0.6 points."
               >
                 <div className="stat-title flex gap-2 whitespace-normal">
-                  Predictive Accuracy
+                  Average Predictive Accuracy
                   <InfoIcon />
                 </div>
               </div>
@@ -287,7 +366,7 @@ The graph on the right shows your best guess and Estimate Zone and the realized 
                 data-tip="Guess a range for the data point. If it's within, you get 30 points; if not, you get 0."
               >
                 <div className="stat-title flex gap-2 whitespace-normal">
-                  Confidence Band Accuracy
+                  Average Confidence Band Accuracy
                   <InfoIcon />
                 </div>
               </div>
@@ -304,7 +383,7 @@ The graph on the right shows your best guess and Estimate Zone and the realized 
                 data-tip="Set a narrow range for better precision. If it's tighter than a set standard, you get 10 points. If wider, your points decrease proportionally."
               >
                 <div className="stat-title flex gap-2 whitespace-normal">
-                  Precision of Confidence Band
+                  Average Precision of Confidence Band
                   <InfoIcon />
                 </div>
               </div>

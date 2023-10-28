@@ -12,6 +12,8 @@ import Summary from "../components/Summary";
 import { ProtectedRoute } from "./ProtectedRoute";
 import { PublicRoute } from "./PublicRoute";
 import Intro from "../components/Intro/Intro";
+import Categories from "../components/Categories";
+import Stats from "../components/Stats";
 
 export const router = createBrowserRouter(
   [

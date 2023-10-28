@@ -170,7 +170,7 @@ const LineChart = ({ Data, updateChartData, chartRef, answers }) => {
       .append("g")
       .classed("yAxis", true)
       .style("color", "white")
-      .style("font-size", ".8rem")
+      .style("font-size", "1.1rem")
       .call(yAxis);
 
     // y-axis label
@@ -180,7 +180,7 @@ const LineChart = ({ Data, updateChartData, chartRef, answers }) => {
       .attr("y", -dimensions.margins + 15)
       .attr("fill", "white")
       .text(yAxisLabel)
-      .style("font-size", "1rem")
+      .style("font-size", "1.1rem")
       .style("transform", "rotate(270deg)")
       .style("text-anchor", "middle");
 
@@ -194,7 +194,7 @@ const LineChart = ({ Data, updateChartData, chartRef, answers }) => {
       .classed("xAxis", true)
       .style("transform", `translateY(${dimensions.containerHeight}px)`)
       .style("color", "white")
-      .style("font-size", ".8rem")
+      .style("font-size", "1.1rem")
       .call(xAxis);
 
     xAxisGroup
@@ -203,7 +203,7 @@ const LineChart = ({ Data, updateChartData, chartRef, answers }) => {
       .attr("y", 50)
       .attr("fill", "white")
       .text("Year")
-      .style("font-size", "1rem")
+      .style("font-size", "1.1rem")
       .style("text-anchor", "middle");
 
     var verticalx = d3

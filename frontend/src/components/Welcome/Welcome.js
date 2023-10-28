@@ -41,7 +41,7 @@ export default function Welcome() {
       <Spaceship
         number={counterState}
         setRunCounter={setRunCounter}
-        scientistName={location?.state?.scientistName}
+        scientistName={scientistName}
       />
     </div>
   );
