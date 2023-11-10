@@ -158,12 +158,13 @@ export default function Question() {
             {
               type: "text",
               value: `Let's see how you did.
-The graph on the right shows your best guess and Estimate Zone and the realized outcome. Here are your points for this round:`,
+The graph on the right shows your best guess and Estimate Zone and the realized outcome.`,
               time: generateRandomTime(),
             },
             {
               type: "list",
               value: [
+                "Last rounds points:",
                 `Predictive Accuracy (60 points): ${answers[
                   answers.length - 1
                 ].predictiveAccuracy.toFixed(2)}`,
