@@ -164,7 +164,7 @@ The graph on the right shows your best guess and Estimate Zone and the realized 
             {
               type: "list",
               value: [
-                "Last rounds points:",
+                "Last round's points:",
                 `Predictive Accuracy (60 points): ${answers[
                   answers.length - 1
                 ].predictiveAccuracy.toFixed(2)}`,
