@@ -20,7 +20,7 @@ export const GAME_STARTING_YEAR = {
   "co2-concentrations": 1980,
   "infant-mortality-rate": 1997,
   "non-state-conflict": 2000,
-  "us-poverty": 1970,
+  "us-poverty": 1968,
 };
 
 export const GAME_ROUNDS = {
