@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { registerUser } from "../../redux/user/userActions";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import PasswordChecklist from "./PasswordChecklist";
 
@@ -119,6 +119,12 @@ export default function Signup() {
               Submit
             </button>
           </div>
+          <div className="divider">Already have an account?</div>
+          <Link to="/signup">
+            <p className="link link-hover text-slate-400 text-md w-full text-center">
+              Login!
+            </p>
+          </Link>
         </form>
       </div>
     </div>

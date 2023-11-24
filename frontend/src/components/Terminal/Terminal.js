@@ -122,7 +122,7 @@ export default function Terminal({
                 setCurrentValue("> ");
               }}
             >
-              Next question
+              Let's see how you did!
             </button>
           </>
         )}

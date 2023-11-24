@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { SoftShadows, Stars, Text, Bounds } from "@react-three/drei";
+import { SoftShadows, Stars, Text } from "@react-three/drei";
 import { Instances, Computers } from "./Computers";
 import Cursor from "./Cursor";
 
@@ -30,7 +30,7 @@ function Sphere({ position = [0, 0, 0], setRunCounter, ...props }) {
       onPointerOver={() => setHovered(true)}
       onPointerOut={() => setHovered(false)}
     >
-      <sphereBufferGeometry attach="geometry" args={[1, 32, 32]} />
+      <sphereGeometry attach="geometry" args={[1, 32, 32]} />
       <meshStandardMaterial
         attach="material"
         color="lightblue"
@@ -71,15 +71,24 @@ export default function Spaceship({ number, setRunCounter, scientistName }) {
         shadow-camera-top={10}
         shadow-camera-bottom={-10}
       />
-      <pointLight position={[-20, -10, -20]} color="red" intensity={2.5} />
-      <pointLight position={[0, -10, 0]} intensity={0.5} />
+      <hemisphereLight intensity={0.5} groundColor="black" />
+      <spotLight
+        position={[10, 20, 10]}
+        angle={0.12}
+        penumbra={1}
+        intensity={5}
+        castShadow
+        shadow-mapSize={1024}
+      />
+      <pointLight position={[0, 0, 0]} color="red" intensity={40} />
+      <pointLight position={[0, 0, 0]} intensity={20} />
       <group position={[0, -2, 0]}>
         <mesh
           rotation={[-Math.PI / 2, 0, 0]}
           position={[0, -1.5, 0]}
           receiveShadow
         >
-          <planeBufferGeometry attach="geometry" args={[100, 100]} />
+          <planeGeometry attach="geometry" args={[100, 100]} />
           <meshStandardMaterial attach="material" color="#080f24" />
           {/* <shadowMaterial attach="material" opacity={0.8} color="red" /> */}
         </mesh>
@@ -101,7 +110,7 @@ export default function Spaceship({ number, setRunCounter, scientistName }) {
             position={[0, 6.5, 0]}
             scale={0.5}
           >
-            Please step into time machine.
+            Please step into the time machine.
           </Text>
           <Cursor
             scale={[0.3, 0.4, 0.3]}
@@ -118,6 +127,7 @@ export default function Spaceship({ number, setRunCounter, scientistName }) {
           name={scientistName}
         />
       </Instances>
+      {/* Postprocessing */}
 
       <Stars radius={300} depth={50} count={4000} factor={10} />
     </Canvas>

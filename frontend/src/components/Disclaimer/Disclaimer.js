@@ -1,10 +1,11 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { acceptDisclaimer } from "../../redux/user/userActions";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function Disclaimer() {
   const { isDisclaimerAccepted } = useSelector((state) => state.user);
+  const [ageChecked, setAgeChecked] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -56,8 +57,25 @@ export default function Disclaimer() {
             viverra.
           </p>
         </div>
+        <div>
+          <input
+            type="checkbox"
+            value={ageChecked}
+            id="age"
+            onChange={() => {
+              setAgeChecked((prevAgeChecked) => !prevAgeChecked);
+            }}
+          />
+          <label className="ml-2 cursor-pointer" htmlFor="age">
+            I confirm that I am 16 years of age or older.
+          </label>
+        </div>
         <div className="flex gap-3">
-          <button className="btn btn-sm btn-primary" onClick={onAccept}>
+          <button
+            className="btn btn-sm btn-primary"
+            onClick={onAccept}
+            disabled={!ageChecked}
+          >
             I Agree!
           </button>
           <button className="btn btn-sm btn-ghost" onClick={undefined}>

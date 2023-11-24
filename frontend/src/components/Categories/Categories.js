@@ -76,12 +76,7 @@ export default function Categories() {
   return (
     <div className="flex flex-col justify-center items-center h-[calc(100%-4rem)]">
       <div className="mb-5 w-[500px]">
-        <h2 className="text-2xl font-bold">Select the your travel topic:</h2>
-        <p className="text-gray-400 mt-1">
-          The items in grayscale indicate that you have already finished the
-          topic. Items with an indicator mean you've started them but haven't
-          finished yet.
-        </p>
+        <h2 className="text-2xl font-bold">Select your travel topic:</h2>
       </div>
       <div className="grid grid-cols-2 gap-8 w-[500px] h-[500px]">
         <figure

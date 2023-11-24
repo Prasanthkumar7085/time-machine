@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "../../redux/user/userActions";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Login() {
   const { loading } = useSelector((state) => state.user);
@@ -73,6 +73,12 @@ export default function Login() {
               Login
             </button>
           </div>
+          <div className="divider">New to the Time Machine?</div>
+          <Link to="/signup">
+            <p className="link link-hover text-slate-400 text-md w-full text-center">
+              Join now!
+            </p>
+          </Link>
         </form>
       </div>
     </div>

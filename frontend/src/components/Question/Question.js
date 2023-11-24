@@ -207,7 +207,7 @@ The graph on the right shows your best guess and Estimate Zone and the realized 
     setLines((prevData) => {
       if (
         prevData[prevData.length - 1].value ===
-        "[Optional]: You can explain the rational behind your estimation here."
+        "[Optional]: You can explain the rationale behind your estimation here."
       ) {
         return prevData;
       }
@@ -216,7 +216,7 @@ The graph on the right shows your best guess and Estimate Zone and the realized 
         {
           type: "info",
           value:
-            "[Optional]: You can explain the rational behind your estimation here.",
+            "[Optional]: You can explain the rationale behind your estimation here.",
           time: generateRandomTime(),
         },
       ];
