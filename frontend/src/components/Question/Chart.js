@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import * as d3 from "d3";
 import useResizeObserver from "use-resize-observer";
+import toast from "react-hot-toast";
 
 // *********************************************************************
 // Data.date must be provided in ASC order (ascending, oldest to newest)
@@ -47,7 +48,7 @@ const LineChart = ({ Data, updateChartData, chartRef, answers }) => {
     // Dimensions
     let dimensions = {
       width: width - 50, // width from state
-      height: Math.min(height, 450), // height from state
+      height: Math.min(height, 550), // height from state
       margins: 60,
       predictionMargin: 50,
     };
@@ -484,6 +485,12 @@ const LineChart = ({ Data, updateChartData, chartRef, answers }) => {
           .on("end", function (event) {
             var a = x - event.x;
             var b = y - event.y;
+            if (Math.abs(b) === 0) {
+              toast.error("Please drag the line to set a range.");
+              rectLine.style("opacity", 0);
+              rect.style("opacity", 0);
+              return;
+            }
 
             var c = Math.sqrt(a * a + b * b);
             if (y - c < 0 || y + c > dimensions.containerHeight) return;

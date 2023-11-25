@@ -6,6 +6,7 @@ export default function Terminal({
   hasEstimate,
   submitAnswer,
   notRounded,
+  finished,
 }) {
   const textareaRef = useRef(null);
   const [currentValue, setCurrentValue] = useState("> ");
@@ -16,6 +17,8 @@ export default function Terminal({
         return "text-info";
       case "error":
         return "text-error";
+      case "text-bold":
+        return "font-bold";
       default:
         return;
     }
@@ -40,12 +43,12 @@ export default function Terminal({
   return (
     <div
       className={classNames(
-        "mockup-code h-full w-full shadow-lg border-r border-r-[rgba(255,255,255,0.1)] overflow-auto pb-0",
+        "mockup-code h-full w-full shadow-lg border-r border-r-[rgba(255,255,255,0.1)] overflow-auto pb-0 bg-[#191D24]",
         notRounded ? "rounded-none" : ""
       )}
     >
-      <div>
-        {lines.map((line, i) => {
+      {!finished &&
+        lines.map((line, i) => {
           if (line.type === "list") {
             return (
               <div className="flex flex-col px-4 border-t border-t-[rgba(255,255,255,0.1)] py-2">
@@ -97,36 +100,36 @@ export default function Terminal({
             </div>
           );
         })}
-        {hasEstimate && (
-          <>
-            <div className="flex mb-3 px-4 " onKeyUp={onKeyPress}>
-              <textarea
-                className="w-full h-full bg-transparent resize-none focus:outline-none font-mono"
-                ref={textareaRef}
-                value={currentValue}
-                onChange={(e) => {
-                  if (e.target.value.length < 2) {
-                    setCurrentValue("> ");
-                    return;
-                  }
-                  setCurrentValue(e.target.value);
-                }}
-              >
-                {"> "}
-              </textarea>
-            </div>
-            <button
-              className="btn btn-primary sticky bottom-3 left-full mb-3 mr-3"
-              onClick={() => {
-                submitAnswer(currentValue);
-                setCurrentValue("> ");
+      {hasEstimate && (
+        <>
+          <div className="flex mb-3 px-4 " onKeyUp={onKeyPress}>
+            <textarea
+              className="w-full h-full bg-transparent resize-none focus:outline-none font-mono"
+              ref={textareaRef}
+              value={currentValue}
+              onChange={(e) => {
+                if (e.target.value.length < 2) {
+                  setCurrentValue("> ");
+                  return;
+                }
+                setCurrentValue(e.target.value);
               }}
+              autoFocus
             >
-              Let's see how you did!
-            </button>
-          </>
-        )}
-      </div>
+              {"> "}
+            </textarea>
+          </div>
+          <button
+            className="btn btn-primary absolute bottom-3 right-3"
+            onClick={() => {
+              submitAnswer(currentValue);
+              setCurrentValue("> ");
+            }}
+          >
+            Let's see how you did!
+          </button>
+        </>
+      )}
     </div>
   );
 }

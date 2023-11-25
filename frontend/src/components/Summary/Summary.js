@@ -5,6 +5,7 @@ import Poverty from "../../assets/images/poverty.png";
 import Conflict from "../../assets/images/nonstate.png";
 import Infant from "../../assets/images/infant.png";
 import CO2 from "../../assets/images/co2.png";
+import { Link } from "react-router-dom";
 
 export default function Summary() {
   const { id } = useSelector((state) => state.user);
@@ -150,15 +151,19 @@ export default function Summary() {
           <p className="py-6">
             Thanks for participating in our experiment! We would appreciate if
             you could take 5 more minutes and fill the post study questionnaire.
+            You can also go back to categories and play other categories.
           </p>
           <a
             className="btn btn-primary"
-            href={`https://docs.google.com/forms/d/e/1FAIpQLScK0xAjn1pOZQY2iY9N_i2UhvnxsPBFvxrZG9Ta1FVeML5ryg/viewform?usp=pp_url&entry.799274315=${id}`}
+            href={`https://uwaterloo.ca1.qualtrics.com/jfe/form/SV_00SP3SFYtHYq5uK?UserID==${id}`}
             target="_blank"
             rel="noreferrer"
           >
-            Open Google Form
+            Post Study Questionnaire
           </a>
+          <Link to="/categories" className="btn btn-ghost ml-4">
+            Back to Categories
+          </Link>
         </div>
       </div>
     </div>

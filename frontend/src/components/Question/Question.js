@@ -13,6 +13,9 @@ import {
 } from "../../utils/constants";
 import Terminal from "../Terminal";
 import { useNavigate } from "react-router-dom";
+import Results from "./Results";
+import classNames from "classnames";
+import toast from "react-hot-toast";
 
 /**
  * Calculate the standard deviation for an array of objects where values are stored in item.value.
@@ -120,9 +123,10 @@ export const InfoIcon = () => (
 
 export default function Question() {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const ref = useRef(null);
   const [hasEstimate, setHasEstimate] = useState(false);
+  const [hasResult, setHasResult] = useState(false);
+  const [finished, setFinished] = useState(false);
   const [lines, setLines] = useState([]);
   const [chartData, setChartData] = useState([]);
   const game = useSelector((state) => state.game);
@@ -153,39 +157,21 @@ export default function Question() {
         value: gameNoteGenerator(estimateYear - GAME_STEPS[gameType]),
         time: generateRandomTime(),
       },
-      ...(answers.length > 0
+      ...(answers.length === 0
         ? [
             {
               type: "text",
-              value: `Let's see how you did.
-The graph on the right shows your best guess and Estimate Zone and the realized outcome.`,
-              time: generateRandomTime(),
-            },
-            {
-              type: "list",
-              value: [
-                "Last round's points:",
-                `Predictive Accuracy (60 points): ${answers[
-                  answers.length - 1
-                ].predictiveAccuracy.toFixed(2)}`,
-                `Confidence Band Accuracy (30 points): ${answers[
-                  answers.length - 1
-                ].confidentBandAccuracy.toFixed(2)}`,
-                `Precision of Confidence Band (10 points): ${answers[
-                  answers.length - 1
-                ].percisionOfConfidentBand.toFixed(2)}`,
-              ],
+              value: gameBodyGenerator(
+                estimateYear,
+                gameType,
+                dataToShow.length
+              ),
               time: generateRandomTime(),
             },
           ]
         : []),
       {
-        type: "text",
-        value: gameBodyGenerator(estimateYear, gameType, dataToShow.length),
-        time: generateRandomTime(),
-      },
-      {
-        type: "text",
+        type: "text-bold",
         value: gameQuestionGenerator(estimateYear, gameType),
         time: generateRandomTime(),
       },
@@ -271,23 +257,10 @@ The graph on the right shows your best guess and Estimate Zone and the realized 
       };
       const finished = GAME_ROUNDS[gameType] === answers.length + 1;
       dispatch(updateGame({ answer, gameId, finished })).then(() => {
-        if (finished) {
-          navigate("/summary");
-        }
+        setFinished(finished);
+        setHasResult(true);
       });
       setHasEstimate(false);
-      if (finished) {
-        setLines((prevData) => {
-          return [
-            ...prevData,
-            {
-              type: "text",
-              value: "Congratulations! You have completed the game.",
-              time: generateRandomTime(),
-            },
-          ];
-        });
-      }
     },
     [chartData, gameData, hasEstimate, estimateYear, gameId, answers, gameType]
   );
@@ -325,25 +298,45 @@ The graph on the right shows your best guess and Estimate Zone and the realized 
   return (
     <div className="flex w-full h-[calc(100%-4rem)] p-8 pt-2">
       <div className="h-full w-full flex relative shadow-md rounded-md overflow-hidden bg-[#191D24]">
-        <div className="h-full w-[28%]">
+        <div className="h-full w-[28%] relative">
           <Terminal
             lines={lines}
             hasEstimate={hasEstimate}
             submitAnswer={submitAnswer}
             notRounded={true}
+            finished={finished}
           />
+          {hasResult && (
+            <div className="w-full h-full absolute left-0 top-0 flex justify-center items-center backdrop-blur-[2px]">
+              <Results
+                predictiveAccuracy={answers[
+                  answers.length - 1
+                ].predictiveAccuracy.toFixed(2)}
+                confidentBandAccuracy={answers[
+                  answers.length - 1
+                ].confidentBandAccuracy.toFixed(2)}
+                percisionOfConfidentBand={answers[
+                  answers.length - 1
+                ].percisionOfConfidentBand.toFixed(2)}
+                setHasResults={setHasResult}
+                finished={finished}
+              />
+            </div>
+          )}
         </div>
         <div
           className="w-[72%] h-full relative top-0 right-0 flex items-center justify-center bg-[#191D24] px-10"
           ref={ref}
+          onClick={(e) => {
+            e.preventDefault();
+            if (hasResult) {
+              toast.error(
+                "You have already submitted your answer. Please click on 'Next Question' to continue."
+              );
+            }
+          }}
         >
           <div className="stats bg-transparent w-full absolute top-0 py-6 z-50">
-            {/* <div className="pl-3 mb-1 w-full">
-              <h2 className="text-2xl font-bold">Stats:</h2>
-              <p className="text-gray-400 mt-1">
-                The stats displayed represent the average of each measurement.
-              </p>
-            </div> */}
             <div className="stat place-items-center">
               <div
                 className="tooltip tooltip-bottom"
@@ -358,7 +351,6 @@ The graph on the right shows your best guess and Estimate Zone and the realized 
                 {averagePredictiveAccuracy}
                 <div className="ml-1 text-info text-2xl font-semibold">/60</div>
               </div>
-              {/* <div className="stat-desc">From January 1st to February 1st</div> */}
             </div>
 
             <div className="stat place-items-center">
@@ -375,7 +367,6 @@ The graph on the right shows your best guess and Estimate Zone and the realized 
                 {averageConfidentBandAccuracy}
                 <div className="ml-1 text-info text-2xl font-semibold">/30</div>
               </div>
-              {/* <div className="stat-desc text-secondary">↗︎ 40 (2%)</div> */}
             </div>
 
             <div className="stat place-items-center">
@@ -392,11 +383,16 @@ The graph on the right shows your best guess and Estimate Zone and the realized 
                 {averagePercisionOfConfidentBand}
                 <div className="ml-1 text-info text-2xl font-semibold">/10</div>
               </div>
-
-              {/* <div className="stat-desc">↘︎ 90 (14%)</div> */}
             </div>
           </div>
-          <div className="w-[full] h-[400px] flex-grow">
+          <div
+            className={classNames(
+              "w-full h-[calc(100%-300px)] flex-grow",
+              hasResult
+                ? "pointer-events-none cursor-not-allowed"
+                : "pointer-events-auto"
+            )}
+          >
             {chartData.length > 0 && (
               <LineChart
                 Data={chartData}
