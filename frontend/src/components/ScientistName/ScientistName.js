@@ -59,7 +59,7 @@ export default function ScientistName() {
             <input
               type="text"
               class="bg-transparent outline-none text-warning text-lg"
-              autofocus
+              autoFocus
               value={scientistName}
               onChange={(e) => setScientistName(e.target.value)}
             />

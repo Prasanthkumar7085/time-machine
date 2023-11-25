@@ -399,6 +399,7 @@ export default function Question() {
                 updateChartData={updateChartData}
                 answers={answers}
                 chartRef={ref}
+                hasResult={hasResult}
               />
             )}
           </div>

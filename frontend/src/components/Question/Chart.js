@@ -6,7 +6,7 @@ import toast from "react-hot-toast";
 // *********************************************************************
 // Data.date must be provided in ASC order (ascending, oldest to newest)
 // *********************************************************************
-const LineChart = ({ Data, updateChartData, chartRef, answers }) => {
+const LineChart = ({ Data, updateChartData, chartRef, answers, hasResult }) => {
   // Element References
   const svgRef = useRef(null);
   const tooltipRef = useRef(null);
@@ -123,7 +123,7 @@ const LineChart = ({ Data, updateChartData, chartRef, answers }) => {
       .attr("stroke-linecap", "round");
 
     // Add the points
-    container
+    const dataDots = container
       .append("g")
       .selectAll("dot")
       .data(hasEstimate ? Data.slice(0, -1) : Data.slice(0, -2))
@@ -138,6 +138,23 @@ const LineChart = ({ Data, updateChartData, chartRef, answers }) => {
       .attr("r", 5)
       .attr("fill", "#69b3a2");
 
+    dataDots
+      .filter(function (d, i, list) {
+        return i === list.length - 1 && hasResult;
+      })
+      .transition()
+      .delay(function (d, i) {
+        return i * 150;
+      })
+      .on("start", function repeat(d, i) {
+        d3.active(this)
+          .style("fill", "#69b3a2")
+          .transition()
+          .style("fill", "#191D24")
+          .transition()
+          .on("start", repeat);
+      });
+
     container
       .append("path")
       .datum(answers)
@@ -149,7 +166,7 @@ const LineChart = ({ Data, updateChartData, chartRef, answers }) => {
       .attr("stroke-linejoin", "round")
       .attr("stroke-linecap", "round");
 
-    container
+    const answerDots = container
       .append("g")
       .selectAll("answer-dot")
       .data(answers)
@@ -163,6 +180,23 @@ const LineChart = ({ Data, updateChartData, chartRef, answers }) => {
       })
       .attr("r", 5)
       .attr("fill", "#A8DF8E");
+
+    answerDots
+      .filter(function (d, i, list) {
+        return i === list.length - 1 && hasResult;
+      })
+      .transition()
+      .delay(function (d, i) {
+        return i * 150;
+      })
+      .on("start", function repeat(d, i) {
+        d3.active(this)
+          .style("fill", "#A8DF8E")
+          .transition()
+          .style("fill", "#191D24")
+          .transition()
+          .on("start", repeat);
+      });
 
     // Axis
     const yAxis = d3.axisLeft(yScale).tickFormat((d) => `${d}`);

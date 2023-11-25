@@ -47,8 +47,6 @@ export const startGame = createAsyncThunk(
         config
       );
 
-      console.log(data);
-
       return data;
     } catch (error) {
       const errorMessage = errorHandler(error);
@@ -75,7 +73,6 @@ const findGame = (games, type) => {
 export const getGames = createAsyncThunk(
   "game/getall",
   async (__, { rejectWithValue }) => {
-    console.log("getGames");
     const tokens = JSON.parse(localStorage.getItem("time-machine"));
     try {
       const config = {
