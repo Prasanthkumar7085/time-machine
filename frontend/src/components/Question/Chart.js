@@ -136,7 +136,8 @@ const LineChart = ({ Data, updateChartData, chartRef, answers, hasResult }) => {
         return yScale(yAccessor(d));
       })
       .attr("r", 5)
-      .attr("fill", "#69b3a2");
+      .attr("fill", "#69b3a2")
+      .transition();
 
     dataDots
       .filter(function (d, i, list) {
@@ -179,7 +180,8 @@ const LineChart = ({ Data, updateChartData, chartRef, answers, hasResult }) => {
         return yScale(yAccessor(d));
       })
       .attr("r", 5)
-      .attr("fill", "#A8DF8E");
+      .attr("fill", "#A8DF8E")
+      .transition();
 
     answerDots
       .filter(function (d, i, list) {

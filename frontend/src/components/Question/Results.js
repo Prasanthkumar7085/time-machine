@@ -8,9 +8,9 @@ const Results = ({
   percisionOfConfidentBand,
   setHasResults,
   finished,
+  answer,
 }) => {
   const navigate = useNavigate();
-
   return (
     <div className="mockup-window bg-base-300 backdrop-blur-sm w-5/6">
       <div className="p-2">
@@ -39,7 +39,14 @@ const Results = ({
         </div>
         <div className="divider my-1"></div>
         <h3 className="px-2 text-xl">Your score for the last round:</h3>
-
+        {answer && (
+          <p className="px-2 py-2 text-base text-slate-400">
+            Your answer was{" "}
+            <span className="text-[#A8DF8E]">{answer.guessCenter}</span>. The
+            real value was{" "}
+            <span className="text-[#69b3a2]">{answer.correctAnswer}</span>.
+          </p>
+        )}
         <div className="w-full">
           <div className="stat place-items-center p-2">
             <div

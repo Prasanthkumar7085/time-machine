@@ -9,6 +9,7 @@ import { getGames } from "../../redux/game/gameActions";
 
 export default function Stats() {
   const game = useSelector((state) => state.game);
+  const { id } = useSelector((state) => state.user);
   const gamesHistory = game.gamesHistory;
 
   const dispatch = useDispatch();
@@ -163,6 +164,19 @@ export default function Stats() {
               </div>
             );
           })}
+          <p className="py-6">
+            Thanks for participating in our experiment! We would appreciate if
+            you could take 5 more minutes and fill the post study questionnaire.
+            You can also go back to categories and play other categories.
+          </p>
+          <a
+            className="btn btn-primary"
+            href={`https://uwaterloo.ca1.qualtrics.com/jfe/form/SV_00SP3SFYtHYq5uK?UserID==${id}`}
+            target="_blank"
+            rel="noreferrer"
+          >
+            Post Study Questionnaire
+          </a>
         </div>
       </div>
     </div>

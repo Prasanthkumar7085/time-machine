@@ -320,6 +320,7 @@ export default function Question() {
                 ].percisionOfConfidentBand.toFixed(2)}
                 setHasResults={setHasResult}
                 finished={finished}
+                answer={answers[answers.length - 1]}
               />
             </div>
           )}
