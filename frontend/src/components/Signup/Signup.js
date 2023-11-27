@@ -120,7 +120,7 @@ export default function Signup() {
             </button>
           </div>
           <div className="divider">Already have an account?</div>
-          <Link to="/signup">
+          <Link to="/login">
             <p className="link link-hover text-slate-400 text-md w-full text-center">
               Login!
             </p>
