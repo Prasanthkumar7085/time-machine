@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { registerUser } from "../../redux/user/userActions";
@@ -56,7 +55,7 @@ export default function Signup() {
 
           {/* {isPasswordFocused && (
             <> */}
-          <h2 class="text-md font-semibold text-white mt-1">
+          <h2 className="text-md font-semibold text-white mt-1">
             Password requirements:
           </h2>
           <PasswordChecklist

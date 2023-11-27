@@ -59,7 +59,7 @@ export default function ScientistName() {
           <pre data-prefix=">">
             <input
               type="text"
-              class="bg-transparent outline-none text-warning text-lg"
+              className="bg-transparent outline-none text-warning text-lg"
               autoFocus
               value={scientistName}
               onChange={(e) => {
