@@ -8,7 +8,7 @@ export default function ScientistName() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const [scientistName, setScientistName] = useState("second");
+  const [scientistName, setScientistName] = useState("");
 
   useEffect(() => {
     const keyDownHandler = (event) => {
