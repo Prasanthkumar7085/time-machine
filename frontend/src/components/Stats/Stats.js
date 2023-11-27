@@ -167,7 +167,8 @@ export default function Stats() {
           <p className="py-6">
             Thanks for participating in our experiment! We would appreciate if
             you could take 5 more minutes and fill the post study questionnaire.
-            You can also go back to categories and play other categories.
+            If you have already taken the questionnaire, you can close this tab
+            or you can go back to categories and play other categories.
           </p>
           <a
             className="btn btn-primary"
