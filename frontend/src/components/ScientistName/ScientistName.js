@@ -63,7 +63,6 @@ export default function ScientistName() {
               autoFocus
               value={scientistName}
               onChange={(e) => {
-                console.log(e.target.value);
                 setScientistName(e.target.value);
               }}
             />
