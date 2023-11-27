@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { updateScientistName } from "../../redux/user/userReducer";
@@ -26,14 +26,15 @@ export default function ScientistName() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const onSubmit = () => {
+  const onSubmit = useCallback(() => {
     if (!scientistName) {
       toast.error("Name must be filled!");
       return;
     }
     dispatch(updateScientistName({ scientistName }));
     navigate("/categories", { state: { scientistName } });
-  };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [scientistName]);
 
   return (
     <div className="flex w-full h-[calc(100%-4rem)] justify-center items-center">
