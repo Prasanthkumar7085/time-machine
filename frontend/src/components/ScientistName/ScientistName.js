@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { updateScientistName } from "../../redux/user/userReducer";
@@ -11,30 +11,30 @@ export default function ScientistName() {
   const [scientistName, setScientistName] = useState("");
 
   useEffect(() => {
-    const keyDownHandler = (event) => {
-      if (event.key === "Enter") {
-        event.preventDefault();
-        onSubmit();
-      }
-    };
-
     document.addEventListener("keydown", keyDownHandler);
 
     return () => {
       document.removeEventListener("keydown", keyDownHandler);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [scientistName]);
 
-  const onSubmit = useCallback(() => {
+  const keyDownHandler = (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      onSubmit();
+    }
+  };
+
+  const onSubmit = () => {
     if (!scientistName) {
       toast.error("Name must be filled!");
       return;
     }
+
     dispatch(updateScientistName({ scientistName }));
     navigate("/categories", { state: { scientistName } });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [scientistName]);
+  };
 
   return (
     <div className="flex w-full h-[calc(100%-4rem)] justify-center items-center">
@@ -62,7 +62,10 @@ export default function ScientistName() {
               class="bg-transparent outline-none text-warning text-lg"
               autoFocus
               value={scientistName}
-              onChange={(e) => setScientistName(e.target.value)}
+              onChange={(e) => {
+                console.log(e.target.value);
+                setScientistName(e.target.value);
+              }}
             />
           </pre>
         </div>
