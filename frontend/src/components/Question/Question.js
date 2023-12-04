@@ -326,7 +326,7 @@ export default function Question() {
           )}
         </div>
         <div
-          className="w-[72%] h-full relative top-0 right-0 flex items-center justify-center bg-[#191D24] px-10"
+          className="w-[72%] h-full relative top-0 right-0 flex items-center justify-center bg-[#191D24] px-10 flex-col"
           ref={ref}
           onClick={(e) => {
             e.preventDefault();
@@ -337,7 +337,7 @@ export default function Question() {
             }
           }}
         >
-          <div className="stats bg-transparent w-full absolute top-0 py-6 z-50">
+          <div className="stats bg-transparent w-full top-0 py-6 z-50">
             <div className="stat place-items-center">
               <div
                 className="tooltip tooltip-bottom"
@@ -403,6 +403,46 @@ export default function Question() {
                 hasResult={hasResult}
               />
             )}
+          </div>
+          <div className="flex justify-center items-center p-5">
+            <p>Progress:</p>
+            <ul className="steps">
+              <li
+                data-content="1"
+                className={classNames("step step-neutral", {
+                  "step-primary": answers.length > 0,
+                })}
+                {...(answers.length > 0 && { "data-content": "✓" })}
+              ></li>
+              <li
+                data-content="2"
+                className={classNames("step step-neutral", {
+                  "step-primary": answers.length > 1,
+                })}
+                {...(answers.length > 1 && { "data-content": "✓" })}
+              ></li>
+              <li
+                data-content="3"
+                className={classNames("step step-neutral", {
+                  "step-primary": answers.length > 2,
+                })}
+                {...(answers.length > 2 && { "data-content": "✓" })}
+              ></li>
+              <li
+                data-content="4"
+                className={classNames("step step-neutral", {
+                  "step-primary": answers.length > 3,
+                })}
+                {...(answers.length > 3 && { "data-content": "✓" })}
+              ></li>
+              <li
+                data-content="5"
+                className={classNames("step step-neutral", {
+                  "step-primary": answers.length > 4,
+                })}
+                {...(answers.length > 4 && { "data-content": "✓" })}
+              ></li>
+            </ul>
           </div>
         </div>
       </div>

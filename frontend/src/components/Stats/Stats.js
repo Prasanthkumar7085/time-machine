@@ -176,7 +176,7 @@ export default function Stats() {
             target="_blank"
             rel="noreferrer"
           >
-            Post Study Questionnaire
+            Complete the Post Study Questionnaire
           </a>
         </div>
       </div>

@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState } from "react";
 import * as d3 from "d3";
 import useResizeObserver from "use-resize-observer";
 import toast from "react-hot-toast";
+import classNames from "classnames";
 
 // *********************************************************************
 // Data.date must be provided in ASC order (ascending, oldest to newest)
@@ -247,13 +248,48 @@ const LineChart = ({ Data, updateChartData, chartRef, answers, hasResult }) => {
       .select(".xindicator")
       .style("width", "1px")
       .style("height", dimensions.height - 2 * dimensions.margins + "px")
-      .style("top", dimensions.margins + "px");
+      .style("top", dimensions.margins + "px")
+      .style("opacity", 0);
 
     var verticaly = d3
       .select(".yindicator")
       .style("width", dimensions.width - 2 * dimensions.margins + "px")
       .style("height", "1px")
-      .style("left", dimensions.margins + "px");
+      .style("left", dimensions.margins + "px")
+      .style("opacity", 0);
+
+    // var verticalXPointer = d3
+    //   .select(".xpindicator")
+    //   .style("width", "1px")
+    //   .style("height", dimensions.height - 2 * dimensions.margins + "px")
+    //   .style("top", dimensions.margins + "px");
+
+    var verticalYPointer = d3
+      .select(".ypindicator")
+      .style("width", dimensions.width - 2 * dimensions.margins + "px")
+      .style("height", "1px")
+      .style("left", dimensions.margins + "px")
+      .style("opacity", 0);
+
+    var verticalYPointerUp = d3
+      .select(".ypindicatorupband")
+      .style(
+        "width",
+        dimensions.containerWidth - dimensions.predictionMargin + "px"
+      )
+      .style("height", "1px")
+      .style("left", dimensions.margins + "px")
+      .style("opacity", 0);
+
+    var verticalYPointerDown = d3
+      .select(".ypindicatordownband")
+      .style(
+        "width",
+        dimensions.containerWidth - dimensions.predictionMargin + "px"
+      )
+      .style("height", "1px")
+      .style("left", dimensions.margins + "px")
+      .style("opacity", 0);
 
     // container
     //   .append("circle")
@@ -387,6 +423,20 @@ const LineChart = ({ Data, updateChartData, chartRef, answers, hasResult }) => {
         const dataPoints = hasEstimate ? Data.slice(0, -1) : Data.slice(0, -2);
         const mousePos = d3.pointer(event, this);
 
+        // verticalXPointer
+        //   .style("left", mousePos[0] + dimensions.margins - 3 + "px")
+        //   .style(
+        //     "height",
+        //     dimensions.height - 2 * dimensions.margins - mousePos[1] + "px"
+        //   )
+        //   .style("top", mousePos[1] + dimensions.margins - 3 + "px");
+
+        verticalYPointer
+          .style("top", mousePos[1] + dimensions.margins - 3 + "px")
+          .style("left", dimensions.margins + "px")
+          .style("width", mousePos[0] + "px")
+          .style("opacity", 1);
+
         // x coordinate stored in mousePos index 0
         const date = xScale.invert(mousePos[0]);
 
@@ -413,7 +463,8 @@ const LineChart = ({ Data, updateChartData, chartRef, answers, hasResult }) => {
           .style(
             "top",
             yScale(yAccessor(hoveredIndexData)) + dimensions.margins + "px"
-          );
+          )
+          .style("opacity", 1);
 
         verticaly
           .style(
@@ -421,7 +472,8 @@ const LineChart = ({ Data, updateChartData, chartRef, answers, hasResult }) => {
             yScale(yAccessor(hoveredIndexData)) + dimensions.margins + "px"
           )
           .style("left", dimensions.margins + "px")
-          .style("width", xScale(xAccessor(hoveredIndexData)) + "px");
+          .style("width", xScale(xAccessor(hoveredIndexData)) + "px")
+          .style("opacity", 1);
 
         // Update Image
         tooltipDot
@@ -511,6 +563,24 @@ const LineChart = ({ Data, updateChartData, chartRef, answers, hasResult }) => {
               return;
             }
 
+            verticalYPointerUp
+              .style("top", y - c + dimensions.margins - 1 + "px")
+              .style("left", dimensions.margins + "px")
+              .style(
+                "width",
+                dimensions.containerWidth - dimensions.predictionMargin + "px"
+              )
+              .style("opacity", 1);
+
+            verticalYPointerDown
+              .style("top", y + c + dimensions.margins - 1 + "px")
+              .style("left", dimensions.margins + "px")
+              .style(
+                "width",
+                dimensions.containerWidth - dimensions.predictionMargin + "px"
+              )
+              .style("opacity", 1);
+
             rect
               .attr("y", y - c)
               .attr("height", 2 * c)
@@ -541,8 +611,37 @@ const LineChart = ({ Data, updateChartData, chartRef, answers, hasResult }) => {
 
   return (
     <div className="line-chart relative w-full">
-      <div className="absolute w-1 h-1 bg-transparent left-6 top-6 xindicator border-dashed border border-[rgba(255,255,255,.3)] z-0" />
-      <div className="absolute w-1 h-1 bg-transparent left-6 top-6 yindicator border-dashed border border-[rgba(255,255,255,.3)] z-0" />
+      <div
+        className={classNames(
+          "absolute w-1 h-1 bg-transparent left-6 top-6 xindicator border-dashed border border-[rgba(255,255,255,.3)] z-0 opacity-0",
+          hasResult ? "hidden opacity-0" : "visible"
+        )}
+      />
+      <div
+        className={classNames(
+          "absolute w-1 h-1 bg-transparent left-6 top-6 yindicator border-dashed border border-[rgba(255,255,255,.3)] z-0 opacity-0",
+          hasResult ? "hidden opacity-0" : "visible"
+        )}
+      />
+      {/* <div className="absolute w-1 h-1 bg-transparent left-6 top-6 xpindicator border-dashed border border-[rgba(255,255,255,.3)] z-0" /> */}
+      <div
+        className={classNames(
+          "absolute w-1 h-1 bg-transparent left-6 top-6 ypindicator border-dashed border border-[rgba(255,255,255,.3)] z-0 opacity-0",
+          hasResult ? "hidden opacity-0" : "visible"
+        )}
+      />
+      <div
+        className={classNames(
+          "absolute w-1 h-1 bg-transparent left-6 top-6 ypindicatorupband border-dashed border border-[rgba(239,98,98,.3)] z-0 opacity-0",
+          hasResult ? "hidden opacity-0" : "visible"
+        )}
+      />
+      <div
+        className={classNames(
+          "absolute w-1 h-1 bg-transparent left-6 top-6 ypindicatordownband border-dashed border border-[rgba(239,98,98,.3)] z-0 opacity-0",
+          hasResult ? "hidden opacity-0" : "visible"
+        )}
+      />
       <svg ref={svgRef} />
       <div ref={tooltipRef} className="lc-tooltip absolute">
         <div className="data"></div>

@@ -20,8 +20,14 @@ export default function Details({ scientistName, gameId, selectedType }) {
         <div className="pl-3 mb-1 w-full">
           <h2 className="text-2xl font-bold">Instructions:</h2>
           <p className="text-gray-400 mt-1">
-            If it's your first time, please watch the instructions. If you've
-            seen them before, click the 'READY' button to proceed.
+            If it's your first time, please watch the instructions.{" "}
+            <span className="text-gray-200 font-semibold">
+              Please turn up your volume to listen to the upcoming audio
+              instructions.
+            </span>
+          </p>
+          <p className="text-gray-400 mt-1">
+            If you've seen them before, click the 'READY' button to proceed.
           </p>
         </div>
         <div className="w-full p-3 relative max-w-[1300px]">

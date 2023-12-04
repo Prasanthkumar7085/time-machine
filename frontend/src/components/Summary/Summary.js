@@ -160,7 +160,7 @@ export default function Summary() {
             target="_blank"
             rel="noreferrer"
           >
-            Post Study Questionnaire
+            Complete the Post Study Questionnaire
           </a>
           <Link to="/categories" className="btn btn-ghost ml-4">
             Back to Categories
