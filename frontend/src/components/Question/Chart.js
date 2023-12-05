@@ -7,7 +7,14 @@ import classNames from "classnames";
 // *********************************************************************
 // Data.date must be provided in ASC order (ascending, oldest to newest)
 // *********************************************************************
-const LineChart = ({ Data, updateChartData, chartRef, answers, hasResult }) => {
+const LineChart = ({
+  Data,
+  updateChartData,
+  chartRef,
+  answers,
+  hasResult,
+  hasEstimate,
+}) => {
   // Element References
   const svgRef = useRef(null);
   const tooltipRef = useRef(null);
@@ -38,9 +45,6 @@ const LineChart = ({ Data, updateChartData, chartRef, answers, hasResult }) => {
     yAccessor = (d, i) => {
       if ("guessCenter" in d) {
         return Number(d.guessCenter);
-      }
-      if (i === Data.length - 2 && hasEstimate) {
-        return Number(d.value);
       }
       return Number(d.value);
     };
@@ -279,7 +283,19 @@ const LineChart = ({ Data, updateChartData, chartRef, answers, hasResult }) => {
       )
       .style("height", "1px")
       .style("left", dimensions.margins + "px")
-      .style("opacity", 0);
+      .style(
+        "top",
+        hasEstimate
+          ? yScale(
+              yAccessor(Data[Data.length - 2]) +
+                Data[Data.length - 2].estimateMargin
+            ) +
+              dimensions.margins -
+              1 +
+              "px"
+          : undefined
+      )
+      .style("opacity", hasEstimate ? 1 : 0);
 
     var verticalYPointerDown = d3
       .select(".ypindicatordownband")
@@ -289,8 +305,34 @@ const LineChart = ({ Data, updateChartData, chartRef, answers, hasResult }) => {
       )
       .style("height", "1px")
       .style("left", dimensions.margins + "px")
-      .style("opacity", 0);
-
+      .style(
+        "top",
+        hasEstimate
+          ? yScale(
+              yAccessor(Data[Data.length - 2]) -
+                Data[Data.length - 2].estimateMargin
+            ) +
+              dimensions.margins -
+              1 +
+              "px"
+          : undefined
+      )
+      .style("opacity", hasEstimate ? 1 : 0);
+    var verticalYPointerMid = d3
+      .select(".ypindicatormidband")
+      .style(
+        "width",
+        dimensions.containerWidth - dimensions.predictionMargin + "px"
+      )
+      .style("height", "1px")
+      .style("left", dimensions.margins + "px")
+      .style(
+        "top",
+        hasEstimate
+          ? yScale(yAccessor(Data[Data.length - 2])) + dimensions.margins + "px"
+          : undefined
+      )
+      .style("opacity", hasEstimate ? 1 : 0);
     // container
     //   .append("circle")
     //   .attr("cx", 30)
@@ -432,9 +474,9 @@ const LineChart = ({ Data, updateChartData, chartRef, answers, hasResult }) => {
         //   .style("top", mousePos[1] + dimensions.margins - 3 + "px");
 
         verticalYPointer
-          .style("top", mousePos[1] + dimensions.margins - 3 + "px")
+          .style("top", mousePos[1] + dimensions.margins + "px")
           .style("left", dimensions.margins + "px")
-          .style("width", mousePos[0] + "px")
+          .style("width", mousePos[0] - 5 + "px")
           .style("opacity", 1);
 
         // x coordinate stored in mousePos index 0
@@ -499,6 +541,9 @@ const LineChart = ({ Data, updateChartData, chartRef, answers, hasResult }) => {
       .on("mouseleave", function () {
         tooltipDot.style("opacity", 0);
         tooltip.style("display", "none");
+        verticalx.style("opacity", 0);
+        verticaly.style("opacity", 0);
+        verticalYPointer.style("opacity", 0);
       })
       .call(
         d3
@@ -581,6 +626,15 @@ const LineChart = ({ Data, updateChartData, chartRef, answers, hasResult }) => {
               )
               .style("opacity", 1);
 
+            verticalYPointerMid
+              .style("top", y + dimensions.margins + "px")
+              .style("left", dimensions.margins + "px")
+              .style(
+                "width",
+                dimensions.containerWidth - dimensions.predictionMargin + "px"
+              )
+              .style("opacity", 1);
+
             rect
               .attr("y", y - c)
               .attr("height", 2 * c)
@@ -607,7 +661,7 @@ const LineChart = ({ Data, updateChartData, chartRef, answers, hasResult }) => {
           })
       );
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [Data, width, height]); // redraw chart if data or dimensions change
+  }, [Data, width, height, hasEstimate, hasResult]); // redraw chart if data or dimensions change
 
   return (
     <div className="line-chart relative w-full">
@@ -639,6 +693,12 @@ const LineChart = ({ Data, updateChartData, chartRef, answers, hasResult }) => {
       <div
         className={classNames(
           "absolute w-1 h-1 bg-transparent left-6 top-6 ypindicatordownband border-dashed border border-[rgba(239,98,98,.3)] z-0 opacity-0",
+          hasResult ? "hidden opacity-0" : "visible"
+        )}
+      />
+      <div
+        className={classNames(
+          "absolute w-1 h-1 bg-transparent left-6 top-6 ypindicatormidband border-dashed border border-[rgba(239,98,98,.5)] z-0 opacity-0",
           hasResult ? "hidden opacity-0" : "visible"
         )}
       />

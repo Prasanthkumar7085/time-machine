@@ -401,6 +401,7 @@ export default function Question() {
                 answers={answers}
                 chartRef={ref}
                 hasResult={hasResult}
+                hasEstimate={hasEstimate}
               />
             )}
           </div>
