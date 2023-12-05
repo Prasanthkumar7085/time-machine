@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { updateScientistName } from "../../redux/user/userReducer";
-import toast from "react-hot-toast";
 
 export default function ScientistName() {
   const navigate = useNavigate();

@@ -1,5 +1,3 @@
-import React from "react";
-
 const GreenCheck = () => (
   <svg
     className="w-3.5 h-3.5 mr-2 text-green-500 dark:text-green-400 flex-shrink-0"

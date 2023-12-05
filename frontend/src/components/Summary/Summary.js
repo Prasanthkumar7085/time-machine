@@ -1,11 +1,11 @@
-import { useSelector } from "react-redux";
-import { InfoIcon } from "../Question";
 import { useMemo } from "react";
-import Poverty from "../../assets/images/poverty.png";
-import Conflict from "../../assets/images/nonstate.png";
-import Infant from "../../assets/images/infant.png";
-import CO2 from "../../assets/images/co2.png";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import CO2 from "../../assets/images/co2.png";
+import Infant from "../../assets/images/infant.png";
+import Conflict from "../../assets/images/nonstate.png";
+import Poverty from "../../assets/images/poverty.png";
+import { InfoIcon } from "../Question";
 
 export default function Summary() {
   const { id } = useSelector((state) => state.user);

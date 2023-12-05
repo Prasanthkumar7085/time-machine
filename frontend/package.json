@@ -3,22 +3,22 @@
   "version": "0.1.0",
   "description": "TimeMachine frontend",
   "author": "Ehsan Jso <ehsan.jsoure@gmail.com>",
-  "homepage": "https://humanwelfare.uwaterloo.ca/game/",
+  "homepage": "https://humanwelfare.uwaterloo.ca/",
   "private": true,
   "dependencies": {
-    "@react-three/drei": "^9.88.17",
-    "@react-three/fiber": "^8.15.11",
+    "@react-three/drei": "^9.90.0",
+    "@react-three/fiber": "^8.15.12",
     "@react-three/postprocessing": "^2.15.11",
-    "@reduxjs/toolkit": "^1.9.7",
+    "@reduxjs/toolkit": "^2.0.1",
     "@tailwindcss/typography": "^0.5.10",
-    "@testing-library/jest-dom": "^6.1.4",
+    "@testing-library/jest-dom": "^6.1.5",
     "@testing-library/react": "^14.1.2",
     "@testing-library/user-event": "^14.5.1",
     "axios": "^1.6.2",
     "canvas-sketch-util": "^1.10.0",
     "classnames": "^2.3.2",
     "d3": "^7.8.5",
-    "daisyui": "^4.4.3",
+    "daisyui": "^4.4.19",
     "date-fns": "^2.30.0",
     "ramda": "^0.29.1",
     "react": "^18.2.0",
@@ -26,11 +26,11 @@
     "react-hook-form": "^7.48.2",
     "react-hot-toast": "^2.4.1",
     "react-player": "^2.13.0",
-    "react-redux": "^8.1.3",
-    "react-router-dom": "^6.20.0",
-    "react-scripts": "5.0.1",
-    "redux": "^4.2.1",
-    "three": "^0.158.0",
+    "react-redux": "^9.0.2",
+    "react-router-dom": "^6.20.1",
+    "react-scripts": "^5.0.1",
+    "redux": "^5.0.0",
+    "three": "^0.159.0",
     "use-resize-observer": "^9.1.0",
     "web-vitals": "^3.5.0"
   },
@@ -59,6 +59,7 @@
     ]
   },
   "devDependencies": {
-    "tailwindcss": "^3.3.5"
+    "prettier-plugin-organize-imports": "^3.2.4",
+    "tailwindcss": "^3.3.6"
   }
 }

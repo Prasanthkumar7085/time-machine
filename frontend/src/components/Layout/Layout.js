@@ -1,11 +1,11 @@
-import { Outlet, useLocation, useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import Header from "../Header/Header";
-import { useEffect, useState } from "react";
 import axios from "axios";
+import { useEffect, useState } from "react";
+import { Toaster } from "react-hot-toast";
+import { useDispatch } from "react-redux";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import { updateProfile } from "../../redux/user/userReducer";
 import { backendURL } from "../../utils/constants";
-import { Toaster } from "react-hot-toast";
+import Header from "../Header/Header";
 
 export default function Layout() {
   const location = useLocation();
@@ -28,7 +28,7 @@ export default function Layout() {
       const { data } = await axios.post(
         `${backendURL}/v1/auth/refresh-tokens`,
         { refreshToken: tokens.refresh },
-        config
+        config,
       );
 
       localStorage.setItem(
@@ -36,7 +36,7 @@ export default function Layout() {
         JSON.stringify({
           access: data.tokens.access.token,
           refresh: data.tokens.refresh.token,
-        })
+        }),
       );
 
       dispatch(updateProfile(data));

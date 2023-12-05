@@ -1,2 +1,2 @@
-export { default } from "./Disclaimer";
 export * from "./Disclaimer";
+export { default } from "./Disclaimer";

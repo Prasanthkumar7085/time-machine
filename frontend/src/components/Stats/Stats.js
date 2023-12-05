@@ -1,11 +1,11 @@
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { InfoIcon } from "../Question";
-import { useEffect, useMemo } from "react";
-import Poverty from "../../assets/images/poverty.png";
-import Conflict from "../../assets/images/nonstate.png";
-import Infant from "../../assets/images/infant.png";
 import CO2 from "../../assets/images/co2.png";
+import Infant from "../../assets/images/infant.png";
+import Conflict from "../../assets/images/nonstate.png";
+import Poverty from "../../assets/images/poverty.png";
 import { getGames } from "../../redux/game/gameActions";
+import { InfoIcon } from "../Question";
 
 export default function Stats() {
   const game = useSelector((state) => state.game);

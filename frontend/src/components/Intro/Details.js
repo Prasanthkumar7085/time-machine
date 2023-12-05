@@ -1,9 +1,8 @@
-import React from "react";
+import ReactPlayer from "react-player";
 import { useDispatch } from "react-redux";
-import { startGame } from "../../redux/game/gameActions";
 import { useNavigate } from "react-router-dom";
 import Tutorial from "../../assets/tutorial.mp4";
-import ReactPlayer from "react-player";
+import { startGame } from "../../redux/game/gameActions";
 
 export default function Details({ scientistName, gameId, selectedType }) {
   const dispatch = useDispatch();

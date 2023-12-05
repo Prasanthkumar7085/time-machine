@@ -1,5 +1,5 @@
-import * as THREE from "three";
 import Random from "canvas-sketch-util/random";
+import * as THREE from "three";
 
 export function createAttractor(length, start) {
   const positions = [];

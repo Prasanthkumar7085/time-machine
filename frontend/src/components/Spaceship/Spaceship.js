@@ -1,7 +1,7 @@
-import React, { useRef, useState, useEffect } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
 import { SoftShadows, Stars, Text } from "@react-three/drei";
-import { Instances, Computers } from "./Computers";
+import { Canvas, useFrame } from "@react-three/fiber";
+import { useEffect, useRef, useState } from "react";
+import { Computers, Instances } from "./Computers";
 import Cursor from "./Cursor";
 
 function Sphere({ position = [0, 0, 0], setRunCounter, ...props }) {

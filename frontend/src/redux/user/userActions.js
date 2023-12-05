@@ -1,7 +1,7 @@
-import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { backendURL } from "../../utils/constants";
+import axios from "axios";
 import { toast } from "react-hot-toast";
+import { backendURL } from "../../utils/constants";
 import { errorHandler } from "../../utils/utils";
 
 export const registerUser = createAsyncThunk(
@@ -16,7 +16,7 @@ export const registerUser = createAsyncThunk(
       const { data } = await axios.post(
         `${backendURL}/v1/auth/register`,
         { email, password },
-        config
+        config,
       );
 
       localStorage.setItem(
@@ -24,7 +24,7 @@ export const registerUser = createAsyncThunk(
         JSON.stringify({
           access: data.tokens.access.token,
           refresh: data.tokens.refresh.token,
-        })
+        }),
       );
 
       return data;
@@ -33,7 +33,7 @@ export const registerUser = createAsyncThunk(
       toast.error(errorMessage);
       return rejectWithValue(errorMessage);
     }
-  }
+  },
 );
 
 export const loginUser = createAsyncThunk(
@@ -48,7 +48,7 @@ export const loginUser = createAsyncThunk(
       const { data } = await axios.post(
         `${backendURL}/v1/auth/login`,
         { email, password },
-        config
+        config,
       );
 
       localStorage.setItem(
@@ -56,7 +56,7 @@ export const loginUser = createAsyncThunk(
         JSON.stringify({
           access: data.tokens.access.token,
           refresh: data.tokens.refresh.token,
-        })
+        }),
       );
 
       return data;
@@ -65,7 +65,7 @@ export const loginUser = createAsyncThunk(
       toast.error(errorMessage);
       return rejectWithValue(errorMessage);
     }
-  }
+  },
 );
 
 export const acceptDisclaimer = createAsyncThunk(
@@ -83,7 +83,7 @@ export const acceptDisclaimer = createAsyncThunk(
       const { data } = await axios.post(
         `${backendURL}/v1/auth/update-disclaimer`,
         { email: state.user.email },
-        config
+        config,
       );
 
       return data;
@@ -92,7 +92,7 @@ export const acceptDisclaimer = createAsyncThunk(
       toast.error(errorMessage);
       return rejectWithValue(errorMessage);
     }
-  }
+  },
 );
 
 export const logoutUser = createAsyncThunk(
@@ -110,7 +110,7 @@ export const logoutUser = createAsyncThunk(
         {
           refreshToken: tokens.refresh,
         },
-        config
+        config,
       );
 
       localStorage.removeItem("time-machine");
@@ -119,5 +119,5 @@ export const logoutUser = createAsyncThunk(
       toast.error(errorMessage);
       return rejectWithValue(errorMessage);
     }
-  }
+  },
 );

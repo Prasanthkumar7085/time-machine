@@ -1,2 +1,2 @@
-export { default } from "./Stats";
 export * from "./Stats";
+export { default } from "./Stats";

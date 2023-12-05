@@ -1,21 +1,21 @@
-import LineChart from "./Chart";
-import data from "../../assets/data.json";
+import classNames from "classnames";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import toast from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
-import { useCallback, useEffect, useRef, useState, useMemo } from "react";
-import { createGame, updateGame } from "../../redux/game/gameActions";
+import { useNavigate } from "react-router-dom";
+import data from "../../assets/data.json";
+import { updateGame } from "../../redux/game/gameActions";
 import {
+  GAME_ROUNDS,
   GAME_STARTING_YEAR,
   GAME_STEPS,
-  GAME_ROUNDS,
   gameBodyGenerator,
   gameNoteGenerator,
   gameQuestionGenerator,
 } from "../../utils/constants";
 import Terminal from "../Terminal";
-import { useNavigate } from "react-router-dom";
+import LineChart from "./Chart";
 import Results from "./Results";
-import classNames from "classnames";
-import toast from "react-hot-toast";
 
 /**
  * Calculate the standard deviation for an array of objects where values are stored in item.value.
@@ -36,7 +36,7 @@ function standardDeviation(data) {
   let variance =
     data.reduce(
       (acc, item) => acc + Math.pow(Number(item.value) - mean, 2),
-      0
+      0,
     ) / data.length;
 
   // Return the standard deviation (square root of variance)
@@ -137,10 +137,10 @@ export default function Question() {
   const estimateYear = useMemo(
     () =>
       GAME_STARTING_YEAR[gameType] + game.answers.length * GAME_STEPS[gameType],
-    [gameType, game.answers.length]
+    [gameType, game.answers.length],
   );
   const gameIndex = gameData?.findIndex(
-    (item) => item.date === String(estimateYear)
+    (item) => item.date === String(estimateYear),
   );
   const dataToShow = gameId ? gameData?.slice(0, gameIndex) : [];
   const answers = game.answers;
@@ -172,7 +172,7 @@ export default function Question() {
               value: gameBodyGenerator(
                 estimateYear,
                 gameType,
-                dataToShow.length
+                dataToShow.length,
               ),
               time: generateRandomTime(),
             },
@@ -238,20 +238,20 @@ export default function Question() {
       const predictiveAccuracy = calculatePredectiveAccuracy(
         guessCenter,
         correctAnswer,
-        60
+        60,
       );
       const confidentBandAccuracy = confidenceBandScore(
         guessCenter - guessRange,
         guessCenter + guessRange,
         correctAnswer,
-        30
+        30,
       );
       const sd = standardDeviation(chartData.slice(-2));
       const percisionOfConfidentBand = precisionScore(
         guessCenter - guessRange,
         guessCenter + guessRange,
         sd / 4,
-        10
+        10,
       );
       const answer = {
         guessCenter,
@@ -270,7 +270,7 @@ export default function Question() {
       });
       setHasEstimate(false);
     },
-    [chartData, gameData, hasEstimate, estimateYear, gameId, answers, gameType]
+    [chartData, gameData, hasEstimate, estimateYear, gameId, answers, gameType],
   );
 
   const averagePredictiveAccuracy = useMemo(() => {
@@ -340,7 +340,7 @@ export default function Question() {
             e.preventDefault();
             if (hasResult) {
               toast.error(
-                "You have already submitted your answer. Please click on 'Next Question' to continue."
+                "You have already submitted your answer. Please click on 'Next Question' to continue.",
               );
             }
           }}
@@ -399,7 +399,7 @@ export default function Question() {
               "w-full h-[calc(100%-300px)] flex-grow",
               hasResult
                 ? "pointer-events-none cursor-not-allowed"
-                : "pointer-events-auto"
+                : "pointer-events-auto",
             )}
           >
             {chartData.length > 0 && (

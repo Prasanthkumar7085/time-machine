@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
-import { loginUser } from "../../redux/user/userActions";
 import { Link, useNavigate } from "react-router-dom";
+import { loginUser } from "../../redux/user/userActions";
 
 export default function Login() {
   const { loading } = useSelector((state) => state.user);

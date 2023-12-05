@@ -1,14 +1,14 @@
-import Poverty from "../../assets/images/poverty.png";
-import Conflict from "../../assets/images/nonstate.png";
-import Infant from "../../assets/images/infant.png";
-import CO2 from "../../assets/images/co2.png";
 import classNames from "classnames";
 import { useEffect } from "react";
+import toast from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import CO2 from "../../assets/images/co2.png";
+import Infant from "../../assets/images/infant.png";
+import Conflict from "../../assets/images/nonstate.png";
+import Poverty from "../../assets/images/poverty.png";
 import { getGames } from "../../redux/game/gameActions";
 import { updateSelectedGame } from "../../redux/game/gameReducer";
-import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
 
 export default function Categories() {
   const figStyle =
@@ -88,7 +88,7 @@ export default function Categories() {
           <span
             className={classNames(
               "indicator-item indicator-center indicator-middle badge",
-              getIndicatorStyle(gamesHistory["us-poverty"])
+              getIndicatorStyle(gamesHistory["us-poverty"]),
             )}
           >
             {getIndicatorText(gamesHistory["us-poverty"])}
@@ -97,7 +97,7 @@ export default function Categories() {
             <img
               className={classNames(
                 "group-hover:scale-110 transition duration-300 ease-in-out",
-                getDisabledStyle(gamesHistory["us-poverty"])
+                getDisabledStyle(gamesHistory["us-poverty"]),
               )}
               src={Poverty}
               alt="US Poverty"
@@ -117,7 +117,7 @@ export default function Categories() {
           <span
             className={classNames(
               "indicator-item indicator-center indicator-middle badge",
-              getIndicatorStyle(gamesHistory["non-state-conflict"])
+              getIndicatorStyle(gamesHistory["non-state-conflict"]),
             )}
           >
             {getIndicatorText(gamesHistory["non-state-conflict"])}
@@ -126,7 +126,7 @@ export default function Categories() {
             <img
               className={classNames(
                 "group-hover:scale-110 transition duration-300 ease-in-out",
-                getDisabledStyle(gamesHistory["non-state-conflict"])
+                getDisabledStyle(gamesHistory["non-state-conflict"]),
               )}
               src={Conflict}
               alt="Non-State Conflict"
@@ -146,7 +146,7 @@ export default function Categories() {
           <span
             className={classNames(
               "indicator-item indicator-center indicator-middle badge",
-              getIndicatorStyle(gamesHistory["co2-concentrations"])
+              getIndicatorStyle(gamesHistory["co2-concentrations"]),
             )}
           >
             {getIndicatorText(gamesHistory["co2-concentrations"])}
@@ -155,7 +155,7 @@ export default function Categories() {
             <img
               className={classNames(
                 "group-hover:scale-110 transition duration-300 ease-in-out",
-                getDisabledStyle(gamesHistory["co2-concentrations"])
+                getDisabledStyle(gamesHistory["co2-concentrations"]),
               )}
               src={CO2}
               alt="CO2 Concentrations"
@@ -175,7 +175,7 @@ export default function Categories() {
           <span
             className={classNames(
               "indicator-item indicator-center indicator-middle badge",
-              getIndicatorStyle(gamesHistory["infant-mortality-rate"])
+              getIndicatorStyle(gamesHistory["infant-mortality-rate"]),
             )}
           >
             {getIndicatorText(gamesHistory["infant-mortality-rate"])}
@@ -184,7 +184,7 @@ export default function Categories() {
             <img
               className={classNames(
                 "group-hover:scale-110 transition duration-300 ease-in-out",
-                getDisabledStyle(gamesHistory["infant-mortality-rate"])
+                getDisabledStyle(gamesHistory["infant-mortality-rate"]),
               )}
               src={Infant}
               alt="Infant Mortality Rate"

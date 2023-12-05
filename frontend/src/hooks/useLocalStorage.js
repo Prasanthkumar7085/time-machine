@@ -1,11 +1,11 @@
-import { useState, useCallback, useEffect } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 const customEvent = "myMagicalStorageHook";
 
 export default function useLocalStorage(
   key,
   initialValue,
-  lifeSpan = Infinity
+  lifeSpan = Infinity,
 ) {
   const [storedValue, setStoredValue] = useState(() => {
     try {
@@ -30,7 +30,7 @@ export default function useLocalStorage(
         const stampedValue = { expire, JSONValue };
 
         window.dispatchEvent(
-          new CustomEvent(customEvent, { detail: { key, value } })
+          new CustomEvent(customEvent, { detail: { key, value } }),
         );
 
         setStoredValue(value);
@@ -39,7 +39,7 @@ export default function useLocalStorage(
         console.log(error);
       }
     },
-    [key, lifeSpan]
+    [key, lifeSpan],
   );
 
   useEffect(() => {

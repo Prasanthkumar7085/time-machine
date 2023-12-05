@@ -1,8 +1,8 @@
-import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
+import { toast } from "react-hot-toast";
 import { backendURL } from "../../utils/constants";
 import { errorHandler } from "../../utils/utils";
-import { toast } from "react-hot-toast";
 
 export const createGame = createAsyncThunk(
   "game/create",
@@ -18,7 +18,7 @@ export const createGame = createAsyncThunk(
       const { data } = await axios.post(
         `${backendURL}/v1/game/init`,
         { name: scientistName },
-        config
+        config,
       );
 
       return data;
@@ -27,7 +27,7 @@ export const createGame = createAsyncThunk(
       toast.error(errorMessage);
       return rejectWithValue(errorMessage);
     }
-  }
+  },
 );
 
 export const startGame = createAsyncThunk(
@@ -44,7 +44,7 @@ export const startGame = createAsyncThunk(
       const { data } = await axios.post(
         `${backendURL}/v1/game/start`,
         { name: scientistName, gameId, gameType: selectedType },
-        config
+        config,
       );
 
       return data;
@@ -53,12 +53,12 @@ export const startGame = createAsyncThunk(
       toast.error(errorMessage);
       return rejectWithValue(errorMessage);
     }
-  }
+  },
 );
 
 const findGame = (games, type) => {
   const finishedGame = games.find(
-    (game) => game.type === type && game.finished
+    (game) => game.type === type && game.finished,
   );
   if (finishedGame) {
     return finishedGame;
@@ -101,7 +101,7 @@ export const getGames = createAsyncThunk(
       toast.error(errorMessage);
       return rejectWithValue(errorMessage);
     }
-  }
+  },
 );
 
 export const updateGame = createAsyncThunk(
@@ -118,7 +118,7 @@ export const updateGame = createAsyncThunk(
       const { data } = await axios.post(
         `${backendURL}/v1/game/update-game/${gameId}`,
         { answer, finished },
-        config
+        config,
       );
 
       return data;
@@ -127,5 +127,5 @@ export const updateGame = createAsyncThunk(
       toast.error(errorMessage);
       return rejectWithValue(errorMessage);
     }
-  }
+  },
 );

@@ -1,5 +1,4 @@
-import { useRef } from "react";
-import { useGLTF, Edges } from "@react-three/drei";
+import { Edges, useGLTF } from "@react-three/drei";
 // use ↓ "DebugLayerMaterial as LayerMaterial" ↓ here for integrated leva debug panels
 // import { LayerMaterial, Depth, Fresnel } from "lamina";
 

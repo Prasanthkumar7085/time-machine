@@ -1,6 +1,5 @@
-import React from "react";
-import { InfoIcon } from "./Question";
 import { useNavigate } from "react-router-dom";
+import { InfoIcon } from "./Question";
 
 const Results = ({
   predictiveAccuracy,

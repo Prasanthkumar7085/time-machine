@@ -1,2 +1,2 @@
-export { default } from "./Demographics";
 export * from "./Demographics";
+export { default } from "./Demographics";

@@ -1,19 +1,19 @@
 import { Navigate, createBrowserRouter } from "react-router-dom";
 
-import Login from "../components/Login";
-import Signup from "../components/Signup";
-import Disclaimer from "../components/Disclaimer";
+import Categories from "../components/Categories";
 import Demographics from "../components/Demographics";
-import ScientistName from "../components/ScientistName";
+import Disclaimer from "../components/Disclaimer";
+import Intro from "../components/Intro/Intro";
 import Layout from "../components/Layout/Layout";
-import Welcome from "../components/Welcome";
+import Login from "../components/Login";
 import Question from "../components/Question";
+import ScientistName from "../components/ScientistName";
+import Signup from "../components/Signup";
+import Stats from "../components/Stats";
 import Summary from "../components/Summary";
+import Welcome from "../components/Welcome";
 import { ProtectedRoute } from "./ProtectedRoute";
 import { PublicRoute } from "./PublicRoute";
-import Intro from "../components/Intro/Intro";
-import Categories from "../components/Categories";
-import Stats from "../components/Stats";
 
 export const router = createBrowserRouter(
   [

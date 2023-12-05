@@ -1,11 +1,11 @@
-import * as THREE from 'three';
-import { MeshLineRaycast } from './raycast';
-import { memcpy } from './utils';
+import * as THREE from "three";
+import { MeshLineRaycast } from "./raycast";
+import { memcpy } from "./utils";
 
 export class MeshLine extends THREE.BufferGeometry {
   constructor() {
     super();
-    this.type = 'MeshLine';
+    this.type = "MeshLine";
     this.isMeshLine = true;
     this.positions = [];
     this.raycast = MeshLineRaycast;
@@ -70,7 +70,7 @@ export class MeshLine extends THREE.BufferGeometry {
     // for later retreival when necessary (declaritive architectures)
     this._geometry = g;
     if (g instanceof THREE.BufferGeometry) {
-      this.setPoints(g.getAttribute('position').array, c);
+      this.setPoints(g.getAttribute("position").array, c);
     } else {
       this.setPoints(g, c);
     }
@@ -79,7 +79,7 @@ export class MeshLine extends THREE.BufferGeometry {
   setPoints(points, wcb) {
     if (!(points instanceof Float32Array) && !(points instanceof Array)) {
       console.error(
-        'ERROR: The BufferArray of points is not instancied correctly.'
+        "ERROR: The BufferArray of points is not instancied correctly.",
       );
       return;
     }
@@ -202,7 +202,7 @@ export class MeshLine extends THREE.BufferGeometry {
       this._attributes = {
         position: new THREE.BufferAttribute(
           new Float32Array(this.positions),
-          3
+          3,
         ),
         previous: new THREE.BufferAttribute(new Float32Array(this.previous), 3),
         next: new THREE.BufferAttribute(new Float32Array(this.next), 3),
@@ -211,7 +211,7 @@ export class MeshLine extends THREE.BufferGeometry {
         uv: new THREE.BufferAttribute(new Float32Array(this.uvs), 2),
         index: new THREE.BufferAttribute(
           new Uint16Array(this.indices_array),
-          1
+          1,
         ),
         counters: new THREE.BufferAttribute(new Float32Array(this.counters), 1),
       };
@@ -232,13 +232,13 @@ export class MeshLine extends THREE.BufferGeometry {
       this._attributes.index.needsUpdate = true;
     }
 
-    this.setAttribute('position', this._attributes.position);
-    this.setAttribute('previous', this._attributes.previous);
-    this.setAttribute('next', this._attributes.next);
-    this.setAttribute('side', this._attributes.side);
-    this.setAttribute('width', this._attributes.width);
-    this.setAttribute('uv', this._attributes.uv);
-    this.setAttribute('counters', this._attributes.counters);
+    this.setAttribute("position", this._attributes.position);
+    this.setAttribute("previous", this._attributes.previous);
+    this.setAttribute("next", this._attributes.next);
+    this.setAttribute("side", this._attributes.side);
+    this.setAttribute("width", this._attributes.width);
+    this.setAttribute("uv", this._attributes.uv);
+    this.setAttribute("counters", this._attributes.counters);
 
     this.setIndex(this._attributes.index);
 

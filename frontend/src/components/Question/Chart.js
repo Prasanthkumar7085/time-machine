@@ -1,8 +1,8 @@
-import React, { useRef, useEffect, useState } from "react";
-import * as d3 from "d3";
-import useResizeObserver from "use-resize-observer";
-import toast from "react-hot-toast";
 import classNames from "classnames";
+import * as d3 from "d3";
+import { useEffect, useRef } from "react";
+import toast from "react-hot-toast";
+import useResizeObserver from "use-resize-observer";
 
 // *********************************************************************
 // Data.date must be provided in ASC order (ascending, oldest to newest)
@@ -77,7 +77,7 @@ const LineChart = ({
       .classed("container", true)
       .attr(
         "transform",
-        `translate(${dimensions.margins}, ${dimensions.margins})`
+        `translate(${dimensions.margins}, ${dimensions.margins})`,
       );
 
     const tooltip = d3.select(tooltipRef.current);
@@ -279,7 +279,7 @@ const LineChart = ({
       .select(".ypindicatorupband")
       .style(
         "width",
-        dimensions.containerWidth - dimensions.predictionMargin + "px"
+        dimensions.containerWidth - dimensions.predictionMargin + "px",
       )
       .style("height", "1px")
       .style("left", dimensions.margins + "px")
@@ -288,12 +288,12 @@ const LineChart = ({
         hasEstimate
           ? yScale(
               yAccessor(Data[Data.length - 2]) +
-                Data[Data.length - 2].estimateMargin
+                Data[Data.length - 2].estimateMargin,
             ) +
               dimensions.margins -
               1 +
               "px"
-          : undefined
+          : undefined,
       )
       .style("opacity", hasEstimate ? 1 : 0);
 
@@ -301,7 +301,7 @@ const LineChart = ({
       .select(".ypindicatordownband")
       .style(
         "width",
-        dimensions.containerWidth - dimensions.predictionMargin + "px"
+        dimensions.containerWidth - dimensions.predictionMargin + "px",
       )
       .style("height", "1px")
       .style("left", dimensions.margins + "px")
@@ -310,19 +310,19 @@ const LineChart = ({
         hasEstimate
           ? yScale(
               yAccessor(Data[Data.length - 2]) -
-                Data[Data.length - 2].estimateMargin
+                Data[Data.length - 2].estimateMargin,
             ) +
               dimensions.margins -
               1 +
               "px"
-          : undefined
+          : undefined,
       )
       .style("opacity", hasEstimate ? 1 : 0);
     var verticalYPointerMid = d3
       .select(".ypindicatormidband")
       .style(
         "width",
-        dimensions.containerWidth - dimensions.predictionMargin + "px"
+        dimensions.containerWidth - dimensions.predictionMargin + "px",
       )
       .style("height", "1px")
       .style("left", dimensions.margins + "px")
@@ -330,7 +330,7 @@ const LineChart = ({
         "top",
         hasEstimate
           ? yScale(yAccessor(Data[Data.length - 2])) + dimensions.margins + "px"
-          : undefined
+          : undefined,
       )
       .style("opacity", hasEstimate ? 1 : 0);
     // container
@@ -493,25 +493,25 @@ const LineChart = ({
         verticalx
           .style(
             "left",
-            xScale(xAccessor(hoveredIndexData)) + dimensions.margins + "px"
+            xScale(xAccessor(hoveredIndexData)) + dimensions.margins + "px",
           )
           .style(
             "height",
             dimensions.height -
               2 * dimensions.margins -
               yScale(yAccessor(hoveredIndexData)) +
-              "px"
+              "px",
           )
           .style(
             "top",
-            yScale(yAccessor(hoveredIndexData)) + dimensions.margins + "px"
+            yScale(yAccessor(hoveredIndexData)) + dimensions.margins + "px",
           )
           .style("opacity", 1);
 
         verticaly
           .style(
             "top",
-            yScale(yAccessor(hoveredIndexData)) + dimensions.margins + "px"
+            yScale(yAccessor(hoveredIndexData)) + dimensions.margins + "px",
           )
           .style("left", dimensions.margins + "px")
           .style("width", xScale(xAccessor(hoveredIndexData)) + "px")
@@ -598,12 +598,12 @@ const LineChart = ({
               const estimateMargin = Math.min(
                 c,
                 dimensions.containerHeight - y,
-                dimensions.containerHeight - (dimensions.containerHeight - y)
+                dimensions.containerHeight - (dimensions.containerHeight - y),
               );
               updateChartData(
                 yScale.invert(y),
                 yAccessor(Data[0]) -
-                  yScale.invert(yScale(yAccessor(Data[0])) + estimateMargin)
+                  yScale.invert(yScale(yAccessor(Data[0])) + estimateMargin),
               );
               return;
             }
@@ -613,7 +613,7 @@ const LineChart = ({
               .style("left", dimensions.margins + "px")
               .style(
                 "width",
-                dimensions.containerWidth - dimensions.predictionMargin + "px"
+                dimensions.containerWidth - dimensions.predictionMargin + "px",
               )
               .style("opacity", 1);
 
@@ -622,7 +622,7 @@ const LineChart = ({
               .style("left", dimensions.margins + "px")
               .style(
                 "width",
-                dimensions.containerWidth - dimensions.predictionMargin + "px"
+                dimensions.containerWidth - dimensions.predictionMargin + "px",
               )
               .style("opacity", 1);
 
@@ -631,7 +631,7 @@ const LineChart = ({
               .style("left", dimensions.margins + "px")
               .style(
                 "width",
-                dimensions.containerWidth - dimensions.predictionMargin + "px"
+                dimensions.containerWidth - dimensions.predictionMargin + "px",
               )
               .style("opacity", 1);
 
@@ -656,9 +656,10 @@ const LineChart = ({
             if (y - c < 0 || y + c > dimensions.containerHeight) return;
             updateChartData(
               yScale.invert(y),
-              yAccessor(Data[0]) - yScale.invert(yScale(yAccessor(Data[0])) + c)
+              yAccessor(Data[0]) -
+                yScale.invert(yScale(yAccessor(Data[0])) + c),
             );
-          })
+          }),
       );
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [Data, width, height, hasEstimate, hasResult]); // redraw chart if data or dimensions change
@@ -668,38 +669,38 @@ const LineChart = ({
       <div
         className={classNames(
           "absolute w-1 h-1 bg-transparent left-6 top-6 xindicator border-dashed border border-[rgba(255,255,255,.3)] z-0 opacity-0",
-          hasResult ? "hidden opacity-0" : "visible"
+          hasResult ? "hidden opacity-0" : "visible",
         )}
       />
       <div
         className={classNames(
           "absolute w-1 h-1 bg-transparent left-6 top-6 yindicator border-dashed border border-[rgba(255,255,255,.3)] z-0 opacity-0",
-          hasResult ? "hidden opacity-0" : "visible"
+          hasResult ? "hidden opacity-0" : "visible",
         )}
       />
       {/* <div className="absolute w-1 h-1 bg-transparent left-6 top-6 xpindicator border-dashed border border-[rgba(255,255,255,.3)] z-0" /> */}
       <div
         className={classNames(
           "absolute w-1 h-1 bg-transparent left-6 top-6 ypindicator border-dashed border border-[rgba(255,255,255,.3)] z-0 opacity-0",
-          hasResult ? "hidden opacity-0" : "visible"
+          hasResult ? "hidden opacity-0" : "visible",
         )}
       />
       <div
         className={classNames(
           "absolute w-1 h-1 bg-transparent left-6 top-6 ypindicatorupband border-dashed border border-[rgba(239,98,98,.3)] z-0 opacity-0",
-          hasResult ? "hidden opacity-0" : "visible"
+          hasResult ? "hidden opacity-0" : "visible",
         )}
       />
       <div
         className={classNames(
           "absolute w-1 h-1 bg-transparent left-6 top-6 ypindicatordownband border-dashed border border-[rgba(239,98,98,.3)] z-0 opacity-0",
-          hasResult ? "hidden opacity-0" : "visible"
+          hasResult ? "hidden opacity-0" : "visible",
         )}
       />
       <div
         className={classNames(
           "absolute w-1 h-1 bg-transparent left-6 top-6 ypindicatormidband border-dashed border border-[rgba(239,98,98,.5)] z-0 opacity-0",
-          hasResult ? "hidden opacity-0" : "visible"
+          hasResult ? "hidden opacity-0" : "visible",
         )}
       />
       <svg ref={svgRef} />

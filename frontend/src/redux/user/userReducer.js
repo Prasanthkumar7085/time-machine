@@ -1,9 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 import {
-  loginUser,
-  registerUser,
-  logoutUser,
   acceptDisclaimer,
+  loginUser,
+  logoutUser,
+  registerUser,
 } from "./userActions";
 
 const initialState = {

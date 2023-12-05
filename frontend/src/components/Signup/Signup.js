@@ -1,8 +1,8 @@
 import { useForm } from "react-hook-form";
-import { useDispatch, useSelector } from "react-redux";
-import { registerUser } from "../../redux/user/userActions";
-import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import { registerUser } from "../../redux/user/userActions";
 import PasswordChecklist from "./PasswordChecklist";
 
 export default function Signup() {

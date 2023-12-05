@@ -1,10 +1,10 @@
-import React, { useRef, useMemo } from "react";
 import { useFrame } from "@react-three/fiber";
 import Random from "canvas-sketch-util/random";
+import { useMemo, useRef } from "react";
 import {
+  aizawaAttractor,
   createAttractor,
   updateAttractor,
-  aizawaAttractor,
 } from "./attractor.js";
 
 const simulation = () => aizawaAttractor;
@@ -18,7 +18,7 @@ function StormLine({ radius, simulation, width, color }) {
         currentPosition,
         radius,
         simulation,
-        0.003
+        0.003,
       );
 
       line.current.advance(nextPosition);
@@ -47,7 +47,7 @@ function Space({ count, colors, radius = 20 }) {
           radius: Random.range(0.5, 1.5) * radius,
         };
       }),
-    [count, colors, radius]
+    [count, colors, radius],
   );
 
   return (

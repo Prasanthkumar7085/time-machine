@@ -1,5 +1,5 @@
-import React, { useRef, useEffect, useState, useCallback } from "react";
 import classNames from "classnames";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 export default function Terminal({
   lines,
@@ -30,7 +30,7 @@ export default function Terminal({
         submitAnswer(currentValue);
       }
     },
-    [currentValue]
+    [currentValue],
   );
 
   useEffect(() => {
@@ -44,7 +44,7 @@ export default function Terminal({
     <div
       className={classNames(
         "mockup-code h-full w-full shadow-lg border-r border-r-[rgba(255,255,255,0.1)] overflow-auto pb-0 bg-[#191D24]",
-        notRounded ? "rounded-none" : ""
+        notRounded ? "rounded-none" : "",
       )}
     >
       {!finished &&
@@ -60,7 +60,7 @@ export default function Terminal({
                 <code
                   className={classNames(
                     "whitespace-normal flex-1",
-                    textTypeClass(line.type)
+                    textTypeClass(line.type),
                   )}
                 >
                   {line.value.map((item, index) => {
@@ -70,7 +70,7 @@ export default function Terminal({
                         <p
                           className={classNames(
                             "whitespace-normal flex-1",
-                            textTypeClass("info")
+                            textTypeClass("info"),
                           )}
                         >
                           {item}
@@ -92,7 +92,7 @@ export default function Terminal({
               <code
                 className={classNames(
                   "whitespace-normal flex-1",
-                  textTypeClass(line.type)
+                  textTypeClass(line.type),
                 )}
               >
                 {line.value}

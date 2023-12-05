@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
-import Spaceship from "../Spaceship/Spaceship";
-import { useNavigate, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { useLocation, useNavigate } from "react-router-dom";
+import Spaceship from "../Spaceship/Spaceship";
 
 let timer;
 const easeInOutCubic = (t) => {

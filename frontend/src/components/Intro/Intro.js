@@ -1,11 +1,11 @@
-import * as THREE from "three";
+import { Stars } from "@react-three/drei";
 import { Canvas, extend } from "@react-three/fiber";
+import { useSelector } from "react-redux";
+import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+import Details from "./Details";
 import { MeshLine, MeshLineMaterial } from "./MeshLine";
 import Space from "./Space";
-import Details from "./Details";
-import { Stars } from "@react-three/drei";
-import { useSelector } from "react-redux";
 
 extend({ MeshLine, MeshLineMaterial, OrbitControls });
 

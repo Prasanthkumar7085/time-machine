@@ -10,15 +10,6 @@ const initialState = {
   selectedGameId: undefined,
 };
 
-const tempInitalState = {
-  answers: [],
-  finished: false,
-  _id: "64ea12195c38111ba163fec1",
-  name: "asqar",
-  type: "co2-concentrations",
-  user: "64ea06884ee39501df15dbf6",
-};
-
 const gameSlice = createSlice({
   name: "game",
   initialState: initialState,
