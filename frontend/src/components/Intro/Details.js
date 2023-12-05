@@ -15,7 +15,7 @@ export default function Details({ scientistName, gameId, selectedType }) {
     });
   };
   return (
-    <div className="absolute top-[4rem] left-0 w-full h-[calc(100%-4rem)] flex justify-center items-center flex-col gap-3 p-10">
+    <div className="absolute top-[4rem] left-0 w-full h-auto flex justify-center items-center flex-col gap-3 p-10">
       <div className="mockup-window border border-base-300">
         <div className="pl-3 mb-1 w-full">
           <h2 className="text-2xl font-bold">Instructions:</h2>
