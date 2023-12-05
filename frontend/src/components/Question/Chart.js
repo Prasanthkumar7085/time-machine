@@ -333,42 +333,7 @@ const LineChart = ({
           : undefined,
       )
       .style("opacity", hasEstimate ? 1 : 0);
-    // container
-    //   .append("circle")
-    //   .attr("cx", 30)
-    //   .attr("cy", 0)
-    //   .attr("r", 6)
-    //   .style("fill", "#69b3a2");
-    // container
-    //   .append("circle")
-    //   .attr("cx", 30)
-    //   .attr("cy", 30)
-    //   .attr("r", 6)
-    //   .style("opacity", answers.length > 0 ? 1 : 0)
-    //   .style("fill", "#A8DF8E");
-    // container
-    //   .append("text")
-    //   .attr("x", 40)
-    //   .attr("y", 0)
-    //   .text("variable A")
-    //   .style("font-size", "15px")
-    //   .style("fill", "white")
-    //   .attr("alignment-baseline", "middle");
-    // container
-    //   .append("text")
-    //   .attr("x", 40)
-    //   .attr("y", 30)
-    //   .text("variable B")
-    //   .style("font-size", "15px")
-    //   .style("fill", "white")
-    //   .style("opacity", answers.length > 0 ? 1 : 0)
-    //   .attr("alignment-baseline", "middle");
 
-    // var dot = container.append("circle").attr("r", 5).attr("fill", "#EF6262");
-    // var centerDot = container
-    //   .append("circle")
-    //   .attr("r", 2)
-    //   .attr("fill", "#EF6262");
     var estimateZone = container
       .append("rect")
       .attr("width", dateDistance)
