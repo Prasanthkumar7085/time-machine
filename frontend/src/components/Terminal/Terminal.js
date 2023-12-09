@@ -115,9 +115,7 @@ export default function Terminal({
                 setCurrentValue(e.target.value);
               }}
               autoFocus
-            >
-              {"> "}
-            </textarea>
+            ></textarea>
           </div>
           <button
             className="btn btn-primary absolute bottom-3 right-3"
