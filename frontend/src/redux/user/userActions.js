@@ -70,7 +70,7 @@ export const loginUser = createAsyncThunk(
 
 export const acceptDisclaimer = createAsyncThunk(
   "auth/disclaimer",
-  async (__, { rejectWithValue, getState }) => {
+  async ({ osfConsent }, { rejectWithValue, getState }) => {
     const state = getState();
     const tokens = JSON.parse(localStorage.getItem("time-machine"));
     try {
@@ -82,7 +82,7 @@ export const acceptDisclaimer = createAsyncThunk(
       };
       const { data } = await axios.post(
         `${backendURL}/v1/auth/update-disclaimer`,
-        { email: state.user.email },
+        { email: state.user.email, osfConsent },
         config,
       );
 

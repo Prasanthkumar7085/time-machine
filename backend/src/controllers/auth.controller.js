@@ -32,7 +32,7 @@ const refreshTokens = catchAsync(async (req, res) => {
 });
 
 const updateDisclaimer = catchAsync(async (req, res) => {
-  const updatedUser = await authService.updateDisclaimer(req.body.email);
+  const updatedUser = await authService.updateDisclaimer(req.body.email, req.body.osfConsent);
   res.send({ user: updatedUser });
 });
 

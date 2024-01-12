@@ -30,6 +30,7 @@ const refreshTokens = {
 const updateDisclaimer = {
   body: Joi.object().keys({
     email: Joi.string().email().required(),
+    osfConsent: Joi.boolean().required(),
   }),
 };
 

@@ -49,6 +49,11 @@ const userSchema = mongoose.Schema(
       default: false,
       required: true,
     },
+    osfConsent: {
+      type: Boolean,
+      default: false,
+      required: true,
+    },
     gameCompletionCount: {
       type: Number,
       default: 0,

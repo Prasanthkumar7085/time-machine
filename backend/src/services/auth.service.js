@@ -56,12 +56,12 @@ const refreshAuth = async (refreshToken) => {
  * @param {string} email
  * @returns {Promise<User>}
  */
-const updateDisclaimer = async (email) => {
+const updateDisclaimer = async (email, osfConsent) => {
   const user = await userService.getUserByEmail(email);
   if (!user) {
     throw new ApiError(httpStatus.UNAUTHORIZED, 'Please authenticate');
   }
-  const updatedUser = await userService.updateUserById(user.id, { isDisclaimerAccepted: true });
+  const updatedUser = await userService.updateUserById(user.id, { isDisclaimerAccepted: true, osfConsent });
   return updatedUser;
 };
 
