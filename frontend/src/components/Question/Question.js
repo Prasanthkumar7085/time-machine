@@ -6,12 +6,13 @@ import { useNavigate } from "react-router-dom";
 import data from "../../assets/data.json";
 import { updateGame } from "../../redux/game/gameActions";
 import {
+  gameBodyGenerator,
+  gameLinkingTextGenerator,
+  gameNoteGenerator,
+  gameQuestionGenerator,
   GAME_ROUNDS,
   GAME_STARTING_YEAR,
   GAME_STEPS,
-  gameBodyGenerator,
-  gameNoteGenerator,
-  gameQuestionGenerator,
 } from "../../utils/constants";
 import Terminal from "../Terminal";
 import LineChart from "./Chart";
@@ -178,6 +179,15 @@ export default function Question() {
             },
           ]
         : []),
+      {
+        type: "text-bold",
+        value: gameLinkingTextGenerator(
+          estimateYear - GAME_STEPS[gameType],
+          estimateYear,
+          gameType,
+        ),
+        time: generateRandomTime(),
+      },
       {
         type: "text-bold",
         value: gameQuestionGenerator(estimateYear, gameType),

@@ -45,6 +45,21 @@ export const gameQuestionGenerator = (year, type) => {
   }
 };
 
+export const gameLinkingTextGenerator = (year, futureYear, type) => {
+  switch (type) {
+    case "co2-concentrations":
+      return `Looking forward from ${year} into the future, your task is to predict the global CO2 concentrations in ${futureYear}.`;
+    case "infant-mortality-rate":
+      return `Looking forward from ${year} into the future, your task is to predict the global infant mortality in ${futureYear}.`;
+    case "non-state-conflict":
+      return `Looking forward from ${year} into the future, your task is to predict the non-state conflicts in ${futureYear}.`;
+    case "us-poverty":
+      return `Looking forward from ${year} into the future, your task is to predict the US poverty rate in ${futureYear}.`;
+    default:
+      return "";
+  }
+};
+
 export const gameNoteGenerator = (year) => NOTES[year];
 
 export const gameBodyGenerator = (year, type, dataPoints) => {
