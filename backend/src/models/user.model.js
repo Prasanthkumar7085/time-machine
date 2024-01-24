@@ -44,6 +44,10 @@ const userSchema = mongoose.Schema(
       type: Boolean,
       default: false,
     },
+    isAdmin: {
+      type: Boolean,
+      default: false,
+    },
     isDisclaimerAccepted: {
       type: Boolean,
       default: false,
@@ -79,8 +83,22 @@ const userSchema = mongoose.Schema(
   }
 );
 
+userSchema.virtual('games', {
+  ref: 'Game',
+  localField: '_id',
+  foreignField: 'user',
+});
+
+userSchema.virtual('tokens', {
+  ref: 'Token',
+  localField: '_id',
+  foreignField: 'user',
+});
+
 // add plugin that converts mongoose to json
-userSchema.plugin(toJSON);
+userSchema.plugin(toJSON, {
+  virtuals: true,
+});
 userSchema.plugin(paginate);
 
 /**
