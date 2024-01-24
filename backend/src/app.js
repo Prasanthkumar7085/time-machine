@@ -29,7 +29,7 @@ app.use(
   })
 );
 
-app.use(adminBro.options.rootPath, adminRouter);
+// app.use(adminBro.options.rootPath, adminRouter);
 
 // parse json request body
 app.use(express.json());
