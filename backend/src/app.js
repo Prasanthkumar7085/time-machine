@@ -13,7 +13,7 @@ const { authLimiter } = require('./middlewares/rateLimiter');
 const routes = require('./routes/v1');
 const { errorConverter, errorHandler } = require('./middlewares/error');
 const ApiError = require('./utils/ApiError');
-// const { adminBro, adminRouter } = require('./routes/v1/admin.route');
+const { adminBro, adminRouter } = require('./routes/v1/admin.route');
 
 const app = express();
 
@@ -23,21 +23,19 @@ if (config.env !== 'test') {
 }
 
 // set security HTTP headers
-// app.use(
-//   helmet({
-//     contentSecurityPolicy: false,
-//   })
-// );
-app.use(helmet());
+app.use(
+  helmet({
+    contentSecurityPolicy: false,
+  })
+);
 
-// app.use(adminBro.options.rootPath, adminRouter);
+app.use(adminBro.options.rootPath, adminRouter);
 
 // parse json request body
 app.use(express.json());
 
 // parse urlencoded request body
-// app.use(express.urlencoded({ extended: false }));
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: false }));
 
 // sanitize request data
 app.use(xss());
