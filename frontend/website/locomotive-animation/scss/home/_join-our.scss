@@ -1,0 +1,17 @@
+#join-our-community {
+    position: relative;
+    padding-bottom: 5em;
+    .form-control {
+        background-color: #f8f8f8;
+    }
+    .form-row {
+        --bs-gutter-x: 0.5rem;
+    }
+    ::placeholder {
+        color: #ccc;
+    }
+    .des {
+        font-size: clamp(1.15em, 1.25vw, 2.5em);
+        font-weight: 400;
+    }
+}

@@ -1,0 +1,75 @@
+#initial-domain {
+    position: relative;
+    overflow: hidden;
+    .each-block {
+        position: relative;
+        border: 0.4px solid #0000001A;
+        .img {
+            position: relative;
+            img {
+                width: 100%;
+            }
+            .txt {
+                h4 {
+                    position: absolute;
+                    bottom: 10px;
+                    left: 10px;
+                    z-index: 1;
+                    color: #fff;
+                    font-size: clamp(2em, 4vw, 9em);
+                }
+            }
+        }
+        .each-content {
+            padding: 10px ;
+            min-height: 230px;
+            background-color: #FBFBFB ;
+            box-shadow: 0px 4px 4px 0px #0000000D;
+            @media (min-width:2000px){
+                min-height: 310px;
+            }
+            h4 {
+                margin-bottom: 10px;
+                font-weight: 600;
+                font-size: clamp(1em, 1.157vw, 2.5em);
+            }
+            ol {
+                li {
+                    font-size: clamp(0.775em, 0.7vw, 1.15em);
+                }
+            }
+            p {
+                font-weight: 700;
+                font-size: clamp(0.775em, 0.7vw, 1.15em);
+            }
+        }
+    }
+    .slick-list {
+        overflow: visible;
+    }
+    .slick-list{
+        overflow: visible;
+        padding:0 0 0 0;
+        position: relative;
+        z-index: -1;
+      }
+      
+      .slick-list::after {
+        content: ' ';
+        position: absolute;
+        top: 0px;
+        bottom: 0px;
+        width: 4000px;
+        right: 100%;
+        background-color: white;
+      }
+      
+    .slick-slider {
+        margin:0 -10px;
+    }
+    .slick-slide {
+        margin-right:10px;
+        margin-left:10px;
+    }
+    
+}

@@ -1,0 +1,22 @@
+#inner-banner {
+    position: relative;
+    padding: 2em 0;
+    @include media-breakpoint-up(xxl){
+        height: calc(100vh - 60px);
+        display: flex;
+        align-items: center;
+    
+    }
+    .des {
+        font-size: clamp(1.15em, 1.25vw, 2.5em);
+        font-weight: 400;
+    }
+    &.second-banner {
+        @include media-breakpoint-up(lg){
+            height: calc(100vh - 60px);
+            display: flex;
+            align-items: center;
+        
+        }  
+    }
+}

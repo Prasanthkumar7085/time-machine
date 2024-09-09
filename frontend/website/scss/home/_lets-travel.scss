@@ -1,0 +1,13 @@
+#lets-travel {
+    position: relative;
+    .btn-primary {
+        background-color: #3B46DE;
+        &:hover {
+            background-color: #0a18e1;
+        }
+    }
+    .des {
+        font-size: clamp(1.15em, 1.25vw, 2.5em);
+        font-weight: 400;
+    }
+}

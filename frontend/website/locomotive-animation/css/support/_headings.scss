@@ -1,0 +1,39 @@
+.fw-200 {
+  font-weight: 200;
+}
+.fw-300 {
+  font-weight: 300 !important;
+}
+.fw-normal {
+  font-weight: 400 !important;
+}
+.lh-1-3 {
+  line-height: 1.3;
+}
+.lh-1-4 {
+  line-height: 1.4;
+}
+.lh-1-5 {
+  line-height: 1.5;
+}
+.lh-1-6 {
+  line-height: 1.6;
+}
+.section-gap {
+  padding: 3em 0;
+}
+.bullet-heading {
+  // display: list-item;                                                  
+  // list-style-type: disc;  
+  // list-style-position: inside; 
+  font-size: clamp(1.5em, 2vw, 4.25em);
+  font-weight: 800;
+  margin-bottom: 15px;
+  @media (max-width:991px){
+    text-align: center;
+    font-weight: 500;
+  }
+  &::marker {
+    margin-right: 5px;
+  }
+}

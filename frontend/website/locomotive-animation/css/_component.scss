@@ -1,0 +1,32 @@
+@import 'support/colors';
+@import 'support/headings';
+@import 'support/mixins';
+@import 'support//responsive';
+@import 'support/buttons';
+@import "../scss/header";
+@import "../scss/footer";
+
+// Home
+@import '../scss/home/world';
+@import "../scss/home/predicting";
+@import "../scss/home/discover-more";
+@import "../scss/home/lets-travel";
+@import "../scss/home/join-our";
+
+// Journey
+@import '../scss/journey/inner-banner-intro';
+@import '../scss/journey/establishing';
+@import '../scss/journey/initial-domain';
+@import '../scss/journey/indicator-selection';
+@import '../scss/journey/the-tournment';
+
+//team
+@import '../scss/team/meet-team';
+
+@import '../scss/partials/inner-banner';
+body {
+    box-sizing: border-box;
+}
+span {
+    display: inline-block;
+}

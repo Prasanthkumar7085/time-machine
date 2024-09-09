@@ -1,0 +1,192 @@
+#vision-future-new {
+    position: relative;
+    .content {
+        .des {
+            opacity: .7;
+            font-size: 1em;
+        }
+    }
+    .user {
+        align-items: center;
+        margin-top: 3em;
+        .txt {
+            h4 {
+                font-size: clamp(1.5em, 1.504, 3.25em);
+            }
+            p {
+                font-size: 1em;
+                opacity: .7;
+            }
+        }
+    }
+    /* CSS */
+.button-85 {
+    // padding: 0.6em 2em;
+    // border: none;
+    // outline: none;
+    // color: rgb(255, 255, 255);
+    // background: rgba(0, 0, 0, 0.8);
+    cursor: pointer;
+    position: relative;
+    // z-index: 0;
+    // border-radius: 10px;
+    // user-select: none;
+    // -webkit-user-select: none;
+    // touch-action: manipulation;
+  }
+  
+//   .button-85:before {
+//     content: "";
+//     background: linear-gradient(
+//       45deg,
+//       #ff0000,
+//       #ff7300,
+//       #fffb00,
+//       #48ff00,
+//       #00ffd5,
+//       #002bff,
+//       #7a00ff,
+//       #ff00c8,
+//       #ff0000
+//     );
+//     position: absolute;
+//     top: -2px;
+//     left: -2px;
+//     background-size: 400%;
+//     z-index: -1;
+//     filter: blur(5px);
+//     -webkit-filter: blur(5px);
+//     width: calc(100% + 4px);
+//     height: calc(100% + 4px);
+//     animation: glowing-button-85 20s linear infinite;
+//     transition: opacity 0.3s ease-in-out;
+//     border-radius: 10px;
+//   }
+  
+  @keyframes glowing-button-85 {
+    0% {
+      background-position: 0 0;
+    }
+    50% {
+      background-position: 400% 0;
+    }
+    100% {
+      background-position: 0 0;
+    }
+  }
+  
+  
+    .each-block {
+        margin-bottom: 2em;
+        .img {
+            position: relative;
+            overflow: hidden;
+            img {
+                transition: 0.5s all ease-in-out;
+            }
+            .overlay {
+                background-color: #000000;
+                border-radius: 50%;
+                width: 120px;
+                height: 120px;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                left: 0;
+                right: 0;
+                margin: 0 auto;
+                z-index: 1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                opacity: 0;
+                @include media-breakpoint-down(lg){
+                    width: 80px;
+                    height: 80px;
+                    opacity: 1;
+                    img {
+                        width: 60px;
+                        height: 60px;
+                    }
+                }
+            }
+            .button-85 {
+                // position: absolute;
+                // top: 50%;
+                // left: 0;
+                // right: 0;
+                // margin: 0 auto;
+                // z-index: 1;
+                // width: max-content;
+                // opacity: 0;
+            }
+            
+        }
+        &:hover {
+            img {
+                transform: scale(1.1);
+                filter: brightness(80%);
+                }
+            .txt {
+                p {
+                    text-decoration: underline;
+                    opacity: 1;
+                }
+            }
+            .overlay {
+                opacity: 1;
+                img {
+                    filter: inherit !important;
+                    transform: rotate(-45deg);
+                }
+            }
+        }
+        .txt {
+            margin-top: 8px;
+            p {
+                opacity: .7;
+                font-size: 1em;
+                color: #000000;
+            }
+        }
+    }
+}
+.image-sub{
+    margin-top: 10px;
+    opacity: .7;
+    font-weight: 400;
+    font-size: 1em;
+}
+.images-blocks {
+    .each-block {
+        margin-bottom: 2em;
+    }
+    img {
+        width: 100%;
+    }
+    .image-sub{
+        margin-top: 10px;
+        opacity: .7;
+        font-weight: 400;
+        font-size: 1em;
+    }
+}
+#about-artist {
+    .des {
+        opacity: .7;
+        color: #000000;
+    }
+}
+@include media-breakpoint-down(lg){
+    .human-faqs {
+        .accordion-button:not(.collapsed)::after {
+            top: 22px !important;
+        }
+        .accordion-button::after {
+            top: 30px;
+        }
+        .accordion {
+            margin-left: 10px !important;
+        }
+    }
+}

@@ -1,0 +1,12 @@
+@mixin section-gap-normal {
+  @include media-breakpoint-down(lg) {
+    padding: 3em 0;
+  }
+  @include media-breakpoint-down(md) {
+    padding: 2.5em 0;
+  }
+  @include media-breakpoint-down(sm) {
+    padding: 7vw 0;
+  }
+  padding: 5.65vw 0;
+}

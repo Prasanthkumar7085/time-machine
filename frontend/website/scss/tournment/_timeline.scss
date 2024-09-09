@@ -1,0 +1,68 @@
+#timeline-forecasters {
+    position: relative;
+    
+    @include media-breakpoint-up(xxxl){
+           .each-block .des {
+            width: 75%;
+            margin: 0 auto;
+        }
+        h1 {
+            margin-bottom: 1em !important;
+        }
+    }
+    @include media-breakpoint-down(lg) {
+        .each-block {
+            margin-bottom: 6em;
+            img {
+                margin-bottom: 2em;
+            }
+        }
+    }
+}
+.team-banner {
+    .img {
+        margin-bottom: 2em;
+        img {
+            height: 220px;
+        }
+    }
+}
+#content-block {
+    ol {
+        li {
+            h1 {
+                font-size: clamp(2em, 2.5vw, 5.5em);
+                font-weight: 600; 
+            }
+            &::marker {
+                font-size: clamp(2em, 2.5vw, 5.5em) !important;
+                font-weight: 600; 
+            }
+        }
+    }
+    .each-block-img {
+        margin-bottom: 3em;
+        @include media-breakpoint-down(lg){
+            margin-bottom: 6em;
+        }
+        @include media-breakpoint-down(lg){
+            margin-bottom: 10em;
+        }
+        h4 {
+            font-weight: 700;
+            font-size: clamp(1em, 1vw 2em);
+            color: #000;
+            margin-bottom: 1em;
+            a {
+                color: #000;
+                font-weight: 700;
+                font-family: "EB Garamond", sans-serif;
+                transition: 0.5s all ease-in-out;
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
+}

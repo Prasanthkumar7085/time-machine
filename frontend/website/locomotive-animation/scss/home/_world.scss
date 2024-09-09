@@ -1,0 +1,17 @@
+#world {
+    position: relative;
+    background-color: $color-black;
+    height: 100vh;
+    display: flex;
+    align-items: end;
+
+    .img {
+        img {
+            margin: 0 auto;
+            @include media-breakpoint-between(lg, xxl){
+                width: 450px;
+            height: 450px;
+            }
+        }
+    }
+}

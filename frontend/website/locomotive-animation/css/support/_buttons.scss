@@ -1,0 +1,27 @@
+@mixin primary-button {
+  padding: 6px 15px !important;
+}
+.btn-1 {
+  width: max-content;
+  border-color: $color-primary;
+  background-color: $color-primary;
+  transition: 0.4s all ease-in-out;
+  @include primary-button;
+  border-radius: 8px;
+  color: #fff;
+  &:hover {
+    background-color: #043260;
+    a {
+      color: #fff;
+      svg {
+        path {
+          fill: #fff;
+        }
+      }
+    }
+  }
+}
+.btn-primary {
+  background-color: #3B46DE;
+  border-color: #3B46DE;
+}

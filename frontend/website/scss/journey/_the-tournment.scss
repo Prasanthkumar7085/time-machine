@@ -1,0 +1,19 @@
+#the-tournment  {
+    position: relative;
+    padding: 5em 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    &.forecasting {
+        @include media-breakpoint-down(lg){
+            height: 900px;
+            .content {
+                margin-bottom: 3em;
+            }
+        }
+
+    }
+    p {
+        opacity: 0.7;
+    }
+}

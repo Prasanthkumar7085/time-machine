@@ -1,0 +1,44 @@
+#inner-banner {
+    position: relative;
+    padding: 2em 0;
+    @include media-breakpoint-down(lg){
+        padding-top: 5em !important;
+    }
+    @include media-breakpoint-up(xxl){
+        height: calc(100vh - 60px);
+        display: flex;
+        align-items: center;
+    }
+    .des {
+        font-size: clamp(1.15em, 1.25vw, 2.5em);
+        font-weight: 400;
+        opacity: .7;
+    }
+    &.art-banner {
+        padding-top: 5em !important;
+        h1 {
+            margin-bottom: 1em !important;
+        }
+    }
+    &.second-banner {
+        @include media-breakpoint-up(lg){
+            height: calc(100vh - 60px);
+            display: flex;
+            align-items: center;
+        
+        }  
+    }
+    &.home-banner {
+        @include media-breakpoint-down(md){
+            padding-top: 5em !important;
+        }
+        .des {
+            opacity: .7;
+        }
+    }
+    &.vision-banner {
+        @include media-breakpoint-up(xxl){
+            height: auto !important;
+        }
+    }
+}

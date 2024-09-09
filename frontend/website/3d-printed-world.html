@@ -1,0 +1,570 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Futurescape - A 3-D printed world</title>
+  <meta name="robots" content="noindex">
+  <meta name="description" content="" />
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="img/fav_icon.svg" />
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+  <link rel="stylesheet" href="css/slick-theme.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/app.css" />
+</head>
+
+<body>
+  <!-- section One - Main Section -->
+  <div class="bg-black" id="nav">
+    <section id="hero-navbar" class="inner-navbar bg-black sticky">
+      <nav id="navlist0" class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+          <a class="navbar-brand text-white" href="/">futurescape</a>
+          <button class="navbar-toggler second-button" type="button" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+          aria-controls="offcanvasNavbar" aria-expanded="false"
+          aria-label="Toggle navigation">
+          <div class="animated-icon2">
+            <span></span><span></span><span></span><span></span>
+          </div>
+        </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <!--<li class="nav-item">
+                <a class="nav-link" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+                  aria-controls="offcanvasNavbar">About</a>
+              </li>-->
+
+              <li class="nav-item">
+                <a class="nav-link" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+                  aria-controls="offcanvasNavbar">Menu</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="https://futurescape.uwaterloo.ca/game/login" target="_blank">Play the game</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </section>
+  </div>
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasNavbarLabel"></h5>
+      <button type="button" class="btn-close text-end" data-bs-dismiss="offcanvas" aria-label="Close">Close</button>
+    </div>
+    <div class="offcanvas-body">
+      <ul class="navbar-nav justify-content-end text-end flex-grow-1 pe-3">
+        <li class="nav-item dropdown">
+          <a class="nav-link main-txt text-black dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            About
+          </a>
+          <ul class="dropdown-sub mb-5">
+            <li><a class="dropdown-item" href="the-journey.html">The journey</a></li>
+            <li><a class="dropdown-item" href="the-tournament.html">The tournament</a></li>
+            <li><a class="dropdown-item" href="team.html">The team</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link main-txt text-black dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            Explore
+          </a>
+          <ul class="dropdown-sub mb-5">
+            <li><a class="dropdown-item" href="vision-of-the-future.html">Visions of the future</a></li>
+            <li><a class="dropdown-item" href="humans-of-prediction.html">Humans of prediction</a></li>
+            <li><a class="dropdown-item" href="the-tournament.html#tournament-graphs">Insights</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a href="https://futurescape.uwaterloo.ca/game/login" target="_blank" class="nav-link main-txt text-black d-none d-lg-block">Play the game</a>
+            <a href="#" class="nav-link main-txt text-black d-lg-none"  data-bs-dismiss="offcanvas" aria-label="Close" data-bs-toggle="modal" data-bs-target="#exampleModal">Play the game</a>
+        </li>
+        <li class="nav-item">
+          <!-- <a href="#" class="nav-link text-black"></a> -->
+        </li>
+      </ul>
+    </div>
+  </div>
+  <section id="inner-banner" class="bg-black art-banner pt-5">
+    <div class="container">
+      <div class="row justify-content-left mb-4">
+        <div class="col-lg-6">
+          <div class="content" data-aos="fade-up" data-aos-duration="1400">
+            <h1 class="text-white mb-5">Looking around in<br class="d-none d-xl-block"> 2045: A 3-D printed world </h1>
+            <p class="text-white  mb-3"><b style="font-weight: 500;letter-spacing: 0.5px;">CONCEPT NOTE</b></p>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="col-lg-6">
+          <div class="content mb-lg-5 mb-3" data-aos="fade-up" data-aos-duration="1400">
+            <p class="text-white des">In his interview, forecaster Peter Stamp raised a provocative issue that challenges the excitement surrounding 3D printing, highlighting serious concerns about copyright, authorship, and security. He noted, "While it's already a significant problem, I fear it will become even larger. One day, bio pathogens will be available to anyone. You can print guns with a 3D printer. Most of it can be made of plastic, with only a few metal parts. If you can download the product design from the Internet and have your printer produce a gun, that's not good. It's becoming too easy to do harm to others—even remotely, over the Internet."</p>
+            
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="content" data-aos="fade-up" data-aos-duration="1400">
+            <p class="text-white des">This insight inspired me to explore a world where the paradigm of additive manufacturing goes rogue. In this scenario, we might see startups establishing themselves in low Earth orbit, escaping planetary jurisdiction and the constraints of gravity. This shift could lead to larger and more complex 3D-printed structures becoming a common feature in our built environment. My work envisions a future where widespread access to additive manufacturing becomes the prevailing norm, pushing this technology to its logical—and potentially extreme—limits.</p>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--section two - humans faqs  -->
+  <section id="vision-future-sub" class="section-gap">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 mt-5">
+          <div class="content">
+            <p class="des" data-aos="fade-up" data-aos-duration="1400">The first patent that deals with a process much like 3D printing was
+              filed by Johannes F Gottwald in 1971. He patented the Liquid Metal
+              Recorder, (U.S. patent 3596285A), a continuous inkjet metal material
+              device to form a removable metal fabrication on a reusable surface for
+              
+              immediate use or salvaged for printing again by remelting.</p>
+              <p class="des" data-aos="fade-up" data-aos-duration="1500">3D printing or Additive Manufacture has come a long way since then,
+                with ever-expanding uses far beyond our imagination, and extending
+                
+                to scales beyond the purely desktop scale we are used to seeing.</p>
+            <p class="des" data-aos="fade-up" data-aos-duration="1600">Additive manufacture in the late 2020s played some role in almost every
+
+              industry, from high performance medical applications to the conservation and
+              
+              architecture fields. Additive manufacture technology and processes were
+              deployed from the smallest nano-scales to massive terraforming projects.
+              
+              As the investment grew, so did the use cases.</p>
+              <p class="des" data-aos="fade-up" data-aos-duration="1700">Two separate events in the US captured the imagination of the globe,
+                pushing the limits of additive manufacture into bold new territory.</p>
+              
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="content mt-lg-5 mt-3">
+            <p class="des" data-aos="fade-up" data-aos-duration="1400">The Prosthesis Endurance challenge in Los Angeles 2045 featured a
+              biohacking marathon supported by the biggest 3D printing factories
+              creating a completely new format of man-machine hybrid runners.
+              Global records were broken across almost all track and field events,
+              with endurance races going on for over 1800 kilometres, more than 3
+              
+              times the previous record held by Dean Karnazes.</p>
+              <p class="des" data-aos="fade-up" data-aos-duration="1500">He had held the record since 2005, running 560 km non-stop. It took
+                him 80 hours and 44 minutes. The new prostheses allowed runners to
+                
+                complete the same run in 1/3rd the time.</p>
+                <p class="des" data-aos="fade-up" data-aos-duration="1600">The second event at almost the same time in San Francisco involved
+                  custom performative prostheses developed for Firemen and first
+                  responders, to endow them emergency super-human powers.
+                  
+                  Candidates who had lost limbs in service volunteered for custom fitted
+                  
+                  additive limbs that made them invaluable additions to the force.</p>
+                  <p class="des" data-aos="fade-up" data-aos-duration="1700">With prostheses like welding arms and superhuman lifting arms that
+                    could lift loads upto a ton, the new additions remained to be tested.
+                    
+                    The floods of 2045 provided the ideal testing ground, with well
+                    
+                    documented search and rescue operations saving multiple lives, and
+                    
+                    ushering in a whole new generation of 3D printed add-ons.</p>
+          </div>
+        </div>
+      </div>
+     
+    </div>
+  </section>
+  <!-- <section id="single-block" class="section-gap images-blocks">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-10" data-aos="fade-up" data-aos-duration="1000">
+          <div class="img">
+            <img src="img/world/3D-Top.webp" alt="image" class="img-fluid">
+          </div>
+          <div class="txt">
+            <p class="image-sub">Local Transit Authority : Mumbai 2045</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> -->
+  <!-- <section id="vision-future-sub" class="section-gap">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="content">
+            <p class="des" data-aos="fade-up" data-aos-duration="1400">The next set of Artificial minds were tasked with creating a zero carbon economic system. International flight tickets more than quadrupled in cost, and whole fleets of ships were docked permanently.</p>
+            <p class="des" data-aos="fade-up" data-aos-duration="1500">The Luxury liner industry was banned in entirety.</p>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="content">
+            <p class="des" data-aos="fade-up" data-aos-duration="1400">For years, campaigners had highlighted rampant unsustainable practices, including the large scale dumping of sewage and untreated wastewater, alongside emissions of air pollutants and greenhouse gases. Infact a report released by the Brussels-based NGO Transport & Environment stated that Europe’s fleet of 218 cruise ships emitted as much sulfur oxide in 2022 as a billion cars.</p>
+          </div>
+        </div>
+      </div>
+     
+    </div>
+  </section> -->
+  <section id="fourth-block" class="section-gap images-blocks">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-6">
+          <div class="each-block" data-aos="fade-up" data-aos-duration="1000">
+            <div class="img">
+              <img src="img/world/01.webp" alt="image" class="img-fluid">
+            </div>
+            <div class="txt">
+              <p class="image-sub">3D Printed prosthetic Endurance races : Los Angeles 2045</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="each-block" data-aos="fade-up" data-aos-duration="1400">
+            <div class="img">
+              <img src="img/world/02.webp" alt="image" class="img-fluid">
+            </div>
+            <div class="txt">
+              <p class="image-sub">3D Printed prosthetic Endurance races : Los Angeles 2045</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="each-block" data-aos="fade-up" data-aos-duration="1800">
+            <div class="img">
+              <img src="img/world/033.webp" alt="image" class="img-fluid">
+            </div>
+            <div class="txt">
+              <p class="image-sub">First responder 3D printed Utility suits : San Francisco 2045</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="each-block" data-aos="fade-up" data-aos-duration="2000">
+            <div class="img">
+              <img src="img/world/03.webp" alt="image" class="img-fluid">
+            </div>
+            <div class="txt">
+              <p class="image-sub">First responder 3D printed Utility suits : San Francisco 2045</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="vision-future-sub" class="section-gap">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="content mb-lg-0 mb-3">
+            <p class="des" data-aos="fade-up" data-aos-duration="1400">As use cases grew on the planet, more ambitious start-ups started
+              emerging. The low orbit manufacturing facility startup from Chennai
+              Vedika Astrolabs began with a single production unit specialising in
+              making super high quality fibreoptics. The microgravity environment in
+              low earth orbit allowed the production of high-quality ZBLAN (a type of
+              fluoride glass) optical fibers, which vastly outperformed traditional
+              
+              silica-based fibers in terms of signal loss and bandwidth.</p>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="content">
+            <p class="des" data-aos="fade-up" data-aos-duration="1400">Microgravity allowed for the 3D bioprinting of tissues and potentially
+              organs without the issue of gravitational collapse, enabling more
+              complex and accurate tissue structures to be created. Metals and
+              special alloys 3D printed in space were found to have more uniform
+              
+              compositions and fewer defects.</p>
+          </div>
+        </div>
+      </div>
+     
+    </div>
+  </section>
+  <section id="single-block" class="section-gap images-blocks">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <div class="each-block" data-aos="fade-up" data-aos-duration="1000">
+            <div class="img">
+              <img src="img/world/04.webp" alt="image" class="img-fluid">
+            </div>
+            <div class="txt">
+              <p class="image-sub">Off-planet 3D printing Factory Hub : Low Earth Orbit 2045</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-10">
+          <div class="each-block" data-aos="fade-up" data-aos-duration="1000">
+            <div class="img">
+              <img src="img/world/05.webp" alt="image" class="img-fluid">
+            </div>
+            <div class="txt">
+              <p class="image-sub">Off-planet 3D printing Factory Hub : Low Earth Orbit 2045</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-10">
+          <div class="each-block" data-aos="fade-up" data-aos-duration="1000">
+            <div class="img">
+              <img src="img/world/06.webp" alt="image" class="img-fluid">
+            </div>
+            <div class="txt">
+              <p class="image-sub">Delivery drones from Offplanet Manufacturing Hub : Low Earth Orbit 2045</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="vision-future-sub" class="section-gap">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6" data-aos="fade-up" data-aos-duration="1000">
+          <div class="content mb-lg-0 mb-3">
+            <p class="des" data-aos="fade-up" data-aos-duration="1400">At Nano scales, innovation in 3D printing was driven by huge advances
+              in printing nano batteries for EVs. Several innovations focused on
+              advancements in electrical technologies while others converged on
+              
+              nano-printing methods that utilised photochemical reactions
+              
+              including working with proteins glycans and genes.</p>
+          </div>
+        </div>
+        <div class="col-lg-6" data-aos="fade-up" data-aos-duration="1400">
+          <div class="content">
+            <p class="des" data-aos="fade-up" data-aos-duration="1400">AI driven tech paired with 3D Nano printers to print batteries in a
+              manner that allowed electrons to pass through the entire cell at
+              once, versus having to pass through from one side of the cell to the
+              
+              other. This created an almost 500X jump in the efficiency of
+              charging EVs, powering the next generation of Nano Printing.</p>
+          </div>
+        </div>
+      </div>
+     
+    </div>
+  </section>
+  <section id="single-block" class="section-gap images-blocks">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-6">
+          <div class="each-block" data-aos="fade-up" data-aos-duration="1000">
+            <div class="img">
+              <img src="img/world/07.webp" alt="image" class="img-fluid">
+            </div>
+            <div class="txt">
+              <p class="image-sub">Nano assembly of Protein molecules : South Korea 2045</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="each-block" data-aos="fade-up" data-aos-duration="1400">
+            <div class="img">
+              <img src="img/world/08.webp" alt="image" class="img-fluid">
+            </div>
+            <div class="txt">
+              <p class="image-sub">Nano assembly of Protein molecules : South Korea 2045</p>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="col-lg-6">
+          <div class="each-block" data-aos="fade-up" data-aos-duration="1800">
+            <div class="img">
+              <img src="img/mumbai/11.webp" alt="image" class="img-fluid">
+            </div>
+            <div class="txt">
+              <p class="image-sub">Zero Carbon Enclave : Indonesia 2045</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="each-block" data-aos="fade-up" data-aos-duration="2000">
+            <div class="img">
+              <img src="img/mumbai/12.webp" alt="image" class="img-fluid">
+            </div>
+          </div>
+        </div> -->
+      </div>
+    </div>
+  </section>
+  <section id="vision-future-sub" class="section-gap">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6" data-aos="fade-up" data-aos-duration="1000">
+          <div class="content mb-lg-0 mb-3">
+            <p class="des" data-aos="fade-up" data-aos-duration="1400">The Military was the biggest closet spender of 3D printing
+              technology, pushing the size and scale of prints beyond
+              
+              imagination. The first generation of fully working zero supply chain
+              tanks rolled off the factory floor complete in all respects, with
+              
+              metal and ABS parts being printed simultaneously.</p>
+          </div>
+        </div>
+        <div class="col-lg-6" data-aos="fade-up" data-aos-duration="1400">
+          <div class="content">
+            <p class="des" data-aos="fade-up" data-aos-duration="1400">Now that the technology has been established and made
+
+              domestically available, a hacker based in Texas managed to get
+              his hands on the print files and print his own version of the tank,
+              
+              adding multiple aerodynamic features to the base model,
+              raising multiple dilemmas. He is currently using this tank to
+              
+              seed his fields, but future uses remain to be seen.</p>
+          </div>
+        </div>
+      </div>
+     
+    </div>
+  </section>
+  <section id="fourth-block" class="section-gap images-blocks">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-6" data-aos="fade-up" data-aos-duration="1000">
+          <div class="each-block">
+            <div class="img">
+              <img src="img/world/09.webp" alt="image" class="img-fluid">
+            </div>
+            <div class="txt">
+              <p class="image-sub">Military tank 3D printing facility : Ukraine 2045</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6" data-aos="fade-up" data-aos-duration="1000">
+          <div class="each-block">
+            <div class="img">
+              <img src="img/world/10.webp" alt="image" class="img-fluid">
+            </div>
+            <div class="txt">
+              <p class="image-sub">Military tank 3D printing facility : Ukraine 2045</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6" data-aos="fade-up" data-aos-duration="1000">
+          <div class="each-block">
+            <div class="img">
+              <img src="img/world/11.webp" alt="image" class="img-fluid">
+            </div>
+            <div class="txt">
+              <p class="image-sub">Hobby tank printed over base model : Texas 2045</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6" data-aos="fade-up" data-aos-duration="1000">
+          <div class="each-block">
+            <div class="img">
+              <img src="img/world/12.webp" alt="image" class="img-fluid">
+            </div>
+            <div class="txt">
+              <p class="image-sub">Additive Manufactured Military base : Texas 2045</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- <section id="fourth-block" class="images-blocks">
+    <div class="container">
+      <div class="row justify-content-center" style=" --bs-gutter-x: 1rem;
+">
+        <div class="col-lg-6">
+          <div class="each-block" data-aos="fade-up" data-aos-duration="1000">
+            <div class="img">
+              <img src="img/planet/image-13.png" alt="image" class="img-fluid">
+            </div>
+            <div class="txt">
+              <p class="image-sub">Zero Carbon Enclave Construction and monitoring Drones : Indonesia 2045</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="each-block" data-aos="fade-up" data-aos-duration="1400">
+            <div class="img">
+              <img src="img/planet/image-14.png" alt="image" class="img-fluid">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> -->
+  <div class="bg-line bg-black d-none d-lg-block" style="margin:2em 0;height: 8px;width: 100%;"></div>
+  <div class="d-lg-none mt-5 mb-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <hr>
+        </div>
+      </div>
+    </div>
+  </div>
+  <section id="about-artist" class="section-gap">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-lg-6 mb-5 mb-lg-0">
+          <div class="content">
+            <h1 class="mb-3" data-aos="fade-up" data-aos-duration="1000">About the artist</h1>
+            <p class="des" data-aos="fade-up" data-aos-duration="1200">Ayaz Basrai is co-founder of The Busride Design Studio, a leading architecture and interior design firm in India. Busrai graduated in industrial design, specialising in product design, from the National Institute of Design, Ahmedabad, in 2003. More recently, Busrai heads The Busride Lab in Goa, working with speculative fiction, heritage conservation, and their ongoing India Futures Project, trying to visualise and birth meaningful Indian futures.</p>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="img" data-aos="fade-up" data-aos-duration="1000">
+            <img src="img/planet/image-15.png" alt="artist" class="img-fluid">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- section nine - footer -->
+  <section id="copy-right" class="section-gap">
+    <div class="container">
+      <div class="row align-items-center justify-content-md-between justify-content-center">
+        <div class="col-lg-6 col-md-7">
+          <p class="text-md-start text-center">Copyright © <span class="c-year"></span> Forecasting Human Welfare.          </p>
+        </div>
+        <div class="col-lg-6 col-md-5">
+          <p class="text-md-end text-center">Powered by <a class="text-black fw-600" href="https://orotron.com/" target="_blank">Orotron</a>          </p>
+        </div>
+      </div>
+
+    </div>
+   </section>
+    <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel"></h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><img src="img/close.svg" alt="" class="img-fluid"></button>
+      </div>
+      <div class="modal-body">
+        <h1>The game is best experienced on a desktop or laptop. Mobile support is limited—please switch devices for the optimal experience.        </h1>
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
+</div>
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+  </script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"
+    integrity="sha512-HGOnQO9+SP1V92SrtZfjqxxtLmVzqZpjFFekvzZVWoiASSQgSr4cw9Kqd2+l8Llp4Gm0G8GIFJ4ddwZilcdb8A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="js/sliders.js"></script>
+  <script src="js/app.js"></script>
+</body>
+
+</html>

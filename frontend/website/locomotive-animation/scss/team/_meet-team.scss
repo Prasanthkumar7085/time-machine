@@ -1,0 +1,19 @@
+#meet-team{
+    position: relative;
+    .each-team {
+        margin-bottom: 2.5em;
+        img {
+            width: 100%;
+        }
+        h4 {
+            font-weight: 400;
+        }
+        .role {
+            opacity: 0.99;
+            color: #000;
+        }
+        .des {
+            line-height: 1.5;
+        }
+    }
+}

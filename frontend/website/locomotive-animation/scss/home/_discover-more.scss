@@ -1,0 +1,34 @@
+#discover-more {
+    position: relative;
+    h1 {
+        margin-bottom: 15px;
+    }
+    .des {
+        font-size: clamp(1.25em, 1.25vw, 4em);
+        margin-bottom: 2em;
+    }
+    .each-block {
+        margin-bottom: 1.25em;
+        .img {
+            position: relative;
+            .txt {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                margin: 0 auto;
+                z-index: 1;
+                background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
+                p {
+                    font-size: clamp(2em, 2.314vw, 5em);
+                    text-align: center;
+                    color: #fff;
+                    font-family: "EB Garamond", sans-serif;
+                    font-weight: 600;
+                    padding-top: 1em;
+                    line-height: 1;
+                }
+            }
+        }
+    }
+}
