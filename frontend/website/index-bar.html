@@ -23,96 +23,99 @@
 
   <style>
     .scrollBar1 {
-  position: fixed;
-  top: 97vh;
-  height: 2px;
-  width: 0%;
-  background: goldenrod;
-  -webkit-transition: width 200ms var(--timing);
-  transition: width 200ms var(--timing);
-  text-align: right;
-  color: goldenrod;
-  z-index: 9999;
-}
-.scrollBar1 span {
-  position: absolute;
-  top: -23px;
-  right: 15px;
-  font-size: 0.7em;
-  font-weight: 500;
-  display: block;
-  text-align: center;
-  z-index: 9999;
-}
-.scrollBar1 span::after {
-  content: "%";
-  font-size: 0.8em;
-  position: absolute;
-  right: -15px;
-  bottom: 4px;
-  font-weight: 700;
-  opacity: 0.4;
-}
+      position: fixed;
+      top: 97vh;
+      height: 2px;
+      width: 0%;
+      background: goldenrod;
+      -webkit-transition: width 200ms var(--timing);
+      transition: width 200ms var(--timing);
+      text-align: right;
+      color: goldenrod;
+      z-index: 9999;
+    }
 
-.scrollBar2 {
-  position: fixed;
-  top: 0;
-  right: 1vw;
-  height: 0%;
-  width: 5px;
-  background: #49e;
-  -webkit-transition: height 200ms var(--timing);
-  transition: height 200ms var(--timing);
-  text-align: right;
-  color: #49e;
-  display: -webkit-box;
-  display: flex;
-  -webkit-box-align: center;
-          align-items: center;
-  border-radius: 1em;
-  z-index: 9999;
-}
-.scrollBar2 span {
-  position: absolute;
-  bottom: 3px;
-  left: 2px;
-  font-size: 0.7em;
-  font-weight: 500;
-  display: inline-block;
-  text-align: left;
-  -webkit-transform: rotate(-90deg);
-  transform: rotate(-90deg);
-  -webkit-transform-origin: bottom right;
-  transform-origin: bottom left;
-  z-index: 9999;
-}
-.scrollBar2 span::after {
-  content: "%";
-  font-size: 0.8em;
-  position: absolute;
-  right: -15px;
-  bottom: 4px;
-  font-weight: 700;
-  opacity: 0.4;
-}
+    .scrollBar1 span {
+      position: absolute;
+      top: -23px;
+      right: 15px;
+      font-size: 0.7em;
+      font-weight: 500;
+      display: block;
+      text-align: center;
+      z-index: 9999;
+    }
 
+    .scrollBar1 span::after {
+      content: "%";
+      font-size: 0.8em;
+      position: absolute;
+      right: -15px;
+      bottom: 4px;
+      font-weight: 700;
+      opacity: 0.4;
+    }
 
+    .scrollBar2 {
+      position: fixed;
+      top: 0;
+      right: 1vw;
+      height: 0%;
+      width: 5px;
+      background: #49e;
+      -webkit-transition: height 200ms var(--timing);
+      transition: height 200ms var(--timing);
+      text-align: right;
+      color: #49e;
+      display: -webkit-box;
+      display: flex;
+      -webkit-box-align: center;
+      align-items: center;
+      border-radius: 1em;
+      z-index: 9999;
+    }
+
+    .scrollBar2 span {
+      position: absolute;
+      bottom: 3px;
+      left: 2px;
+      font-size: 0.7em;
+      font-weight: 500;
+      display: inline-block;
+      text-align: left;
+      -webkit-transform: rotate(-90deg);
+      transform: rotate(-90deg);
+      -webkit-transform-origin: bottom right;
+      transform-origin: bottom left;
+      z-index: 9999;
+    }
+
+    .scrollBar2 span::after {
+      content: "%";
+      font-size: 0.8em;
+      position: absolute;
+      right: -15px;
+      bottom: 4px;
+      font-weight: 700;
+      opacity: 0.4;
+    }
   </style>
 </head>
 
 <body-container id="parentContainer">
   <div class="scrollBar1"><span></span></div>
-<div class="scrollBar2"><span></span></div>
+  <div class="scrollBar2"><span></span></div>
 
   <!-- section one world -->
-   <div id="hero-navbar" class="hamburger-home row justify-content-end" style="position: absolute;top: 2em;z-index: 999;right: 3em;">
+  <div id="hero-navbar" class="hamburger-home row justify-content-end"
+    style="position: absolute;top: 2em;z-index: 999;right: 3em;">
     <!-- <nav class="navbar"> -->
-      <button class="navbar-toggler" type="button" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+    <button class="navbar-toggler" type="button" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
       aria-controls="offcanvasNavbar">
       <img src="img/menu-w-01.svg" class="img-fluid" alt="menu">
     </button>
-<!-- </nav>   -->
-   </div>
+    <!-- </nav>   -->
+  </div>
   <section id="world" class="section-gap bg-black">
     <div class="container">
       <div class="row">
@@ -125,8 +128,19 @@
           <div class="down-arrow">
             <a href="#second-section">
               <!-- <p class="des text-white opacity-75 mb-0">Scroll to view</p> -->
-              <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="60" height="60" x="0" y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><path d="m322 246.54-66 66-66-66a10 10 0 0 0-14.14 14.14l67.86 67.87a17.33 17.33 0 0 0 24.48 0l67.86-67.87A10 10 0 0 0 322 246.54z" fill="#ffffff" opacity="1" data-original="#000000"></path><path d="M243.76 263.33a17.33 17.33 0 0 0 24.48 0l67.86-67.87a10 10 0 0 0-14.1-14.14l-66 66-66-66a10 10 0 1 0-14.14 14.14z" fill="#ffffff" opacity="1" data-original="#000000"></path></g></svg>
-<!-- <svg width="18" height="10" viewBox="0 0 18 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
+                width="60" height="60" x="0" y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512"
+                xml:space="preserve" class="">
+                <g>
+                  <path
+                    d="m322 246.54-66 66-66-66a10 10 0 0 0-14.14 14.14l67.86 67.87a17.33 17.33 0 0 0 24.48 0l67.86-67.87A10 10 0 0 0 322 246.54z"
+                    fill="#ffffff" opacity="1" data-original="#000000"></path>
+                  <path
+                    d="M243.76 263.33a17.33 17.33 0 0 0 24.48 0l67.86-67.87a10 10 0 0 0-14.1-14.14l-66 66-66-66a10 10 0 1 0-14.14 14.14z"
+                    fill="#ffffff" opacity="1" data-original="#000000"></path>
+                </g>
+              </svg>
+              <!-- <svg width="18" height="10" viewBox="0 0 18 10" fill="none" xmlns="http://www.w3.org/2000/svg">
   <path d="M0 0L7.15493e-08 4L9 10L18 4L18 -2.14648e-07L9 6.42857L0 0Z" fill="white"/>
   </svg>   -->
             </a>
@@ -141,15 +155,26 @@
     <div class="container">
       <div class="row">
         <div class="content text-center">
-          <h1 class="text-white mb-0" id="mainHeading" data-aos="fade-up" data-aos-duration="1000">Can behavioral and social<br
-              class="d-none d-lg-block"> scientists predict societal change?</h1>
+          <h1 class="text-white mb-0" id="mainHeading" data-aos="fade-up" data-aos-duration="1000">Can behavioral and
+            social<br class="d-none d-lg-block"> scientists predict societal change?</h1>
           <div class="img" data-aos="fade-up" data-aos-duration="1800">
             <img src="img/home/predict.svg" alt="predict" class="img-fluid">
           </div>
           <div class="down-arrow">
             <a href="#third-section">
               <!-- <p class="des text-white opacity-75 mb-0">Scroll to view</p> -->
-              <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="60" height="60" x="0" y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><path d="m322 246.54-66 66-66-66a10 10 0 0 0-14.14 14.14l67.86 67.87a17.33 17.33 0 0 0 24.48 0l67.86-67.87A10 10 0 0 0 322 246.54z" fill="#ffffff" opacity="1" data-original="#000000"></path><path d="M243.76 263.33a17.33 17.33 0 0 0 24.48 0l67.86-67.87a10 10 0 0 0-14.1-14.14l-66 66-66-66a10 10 0 1 0-14.14 14.14z" fill="#ffffff" opacity="1" data-original="#000000"></path></g></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
+                width="60" height="60" x="0" y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512"
+                xml:space="preserve" class="">
+                <g>
+                  <path
+                    d="m322 246.54-66 66-66-66a10 10 0 0 0-14.14 14.14l67.86 67.87a17.33 17.33 0 0 0 24.48 0l67.86-67.87A10 10 0 0 0 322 246.54z"
+                    fill="#ffffff" opacity="1" data-original="#000000"></path>
+                  <path
+                    d="M243.76 263.33a17.33 17.33 0 0 0 24.48 0l67.86-67.87a10 10 0 0 0-14.1-14.14l-66 66-66-66a10 10 0 1 0-14.14 14.14z"
+                    fill="#ffffff" opacity="1" data-original="#000000"></path>
+                </g>
+              </svg>
               <!-- <svg width="18" height="10" viewBox="0 0 18 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M0 0L7.15493e-08 4L9 10L18 4L18 -2.14648e-07L9 6.42857L0 0Z" fill="white"/>
                 </svg>                 -->
@@ -167,13 +192,24 @@
         <div class="content text-center">
           <h1 class="letterize text-white mb-0" id="mainHeading" data-aos="fade-up" data-aos-duration="1000">
             What can a forecasting tournament <br class="d-none d-lg-block"> inform us about human welfare? </h1>
-          <div class="img"  data-aos="fade-up" data-aos-duration="1800">
+          <div class="img" data-aos="fade-up" data-aos-duration="1800">
             <img src="img/home/welfare.svg" alt="welfare" class="img-fluid">
           </div>
           <div class="down-arrow down-arrow-1">
             <a href="#main-header">
               <!-- <p class="des text-white opacity-75 mb-0">Scroll to view</p> -->
-              <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="60" height="60" x="0" y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><path d="m322 246.54-66 66-66-66a10 10 0 0 0-14.14 14.14l67.86 67.87a17.33 17.33 0 0 0 24.48 0l67.86-67.87A10 10 0 0 0 322 246.54z" fill="#ffffff" opacity="1" data-original="#000000"></path><path d="M243.76 263.33a17.33 17.33 0 0 0 24.48 0l67.86-67.87a10 10 0 0 0-14.1-14.14l-66 66-66-66a10 10 0 1 0-14.14 14.14z" fill="#ffffff" opacity="1" data-original="#000000"></path></g></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
+                width="60" height="60" x="0" y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512"
+                xml:space="preserve" class="">
+                <g>
+                  <path
+                    d="m322 246.54-66 66-66-66a10 10 0 0 0-14.14 14.14l67.86 67.87a17.33 17.33 0 0 0 24.48 0l67.86-67.87A10 10 0 0 0 322 246.54z"
+                    fill="#ffffff" opacity="1" data-original="#000000"></path>
+                  <path
+                    d="M243.76 263.33a17.33 17.33 0 0 0 24.48 0l67.86-67.87a10 10 0 0 0-14.1-14.14l-66 66-66-66a10 10 0 1 0-14.14 14.14z"
+                    fill="#ffffff" opacity="1" data-original="#000000"></path>
+                </g>
+              </svg>
               <!-- <svg width="18" height="10" viewBox="0 0 18 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M0 0L7.15493e-08 4L9 10L18 4L18 -2.14648e-07L9 6.42857L0 0Z" fill="white"/>
                 </svg>                 -->
@@ -184,41 +220,41 @@
     </div>
   </section>
   <!-- section four - Main Section -->
-   <div id="main-header" class="bg-black">
+  <div id="main-header" class="bg-black">
     <section id="hero-navbar" class="bg-black topnav">
       <nav id="navlist" class="navbar navbar-expand-lg" data-aos="fade-up" data-aos-duration="1400">
-        <div class="container-fluid"  >
+        <div class="container-fluid">
           <a class="navbar-brand text-white" href="/">futurescape</a>
-          <button class="navbar-toggler second-button" type="button" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
-          aria-controls="offcanvasNavbar" aria-expanded="false"
-          aria-label="Toggle navigation">
-          <div class="animated-icon2">
-            <span></span><span></span><span></span><span></span>
-          </div>
-        </button>
+          <button class="navbar-toggler second-button" type="button" href="#" data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <div class="animated-icon2">
+              <span></span><span></span><span></span><span></span>
+            </div>
+          </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
               <!--<li class="nav-item">
                 <a class="nav-link" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
                   aria-controls="offcanvasNavbar">About</a>
               </li>-->
-  
+
               <li class="nav-item">
                 <a class="nav-link" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
                   aria-controls="offcanvasNavbar">Menu</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="https://futurescape.uwaterloo.ca/game/login" target="_blank">Play the game</a>
+                <a class="nav-link" href="https://futurescape.uwaterloo.ca/game/login">Play the game</a>
               </li>
             </ul>
           </div>
         </div>
       </nav>
     </section>
-   </div>
-  
+  </div>
+
   <div class="">
-    <div class="offcanvas offcanvas-end"  tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
       <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="offcanvasNavbarLabel"></h5>
         <button type="button" class="btn-close text-end" data-bs-dismiss="offcanvas" aria-label="Close">Close</button>
@@ -248,7 +284,7 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a href="https://futurescape.uwaterloo.ca/game/login" target="_blank" class="nav-link main-txt text-black">Play the game</a>
+            <a href="https://futurescape.uwaterloo.ca/game/login" class="nav-link main-txt text-black">Play the game</a>
           </li>
           <li class="nav-item">
             <!-- <a href="#" class="nav-link text-black"></a> -->
@@ -268,7 +304,7 @@
         <div class="clearfix"></div>
         <div class="col-lg-8 col-xxl-7 mb-5">
           <div class="content mb-5" data-aos="fade-up" data-aos-duration="1400">
-            <h1 id="mainHeading" class="text-white mb-3" >Futurescape</h1>
+            <h1 id="mainHeading" class="text-white mb-3">Futurescape</h1>
             <p class="text-white des">A collaborative research initiative aimed at
               predicting the future of human welfare.
               Through a longitudinal forecasting tournament, we focus on debates over societal change and draw on the
@@ -287,7 +323,8 @@
             <h1 id="mainHeading" data-aos="fade-up" data-aos-duration="1400">Predicting tomorrow's world </h1>
             <p class="des" data-aos="fade-up" data-aos-duration="1600">Gathered from different
               corners of the globe, a target pool of 100 experts were able to
-              identify 8 initial domains based on their expertise, team discussions, and relevance to human progress. They
+              identify 8 initial domains based on their expertise, team discussions, and relevance to human progress.
+              They
               individually ranked the eight preselected domains by perceived importance, narrowing them to the final
               four domains with the most reliable markers.</p>
             <!-- <div class="mb-3" data-aos="fade-up" data-aos-duration="1800">
@@ -361,9 +398,9 @@
         <div class="clearfix mb-4"></div>
         <div class="col-lg-4" data-aos="fade-up" data-aos-duration="1000">
           <div class="each-block">
-            <a href="the-journey.html"> 
+            <a href="the-journey.html">
               <div class="img">
-               <img src="img/home/thejourney.jpg" alt="journey" class="img-fluid w-100">
+                <img src="img/home/thejourney.jpg" alt="journey" class="img-fluid w-100">
                 <div class="txt">
                   <p>The journey</p>
                 </div>
@@ -373,62 +410,62 @@
         </div>
         <div class="col-lg-4" data-aos="fade-up" data-aos-duration="1200">
           <div class="each-block">
-            <a href="the-tournament.html"> 
-            <div class="img">
-              <img src="img/home/Thetournament.webp" alt="tournament" class="img-fluid w-100">
-              <div class="txt">
-                <p>The tournament</p>
+            <a href="the-tournament.html">
+              <div class="img">
+                <img src="img/home/Thetournament.webp" alt="tournament" class="img-fluid w-100">
+                <div class="txt">
+                  <p>The tournament</p>
+                </div>
               </div>
-            </div>
             </a>
           </div>
         </div>
         <div class="col-lg-4" data-aos="fade-up" data-aos-duration="1400">
           <div class="each-block">
             <a href="team.html">
-            <div class="img">
-              <img src="img/home/teams.png" alt="team" class="img-fluid w-100">
-              <div class="txt">
-                <p>The team</p>
+              <div class="img">
+                <img src="img/home/teams.png" alt="team" class="img-fluid w-100">
+                <div class="txt">
+                  <p>The team</p>
+                </div>
               </div>
-            </div>
             </a>
           </div>
         </div>
         <div class="col-lg-4" data-aos="fade-up" data-aos-duration="1600">
           <div class="each-block">
-            <a href="humans-of-prediction.html"> 
-            <div class="img">
-              <img src="img/home/Humansofprediction.webp" alt="human" class="img-fluid w-100">
-              <div class="txt">
-                <p>Humans of prediction</p>
+            <a href="humans-of-prediction.html">
+              <div class="img">
+                <img src="img/home/Humansofprediction.webp" alt="human" class="img-fluid w-100">
+                <div class="txt">
+                  <p>Humans of prediction</p>
+                </div>
               </div>
-            </div>
             </a>
           </div>
         </div>
         <div class="col-lg-4" data-aos="fade-up" data-aos-duration="1800">
           <div class="each-block">
-            <a href="vision-of-the-future.html"> 
-            <div class="img">
-              <img src="img/home/vision.png" alt="vision" class="img-fluid w-100">
-              <div class="txt">
-                <p>Visions of the future</p>
+            <a href="vision-of-the-future.html">
+              <div class="img">
+                <img src="img/home/vision.png" alt="vision" class="img-fluid w-100">
+                <div class="txt">
+                  <p>Visions of the future</p>
+                </div>
               </div>
-            </div>
             </a>
           </div>
         </div>
         <div class="col-lg-4" data-aos="fade-up" data-aos-duration="2000">
           <div class="each-block">
             <a href="the-tournament.html#tournament-graphs">
-            <div class="img">
-              <img src="img/home/discovery.png" alt="discovery" class="img-fluid w-100">
-              <div class="txt">
-                <p>Insights</p>
+              <div class="img">
+                <img src="img/home/discovery.png" alt="discovery" class="img-fluid w-100">
+                <div class="txt">
+                  <p>Insights</p>
+                </div>
               </div>
-            </div>
-          </a>
+            </a>
           </div>
         </div>
       </div>
@@ -445,7 +482,7 @@
               forecasting abilities! Learn more about the 4 domains and how they change
               over time. The time machine is about to take off!</p>
             <div class="button mb-5" data-aos="fade-up" data-aos-duration="2000">
-              <a href="https://futurescape.uwaterloo.ca/game/login" target="_blank" class="btn btn-primary mb-5">Play the game</a>
+              <a href="https://futurescape.uwaterloo.ca/game/login" class="btn btn-primary mb-5">Play the game</a>
             </div>
           </div>
         </div>
@@ -519,27 +556,29 @@
       </div>
     </div>
   </section>
-    <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel"></h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><img src="img/close.svg" alt="" class="img-fluid"></button>
-      </div>
-      <div class="modal-body">
-        <h1>The game is best experienced on a desktop or laptop. Mobile support is limited—please switch devices for the optimal experience.        </h1>
-      </div>
-      <div class="modal-footer">
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel"></h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><img src="img/close.svg"
+              alt="" class="img-fluid"></button>
+        </div>
+        <div class="modal-body">
+          <h1>The game is best experienced on a desktop or laptop. Mobile support is limited—please switch devices for
+            the optimal experience. </h1>
+        </div>
+        <div class="modal-footer">
+        </div>
       </div>
     </div>
   </div>
-</div>
   <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
     crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
-  </script>
+    </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"
     integrity="sha512-HGOnQO9+SP1V92SrtZfjqxxtLmVzqZpjFFekvzZVWoiASSQgSr4cw9Kqd2+l8Llp4Gm0G8GIFJ4ddwZilcdb8A=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -551,33 +590,33 @@
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="js/app.js"></script>
   <script>
-      let header = document.querySelector(".topnav");
-  let storData = header.offsetTop;
-  window.addEventListener("scroll", function (e) {
-    if (window.scrollY >= storData) {
-      header.classList.add("fixed");
-    } else {
-      header.classList.remove("fixed");
-    }
-  });
+    let header = document.querySelector(".topnav");
+    let storData = header.offsetTop;
+    window.addEventListener("scroll", function (e) {
+      if (window.scrollY >= storData) {
+        header.classList.add("fixed");
+      } else {
+        header.classList.remove("fixed");
+      }
+    });
   </script>
   <script>
     $(document).scroll(function (e) {
-  var scrollAmount = $(window).scrollTop();
-  var documentHeight = $(document).height();
-  var windowHeight = $(window).height();
-  var scrollPercent = (scrollAmount / (documentHeight - windowHeight)) * 100;
-  var roundScroll = Math.round(scrollPercent);
-  
-  // For scrollbar 1
-  $(".scrollBar1").css("width", scrollPercent + "%");
-  $(".scrollBar1 span").text(roundScroll);
-  
-  // For scrollbar 2
-  $(".scrollBar2").css("height", scrollPercent + "%");
-  $(".scrollBar2 span").text(roundScroll);
-});
+      var scrollAmount = $(window).scrollTop();
+      var documentHeight = $(document).height();
+      var windowHeight = $(window).height();
+      var scrollPercent = (scrollAmount / (documentHeight - windowHeight)) * 100;
+      var roundScroll = Math.round(scrollPercent);
+
+      // For scrollbar 1
+      $(".scrollBar1").css("width", scrollPercent + "%");
+      $(".scrollBar1 span").text(roundScroll);
+
+      // For scrollbar 2
+      $(".scrollBar2").css("height", scrollPercent + "%");
+      $(".scrollBar2 span").text(roundScroll);
+    });
   </script>
-</body>
+  </body>
 
 </html>
