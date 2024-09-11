@@ -74,127 +74,122 @@ export default function Categories() {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center h-[calc(100%-4rem)]">
-      <div className="mb-5 w-[500px]">
-        <h2 className="text-2xl font-bold">Select your travel topic:</h2>
+    <div className="flex flex-col justify-center items-center gap-10 w full h-[calc(100%-8rem)]">
+      <div>
+        <h2 className="text-2xl font-bold">Select your travel topic</h2>
       </div>
-      <div className="grid grid-cols-2 gap-8 w-[500px] h-[500px]">
-        <figure
-          className={figStyle}
-          onClick={() => {
-            selectType(gamesHistory["us-poverty"]);
-          }}
-        >
-          <span
-            className={classNames(
-              "indicator-item indicator-center indicator-middle badge",
-              getIndicatorStyle(gamesHistory["us-poverty"]),
-            )}
+      <div className="grid grid-cols-4 gap-4 w-full border-white-200">
+        <div className="card bg-base-100 w-66 shadow-xl">
+          <figure
+            className={figStyle}
+            onClick={() => {
+              selectType(gamesHistory["us-poverty"]);
+            }}
           >
-            {getIndicatorText(gamesHistory["us-poverty"])}
-          </span>
-          <div className="w-full overflow-hidden relative rounded-lg">
-            <img
-              className={classNames(
-                "group-hover:scale-110 transition duration-300 ease-in-out",
-                getDisabledStyle(gamesHistory["us-poverty"]),
-              )}
-              src={Poverty}
-              alt="US Poverty"
-            />
+            <div className="w-full overflow-hidden relative rounded-lg">
+              <img
+                className={classNames(
+                  "group-hover:scale-110 transition duration-300 ease-in-out",
+                  getDisabledStyle(gamesHistory["us-poverty"]),
+                )}
+                src={Poverty}
+                alt="US Poverty"
+              />
+            </div>
+          </figure>
+          <div className="card-body">
+            <h3 className="text-white text-2xl font-sans tracking-[.10em] font-bold">
+              US Poverty
+            </h3>
+            <p className="font-serif opacity-80 text-slate-400 tracking-[.20em]">
+              {getIndicatorText(gamesHistory["us-poverty"])}
+            </p>
           </div>
+        </div>
 
-          <figcaption className="absolute px-4 text-lg text-white bg-[#191D24] rounded-md left-2 bottom-2">
-            <p>US Poverty</p>
-          </figcaption>
-        </figure>
-        <figure
-          className={figStyle}
-          onClick={() => {
-            selectType(gamesHistory["non-state-conflict"]);
-          }}
-        >
-          <span
-            className={classNames(
-              "indicator-item indicator-center indicator-middle badge",
-              getIndicatorStyle(gamesHistory["non-state-conflict"]),
-            )}
+        <div className="card bg-base-100 w-66 shadow-xl">
+          <figure
+            className={figStyle}
+            onClick={() => {
+              selectType(gamesHistory["non-state-conflict"]);
+            }}
           >
-            {getIndicatorText(gamesHistory["non-state-conflict"])}
-          </span>
-          <div className="w-full overflow-hidden relative rounded-lg">
-            <img
-              className={classNames(
-                "group-hover:scale-110 transition duration-300 ease-in-out",
-                getDisabledStyle(gamesHistory["non-state-conflict"]),
-              )}
-              src={Conflict}
-              alt="Non-State Conflict"
-            />
+            <div className="w-full overflow-hidden relative rounded-lg">
+              <img
+                className={classNames(
+                  "group-hover:scale-110 transition duration-300 ease-in-out",
+                  getDisabledStyle(gamesHistory["non-state-conflict"]),
+                )}
+                src={Conflict}
+                alt="Non-State Conflict"
+              />
+            </div>
+          </figure>
+          <div className="card-body">
+            <h3 className="text-white text-2xl font-sans tracking-[.10em] font-bold">
+              Non-State Conflict
+            </h3>
+            <p className="font-serif opacity-80 text-slate-400 tracking-[.20em]">
+              {getIndicatorText(gamesHistory["non-state-conflict"])}
+            </p>
           </div>
+        </div>
 
-          <figcaption className="absolute px-4 text-lg text-white bg-[#191D24] rounded-md left-2 bottom-2">
-            <p>Non-State Conflict</p>
-          </figcaption>
-        </figure>
-        <figure
-          className={figStyle}
-          onClick={() => {
-            selectType(gamesHistory["co2-concentrations"]);
-          }}
-        >
-          <span
-            className={classNames(
-              "indicator-item indicator-center indicator-middle badge",
-              getIndicatorStyle(gamesHistory["co2-concentrations"]),
-            )}
+        <div className="card bg-base-100 w-76 shadow-xl">
+          <figure
+            className={figStyle}
+            onClick={() => {
+              selectType(gamesHistory["co2-concentrations"]);
+            }}
           >
-            {getIndicatorText(gamesHistory["co2-concentrations"])}
-          </span>
-          <div className="w-full overflow-hidden relative rounded-lg">
-            <img
-              className={classNames(
-                "group-hover:scale-110 transition duration-300 ease-in-out",
-                getDisabledStyle(gamesHistory["co2-concentrations"]),
-              )}
-              src={CO2}
-              alt="CO2 Concentrations"
-            />
+            <div className="w-full overflow-hidden relative rounded-lg">
+              <img
+                className={classNames(
+                  "group-hover:scale-110 transition duration-300 ease-in-out",
+                  getDisabledStyle(gamesHistory["co2-concentrations"]),
+                )}
+                src={CO2}
+                alt="CO2 Concentrations"
+              />
+            </div>
+          </figure>
+          <div className="card-body">
+            <h3 className="text-white text-2xl font-sans tracking-[.10em] font-bold">
+              CO2 Concentrations
+            </h3>
+            <p className="font-serif opacity-80 text-slate-400 tracking-[.20em]">
+              {getIndicatorText(gamesHistory["co2-concentrations"])}
+            </p>
           </div>
+        </div>
 
-          <figcaption className="absolute px-4 text-lg text-white bg-[#191D24] rounded-md left-2 bottom-2">
-            <p>CO2 Concentrations</p>
-          </figcaption>
-        </figure>
-        <figure
-          className={figStyle}
-          onClick={() => {
-            selectType(gamesHistory["infant-mortality-rate"]);
-          }}
-        >
-          <span
-            className={classNames(
-              "indicator-item indicator-center indicator-middle badge",
-              getIndicatorStyle(gamesHistory["infant-mortality-rate"]),
-            )}
+        <div className="card bg-base-100 w-76 shadow-xl">
+          <figure
+            className={figStyle}
+            onClick={() => {
+              selectType(gamesHistory["infant-mortality-rate"]);
+            }}
           >
-            {getIndicatorText(gamesHistory["infant-mortality-rate"])}
-          </span>
-          <div className="w-full overflow-hidden relative rounded-lg">
-            <img
-              className={classNames(
-                "group-hover:scale-110 transition duration-300 ease-in-out",
-                getDisabledStyle(gamesHistory["infant-mortality-rate"]),
-              )}
-              src={Infant}
-              alt="Infant Mortality Rate"
-            />
+            <div className="w-full overflow-hidden relative rounded-lg">
+              <img
+                className={classNames(
+                  "group-hover:scale-110 transition duration-300 ease-in-out",
+                  getDisabledStyle(gamesHistory["infant-mortality-rate"]),
+                )}
+                src={Infant}
+                alt="Infant Mortality Rate"
+              />
+            </div>
+          </figure>
+          <div className="card-body">
+            <h3 className="text-white text-2xl font-sans tracking-[.10em] font-bold">
+              Infant Mortality Rate
+            </h3>
+            <p className="font-serif opacity-80 text-slate-400 tracking-[.20em]">
+              {getIndicatorText(gamesHistory["infant-mortality-rate"])}
+            </p>
           </div>
-
-          <figcaption className="absolute px-4 text-lg text-white bg-[#191D24] rounded-md left-2 bottom-2">
-            <p>Infant Mortality Rate</p>
-          </figcaption>
-        </figure>
+        </div>
       </div>
     </div>
   );

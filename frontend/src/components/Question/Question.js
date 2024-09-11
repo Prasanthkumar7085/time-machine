@@ -314,18 +314,51 @@ export default function Question() {
   }, [answers]);
 
   return (
-    <div className="flex w-full h-[calc(100%-4rem)] p-8 pt-2">
+    <div className="flex w-full h-[calc(100%-4rem)] p-8 pt-2 flex-col">
+      <div className="flex justify-center items-center p-5 absolute top-0 left-[35%]">
+        <p>Progress:</p>
+        <ul className="steps">
+          <li
+            data-content="1"
+            className={classNames("step step-neutral", {
+              "step-success": answers.length > 0,
+            })}
+            {...(answers.length > 0 && { "data-content": "✓" })}
+          ></li>
+          <li
+            data-content="2"
+            className={classNames("step step-neutral", {
+              "step-success": answers.length > 1,
+            })}
+            {...(answers.length > 1 && { "data-content": "✓" })}
+          ></li>
+          <li
+            data-content="3"
+            className={classNames("step step-neutral", {
+              "step-success": answers.length > 2,
+            })}
+            {...(answers.length > 2 && { "data-content": "✓" })}
+          ></li>
+          <li
+            data-content="4"
+            className={classNames("step step-neutral", {
+              "step-success": answers.length > 3,
+            })}
+            {...(answers.length > 3 && { "data-content": "✓" })}
+          ></li>
+          <li
+            data-content="5"
+            className={classNames("step step-neutral", {
+              "step-success": answers.length > 4,
+            })}
+            {...(answers.length > 4 && { "data-content": "✓" })}
+          ></li>
+        </ul>
+      </div>
       <div className="h-full w-full flex relative shadow-md rounded-md overflow-hidden bg-[#191D24]">
         <div className="h-full w-[28%] relative">
-          <Terminal
-            lines={lines}
-            hasEstimate={hasEstimate}
-            submitAnswer={submitAnswer}
-            notRounded={true}
-            finished={finished}
-          />
-          {hasResult && (
-            <div className="w-full h-full absolute left-0 top-0 flex justify-center items-center backdrop-blur-[2px]">
+          {hasResult ? (
+            <div className="w-full h-full left-0 top-0 flex justify-center items-center backdrop-blur-[2px]">
               <Results
                 predictiveAccuracy={answers[
                   answers.length - 1
@@ -341,6 +374,14 @@ export default function Question() {
                 answer={answers[answers.length - 1]}
               />
             </div>
+          ) : (
+            <Terminal
+              lines={lines}
+              hasEstimate={hasEstimate}
+              submitAnswer={submitAnswer}
+              notRounded={true}
+              finished={finished}
+            />
           )}
         </div>
         <div
@@ -355,7 +396,7 @@ export default function Question() {
             }
           }}
         >
-          <div className="stats bg-transparent w-full top-0 py-6 z-50">
+          <div className="stats bg-transparent w-full top-0 overflow-hidden">
             <div className="stat place-items-center">
               <div
                 className="tooltip tooltip-bottom"
@@ -406,7 +447,7 @@ export default function Question() {
           </div>
           <div
             className={classNames(
-              "w-full h-[calc(100%-300px)] flex-grow",
+              "w-full  flex-grow",
               hasResult
                 ? "pointer-events-none cursor-not-allowed"
                 : "pointer-events-auto",
@@ -422,46 +463,6 @@ export default function Question() {
                 hasEstimate={hasEstimate}
               />
             )}
-          </div>
-          <div className="flex justify-center items-center p-5">
-            <p>Progress:</p>
-            <ul className="steps">
-              <li
-                data-content="1"
-                className={classNames("step step-neutral", {
-                  "step-primary": answers.length > 0,
-                })}
-                {...(answers.length > 0 && { "data-content": "✓" })}
-              ></li>
-              <li
-                data-content="2"
-                className={classNames("step step-neutral", {
-                  "step-primary": answers.length > 1,
-                })}
-                {...(answers.length > 1 && { "data-content": "✓" })}
-              ></li>
-              <li
-                data-content="3"
-                className={classNames("step step-neutral", {
-                  "step-primary": answers.length > 2,
-                })}
-                {...(answers.length > 2 && { "data-content": "✓" })}
-              ></li>
-              <li
-                data-content="4"
-                className={classNames("step step-neutral", {
-                  "step-primary": answers.length > 3,
-                })}
-                {...(answers.length > 3 && { "data-content": "✓" })}
-              ></li>
-              <li
-                data-content="5"
-                className={classNames("step step-neutral", {
-                  "step-primary": answers.length > 4,
-                })}
-                {...(answers.length > 4 && { "data-content": "✓" })}
-              ></li>
-            </ul>
           </div>
         </div>
       </div>

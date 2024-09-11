@@ -117,15 +117,17 @@ export default function Terminal({
               autoFocus
             ></textarea>
           </div>
-          <button
-            className="btn btn-primary absolute bottom-3 right-3"
-            onClick={() => {
-              submitAnswer(currentValue);
-              setCurrentValue("> ");
-            }}
-          >
-            Let's see how you did!
-          </button>
+          <div className="flex justify-center">
+            <button
+              className="btn btn-primary absolute bottom-3 w-[80%]"
+              onClick={() => {
+                submitAnswer(currentValue);
+                setCurrentValue("> ");
+              }}
+            >
+              Let's see how you did!
+            </button>
+          </div>
         </>
       )}
     </div>

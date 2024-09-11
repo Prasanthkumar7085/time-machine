@@ -37,37 +37,36 @@ export default function ScientistName() {
   };
 
   return (
-    <div className="flex w-full h-[calc(100%-4rem)] justify-center items-center">
-      <div className="flex flex-row gap-5 w-[500px]">
-        <div className="mockup-code h-[300px] w-full shadow-lg bg-[#191D24]">
-          <pre data-prefix=">">
-            <code className="text-lg">What is your scientist name?</code>
-          </pre>
-          <pre data-prefix=">">
-            <code className="text-lg">this can be anything you want,</code>
-          </pre>
-          <pre data-prefix=">">
-            <code className="text-lg">
-              e.g., Dr. Van Nostrand, Dr. Spaceman
-            </code>
-          </pre>
-          <pre data-prefix=">">
-            <code className="text-lg">
-              Press <kbd className="kbd kbd-sm">⏎</kbd> to submit your name.
-            </code>
-          </pre>
-          <pre data-prefix=">">
-            <input
-              type="text"
-              className="bg-transparent outline-none text-warning text-lg"
-              autoFocus
-              value={scientistName}
-              onChange={(e) => {
-                setScientistName(e.target.value);
-              }}
-            />
-          </pre>
-        </div>
+    <div className="flex flex-col w-full h-[calc(100%-16rem)] justify-center items-center gap-24">
+      <div className="flex flex-col gap-5 w-[800px] justify-center items-center">
+        <h3 className="text-white text-2xl font-sans tracking-[.10em] font-bold">
+          What is your scientist name?
+        </h3>
+        <p className="font-serif opacity-80 text-slate-400 tracking-[.20em]">
+          This can be anything you want, e.g., Dr. Van Nostrand, Dr. Spaceman
+        </p>
+      </div>
+      <div className="flex flex-col gap-16 ">
+        <input
+          type="text"
+          className="bg-transparent outline-none text-warning text-lg placeholder-center text-center"
+          autoFocus
+          value={scientistName}
+          placeholder="Enter name"
+          onChange={(e) => {
+            setScientistName(e.target.value);
+          }}
+        />
+
+        <button
+          className="btn btn-primary bg-[#3b46de] text-white  disabled:bg-[#1e2042] disabled:text-white"
+          type="submit"
+          disabled={!scientistName}
+          onClick={onSubmit}
+          onKeyDown={keyDownHandler}
+        >
+          Submit
+        </button>
       </div>
     </div>
   );

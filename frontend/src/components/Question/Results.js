@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import { useNavigate } from "react-router-dom";
 import { InfoIcon } from "./Question";
 
@@ -11,7 +12,11 @@ const Results = ({
 }) => {
   const navigate = useNavigate();
   return (
-    <div className="mockup-window bg-base-300 backdrop-blur-sm w-5/6">
+    <div
+      className={classNames(
+        "mockup-code h-full w-full shadow-lg border-r border-r-[rgba(255,255,255,0.1)] overflow-auto pb-0 bg-[#191D24]",
+      )}
+    >
       <div className="p-2">
         <div className="p-2 py-0 text-slate-400">
           {finished ? (
