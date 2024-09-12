@@ -21,11 +21,11 @@ export default function Login() {
     <div className="flex w-full h-[calc(100%-7rem)] justify-center items-center ">
       <div className="flex flex-row justify-center gap-[9.40rem]">
         <div className="flex flex-col gap-3 justify-center items-start p-5 w-[420px] h-[420px]">
-          <h1 className="text-white text-3xl font-bold font-mono ">
-            Join the <br />
-            time machine
+          <h1 className="text-white text-3xl font-bold font-mono text-balance ">
+            <p>Join the</p>
+            <p>time machine</p>
           </h1>
-          <p className="font-serif opacity-80 text-slate-400">
+          <p className="font-sans-serif opacity-80 text-[#b7b7b7]">
             Enter as a scientist and play the game of predicting trends of human
             welfare to find out how accurate you are at predicting the future
           </p>
@@ -64,14 +64,11 @@ export default function Login() {
                 >
                   Login
                 </button>
-                <h4 className="text-white text-center bold">
-                  Forget password?
-                </h4>
               </div>
-              <hr className="bg-[#3b3b3b]" />
+              <div className="divider"></div>
               <div className="flex justify-center">
                 <button
-                  className="btn btn-primary bg-[#1baa66] text-white w-[80%] "
+                  className="btn bg-[#1baa66] text-white w-[80%] hover:bg-[#1baa66]"
                   type="submit"
                   disabled={loading}
                   onClick={() => navigate("/signup")}
