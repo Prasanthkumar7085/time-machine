@@ -3,10 +3,10 @@ import { useEffect } from "react";
 import toast from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import CO2 from "../../assets/images/co2.png";
-import Infant from "../../assets/images/infant.png";
-import Conflict from "../../assets/images/nonstate.png";
-import Poverty from "../../assets/images/poverty.png";
+import Co2Category from "../../assets/images/Co2Category.svg";
+import InfantCategory from "../../assets/images/InfantCategory.svg";
+import NonStateCategory from "../../assets/images/NonStateCategory.svg";
+import PovertyCategory from "../../assets/images/PovertyCategory.svg";
 import { getGames } from "../../redux/game/gameActions";
 import { updateSelectedGame } from "../../redux/game/gameReducer";
 
@@ -74,58 +74,61 @@ export default function Categories() {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center gap-10 w full h-[calc(100%-8rem)]">
+    <div className="flex flex-col justify-center items-center gap-10 w full h-[calc(100%-6rem)]">
       <div>
-        <h2 className="text-2xl font-bold">Select your travel topic</h2>
+        <p className="text-[20px] font-bold tracking-[.10em]">
+          Select your time travel topic
+        </p>
       </div>
-      <div className="grid grid-cols-4 gap-4 w-full border-white-200">
-        <div className="card bg-base-100 w-66 shadow-xl">
+
+      <div className="grid grid-cols-4  w-full border-2  h-full place-items-center border-stone-400">
+        <div className="card w-[81%] bg-[#0d0d0d] shadow-xl border-2 rounded-none h-full border-stone-400">
           <figure
             className={figStyle}
             onClick={() => {
               selectType(gamesHistory["us-poverty"]);
             }}
           >
-            <div className="w-full overflow-hidden relative rounded-lg">
+            <div className="w-full overflow-hidden relative ">
               <img
                 className={classNames(
-                  "group-hover:scale-110 transition duration-300 ease-in-out",
+                  "group-hover:scale-110 transition duration-300 ease-in-out h-[300px] w-full",
                   getDisabledStyle(gamesHistory["us-poverty"]),
                 )}
-                src={Poverty}
+                src={PovertyCategory}
                 alt="US Poverty"
               />
             </div>
           </figure>
-          <div className="card-body">
+          <div className="card-body mt-24 w-24 ">
             <h3 className="text-white text-2xl font-sans tracking-[.10em] font-bold">
               US Poverty
             </h3>
-            <p className="font-serif opacity-80 text-slate-400 tracking-[.20em]">
+            <p className="font-serif opacity-80 text-slate-400  text-sm	">
               {getIndicatorText(gamesHistory["us-poverty"])}
             </p>
           </div>
         </div>
 
-        <div className="card bg-base-100 w-66 shadow-xl">
+        <div className="card w-[81%]  shadow-xl border-2 rounded-none	h-full border-stone-400">
           <figure
             className={figStyle}
             onClick={() => {
               selectType(gamesHistory["non-state-conflict"]);
             }}
           >
-            <div className="w-full overflow-hidden relative rounded-lg">
+            <div className="w-full overflow-hidden relative">
               <img
                 className={classNames(
-                  "group-hover:scale-110 transition duration-300 ease-in-out",
+                  "group-hover:scale-110 transition duration-300 ease-in-out h-[300px] w-full",
                   getDisabledStyle(gamesHistory["non-state-conflict"]),
                 )}
-                src={Conflict}
+                src={NonStateCategory}
                 alt="Non-State Conflict"
               />
             </div>
           </figure>
-          <div className="card-body">
+          <div className="card-body mt-24 w-25">
             <h3 className="text-white text-2xl font-sans tracking-[.10em] font-bold">
               Non-State Conflict
             </h3>
@@ -135,25 +138,25 @@ export default function Categories() {
           </div>
         </div>
 
-        <div className="card bg-base-100 w-76 shadow-xl">
+        <div className="card w-[81%]  shadow-xl border-2 rounded-none	h-full border-stone-400">
           <figure
             className={figStyle}
             onClick={() => {
               selectType(gamesHistory["co2-concentrations"]);
             }}
           >
-            <div className="w-full overflow-hidden relative rounded-lg">
+            <div className="w-full overflow-hidden relative ">
               <img
                 className={classNames(
-                  "group-hover:scale-110 transition duration-300 ease-in-out",
+                  "group-hover:scale-110 transition duration-300 ease-in-out h-[300px] w-full",
                   getDisabledStyle(gamesHistory["co2-concentrations"]),
                 )}
-                src={CO2}
+                src={Co2Category}
                 alt="CO2 Concentrations"
               />
             </div>
           </figure>
-          <div className="card-body">
+          <div className="card-body mt-24 w-25">
             <h3 className="text-white text-2xl font-sans tracking-[.10em] font-bold">
               CO2 Concentrations
             </h3>
@@ -163,25 +166,25 @@ export default function Categories() {
           </div>
         </div>
 
-        <div className="card bg-base-100 w-76 shadow-xl">
+        <div className="card w-[81%]  shadow-xl border-2 rounded-none	h-full border-stone-400">
           <figure
             className={figStyle}
             onClick={() => {
               selectType(gamesHistory["infant-mortality-rate"]);
             }}
           >
-            <div className="w-full overflow-hidden relative rounded-lg">
+            <div className="w-full overflow-hidden relative">
               <img
                 className={classNames(
-                  "group-hover:scale-110 transition duration-300 ease-in-out",
+                  "group-hover:scale-110 transition duration-300 ease-in-out h-[300px] w-full",
                   getDisabledStyle(gamesHistory["infant-mortality-rate"]),
                 )}
-                src={Infant}
+                src={InfantCategory}
                 alt="Infant Mortality Rate"
               />
             </div>
           </figure>
-          <div className="card-body">
+          <div className="card-body mt-24 w-25">
             <h3 className="text-white text-2xl font-sans tracking-[.10em] font-bold">
               Infant Mortality Rate
             </h3>

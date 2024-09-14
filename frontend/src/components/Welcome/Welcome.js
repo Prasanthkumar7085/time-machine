@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
-import StartGame from "../../assets/images/start-game-image.svg";
+import StartLogo from "../../assets/images/StartLogo.svg";
 
 let timer;
 const easeInOutCubic = (t) => {
@@ -40,7 +40,7 @@ export default function Welcome() {
   }, [counterState, runCounter]);
 
   return (
-    <div className="flex flex-col justify-center items-center gap-10 w full h-[calc(100%-8rem)]">
+    <div className="flex flex-col justify-center items-center gap-10 w full ">
       <div className="flex flex-col justify-center items-center">
         <h3 className="text-white text-2xl font-sans tracking-[.10em] font-bold ">
           Welcome, Dr, {scientistName}.
@@ -51,15 +51,19 @@ export default function Welcome() {
       </div>
       <figure className={figStyle}>
         <button
-          class="btn indicator-item indicator-center indicator-middle w-[10%] rounded-lg mt-20 bg-[#1e1e1e]"
+          class="btn w-[10%] rounded-full bg-[#1e1e1e] border-red-50 absolute top-1/2 left-[45%]"
           onClick={() => {
             navigate("/intro");
           }}
         >
           Enter game
         </button>
-        <div className="w-full overflow-hidden relative rounded-lg">
-          <img src={StartGame} alt="US Poverty" className="w-full" />
+        <div className="w-full place-items-center ">
+          <img
+            src={StartLogo}
+            alt="US Poverty"
+            className="object-contain object-center w-full "
+          />
         </div>
       </figure>
     </div>
