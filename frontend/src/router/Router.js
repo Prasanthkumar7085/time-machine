@@ -82,5 +82,5 @@ export const router = createBrowserRouter(
       ],
     },
   ],
-  { basename: "/game/" }
+  { basename: "/game-v2/" }
 );

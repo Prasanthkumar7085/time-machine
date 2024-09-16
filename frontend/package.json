@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "TimeMachine frontend",
   "author": "Ehsan Jso <ehsan.jsoure@gmail.com>",
-  "homepage": "https://futurescape.uwaterloo.ca/game/",
+  "homepage": "https://futurescape.uwaterloo.ca/game-v2/",
   "private": true,
   "dependencies": {
     "@react-three/drei": "^9.90.0",
