@@ -82,7 +82,7 @@ export default function Categories() {
       </div>
 
       <div className="grid grid-cols-4  w-full border-2  h-full place-items-center border-stone-400">
-        <div className="card w-[81%] bg-[#0d0d0d] shadow-xl border-2 rounded-none h-full border-stone-400">
+        <div className="card w-full bg-[#0d0d0d] shadow-xl border-2 rounded-none h-full border-stone-400">
           <figure
             className={figStyle}
             onClick={() => {
@@ -92,7 +92,7 @@ export default function Categories() {
             <div className="w-full overflow-hidden relative ">
               <img
                 className={classNames(
-                  "group-hover:scale-110 transition duration-300 ease-in-out h-[300px] w-full",
+                  "group-hover:scale-110 transition duration-300 ease-in-out w-full object-fill",
                   getDisabledStyle(gamesHistory["us-poverty"]),
                 )}
                 src={PovertyCategory}
@@ -100,17 +100,17 @@ export default function Categories() {
               />
             </div>
           </figure>
-          <div className="card-body mt-24 w-24 ">
+          <div className="card-body mt-24 w-25">
             <h3 className="text-white text-2xl font-sans tracking-[.10em] font-bold">
               US Poverty
             </h3>
-            <p className="font-serif opacity-80 text-slate-400  text-sm	">
+            <p className="font-serif opacity-80 text-slate-400 tracking-[.20em]">
               {getIndicatorText(gamesHistory["us-poverty"])}
             </p>
           </div>
         </div>
 
-        <div className="card w-[81%]  shadow-xl border-2 rounded-none	h-full border-stone-400">
+        <div className="card w-full shadow-xl border-2 rounded-none	h-full border-stone-400">
           <figure
             className={figStyle}
             onClick={() => {
@@ -120,7 +120,7 @@ export default function Categories() {
             <div className="w-full overflow-hidden relative">
               <img
                 className={classNames(
-                  "group-hover:scale-110 transition duration-300 ease-in-out h-[300px] w-full",
+                  "group-hover:scale-110 transition duration-300 ease-in-out w-full object-fill",
                   getDisabledStyle(gamesHistory["non-state-conflict"]),
                 )}
                 src={NonStateCategory}
@@ -138,7 +138,7 @@ export default function Categories() {
           </div>
         </div>
 
-        <div className="card w-[81%]  shadow-xl border-2 rounded-none	h-full border-stone-400">
+        <div className="card w-full shadow-xl border-2 rounded-none	h-full border-stone-400">
           <figure
             className={figStyle}
             onClick={() => {
@@ -148,7 +148,7 @@ export default function Categories() {
             <div className="w-full overflow-hidden relative ">
               <img
                 className={classNames(
-                  "group-hover:scale-110 transition duration-300 ease-in-out h-[300px] w-full",
+                  "group-hover:scale-110 transition duration-300 ease-in-out w-full object-fill",
                   getDisabledStyle(gamesHistory["co2-concentrations"]),
                 )}
                 src={Co2Category}
@@ -166,7 +166,7 @@ export default function Categories() {
           </div>
         </div>
 
-        <div className="card w-[81%]  shadow-xl border-2 rounded-none	h-full border-stone-400">
+        <div className="card w-full  shadow-xl border-2 rounded-none	h-full border-stone-400">
           <figure
             className={figStyle}
             onClick={() => {
@@ -176,7 +176,7 @@ export default function Categories() {
             <div className="w-full overflow-hidden relative">
               <img
                 className={classNames(
-                  "group-hover:scale-110 transition duration-300 ease-in-out h-[300px] w-full",
+                  "group-hover:scale-110 transition duration-300 ease-in-out w-full object-fill",
                   getDisabledStyle(gamesHistory["infant-mortality-rate"]),
                 )}
                 src={InfantCategory}

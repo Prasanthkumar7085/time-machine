@@ -108,7 +108,7 @@ const Results = ({
                 navigate("/summary");
               }
             }}
-            className="btn btn-primary w-[80%]"
+            className="btn bg-[#3b46de] w-[80%] text-white hover:bg-[#3b46de]"
           >
             {finished ? "Done!" : "Next Question"}
           </button>

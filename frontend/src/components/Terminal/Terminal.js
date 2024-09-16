@@ -102,7 +102,7 @@ export default function Terminal({
         })}
       {hasEstimate && (
         <>
-          <div className="flex mb-3 px-4 " onKeyUp={onKeyPress}>
+          <div className="flex mb-3 px-4 h-[42%]" onKeyUp={onKeyPress}>
             <textarea
               className="w-full h-full bg-transparent resize-none focus:outline-none font-mono"
               ref={textareaRef}
@@ -117,9 +117,9 @@ export default function Terminal({
               autoFocus
             ></textarea>
           </div>
-          <div className="flex justify-center">
+          <div className="flex justify-center sticky bottom-0 bg-[#191e24]">
             <button
-              className="btn btn-primary absolute bottom-3 w-[80%]"
+              className="btn bg-[#3b46de] w-[90%] text-white hover:bg-[#3b46de]"
               onClick={() => {
                 submitAnswer(currentValue);
                 setCurrentValue("> ");

@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import CO2 from "../../assets/images/co2.png";
-import Infant from "../../assets/images/infant.png";
-import Conflict from "../../assets/images/nonstate.png";
-import Poverty from "../../assets/images/poverty.png";
+import Co2Category from "../../assets/images/Co2Category.svg";
+import InfantCategory from "../../assets/images/InfantCategory.svg";
+import NonStateCategory from "../../assets/images/NonStateCategory.svg";
+import PovertyCategory from "../../assets/images/PovertyCategory.svg";
 import { getGames } from "../../redux/game/gameActions";
 import { InfoIcon } from "../Question";
 
@@ -21,15 +21,15 @@ export default function Stats() {
   const getGameImage = (gameType) => {
     switch (gameType) {
       case "co2-concentrations":
-        return CO2;
+        return Co2Category;
       case "infant-mortality-rate":
-        return Infant;
+        return InfantCategory;
       case "non-state-conflict":
-        return Conflict;
+        return NonStateCategory;
       case "us-poverty":
-        return Poverty;
+        return PovertyCategory;
       default:
-        return CO2;
+        return Co2Category;
     }
   };
 

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { useLocation, useNavigate } from "react-router-dom";
-import StartLogo from "../../assets/images/StartLogo.svg";
+import { useNavigate } from "react-router-dom";
+import StartLogo from "../../assets/images/startLogo.png";
 
 let timer;
 const easeInOutCubic = (t) => {
@@ -13,10 +13,9 @@ export default function Welcome() {
   const [runCounter, setRunCounter] = React.useState(false);
   const scientistName = useSelector((state) => state.user.scientistName);
   const navigate = useNavigate();
-  const location = useLocation();
 
   const figStyle =
-    "relative w-full transition-all duration-300 cursor-pointer group cursor-pointer indicator";
+    "relative w-full transition-all duration-300 cursor-pointer group cursor-pointer indicator ";
 
   useEffect(() => {
     if (!scientistName) {
@@ -40,7 +39,7 @@ export default function Welcome() {
   }, [counterState, runCounter]);
 
   return (
-    <div className="flex flex-col justify-center items-center gap-10 w full ">
+    <div className="flex flex-col justify-center items-center gap-10 w-full">
       <div className="flex flex-col justify-center items-center">
         <h3 className="text-white text-2xl font-sans tracking-[.10em] font-bold ">
           Welcome, Dr, {scientistName}.
@@ -51,18 +50,18 @@ export default function Welcome() {
       </div>
       <figure className={figStyle}>
         <button
-          class="btn w-[10%] rounded-full bg-[#1e1e1e] border-red-50 absolute top-1/2 left-[45%]"
+          class="btn w-[10%] rounded-full bg-[#1e1e1e] border-red-50 absolute top-[37%] left-[45%]"
           onClick={() => {
             navigate("/intro");
           }}
         >
           Enter game
         </button>
-        <div className="w-full place-items-center ">
+        <div className="w-full">
           <img
             src={StartLogo}
             alt="US Poverty"
-            className="object-contain object-center w-full "
+            className="object-fill h-[80%] w-[100%]"
           />
         </div>
       </figure>

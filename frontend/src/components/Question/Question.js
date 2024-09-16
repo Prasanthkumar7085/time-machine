@@ -314,7 +314,7 @@ export default function Question() {
   }, [answers]);
 
   return (
-    <div className="flex w-full h-[calc(100%-4rem)] p-8 pt-2 flex-col">
+    <div className="flex w-full h-[calc(100%-5rem)] pl-3 pr-3 pt-2 flex-col">
       <div className="flex justify-center items-center p-5 absolute top-0 left-[35%]">
         <p>Progress:</p>
         <ul className="steps">
