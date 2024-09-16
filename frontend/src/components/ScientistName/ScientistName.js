@@ -59,7 +59,7 @@ export default function ScientistName() {
         />
 
         <button
-          className="btn btn-primary bg-[#3b46de] text-white  disabled:bg-[#1e2042] disabled:text-white"
+          className="btn bg-[#3b46de] hover:bg-[#3b46de] text-white  disabled:bg-[#1e2042] disabled:text-[#565953] m-4 "
           type="submit"
           disabled={!scientistName}
           onClick={onSubmit}

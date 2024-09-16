@@ -52,13 +52,13 @@ const Results = ({
           </p>
         )}
         <div className="w-full">
-          <div className="stat place-items-center p-2">
+          <div className="stat place-items-center p-2 w-[80%]">
             <div
               className="tooltip tooltip-bottom w-full"
               data-tip="Predict next year's data point. If you're spot on, you get 60 points. For every 1% off, you lose 0.6 points."
             >
-              <div className="stat-title flex gap-2 whitespace-normal text-left">
-                Predictive Accuracy
+              <div className="stat-title flex gap-2 whitespace-normal justify-between items-center">
+                <span> Predictive Accuracy</span>
                 <InfoIcon />
               </div>
             </div>
@@ -68,12 +68,12 @@ const Results = ({
             </div>
           </div>
 
-          <div className="stat place-items-center p-2">
+          <div className="stat place-items-center p-2 w-[80%]">
             <div
               className="tooltip tooltip-bottom w-full"
               data-tip="Guess a range for the data point. If it's within, you get 30 points; if not, you get 0."
             >
-              <div className="stat-title flex gap-2 whitespace-normal">
+              <div className="stat-title flex gap-2 whitespace-normal justify-between items-center">
                 Confidence Band Accuracy
                 <InfoIcon />
               </div>
@@ -84,12 +84,12 @@ const Results = ({
             </div>
           </div>
 
-          <div className="stat place-items-center p-2">
+          <div className="stat place-items-center p-2  w-[80%]">
             <div
               className="tooltip tooltip-bottom w-full"
               data-tip="Set a narrow range for better precision. If it's tighter than a set standard, you get 10 points. If wider, your points decrease proportionally."
             >
-              <div className="stat-title flex gap-2 whitespace-normal">
+              <div className="stat-title flex gap-2 whitespace-normal justify-between items-center">
                 Precision of Confidence Band
                 <InfoIcon />
               </div>
@@ -100,7 +100,7 @@ const Results = ({
             </div>
           </div>
         </div>
-        <div className="w-full flex justify-end">
+        <div className="w-full flex justify-center mt-24">
           <button
             onClick={() => {
               setHasResults(false);
@@ -108,7 +108,7 @@ const Results = ({
                 navigate("/summary");
               }
             }}
-            className="btn btn-primary"
+            className="btn btn-primary w-[80%]"
           >
             {finished ? "Done!" : "Next Question"}
           </button>

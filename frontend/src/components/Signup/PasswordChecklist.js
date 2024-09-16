@@ -29,7 +29,7 @@ export default function PasswordChecklist({
   passwordMatch,
 }) {
   return (
-    <ul className="text-gray-500 list-inside h-fit px-5 py-2 bg-[#191D24] shadow-lg rounded-xl text-sm space-y-1">
+    <div className="text-gray-500  h-fit  py-3 shadow-lg rounded-xl text-sm space-y-3">
       <li className="flex items-center">
         {moreThanEight ? <GreenCheck /> : <NeutralCheck />}
         <p className="flex-shrink-0 flex-grow">At least 8 characters</p>
@@ -46,6 +46,6 @@ export default function PasswordChecklist({
         {passwordMatch ? <GreenCheck /> : <NeutralCheck />}
         <p className="flex-shrink-0 flex-grow">Passwords match</p>
       </li>
-    </ul>
+    </div>
   );
 }
