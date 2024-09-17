@@ -12,7 +12,7 @@ import { updateSelectedGame } from "../../redux/game/gameReducer";
 
 export default function Categories() {
   const figStyle =
-    "relative w-full transition-all duration-300 cursor-pointer group cursor-pointer indicator";
+    "relative w-full transition-all duration-300 cursor-pointer group cursor-pointer indicator h-[50%]";
   const dispatch = useDispatch();
   const gamesHistory = useSelector((state) => state.game.gamesHistory);
   const navigate = useNavigate();
@@ -74,25 +74,25 @@ export default function Categories() {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center gap-10 w full h-[calc(100%-6rem)]">
-      <div>
-        <p className="text-[20px] font-bold tracking-[.10em]">
+    <div className="flex flex-col justify-center items-center gap-10 w full h-[calc(100%-5rem)]">
+      <div className="flex justify-center mt-8">
+        <p className="text-white text-center font-menlo text-xl font-bold leading-[22.5px] word-spacing-4 tracking-wider">
           Select your time travel topic
         </p>
       </div>
 
-      <div className="grid grid-cols-4  w-full border-2  h-full place-items-center border-stone-400">
-        <div className="card w-full bg-[#0d0d0d] shadow-xl border-2 rounded-none h-full border-stone-400">
+      <div className="grid grid-cols-4 w-[95%]  overflow-hidden border-2 place-items-center border-stone-400">
+        <div className="card w-full h-full bg-[#0d0d0d] shadow-xl border-2 rounded-none border-stone-400">
           <figure
             className={figStyle}
             onClick={() => {
               selectType(gamesHistory["us-poverty"]);
             }}
           >
-            <div className="w-full overflow-hidden relative ">
+            <div className="w-full overflow-hidden relative">
               <img
                 className={classNames(
-                  "group-hover:scale-110 transition duration-300 ease-in-out w-full object-fill",
+                  "group-hover:scale-110 transition duration-300 ease-in-out w-full h-full ",
                   getDisabledStyle(gamesHistory["us-poverty"]),
                 )}
                 src={PovertyCategory}
@@ -100,9 +100,10 @@ export default function Categories() {
               />
             </div>
           </figure>
-          <div className="card-body mt-24 w-25">
-            <h3 className="text-white text-2xl font-sans tracking-[.10em] font-bold">
-              US Poverty
+          <div className="card-body mt-[30%] w-25">
+            <h3 className="text-white font-mono text-2xl font-normal leading-7 tracking-wider">
+              US <br />
+              Poverty
             </h3>
             <p className="font-serif opacity-80 text-slate-400 tracking-[.20em]">
               {getIndicatorText(gamesHistory["us-poverty"])}
@@ -110,7 +111,7 @@ export default function Categories() {
           </div>
         </div>
 
-        <div className="card w-full shadow-xl border-2 rounded-none	h-full border-stone-400">
+        <div className="card w-full h-full bg-[#0d0d0d] shadow-xl border-2 rounded-none border-stone-400">
           <figure
             className={figStyle}
             onClick={() => {
@@ -128,9 +129,9 @@ export default function Categories() {
               />
             </div>
           </figure>
-          <div className="card-body mt-24 w-25">
-            <h3 className="text-white text-2xl font-sans tracking-[.10em] font-bold">
-              Non-State Conflict
+          <div className="card-body mt-[30%] w-25">
+            <h3 className="text-white font-mono text-2xl font-normal leading-7 tracking-wider">
+              Non-State <br /> Conflict
             </h3>
             <p className="font-serif opacity-80 text-slate-400 tracking-[.20em]">
               {getIndicatorText(gamesHistory["non-state-conflict"])}
@@ -138,7 +139,7 @@ export default function Categories() {
           </div>
         </div>
 
-        <div className="card w-full shadow-xl border-2 rounded-none	h-full border-stone-400">
+        <div className="card w-full h-full bg-[#0d0d0d] shadow-xl border-2 rounded-none border-stone-400">
           <figure
             className={figStyle}
             onClick={() => {
@@ -156,9 +157,10 @@ export default function Categories() {
               />
             </div>
           </figure>
-          <div className="card-body mt-24 w-25">
-            <h3 className="text-white text-2xl font-sans tracking-[.10em] font-bold">
-              CO2 Concentrations
+          <div className="card-body mt-[30%] w-25">
+            <h3 className="text-white font-mono text-2xl font-normal leading-7 tracking-wider">
+              CO2 <br />
+              Concentrations
             </h3>
             <p className="font-serif opacity-80 text-slate-400 tracking-[.20em]">
               {getIndicatorText(gamesHistory["co2-concentrations"])}
@@ -166,7 +168,7 @@ export default function Categories() {
           </div>
         </div>
 
-        <div className="card w-full  shadow-xl border-2 rounded-none	h-full border-stone-400">
+        <div className="card w-full h-full bg-[#0d0d0d] shadow-xl border-2 rounded-none border-stone-400">
           <figure
             className={figStyle}
             onClick={() => {
@@ -184,9 +186,10 @@ export default function Categories() {
               />
             </div>
           </figure>
-          <div className="card-body mt-24 w-25">
-            <h3 className="text-white text-2xl font-sans tracking-[.10em] font-bold">
-              Infant Mortality Rate
+          <div className="card-body mt-[30%] w-25">
+            <h3 className="text-white font-mono text-2xl font-normal leading-7 tracking-widers">
+              Infant <br />
+              Mortality Rate
             </h3>
             <p className="font-serif opacity-80 text-slate-400 tracking-[.20em]">
               {getIndicatorText(gamesHistory["infant-mortality-rate"])}

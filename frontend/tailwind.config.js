@@ -8,7 +8,22 @@ module.exports = {
       },
     },
   },
-  plugins: [require("daisyui")],
+  plugins: [
+    require("daisyui"),
+    function ({ addUtilities }) {
+      addUtilities(
+        {
+          ".word-spacing-0": { "word-spacing": "0" },
+          ".word-spacing-1": { "word-spacing": "0.1em" },
+          ".word-spacing-2": { "word-spacing": "0.2em" },
+          ".word-spacing-3": { "word-spacing": "0.3em" },
+          ".word-spacing-4": { "word-spacing": "0.4em" },
+          ".word-spacing-5": { "word-spacing": "0.5em" },
+        },
+        ["responsive", "hover"],
+      );
+    },
+  ],
   daisyui: {
     styled: true,
     base: true,
