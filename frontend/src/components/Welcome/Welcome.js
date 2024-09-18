@@ -41,16 +41,16 @@ export default function Welcome() {
   return (
     <div className="flex flex-col justify-center items-center gap-10 w-full">
       <div className="flex flex-col justify-center items-center">
-        <h3 className="text-white text-2xl font-sans tracking-[.10em] font-bold ">
+        <h3 className="text-white text-[20px] font-[Menlo] tracking-[.10em] font-bold ">
           Welcome, Dr, {scientistName}.
         </h3>
-        <h3 className="text-white text-2xl font-sans tracking-[.10em] font-bold ">
+        <h3 className="text-white text-[20px] font-[Menlo] tracking-[.10em] font-bold ">
           Please step into the time machine
         </h3>
       </div>
       <figure className={figStyle}>
         <button
-          class="btn w-[10%] rounded-full bg-[#1e1e1e] border-red-50 absolute top-[37%] left-[45%]"
+          class="btn w-[10%] rounded-full bg-[#1e1e1e] border-red-50 absolute top-[47%] left-[45%] font-[Menlo] text-white"
           onClick={() => {
             navigate("/intro");
           }}
@@ -61,7 +61,7 @@ export default function Welcome() {
           <img
             src={StartLogo}
             alt="US Poverty"
-            className="object-fill h-[80%] w-[100%]"
+            className="object-fill h-full w-[100%]"
           />
         </div>
       </figure>

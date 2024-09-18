@@ -76,7 +76,7 @@ export default function Categories() {
   return (
     <div className="flex flex-col justify-center items-center gap-10 w full h-[calc(100%-5rem)]">
       <div className="flex justify-center mt-8">
-        <p className="text-white text-center font-menlo text-xl font-bold leading-[22.5px] word-spacing-4 tracking-wider">
+        <p className="text-white text-center font-[Menlo] text-xl font-bold leading-[22.5px] word-spacing-3 tracking-wider">
           Select your time travel topic
         </p>
       </div>
@@ -101,11 +101,11 @@ export default function Categories() {
             </div>
           </figure>
           <div className="card-body mt-[30%] w-25">
-            <h3 className="text-white font-mono text-2xl font-normal leading-7 tracking-wider">
+            <h3 className="text-white font-[Menlo] text-2xl font-normal leading-8 tracking-[.10em] lining-nums tabular-nums">
               US <br />
               Poverty
             </h3>
-            <p className="font-serif opacity-80 text-slate-400 tracking-[.20em]">
+            <p className="font-[Menlo] opacity-80 text-[#fff] text-[15px] tracking-[.20em]">
               {getIndicatorText(gamesHistory["us-poverty"])}
             </p>
           </div>
@@ -130,10 +130,10 @@ export default function Categories() {
             </div>
           </figure>
           <div className="card-body mt-[30%] w-25">
-            <h3 className="text-white font-mono text-2xl font-normal leading-7 tracking-wider">
+            <h3 className="text-[#fff] font-[Menlo] text-2xl font-normal leading-8 tracking-[.10em] lining-nums tabular-nums">
               Non-State <br /> Conflict
             </h3>
-            <p className="font-serif opacity-80 text-slate-400 tracking-[.20em]">
+            <p className="font-[Menlo] opacity-80 text-[#fff] text-[15px] tracking-[.20em]">
               {getIndicatorText(gamesHistory["non-state-conflict"])}
             </p>
           </div>
@@ -158,11 +158,11 @@ export default function Categories() {
             </div>
           </figure>
           <div className="card-body mt-[30%] w-25">
-            <h3 className="text-white font-mono text-2xl font-normal leading-7 tracking-wider">
+            <h3 className="text-white font-[Menlo] text-2xl font-normal leading-8 tracking-[.10em] lining-nums tabular-nums">
               CO2 <br />
               Concentrations
             </h3>
-            <p className="font-serif opacity-80 text-slate-400 tracking-[.20em]">
+            <p className="font-[Menlo] opacity-80 text-[#fff] text-[15px] tracking-[.20em]">
               {getIndicatorText(gamesHistory["co2-concentrations"])}
             </p>
           </div>
@@ -187,11 +187,11 @@ export default function Categories() {
             </div>
           </figure>
           <div className="card-body mt-[30%] w-25">
-            <h3 className="text-white font-mono text-2xl font-normal leading-7 tracking-widers">
+            <h3 className="text-white font-[Menlo] text-2xl font-normal leading-8 tracking-[.10em] lining-nums tabular-nums	">
               Infant <br />
               Mortality Rate
             </h3>
-            <p className="font-serif opacity-80 text-slate-400 tracking-[.20em]">
+            <p className="font-[Menlo] opacity-80 text-[#fff] text-[15px] tracking-[.20em]">
               {getIndicatorText(gamesHistory["infant-mortality-rate"])}
             </p>
           </div>

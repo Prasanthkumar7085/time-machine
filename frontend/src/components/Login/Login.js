@@ -21,11 +21,12 @@ export default function Login() {
     <div className="flex w-full h-[calc(100%-7rem)] justify-center items-center ">
       <div className="flex flex-row justify-center gap-[9.40rem]">
         <div className="flex flex-col gap-3 justify-center items-start p-5 w-[420px] h-[420px]">
-          <h1 className="text-white text-3xl font-bold font-mono text-balance ">
-            <p>Join the</p>
-            <p>time machine</p>
+          <h1 className="text-white text-[42px] font-bold font-[Menlo] word-spacing-2 leading-[52px] tracking-[.10rem] not-italic	">
+            Join the time
+            <br />
+            machine
           </h1>
-          <p className="font-sans-serif opacity-80 text-[#b7b7b7]">
+          <p className="font-[Menlo] opacity-[0.7] text-[#b7b7b7] font-normal">
             Enter as a scientist and play the game of predicting trends of human
             welfare to find out how accurate you are at predicting the future
           </p>
@@ -56,17 +57,17 @@ export default function Login() {
                 </label>
               </div>
 
-              <div className="flex flex-col gap-3 justify-center">
+              <div className="flex flex-col gap-2 justify-center">
                 <button
-                  className="btn btn-primary bg-[#3B46DE] text-white"
+                  className="btn btn-primary bg-[#3B46DE] text-white font-[Inter]"
                   type="submit"
                   disabled={loading}
                 >
                   Login
                 </button>
               </div>
-              <div className="divider"></div>
-              <div className="flex justify-center">
+              <div className="divider mt-0"></div>
+              <div className="flex justify-center items-center">
                 <button
                   className="btn bg-[#1baa66] text-white w-[80%] hover:bg-[#1baa66]"
                   type="submit"

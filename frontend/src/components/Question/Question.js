@@ -402,14 +402,14 @@ export default function Question() {
                 className="tooltip tooltip-bottom"
                 data-tip="Predict next year's data point. If you're spot on, you get 60 points. For every 1% off, you lose 0.6 points."
               >
-                <div className="stat-title flex gap-2 whitespace-normal">
+                <div className="stat-title flex justify- gap-2 whitespace-normal font-[SF Pro Display]">
                   Average Predictive Accuracy
                   <InfoIcon />
                 </div>
               </div>
-              <div className="stat-value mt-2 flex">
+              <div className="stat-value mt-2 flex font-[Menlo]">
                 {averagePredictiveAccuracy}
-                <div className="ml-1 text-info text-2xl font-semibold">/60</div>
+                <div className="ml-1 text-info font-[Menlo]">/60</div>
               </div>
             </div>
 
@@ -418,14 +418,16 @@ export default function Question() {
                 className="tooltip tooltip-bottom"
                 data-tip="Guess a range for the data point. If it's within, you get 30 points; if not, you get 0."
               >
-                <div className="stat-title flex gap-2 whitespace-normal">
+                <div className="stat-title flex gap-2 justify-center items-center whitespace-normal font-[SF Pro Display]">
                   Average Confidence Band Accuracy
                   <InfoIcon />
                 </div>
               </div>
-              <div className="stat-value mt-2 flex">
+              <div className="stat-value mt-2 flex font-[Menlo]">
                 {averageConfidentBandAccuracy}
-                <div className="ml-1 text-info text-2xl font-semibold">/30</div>
+                <div className="ml-1 text-info  font-semibold font-[Menlo]">
+                  /30
+                </div>
               </div>
             </div>
 
@@ -434,14 +436,16 @@ export default function Question() {
                 className="tooltip tooltip-bottom"
                 data-tip="Set a narrow range for better precision. If it's tighter than a set standard, you get 10 points. If wider, your points decrease proportionally."
               >
-                <div className="stat-title flex gap-2 whitespace-normal">
+                <div className="stat-title flex gap-2 whitespace-normal font-[SF Pro Display]">
                   Average Precision of Confidence Band
                   <InfoIcon />
                 </div>
               </div>
-              <div className="stat-value mt-2 flex">
+              <div className="stat-value mt-2 flex font-[Menlo]">
                 {averagePercisionOfConfidentBand}
-                <div className="ml-1 text-info text-2xl font-semibold">/10</div>
+                <div className="ml-1 text-info  font-semibold font-[Menlo]">
+                  /10
+                </div>
               </div>
             </div>
           </div>

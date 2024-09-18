@@ -59,17 +59,20 @@ export default function Terminal({
                 </code> */}
                 <code
                   className={classNames(
-                    "whitespace-normal flex-1",
+                    "whitespace-normal flex-1 font-[Menlo] word-spacing-2",
                     textTypeClass(line.type),
                   )}
                 >
                   {line.value.map((item, index) => {
                     return (
-                      <div key={index} className="flex flex-row gap-2">
+                      <div
+                        key={index}
+                        className="flex flex-row gap-2 font-[Menlo] word-spacing-2"
+                      >
                         <p>{">"} </p>
                         <p
                           className={classNames(
-                            "whitespace-normal flex-1",
+                            "whitespace-normal flex-1 font-[Menlo] word-spacing-2",
                             textTypeClass("info"),
                           )}
                         >
@@ -91,7 +94,7 @@ export default function Terminal({
               </code> */}
               <code
                 className={classNames(
-                  "whitespace-normal flex-1",
+                  "whitespace-normal flex-1 font-[Menlo] word-spacing-2",
                   textTypeClass(line.type),
                 )}
               >

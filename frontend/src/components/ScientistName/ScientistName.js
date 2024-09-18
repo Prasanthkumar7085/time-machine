@@ -39,10 +39,10 @@ export default function ScientistName() {
   return (
     <div className="flex flex-col w-full h-[calc(100%-16rem)] justify-center items-center gap-24">
       <div className="flex flex-col gap-5 w-[800px] justify-center items-center">
-        <h3 className="text-white text-2xl font-sans tracking-[.10em] font-bold">
+        <h3 className="text-white text-[25px] font-[Menlo] word-spacing-2 leading-[32px] font-bold">
           What is your scientist name?
         </h3>
-        <p className="font-serif opacity-80 text-slate-400 tracking-[.20em]">
+        <p className="font-[Menlo] opacity-[0.7] text-[#fff] tracking-[.20em] text-[14px]">
           This can be anything you want, e.g., Dr. Van Nostrand, Dr. Spaceman
         </p>
       </div>
