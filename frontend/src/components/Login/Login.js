@@ -59,7 +59,7 @@ export default function Login() {
 
               <div className="flex flex-col gap-2 justify-center">
                 <button
-                  className="btn btn-primary bg-[#3B46DE] text-white font-[Inter]"
+                  className="btn btn-primary bg-[#3B46DE] text-white font-[Inter] hover:bg-[#3B46DE]"
                   type="submit"
                   disabled={loading}
                 >

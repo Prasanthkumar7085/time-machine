@@ -35,17 +35,17 @@ export default function Signup() {
     <div className="flex w-full h-[calc(100%-4rem)] justify-center items-center">
       <div className="flex flex-row justify-center gap-[9.40rem]">
         <div className="flex flex-col gap-3 justify-center items-start p-5 w-[420px] h-[420px]">
-          <h1 className="text-white text-[42px] font-bold font-[Menlo] word-spacing-2 leading-[52px] tracking-[.10rem] not-italic	">
+          <h1 className="text-white text-[42px] font-bold font-menlo word-spacing-1 leading-[52px] tracking-[.10rem] not-italic	">
             Join the time
             <br />
             machine
           </h1>
-          <p className="font-[Menlo] opacity-[0.7] text-[#b7b7b7] font-normal">
+          <div className="w-[400px] opacity-80 text-[#fff] text-[14px] font-normal font-menlo leading-[20px] tracking-[.10em] word-spacing-2">
             Enter as a scientist and play the game of predicting trends of human
             welfare to find out how accurate you are at predicting the future
-          </p>
+          </div>
           <div className="divder"></div>
-          <h2 className="text-md font-[Menlo] text-white mt-1 word-spacing-2">
+          <h2 className="w-[296px] text-white text-[13px] font-bold font-menlo leading-[15px] tracking-[.15em]">
             Password requirements :
           </h2>
           <PasswordChecklist
@@ -96,7 +96,7 @@ export default function Signup() {
                 </label>
               </div>
               <button
-                className="btn btn-primary  bg-[#3B46DE] text-white"
+                className="btn btn-primary  bg-[#3B46DE] text-white hover:bg-[#3B46DE]"
                 type="submit"
                 disabled={loading}
               >

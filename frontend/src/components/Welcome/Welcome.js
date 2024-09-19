@@ -1,7 +1,16 @@
+import { OrbitControls } from "@react-three/drei";
+import { extend } from "@react-three/fiber";
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import StartLogo from "../../assets/images/startLogo.png";
+import Landing from "../../assets/images/Landing.webp";
+import { MeshLine, MeshLineMaterial } from "../Intro/MeshLine";
+
+extend({ MeshLine, MeshLineMaterial, OrbitControls });
+
+const colors = {
+  sunnyRainbow: ["#fff"],
+};
 
 let timer;
 const easeInOutCubic = (t) => {
@@ -40,17 +49,29 @@ export default function Welcome() {
 
   return (
     <div className="flex flex-col justify-center items-center gap-10 w-full">
+      {/* <Canvas
+        camera={{ fov: 100, position: [0, 0, 30] }}
+        onCreated={({ gl, size, camera }) => {
+          if (size.width < 600) {
+            camera.position.z = 45;
+          }
+          gl.setClearColor(new THREE.Color("#080f24"));
+        }}
+      >
+        <Space count={1000} colors={colors.sunnyRainbow} />
+        <Stars radius={100} depth={50} count={5000} factor={2} />
+      </Canvas> */}
       <div className="flex flex-col justify-center items-center">
-        <h3 className="text-white text-[20px] font-[Menlo] tracking-[.10em] font-bold ">
-          Welcome, Dr, {scientistName}.
+        <h3 className="text-white text-[20px] font-menlo tracking-[.10rem] font-bold ">
+          Welcome, Dr.{scientistName}.
         </h3>
-        <h3 className="text-white text-[20px] font-[Menlo] tracking-[.10em] font-bold ">
+        <h3 className="text-white text-[20px] font-menlo tracking-[.10rem] font-bold ">
           Please step into the time machine
         </h3>
       </div>
       <figure className={figStyle}>
         <button
-          class="btn w-[10%] rounded-full bg-[#1e1e1e] border-red-50 absolute top-[47%] left-[45%] font-[Menlo] text-white"
+          class="btn  bg-[#1e1e1e] absolute top-[47%] left-[45%] w-[144px] h-9 bg-white/10 rounded-[23px] border border-white backdrop-blur-sm text-[#fff] hover:bg-white/10 "
           onClick={() => {
             navigate("/intro");
           }}
@@ -59,7 +80,7 @@ export default function Welcome() {
         </button>
         <div className="w-full">
           <img
-            src={StartLogo}
+            src={Landing}
             alt="US Poverty"
             className="object-fill h-full w-[100%]"
           />
