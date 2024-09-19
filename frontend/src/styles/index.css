@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400&display=swap');
 html,
 body,
 #root {
@@ -10,6 +10,7 @@ body,
   height: 100%;
   background: #0d0d0d !important;
   color: white;
+  
 }
 
 .react-terminal-wrapper {
@@ -43,4 +44,9 @@ media-gesture[action="seek:10"] {
   width: 25%;
   height: 100%;
   z-index: 1;
+}
+@font-face {
+  font-family: 'Roboto Mono';
+  font-weight: normal;
+  font-style: normal;
 }

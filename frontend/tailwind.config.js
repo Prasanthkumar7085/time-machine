@@ -6,6 +6,9 @@ module.exports = {
       fontSize: {
         "3xl": "3rem",
       },
+      fontFamily: {
+        menlo: ["Menlo", "monospace"], // Add Menlo font
+      },
     },
   },
   plugins: [

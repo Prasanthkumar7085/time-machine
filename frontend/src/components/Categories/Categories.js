@@ -82,13 +82,13 @@ export default function Categories() {
       </div>
 
       <div className="grid grid-cols-4 w-[95%]  overflow-hidden border-2 place-items-center border-stone-400">
-        <div className="card w-full h-full bg-[#0d0d0d] shadow-xl border-2 rounded-none border-stone-400">
-          <figure
-            className={figStyle}
-            onClick={() => {
-              selectType(gamesHistory["us-poverty"]);
-            }}
-          >
+        <div
+          className="card w-full h-full bg-[#0d0d0d] shadow-xl border-2 rounded-none border-stone-400 cursor-pointer"
+          onClick={() => {
+            selectType(gamesHistory["us-poverty"]);
+          }}
+        >
+          <figure className={figStyle}>
             <div className="w-full overflow-hidden relative">
               <img
                 className={classNames(
@@ -111,13 +111,13 @@ export default function Categories() {
           </div>
         </div>
 
-        <div className="card w-full h-full bg-[#0d0d0d] shadow-xl border-2 rounded-none border-stone-400">
-          <figure
-            className={figStyle}
-            onClick={() => {
-              selectType(gamesHistory["non-state-conflict"]);
-            }}
-          >
+        <div
+          className="card w-full h-full bg-[#0d0d0d] shadow-xl border-2 rounded-none border-stone-400 cursor-pointer"
+          onClick={() => {
+            selectType(gamesHistory["non-state-conflict"]);
+          }}
+        >
+          <figure className={figStyle}>
             <div className="w-full overflow-hidden relative">
               <img
                 className={classNames(
@@ -139,13 +139,13 @@ export default function Categories() {
           </div>
         </div>
 
-        <div className="card w-full h-full bg-[#0d0d0d] shadow-xl border-2 rounded-none border-stone-400">
-          <figure
-            className={figStyle}
-            onClick={() => {
-              selectType(gamesHistory["co2-concentrations"]);
-            }}
-          >
+        <div
+          className="card w-full h-full bg-[#0d0d0d] shadow-xl border-2 rounded-none border-stone-400 cursor-pointer"
+          onClick={() => {
+            selectType(gamesHistory["co2-concentrations"]);
+          }}
+        >
+          <figure className={figStyle}>
             <div className="w-full overflow-hidden relative ">
               <img
                 className={classNames(
@@ -168,13 +168,13 @@ export default function Categories() {
           </div>
         </div>
 
-        <div className="card w-full h-full bg-[#0d0d0d] shadow-xl border-2 rounded-none border-stone-400">
-          <figure
-            className={figStyle}
-            onClick={() => {
-              selectType(gamesHistory["infant-mortality-rate"]);
-            }}
-          >
+        <div
+          className="card w-full h-full bg-[#0d0d0d] shadow-xl border-2 rounded-none border-stone-400 cursor-pointer"
+          onClick={() => {
+            selectType(gamesHistory["infant-mortality-rate"]);
+          }}
+        >
+          <figure className={figStyle}>
             <div className="w-full overflow-hidden relative">
               <img
                 className={classNames(

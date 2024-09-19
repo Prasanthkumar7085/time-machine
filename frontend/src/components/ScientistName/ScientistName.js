@@ -39,17 +39,17 @@ export default function ScientistName() {
   return (
     <div className="flex flex-col w-full h-[calc(100%-16rem)] justify-center items-center gap-24">
       <div className="flex flex-col gap-5 w-[800px] justify-center items-center">
-        <h3 className="text-white text-[25px] font-[Menlo] word-spacing-2 leading-[32px] font-bold">
+        <div className="text-center text-white text-[17px] font-bold font-menlo">
           What is your scientist name?
-        </h3>
-        <p className="font-[Menlo] opacity-[0.7] text-[#fff] tracking-[.20em] text-[14px]">
+        </div>
+        <div className="w-[600px] opacity-70 text-center text-white text-[14px] font-normal font-['Menlo'] leading-[14px] tracking-[.15em]">
           This can be anything you want, e.g., Dr. Van Nostrand, Dr. Spaceman
-        </p>
+        </div>
       </div>
-      <div className="flex flex-col gap-16 ">
+      <div className="flex flex-col gap-16 justify-center items-center">
         <input
           type="text"
-          className="bg-transparent outline-none text-warning text-lg placeholder-center text-center"
+          className="bg-transparent outline-none text-warning  text-xl placeholder-center text-center "
           autoFocus
           value={scientistName}
           placeholder="Enter name"
@@ -59,7 +59,7 @@ export default function ScientistName() {
         />
 
         <button
-          className="btn bg-[#3b46de] hover:bg-[#3b46de] text-white  disabled:bg-[#1e2042] disabled:text-[#565953] m-4 "
+          className="btn bg-[#3b46de] hover:bg-[#3b46de] text-white  disabled:bg-[#1e2042] disabled:text-[#565953]  w-[150px] h-[50px]"
           type="submit"
           disabled={!scientistName}
           onClick={onSubmit}
