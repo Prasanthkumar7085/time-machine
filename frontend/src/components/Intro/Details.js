@@ -31,7 +31,10 @@ export default function Details({ scientistName, gameId, selectedType }) {
           <ReactPlayer url={Tutorial} controls width="100%" height="100%" />
         </div>
       </div>
-      <button className="btn btn-primary w-36" onClick={initiateGame}>
+      <button
+        className="btn btn-primary w-36 bg-[#3B46DE] hover:bg-[#3B46DE]"
+        onClick={initiateGame}
+      >
         Ready!
       </button>
     </div>

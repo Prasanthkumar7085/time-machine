@@ -121,7 +121,7 @@ const LineChart = ({
       .datum(hasEstimate ? Data.slice(0, -1) : Data.slice(0, -2))
       .attr("d", lineGenerator)
       .attr("fill", "none")
-      .attr("stroke", "#468B97")
+      .attr("stroke", "#21c476")
       .attr("stroke-width", 2)
       .attr("stroke-dasharray", "5,15")
       .attr("stroke-linejoin", "round")
@@ -141,7 +141,7 @@ const LineChart = ({
         return yScale(yAccessor(d));
       })
       .attr("r", 5)
-      .attr("fill", "#69b3a2")
+      .attr("fill", "#21c476")
       .transition();
 
     dataDots
@@ -154,7 +154,7 @@ const LineChart = ({
       })
       .on("start", function repeat(d, i) {
         d3.active(this)
-          .style("fill", "#69b3a2")
+          .style("fill", "#21c476")
           .transition()
           .style("fill", "#191D24")
           .transition()
@@ -166,7 +166,7 @@ const LineChart = ({
       .datum(answers)
       .attr("d", lineGenerator)
       .attr("fill", "none")
-      .attr("stroke", "#A8DF8E")
+      .attr("stroke", "#21c476")
       .attr("stroke-width", 2)
       .attr("stroke-dasharray", "5,15")
       .attr("stroke-linejoin", "round")
@@ -185,7 +185,7 @@ const LineChart = ({
         return yScale(yAccessor(d));
       })
       .attr("r", 5)
-      .attr("fill", "#A8DF8E")
+      .attr("fill", "#21c476")
       .transition();
 
     answerDots
@@ -630,7 +630,7 @@ const LineChart = ({
   }, [Data, width, height, hasEstimate, hasResult]); // redraw chart if data or dimensions change
 
   return (
-    <div className="line-chart relative w-full">
+    <div className="line-chart relative w-full mb-5">
       <div
         className={classNames(
           "absolute w-1 h-1 bg-transparent left-6 top-6 xindicator border-dashed border border-[rgba(255,255,255,.3)] z-0 opacity-0",

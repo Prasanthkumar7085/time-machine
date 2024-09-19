@@ -314,7 +314,7 @@ export default function Question() {
   }, [answers]);
 
   return (
-    <div className="flex w-full h-[calc(100%-5rem)] pl-3 pr-3 pt-2 flex-col">
+    <div className="flex w-full h-[calc(100%-5rem)] pl-3 pr-3 flex-col">
       <div className="flex justify-center items-center p-5 absolute top-0 left-[35%]">
         <p>Progress:</p>
         <ul className="steps">
@@ -385,7 +385,7 @@ export default function Question() {
           )}
         </div>
         <div
-          className="w-[72%] h-full relative top-0 right-0 flex items-center justify-center bg-[#191D24] px-10 flex-col"
+          className="w-[72%] h-full relative top-0 right-0 flex items-center justify-center bg-[#191D24] px-8 flex-col "
           ref={ref}
           onClick={(e) => {
             e.preventDefault();
@@ -396,54 +396,58 @@ export default function Question() {
             }
           }}
         >
-          <div className="stats bg-transparent w-full top-0 overflow-hidden">
-            <div className="stat place-items-center">
+          <div className="flex flex-row bg-transparent w-full mt-4">
+            <div className="stat flex flex-col gap-4">
               <div
                 className="tooltip tooltip-bottom"
                 data-tip="Predict next year's data point. If you're spot on, you get 60 points. For every 1% off, you lose 0.6 points."
               >
-                <div className="stat-title flex justify- gap-2 whitespace-normal font-[SF Pro Display]">
-                  Average Predictive Accuracy
+                <div className="flex gap-7 whitespace-normal text-left opacity-50 text-white text-[17px] font-normal font-['SF Pro Display'] leading-[20px]">
+                  Average Predictive
+                  <br />
+                  Accuracy
                   <InfoIcon />
                 </div>
               </div>
-              <div className="stat-value mt-2 flex font-[Menlo]">
+              <div className="stat-value mt-2 flex font-menlo">
                 {averagePredictiveAccuracy}
-                <div className="ml-1 text-info font-[Menlo]">/60</div>
+                <div className="ml-1 text-info font-menlo">/60</div>
               </div>
             </div>
 
-            <div className="stat place-items-center">
+            <div className="stat flex flex-col gap-4 border-x-2">
               <div
                 className="tooltip tooltip-bottom"
                 data-tip="Guess a range for the data point. If it's within, you get 30 points; if not, you get 0."
               >
-                <div className="stat-title flex gap-2 justify-center items-center whitespace-normal font-[SF Pro Display]">
-                  Average Confidence Band Accuracy
+                <div className="flex gap-7 whitespace-normal text-left opacity-50 text-white text-[17px] font-normal font-['SF Pro Display'] leading-[20px]">
+                  Average Confidence <br />
+                  Band Accuracy
                   <InfoIcon />
                 </div>
               </div>
-              <div className="stat-value mt-2 flex font-[Menlo]">
+              <div className="stat-value mt-2 flex font-menlo">
                 {averageConfidentBandAccuracy}
-                <div className="ml-1 text-info  font-semibold font-[Menlo]">
+                <div className="ml-1 text-info  font-semibold font-menlo">
                   /30
                 </div>
               </div>
             </div>
 
-            <div className="stat place-items-center">
+            <div className="stat flex flex-col gap-4">
               <div
                 className="tooltip tooltip-bottom"
                 data-tip="Set a narrow range for better precision. If it's tighter than a set standard, you get 10 points. If wider, your points decrease proportionally."
               >
-                <div className="stat-title flex gap-2 whitespace-normal font-[SF Pro Display]">
-                  Average Precision of Confidence Band
+                <div className="flex gap-7 whitespace-normal text-left opacity-50 text-white text-[17px] font-normal font-['SF Pro Display'] leading-[20px]">
+                  Average Precision of <br />
+                  Confidence Band
                   <InfoIcon />
                 </div>
               </div>
-              <div className="stat-value mt-2 flex font-[Menlo]">
+              <div className="stat-value mt-2 flex font-menlo">
                 {averagePercisionOfConfidentBand}
-                <div className="ml-1 text-info  font-semibold font-[Menlo]">
+                <div className="ml-1 text-info  font-semibold font-menlo">
                   /10
                 </div>
               </div>
@@ -451,7 +455,7 @@ export default function Question() {
           </div>
           <div
             className={classNames(
-              "w-full  flex-grow",
+              "w-full flex-grow",
               hasResult
                 ? "pointer-events-none cursor-not-allowed"
                 : "pointer-events-auto",

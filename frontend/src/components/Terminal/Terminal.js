@@ -33,6 +33,18 @@ export default function Terminal({
     [currentValue],
   );
 
+  const getTitle = (index) => {
+    if (index == 0) {
+      return "OBJECTIVE: ";
+    } else if (index == 1) {
+      return "YOUR JOB: ";
+    } else if (index == 2) {
+      return "YOUR TASK: ";
+    } else if (index == 3) {
+    } else if (index == 4) {
+    }
+  };
+
   useEffect(() => {
     if (textareaRef.current === null) return;
     textareaRef.current.style.height = "0px";
@@ -59,7 +71,7 @@ export default function Terminal({
                 </code> */}
                 <code
                   className={classNames(
-                    "whitespace-normal flex-1 font-[Menlo] word-spacing-2",
+                    "whitespace-normal flex-1 font-menlo word-spacing-2",
                     textTypeClass(line.type),
                   )}
                 >
@@ -67,12 +79,12 @@ export default function Terminal({
                     return (
                       <div
                         key={index}
-                        className="flex flex-row gap-2 font-[Menlo] word-spacing-2"
+                        className="flex flex-row gap-2 font-menlo word-spacing-2"
                       >
                         <p>{">"} </p>
                         <p
                           className={classNames(
-                            "whitespace-normal flex-1 font-[Menlo] word-spacing-2",
+                            "whitespace-normal flex-1 font-menlo word-spacing-2",
                             textTypeClass("info"),
                           )}
                         >
@@ -92,9 +104,12 @@ export default function Terminal({
                 <p className="text-warning">machine[1]</p>
                 <p className="text-primary">({line.time}s)</p>
               </code> */}
+              <p className="w-[233px] text-white text-[16px] font-bold font-menlo">
+                {getTitle(i)}
+              </p>
               <code
                 className={classNames(
-                  "whitespace-normal flex-1 font-[Menlo] word-spacing-2",
+                  "whitespace-normal flex-1 font-menlo word-spacing-2",
                   textTypeClass(line.type),
                 )}
               >

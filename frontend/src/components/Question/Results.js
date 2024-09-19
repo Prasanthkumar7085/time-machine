@@ -18,7 +18,7 @@ const Results = ({
       )}
     >
       <div className="p-2">
-        <div className="p-5 py-0 text-[#fff] font-[Menlo] tracking-[.10rem] word-spacing-2 text-[17px]  ">
+        <div className=" px-5 w-[80%] text-white text-[16px] font-normal font-['Menlo'] leading-[20px] tracking-[.10em] word-spacing-2">
           {finished ? (
             <>Congratulations! You have completed the game.</>
           ) : (
@@ -29,17 +29,17 @@ const Results = ({
           )}
         </div>
         <div className="divider my-1"></div>
-        <h3 className="px-5 text-xl font-[Menlo] font-bold text-[#fff]">
+        <h3 className="px-5 text-xl font-menlo font-bold text-[#fff]">
           Your score :
         </h3>
         {answer && (
           <p className="px-5 py-2  text-base text-[#fff]">
             Your answer was{" "}
-            <span className="text-[#A8DF8E] font-[Menlo]">
+            <span className="text-[#A8DF8E] font-menlo">
               {answer.guessCenter}
             </span>
             <br /> The real value was{" "}
-            <span className="text-[#69b3a2] font-[Menlo]">
+            <span className="text-[#69b3a2] font-menlo">
               {answer.correctAnswer}
             </span>
             .
@@ -56,9 +56,9 @@ const Results = ({
                 <InfoIcon />
               </div>
             </div>
-            <div className="stat-value mt-2 flex w-full font-[Menlo]">
+            <div className="stat-value mt-2 flex w-full font-menlo">
               {predictiveAccuracy}
-              <div className="ml-1 text-info font-[Menlo]">/60</div>
+              <div className="ml-1 text-info font-menlo">/60</div>
             </div>
           </div>
 
@@ -72,9 +72,9 @@ const Results = ({
                 <InfoIcon />
               </div>
             </div>
-            <div className="stat-value mt-2 flex w-full font-[Menlo]">
+            <div className="stat-value mt-2 flex w-full font-menlo">
               {confidentBandAccuracy}
-              <div className="ml-1 text-info font-[Menlo]">/30</div>
+              <div className="ml-1 text-info font-menlo">/30</div>
             </div>
           </div>
 
@@ -88,7 +88,7 @@ const Results = ({
                 <InfoIcon />
               </div>
             </div>
-            <div className="stat-value mt-2 flex w-full font-[Menlo]">
+            <div className="stat-value mt-2 flex w-full font-menlo">
               {percisionOfConfidentBand}
               <div className="ml-1 text-info font-semibold">/10</div>
             </div>

@@ -48,7 +48,7 @@ export default function Welcome() {
   }, [counterState, runCounter]);
 
   return (
-    <div className="flex flex-col justify-center items-center gap-10 w-full">
+    <div className="flex flex-col justify-center items-center gap-10 w-full ">
       {/* <Canvas
         camera={{ fov: 100, position: [0, 0, 30] }}
         onCreated={({ gl, size, camera }) => {
@@ -78,7 +78,7 @@ export default function Welcome() {
         >
           Enter game
         </button>
-        <div className="w-full">
+        <div className="w-full h-[calc(100vh-11rem)]">
           <img
             src={Landing}
             alt="US Poverty"

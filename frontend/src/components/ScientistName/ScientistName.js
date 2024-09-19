@@ -39,7 +39,7 @@ export default function ScientistName() {
   return (
     <div className="flex flex-col w-full h-[calc(100%-16rem)] justify-center items-center gap-24">
       <div className="flex flex-col gap-5 w-[800px] justify-center items-center">
-        <div className="text-center text-white text-[17px] font-bold font-menlo">
+        <div className="text-center text-white text-[18px] font-bold font-menlo">
           What is your scientist name?
         </div>
         <div className="w-[600px] opacity-70 text-center text-white text-[14px] font-normal font-['Menlo'] leading-[14px] tracking-[.15em]">

@@ -1,10 +1,10 @@
 import { useMemo } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import Co2Category from "../../assets/images/Co2Category.svg";
-import InfantCategory from "../../assets/images/InfantCategory.svg";
-import NonStateCategory from "../../assets/images/NonStateCategory.svg";
-import PovertyCategory from "../../assets/images/PovertyCategory.svg";
+import Climate from "../../assets/images/Climate.webp";
+import economy from "../../assets/images/economy.webp";
+import PeaceWar from "../../assets/images/PeaceWar.webp";
+import PublicHealth from "../../assets/images/PublicHealth.png";
 import { InfoIcon } from "../Question";
 
 export default function Summary() {
@@ -46,15 +46,15 @@ export default function Summary() {
   const getGameImage = (gameType) => {
     switch (gameType) {
       case "co2-concentrations":
-        return Co2Category;
+        return Climate;
       case "infant-mortality-rate":
-        return InfantCategory;
+        return PublicHealth;
       case "non-state-conflict":
-        return NonStateCategory;
+        return PeaceWar;
       case "us-poverty":
-        return PovertyCategory;
+        return economy;
       default:
-        return Co2Category;
+        return Climate;
     }
   };
 

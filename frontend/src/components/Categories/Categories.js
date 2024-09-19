@@ -3,10 +3,10 @@ import { useEffect } from "react";
 import toast from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import Co2Category from "../../assets/images/Co2Category.svg";
-import InfantCategory from "../../assets/images/InfantCategory.svg";
-import NonStateCategory from "../../assets/images/NonStateCategory.svg";
-import PovertyCategory from "../../assets/images/PovertyCategory.svg";
+import Climate from "../../assets/images/Climate.webp";
+import economy from "../../assets/images/economy.webp";
+import PeaceWar from "../../assets/images/PeaceWar.webp";
+import PublicHealth from "../../assets/images/PublicHealth.png";
 import { getGames } from "../../redux/game/gameActions";
 import { updateSelectedGame } from "../../redux/game/gameReducer";
 
@@ -95,7 +95,7 @@ export default function Categories() {
                   "group-hover:scale-110 transition duration-300 ease-in-out w-full h-full ",
                   getDisabledStyle(gamesHistory["us-poverty"]),
                 )}
-                src={PovertyCategory}
+                src={economy}
                 alt="US Poverty"
               />
             </div>
@@ -124,7 +124,7 @@ export default function Categories() {
                   "group-hover:scale-110 transition duration-300 ease-in-out w-full object-fill",
                   getDisabledStyle(gamesHistory["non-state-conflict"]),
                 )}
-                src={NonStateCategory}
+                src={PeaceWar}
                 alt="Non-State Conflict"
               />
             </div>
@@ -152,7 +152,7 @@ export default function Categories() {
                   "group-hover:scale-110 transition duration-300 ease-in-out w-full object-fill",
                   getDisabledStyle(gamesHistory["co2-concentrations"]),
                 )}
-                src={Co2Category}
+                src={Climate}
                 alt="CO2 Concentrations"
               />
             </div>
@@ -181,7 +181,7 @@ export default function Categories() {
                   "group-hover:scale-110 transition duration-300 ease-in-out w-full object-fill",
                   getDisabledStyle(gamesHistory["infant-mortality-rate"]),
                 )}
-                src={InfantCategory}
+                src={PublicHealth}
                 alt="Infant Mortality Rate"
               />
             </div>
