@@ -409,9 +409,9 @@ export default function Question() {
                   <InfoIcon />
                 </div>
               </div>
-              <div className="stat-value mt-2 flex font-menlo">
+              <div className="stat-value mt-2 flex font-primary">
                 {averagePredictiveAccuracy}
-                <div className="ml-1 text-info font-menlo">/60</div>
+                <div className="ml-1 text-info font-primary">/60</div>
               </div>
             </div>
 
@@ -426,9 +426,9 @@ export default function Question() {
                   <InfoIcon />
                 </div>
               </div>
-              <div className="stat-value mt-2 flex font-menlo">
+              <div className="stat-value mt-2 flex font-primary">
                 {averageConfidentBandAccuracy}
-                <div className="ml-1 text-info  font-semibold font-menlo">
+                <div className="ml-1 text-info  font-semibold font-primary">
                   /30
                 </div>
               </div>
@@ -445,9 +445,9 @@ export default function Question() {
                   <InfoIcon />
                 </div>
               </div>
-              <div className="stat-value mt-2 flex font-menlo">
+              <div className="stat-value mt-2 flex font-primary">
                 {averagePercisionOfConfidentBand}
-                <div className="ml-1 text-info  font-semibold font-menlo">
+                <div className="ml-1 text-info  font-semibold font-primary">
                   /10
                 </div>
               </div>

@@ -29,17 +29,17 @@ const Results = ({
           )}
         </div>
         <div className="divider my-1"></div>
-        <h3 className="px-5 text-xl font-menlo font-bold text-[#fff]">
+        <h3 className="px-5 text-xl font-primary font-bold text-[#fff]">
           Your score :
         </h3>
         {answer && (
           <p className="px-5 py-2  text-base text-[#fff]">
             Your answer was{" "}
-            <span className="text-[#A8DF8E] font-menlo">
+            <span className="text-[#A8DF8E] font-primary">
               {answer.guessCenter}
             </span>
             <br /> The real value was{" "}
-            <span className="text-[#69b3a2] font-menlo">
+            <span className="text-[#69b3a2] font-primary">
               {answer.correctAnswer}
             </span>
             .
@@ -56,9 +56,9 @@ const Results = ({
                 <InfoIcon />
               </div>
             </div>
-            <div className="stat-value mt-2 flex w-full font-menlo">
+            <div className="stat-value mt-2 flex w-full font-primary">
               {predictiveAccuracy}
-              <div className="ml-1 text-info font-menlo">/60</div>
+              <div className="ml-1 text-info font-primary">/60</div>
             </div>
           </div>
 
@@ -72,9 +72,9 @@ const Results = ({
                 <InfoIcon />
               </div>
             </div>
-            <div className="stat-value mt-2 flex w-full font-menlo">
+            <div className="stat-value mt-2 flex w-full font-primary">
               {confidentBandAccuracy}
-              <div className="ml-1 text-info font-menlo">/30</div>
+              <div className="ml-1 text-info font-primary">/30</div>
             </div>
           </div>
 
@@ -88,7 +88,7 @@ const Results = ({
                 <InfoIcon />
               </div>
             </div>
-            <div className="stat-value mt-2 flex w-full font-menlo">
+            <div className="stat-value mt-2 flex w-full font-primary">
               {percisionOfConfidentBand}
               <div className="ml-1 text-info font-semibold">/10</div>
             </div>

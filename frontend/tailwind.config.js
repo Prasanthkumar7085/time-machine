@@ -3,11 +3,15 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
+     screens: {
+        'xxl': '1900px',   // Custom breakpoint for screens larger than 1900px
+      },
       fontSize: {
         "3xl": "3rem",
       },
       fontFamily: {
-        menlo: ["Menlo", "monospace"], // Add Menlo font
+        primary: ["Overpass Mono", "monospace"], // Add overpass mono font
+        secondary:["Inter", "sans-serif"],
       },
     },
   },

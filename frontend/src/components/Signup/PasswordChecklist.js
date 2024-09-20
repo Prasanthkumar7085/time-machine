@@ -32,25 +32,25 @@ export default function PasswordChecklist({
     <div className="text-gray-500  h-fit  py-3 shadow-lg rounded-xl text-sm space-y-3">
       <li className="flex items-center">
         {moreThanEight ? <GreenCheck /> : <NeutralCheck />}
-        <p className="flex-shrink-0 flex-grow opacity-70 text-white text-[11px] font-normal font-['Menlo'] leading-none tracking-[.15em]">
+        <p className="flex-shrink-0 flex-grow opacity-70 text-white text-[11px] font-normal font-primary leading-none ">
           At least 8 characters
         </p>
       </li>
       <li className="flex items-center">
         {number ? <GreenCheck /> : <NeutralCheck />}
-        <p className="flex-shrink-0 flex-grow opacity-70 text-white text-[11px] font-normal font-['Menlo'] leading-none tracking-[.15em]">
+        <p className="flex-shrink-0 flex-grow opacity-70 text-white text-[11px] font-normal font-primary leading-none ">
           At least one number
         </p>
       </li>
       <li className="flex items-center">
         {letter ? <GreenCheck /> : <NeutralCheck />}
-        <p className="flex-shrink-0 flex-grow opacity-70 text-white text-[11px] font-normal font-['Menlo'] leading-none tracking-[.15em]">
+        <p className="flex-shrink-0 flex-grow opacity-70 text-white text-[11px] font-normal font-primary leading-none ">
           At least one letter
         </p>
       </li>
       <li className="flex items-center">
         {passwordMatch ? <GreenCheck /> : <NeutralCheck />}
-        <p className="flex-shrink-0 flex-grow opacity-70 text-white text-[11px] font-normal font-['Menlo'] leading-none tracking-[.15em]">
+        <p className="flex-shrink-0 flex-grow opacity-70 text-white text-[11px] font-normal font-primary leading-none ">
           Passwords match
         </p>
       </li>

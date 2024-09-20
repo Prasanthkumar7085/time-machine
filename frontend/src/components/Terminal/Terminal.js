@@ -71,7 +71,7 @@ export default function Terminal({
                 </code> */}
                 <code
                   className={classNames(
-                    "whitespace-normal flex-1 font-menlo word-spacing-2",
+                    "whitespace-normal flex-1 font-primary word-spacing-2",
                     textTypeClass(line.type),
                   )}
                 >
@@ -79,12 +79,12 @@ export default function Terminal({
                     return (
                       <div
                         key={index}
-                        className="flex flex-row gap-2 font-menlo word-spacing-2"
+                        className="flex flex-row gap-2 font-primary word-spacing-2"
                       >
                         <p>{">"} </p>
                         <p
                           className={classNames(
-                            "whitespace-normal flex-1 font-menlo word-spacing-2",
+                            "whitespace-normal flex-1 font-primary word-spacing-2",
                             textTypeClass("info"),
                           )}
                         >
@@ -104,12 +104,12 @@ export default function Terminal({
                 <p className="text-warning">machine[1]</p>
                 <p className="text-primary">({line.time}s)</p>
               </code> */}
-              <p className="w-[233px] text-white text-[16px] font-bold font-menlo">
+              <p className="w-[233px] text-white text-[16px] font-bold font-primary">
                 {getTitle(i)}
               </p>
               <code
                 className={classNames(
-                  "whitespace-normal flex-1 font-menlo word-spacing-2",
+                  "whitespace-normal flex-1 font-primary word-spacing-2",
                   textTypeClass(line.type),
                 )}
               >

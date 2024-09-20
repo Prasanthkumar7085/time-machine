@@ -62,10 +62,10 @@ export default function Welcome() {
         <Stars radius={100} depth={50} count={5000} factor={2} />
       </Canvas> */}
       <div className="flex flex-col justify-center items-center">
-        <h3 className="text-white text-[20px] font-menlo tracking-[.10rem] font-bold ">
+        <h3 className="text-white text-[20px] font-primary tracking-[.10rem] font-bold ">
           Welcome, Dr.{scientistName}.
         </h3>
-        <h3 className="text-white text-[20px] font-menlo tracking-[.10rem] font-bold ">
+        <h3 className="text-white text-[20px] font-primary tracking-[.10rem] font-bold ">
           Please step into the time machine
         </h3>
       </div>

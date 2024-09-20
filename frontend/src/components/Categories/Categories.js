@@ -74,22 +74,22 @@ export default function Categories() {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center gap-10 w full h-[calc(100%-5rem)]">
+    <div className="flex flex-col justify-start items-center gap-16 w full h-[calc(100%-5rem)]">
       <div className="flex justify-center mt-8">
-        <p className="text-white text-center font-menlo text-xl font-bold leading-[22.5px] word-spacing-1 tracking-wider">
+        <p className="text-white text-center font-primary text-xl font-[700] leading-[22.5px] ">
           Select your time travel topic
         </p>
       </div>
 
-      <div className="grid grid-cols-4 w-[95%]  overflow-hidden border-2 place-items-center border-stone-400">
+      <div className="grid grid-cols-4 w-full  overflow-hidden border-y place-items-center border-[#FFFFFF1A]">
         <div
-          className="card w-full h-full bg-[#0d0d0d] shadow-xl border-2 rounded-none border-stone-400 cursor-pointer"
+          className="card p-2 box-border w-full  h-full bg-[#0d0d0d] shadow-xl border-e rounded-none border-[#FFFFFF1A] cursor-pointer"
           onClick={() => {
             selectType(gamesHistory["us-poverty"]);
           }}
         >
           <figure className={figStyle}>
-            <div className="w-full overflow-hidden relative">
+            <div className="w-full overflow-hidden relative h-full ">
               <img
                 className={classNames(
                   "group-hover:scale-110 transition duration-300 ease-in-out w-full h-full ",
@@ -101,27 +101,27 @@ export default function Categories() {
             </div>
           </figure>
           <div className="card-body mt-[30%] w-25">
-            <h3 className="text-white font-menlo text-2xl font-normal leading-8 tracking-[.10em] lining-nums tabular-nums">
+            <h3 className="text-white font-primary md:text-[20px] xl:text-[22px] xxl:text-[26px] font-normal leading-8  lining-nums tabular-nums">
               US <br />
               Poverty
             </h3>
-            <p className="font-menlo opacity-80 text-[#fff] text-[15px] tracking-[.10em]">
+            <p className="font-primary opacity-80 text-[#fff] md:text-[9px] xl:text-[12px] xxl:text-[14px] ">
               {getIndicatorText(gamesHistory["us-poverty"])}
             </p>
           </div>
         </div>
 
         <div
-          className="card w-full h-full bg-[#0d0d0d] shadow-xl border-2 rounded-none border-stone-400 cursor-pointer"
+          className="card p-2 box-border w-full h-full bg-[#0d0d0d] shadow-xl border-e rounded-none border-[#FFFFFF1A] cursor-pointer"
           onClick={() => {
             selectType(gamesHistory["non-state-conflict"]);
           }}
         >
           <figure className={figStyle}>
-            <div className="w-full overflow-hidden relative">
+            <div className="w-full overflow-hidden relative h-full">
               <img
                 className={classNames(
-                  "group-hover:scale-110 transition duration-300 ease-in-out w-full object-fill",
+                  "group-hover:scale-110 transition duration-300 ease-in-out w-full object-fill h-full",
                   getDisabledStyle(gamesHistory["non-state-conflict"]),
                 )}
                 src={PeaceWar}
@@ -130,26 +130,26 @@ export default function Categories() {
             </div>
           </figure>
           <div className="card-body mt-[30%] w-25">
-            <h3 className="text-[#fff] font-menlo text-2xl font-normal leading-8 tracking-[.10em] lining-nums tabular-nums">
+            <h3 className="text-[#fff] font-primary md:text-[20px] xl:text-[22px] xxl:text-[26px] font-normal leading-8  lining-nums tabular-nums">
               Non-State <br /> Conflict
             </h3>
-            <p className="font-menlo opacity-80 text-[#fff] text-[15px] tracking-[.10em]">
+            <p className="font-primary opacity-80 text-[#fff] md:text-[9px] xl:text-[12px] xxl:text-[14px] ">
               {getIndicatorText(gamesHistory["non-state-conflict"])}
             </p>
           </div>
         </div>
 
         <div
-          className="card w-full h-full bg-[#0d0d0d] shadow-xl border-2 rounded-none border-stone-400 cursor-pointer"
+          className="card p-2 box-border w-full h-full bg-[#0d0d0d] shadow-xl border-e border-[#FFFFFF1A] rounded-none cursor-pointer"
           onClick={() => {
             selectType(gamesHistory["co2-concentrations"]);
           }}
         >
           <figure className={figStyle}>
-            <div className="w-full overflow-hidden relative ">
+            <div className="w-full overflow-hidden relative h-full">
               <img
                 className={classNames(
-                  "group-hover:scale-110 transition duration-300 ease-in-out w-full object-fill",
+                  "group-hover:scale-110 transition duration-300 ease-in-out w-full object-fill h-full",
                   getDisabledStyle(gamesHistory["co2-concentrations"]),
                 )}
                 src={Climate}
@@ -158,27 +158,27 @@ export default function Categories() {
             </div>
           </figure>
           <div className="card-body mt-[30%] w-25">
-            <h3 className="text-white font-menlo text-2xl font-normal leading-8 tracking-[.10em] lining-nums tabular-nums">
+            <h3 className="text-white font-primary md:text-[20px] xl:text-[22px] xxl:text-[26px] font-normal leading-8  lining-nums tabular-nums">
               CO2 <br />
               Concentrations
             </h3>
-            <p className="font-menlo opacity-80 text-[#fff] text-[15px] tracking-[.10em]">
+            <p className="font-primary opacity-80 text-[#fff] md:text-[9px] xl:text-[12px] xxl:text-[14px] ">
               {getIndicatorText(gamesHistory["co2-concentrations"])}
             </p>
           </div>
         </div>
-
+ 
         <div
-          className="card w-full h-full bg-[#0d0d0d] shadow-xl border-2 rounded-none border-stone-400 cursor-pointer"
+          className="card p-2 box-border w-full h-full bg-[#0d0d0d] shadow-xl border-e border-[#FFFFFF1A] rounded-none  cursor-pointer"
           onClick={() => {
             selectType(gamesHistory["infant-mortality-rate"]);
           }}
         >
           <figure className={figStyle}>
-            <div className="w-full overflow-hidden relative">
+            <div className="w-full overflow-hidden relative h-full">
               <img
                 className={classNames(
-                  "group-hover:scale-110 transition duration-300 ease-in-out w-full object-fill",
+                  "group-hover:scale-110 transition duration-300 ease-in-out w-full object-fill h-full",
                   getDisabledStyle(gamesHistory["infant-mortality-rate"]),
                 )}
                 src={PublicHealth}
@@ -187,11 +187,11 @@ export default function Categories() {
             </div>
           </figure>
           <div className="card-body mt-[30%] w-25">
-            <h3 className="text-white font-menlo text-2xl font-normal leading-8 tracking-[.10em] lining-nums tabular-nums	">
+            <h3 className="text-white font-primary font-normal leading-8  lining-nums tabular-nums md:text-[20px] xl:text-[22px] xxl:text-[26px]	">
               Infant <br />
               Mortality Rate
             </h3>
-            <p className="font-menlo opacity-80 text-[#fff] text-[15px] tracking-[.10em]">
+            <p className="font-primary opacity-80 text-[#fff] md:text-[9px] xl:text-[12px] xxl:text-[14px] ">
               {getIndicatorText(gamesHistory["infant-mortality-rate"])}
             </p>
           </div>

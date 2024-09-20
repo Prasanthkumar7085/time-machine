@@ -37,19 +37,19 @@ export default function ScientistName() {
   };
 
   return (
-    <div className="flex flex-col w-full h-[calc(100%-16rem)] justify-center items-center gap-24">
-      <div className="flex flex-col gap-5 w-[800px] justify-center items-center">
-        <div className="text-center text-white text-[18px] font-bold font-menlo">
+    <div className="flex flex-col w-full h-[calc(100%-16rem)] justify-center items-center gap-16">
+      <div className="flex flex-col gap-3 w-[800px] justify-center items-center">
+        <div className="text-center text-white md:text-[15px] xl:text-[17px] xxl:text-[20px] font-bold font-primary">
           What is your scientist name?
         </div>
-        <div className="w-[600px] opacity-70 text-center text-white text-[14px] font-normal font-['Menlo'] leading-[14px] tracking-[.15em]">
+        <div className="w-[600px] opacity-70 text-center text-white md:text-[11px] xl:text-[13px] xxl:text-[15px] font-normal font-primary leading-[22px] ]">
           This can be anything you want, e.g., Dr. Van Nostrand, Dr. Spaceman
         </div>
       </div>
-      <div className="flex flex-col gap-16 justify-center items-center">
+      <div className="flex flex-col gap-32 justify-center items-center">
         <input
           type="text"
-          className="bg-transparent outline-none text-warning  text-xl placeholder-center text-center "
+          className="bg-transparent outline-none text-warning    placeholder-center text-center font-primary md:text-[20px] xl:text-[22px] xxl:text-[25px]"
           autoFocus
           value={scientistName}
           placeholder="Enter name"
@@ -59,7 +59,7 @@ export default function ScientistName() {
         />
 
         <button
-          className="btn bg-[#3b46de] hover:bg-[#3b46de] text-white  disabled:bg-[#1e2042] disabled:text-[#565953]  w-[150px] h-[50px]"
+          className="btn rounded bg-[#3b46de] hover:bg-[#3b46de] font-secondary md:text-[16px] xl:text-[18px] xxl:text-[22px] text-white  disabled:bg-[#1e2042] disabled:text-[#565953]  w-[150px] h-[50px]"
           type="submit"
           disabled={!scientistName}
           onClick={onSubmit}
