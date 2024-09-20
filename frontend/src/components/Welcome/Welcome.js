@@ -62,16 +62,16 @@ export default function Welcome() {
         <Stars radius={100} depth={50} count={5000} factor={2} />
       </Canvas> */}
       <div className="flex flex-col justify-center items-center">
-        <h3 className="text-white text-[20px] font-primary tracking-[.10rem] font-bold ">
+        <h3 className="text-white font-blod font-primary   md:text-[15px] xl:text-[17px] xxl:text-[20px] ">
           Welcome, Dr.{scientistName}.
         </h3>
-        <h3 className="text-white text-[20px] font-primary tracking-[.10rem] font-bold ">
+        <h3 className="text-white  leading-8 font-primary md:text-[15px] xl:text-[17px] xxl:text-[20px]  font-bold ">
           Please step into the time machine
         </h3>
       </div>
       <figure className={figStyle}>
         <button
-          class="btn  bg-[#1e1e1e] absolute top-[47%] left-[45%] w-[144px] h-9 bg-white/10 rounded-[23px] border border-white backdrop-blur-sm text-[#fff] hover:bg-white/10 "
+          class="btn  bg-[#1e1e1e] md:text-[14px] xl:text-[16px] xxl:text-[19px] font-primary absolute top-[47%] left-[45%] w-[144px] h-9 bg-white/10 rounded-[23px] border border-white backdrop-blur-sm text-[#fff] hover:bg-white/10 "
           onClick={() => {
             navigate("/intro");
           }}

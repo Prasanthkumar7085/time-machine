@@ -16,7 +16,7 @@ export default function Intro() {
   const selectedType = useSelector((state) => state.game.selectedType);
 
   return (
-    <div className="w-full h-[calc(100%-4rem)]">
+    <div className="w-full h-[calc(100%-5rem)]">
       <Details
         scientistName={scientistName}
         gameId={selectedGameId}
