@@ -120,9 +120,9 @@ export default function Terminal({
         })}
       {hasEstimate && (
         <>
-          <div className="flex mb-3 px-4 h-[42%]" onKeyUp={onKeyPress}>
+          <div className="flex mb-3 px-4 min-h-[100px]" onKeyUp={onKeyPress}>
             <textarea
-              className="w-full h-full bg-transparent resize-none focus:outline-none font-mono"
+              className="w-full h-full bg-transparent resize-none focus:outline-none font-primary md:text-[11px] xl:text-[13px] xxl:text-[16px]"
               ref={textareaRef}
               value={currentValue}
               onChange={(e) => {
@@ -135,9 +135,9 @@ export default function Terminal({
               autoFocus
             ></textarea>
           </div>
-          <div className="flex justify-center sticky bottom-0 bg-[#191e24]">
+          <div className="flex justify-center sticky bottom-2 bg-[#191e24]">
             <button
-              className="btn bg-[#3b46de] w-[90%] text-white hover:bg-[#3b46de]"
+              className="btn bg-[#3b46de] font-secondary w-[90%] text-white hover:bg-[#3b46de] md:text-[13px] xl:text-[15px] xxl:text-[18px]"
               onClick={() => {
                 submitAnswer(currentValue);
                 setCurrentValue("> ");

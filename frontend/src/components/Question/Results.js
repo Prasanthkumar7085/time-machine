@@ -29,14 +29,14 @@ const Results = ({
           )}
         </div>
         <div className="divider my-1"></div>
-        <h3 className="px-5 text-xl font-primary font-bold text-[#fff]">
+        <h3 className=" font-primary font-bold md:text-[11px] xl:text-[13px] xxl:text-[15px] text-[#fff]">
           Your score :
         </h3>
         {answer && (
-          <p className="px-5 py-2  text-base text-[#fff]">
+          <p className=" py-2  text-base text-[#fff] md:text-[11px] xl:text-[13px] xxl:text-[15px] font-primary leading-4">
             Your answer was{" "}
             <span className="text-[#A8DF8E] font-primary">
-              {answer.guessCenter}
+              {answer.guessCenter}.
             </span>
             <br /> The real value was{" "}
             <span className="text-[#69b3a2] font-primary">
@@ -45,18 +45,18 @@ const Results = ({
             .
           </p>
         )}
-        <div className="w-full px-2 pt-3">
-          <div className="stat place-items-center p-2 w-[80%]">
+        <div className="w-full  pt-3">
+          <div className="stat place-items-center p-0">
             <div
               className="tooltip tooltip-bottom w-full"
               data-tip="Predict next year's data point. If you're spot on, you get 60 points. For every 1% off, you lose 0.6 points."
             >
-              <div className="stat-title flex gap-2 whitespace-normal justify-between items-center font-[SF Pro Display]">
+              <div className="stat-title flex gap-2 whitespace-normal justify-between text-[#FFFFFF80] items-center font-secondary md:text-[12px] xl:text-[15px] xxl:text-[17px]">
                 <span> Predictive Accuracy</span>
                 <InfoIcon />
               </div>
             </div>
-            <div className="stat-value mt-2 flex w-full font-primary">
+            <div className="stat-value mt-2 flex w-full font-primary  items-center  md:text-[20px] xl:text-[24px] xxl:text-[28px]">
               {predictiveAccuracy}
               <div className="ml-1 text-info font-primary">/60</div>
             </div>
@@ -67,28 +67,28 @@ const Results = ({
               className="tooltip tooltip-bottom w-full"
               data-tip="Guess a range for the data point. If it's within, you get 30 points; if not, you get 0."
             >
-              <div className="stat-title flex gap-2 whitespace-normal justify-between items-center font-[SF Pro Display]">
+              <div className="stat-title flex gap-2 whitespace-normal justify-between text-[#FFFFFF80] items-start font-secondary md:text-[12px] xl:text-[15px] xxl:text-[17px]">
                 Confidence Band Accuracy
                 <InfoIcon />
               </div>
             </div>
-            <div className="stat-value mt-2 flex w-full font-primary">
+            <div className="stat-value mt-2 flex w-full font-primary   md:text-[20px] xl:text-[24px] xxl:text-[28px]">
               {confidentBandAccuracy}
               <div className="ml-1 text-info font-primary">/30</div>
             </div>
           </div>
 
-          <div className="stat place-items-center p-2  w-[80%]">
+          <div className="stat place-items-center p-2  w-[80%] text-left">
             <div
               className="tooltip tooltip-bottom w-full"
               data-tip="Set a narrow range for better precision. If it's tighter than a set standard, you get 10 points. If wider, your points decrease proportionally."
             >
-              <div className="stat-title flex gap-2 whitespace-normal justify-between items-center font-[SF Pro Display]">
+              <div className="stat-title flex gap-2 whitespace-normal justify-between text-[#FFFFFF80] items-start font-secondary md:text-[12px] xl:text-[15px] xxl:text-[17px]">
                 Precision of Confidence Band
                 <InfoIcon />
               </div>
             </div>
-            <div className="stat-value mt-2 flex w-full font-primary">
+            <div className="stat-value mt-2 flex w-full font-primary   md:text-[20px] xl:text-[24px] xxl:text-[28px]">
               {percisionOfConfidentBand}
               <div className="ml-1 text-info font-semibold">/10</div>
             </div>
