@@ -316,11 +316,13 @@ export default function Question() {
   return (
     <div className="flex w-full h-[calc(100%-5rem)] pl-3 pr-3 flex-col ">
       <div className="flex justify-center items-center p-5 absolute top-0 left-0 right-0 ">
-        <p className="md:text-[12px] xl:text-[14px] xxl:text-[17px] font-semibold">Progress</p>
+        <p className="md:text-[12px] xl:text-[14px] xxl:text-[17px] font-semibold">
+          Progress
+        </p>
         <ul className="steps">
           <li
             data-content="1"
-            className={classNames("step step-neutral", {
+            className={classNames("step step-neutral ", {
               "step-success": answers.length > 0,
             })}
             {...(answers.length > 0 && { "data-content": "✓" })}
@@ -403,17 +405,16 @@ export default function Question() {
                 data-tip="Predict next year's data point. If you're spot on, you get 60 points. For every 1% off, you lose 0.6 points."
               >
                 <div className="flex gap-7 whitespace-normal text-left opacity-50 text-white md:text-[12px] xl:text-[15px] xxl:text-[18px] font-secondary font-normal  leading-[20px]">
-                  Average Predictive
-                  
-                  Accuracy
+                  Average Predictive Accuracy
                   <InfoIcon />
                 </div>
               </div>
               <div className="stat-value  flex font-primary  md:text-[20px] xl:text-[23px] xxl:text-[27px] ">
                 {averagePredictiveAccuracy}
-                <div className="ml-1 text-info font-primary md:text-[20px] xl:text-[23px] xxl:text-[27px]">/60</div>
+                <div className="ml-1 text-info font-primary md:text-[20px] xl:text-[23px] xxl:text-[27px]">
+                  /60
+                </div>
               </div>
-
             </div>
 
             <div className="stat flex flex-col gap-4 border-x-2">
@@ -422,8 +423,7 @@ export default function Question() {
                 data-tip="Guess a range for the data point. If it's within, you get 30 points; if not, you get 0."
               >
                 <div className="flex gap-7 whitespace-normal text-left opacity-50  font-normal text-white md:text-[12px] xl:text-[15px] xxl:text-[18px] font-secondary leading-[20px]">
-                  Average Confidence 
-                  Band Accuracy
+                  Average Confidence Band Accuracy
                   <InfoIcon />
                 </div>
               </div>
@@ -441,8 +441,7 @@ export default function Question() {
                 data-tip="Set a narrow range for better precision. If it's tighter than a set standard, you get 10 points. If wider, your points decrease proportionally."
               >
                 <div className="flex gap-7 whitespace-normal text-left opacity-50 text-white  md:text-[12px] xl:text-[15px] xxl:text-[18px] font-secondary font-normal  leading-[20px]">
-                  Average Precision of 
-                  Confidence Band
+                  Average Precision of Confidence Band
                   <InfoIcon />
                 </div>
               </div>
