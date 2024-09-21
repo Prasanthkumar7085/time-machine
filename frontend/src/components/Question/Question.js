@@ -320,21 +320,21 @@ export default function Question() {
         <ul className="steps">
           <li
             data-content="1"
-            className={classNames("step step-neutral", {
+            className={classNames("step before:h-[1px] step-neutral ", {
               "step-success": answers.length > 0,
             })}
             {...(answers.length > 0 && { "data-content": "✓" })}
           ></li>
           <li
             data-content="2"
-            className={classNames("step step-neutral", {
+            className={classNames("step before:h-[1px] step-neutral ", {
               "step-success": answers.length > 1,
             })}
             {...(answers.length > 1 && { "data-content": "✓" })}
           ></li>
           <li
             data-content="3"
-            className={classNames("step step-neutral", {
+            className={classNames("step step-neutral before:h-[1px]", {
               "step-success": answers.length > 2,
             })}
             {...(answers.length > 2 && { "data-content": "✓" })}
@@ -396,7 +396,7 @@ export default function Question() {
             }
           }}
         >
-          <div className="flex flex-row bg-transparent w-full mt-10">
+          <div className="flex flex-row bg-transparent w-full mt-10 divide-x">
             <div className="stat flex flex-col gap-4">
               <div
                 className="tooltip tooltip-bottom"
@@ -416,7 +416,7 @@ export default function Question() {
 
             </div>
 
-            <div className="stat flex flex-col gap-4 border-x-2">
+            <div className="stat flex flex-col gap-4 ">
               <div
                 className="tooltip tooltip-bottom"
                 data-tip="Guess a range for the data point. If it's within, you get 30 points; if not, you get 0."

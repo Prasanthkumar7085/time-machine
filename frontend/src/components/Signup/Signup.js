@@ -32,7 +32,7 @@ export default function Signup() {
   const passwordMatch = moreThanEight && password === confirmPassword;
 
   return (
-    <div className="flex w-full h-[calc(100%-4rem)] justify-center items-center">
+    <div className="flex w-full h-[calc(100%-5rem)] justify-center items-center">
       <div className="flex flex-row justify-center gap-[9.40rem]">
         <div className="flex flex-col gap-3 justify-center items-start p-5 w-[420px] h-[420px]">
           <h1 className="text-white text-[42px] font-bold font-primary  leading-[52px] not-italic	">

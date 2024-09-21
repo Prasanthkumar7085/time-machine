@@ -104,7 +104,7 @@ export default function Terminal({
                 <p className="text-warning">machine[1]</p>
                 <p className="text-primary">({line.time}s)</p>
               </code> */}
-              <p className=" text-white md:text-[10px] xl:text-[12px] xxl:text-[14px] font-bold font-primary mb-2">
+              <p className="uppercase text-white md:text-[10px] xl:text-[12px] xxl:text-[14px] font-bold font-primary mb-2">
                 {getTitle(i)}
               </p>
               <code

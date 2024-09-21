@@ -17,6 +17,8 @@ const Results = ({
         "mockup-code h-full w-full min-w-0 shadow-lg border-r border-r-[rgba(255,255,255,0.1)] overflow-auto pb-0 bg-[#191D24]",
       )}
     >
+              <div className="divider my-1"></div>
+
       <div className="p-2">
         <div className="w-full text-white md:text-[11px] xl:text-[13px] xxl:text-[15px] font-normal font-primary leading-[20px] ">
           {finished ? (
@@ -29,7 +31,7 @@ const Results = ({
           )}
         </div>
         <div className="divider my-1"></div>
-        <h3 className=" font-primary font-bold md:text-[11px] xl:text-[13px] xxl:text-[15px] text-[#fff]">
+        <h3 className="uppercase font-primary font-bold md:text-[11px] xl:text-[13px] xxl:text-[15px] text-[#fff]">
           Your score :
         </h3>
         {answer && (
@@ -45,10 +47,10 @@ const Results = ({
             .
           </p>
         )}
-        <div className="w-full  pt-3">
-          <div className="stat place-items-center p-0">
+        <div className="w-full  pt-8">
+          <div className="stat w-[90%] p-0 mb-3">
             <div
-              className="tooltip tooltip-bottom w-full"
+              className="tooltip before:max-w-full tooltip-bottom w-full max-w-full text-left"
               data-tip="Predict next year's data point. If you're spot on, you get 60 points. For every 1% off, you lose 0.6 points."
             >
               <div className="stat-title flex gap-2 whitespace-normal justify-between text-[#FFFFFF80] items-center font-secondary md:text-[12px] xl:text-[15px] xxl:text-[17px]">
@@ -56,31 +58,31 @@ const Results = ({
                 <InfoIcon />
               </div>
             </div>
-            <div className="stat-value mt-2 flex w-full font-primary  items-center  md:text-[20px] xl:text-[24px] xxl:text-[28px]">
+            <div className="stat-value flex w-full font-primary  items-center  md:text-[20px] xl:text-[24px] xxl:text-[28px]">
               {predictiveAccuracy}
               <div className="ml-1 text-info font-primary">/60</div>
             </div>
           </div>
 
-          <div className="stat place-items-center p-2 w-[80%]">
+          <div className="stat  p-0 w-[90%] mb-3">
             <div
-              className="tooltip tooltip-bottom w-full"
+              className="tooltip before:max-w-full tooltip-bottom w-full max-w-full text-left"
               data-tip="Guess a range for the data point. If it's within, you get 30 points; if not, you get 0."
             >
-              <div className="stat-title flex gap-2 whitespace-normal justify-between text-[#FFFFFF80] items-start font-secondary md:text-[12px] xl:text-[15px] xxl:text-[17px]">
+              <div className="stat-title flex gap-2 whitespace-normal justify-between text-[#FFFFFF80] font-secondary md:text-[12px] xl:text-[15px] xxl:text-[17px]">
                 Confidence Band Accuracy
                 <InfoIcon />
               </div>
             </div>
-            <div className="stat-value mt-2 flex w-full font-primary   md:text-[20px] xl:text-[24px] xxl:text-[28px]">
+            <div className="stat-value  flex w-full font-primary   md:text-[20px] xl:text-[24px] xxl:text-[28px]">
               {confidentBandAccuracy}
               <div className="ml-1 text-info font-primary">/30</div>
             </div>
           </div>
 
-          <div className="stat place-items-center p-2  w-[80%] text-left">
+          <div className="stat p-0 w-[90%]">
             <div
-              className="tooltip tooltip-bottom w-full"
+              className="tooltip before:max-w-full  tooltip-bottom w-full max-w-full text-left"
               data-tip="Set a narrow range for better precision. If it's tighter than a set standard, you get 10 points. If wider, your points decrease proportionally."
             >
               <div className="stat-title flex gap-2 whitespace-normal justify-between text-[#FFFFFF80] items-start font-secondary md:text-[12px] xl:text-[15px] xxl:text-[17px]">
@@ -88,13 +90,13 @@ const Results = ({
                 <InfoIcon />
               </div>
             </div>
-            <div className="stat-value mt-2 flex w-full font-primary   md:text-[20px] xl:text-[24px] xxl:text-[28px]">
+            <div className="stat-value  flex w-full font-primary   md:text-[20px] xl:text-[24px] xxl:text-[28px]">
               {percisionOfConfidentBand}
               <div className="ml-1 text-info font-semibold">/10</div>
             </div>
           </div>
         </div>
-        <div className="w-full flex justify-center mt-[3rem]">
+        <div className="w-full flex justify-center mt-[5em] sticky bottom-0">
           <button
             onClick={() => {
               setHasResults(false);
@@ -102,9 +104,9 @@ const Results = ({
                 navigate("/summary");
               }
             }}
-            className="btn bg-[#3b46de] w-[80%] text-white hover:bg-[#3b46de]"
+            className="btn bg-[#3b46de] font-[600] w-full text-white hover:bg-[#3b46de] md:text-[13px] xl:text-[15px] xxl:text-[18px] font-secondary"
           >
-            {finished ? "Done!" : "Next Question"}
+            {finished ? "Done!" : "Next question"}
           </button>
         </div>
       </div>
