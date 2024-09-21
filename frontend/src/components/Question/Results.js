@@ -14,11 +14,11 @@ const Results = ({
   return (
     <div
       className={classNames(
-        "mockup-code h-full w-full shadow-lg border-r border-r-[rgba(255,255,255,0.1)] overflow-auto pb-0 bg-[#191D24]",
+        "mockup-code h-full w-full min-w-0 shadow-lg border-r border-r-[rgba(255,255,255,0.1)] overflow-auto pb-0 bg-[#191D24]",
       )}
     >
       <div className="p-2">
-        <div className=" px-5 w-[80%] text-white text-[16px] font-normal font-['Menlo'] leading-[20px] tracking-[.10em] word-spacing-2">
+        <div className="w-full text-white md:text-[11px] xl:text-[13px] xxl:text-[15px] font-normal font-primary leading-[20px] ">
           {finished ? (
             <>Congratulations! You have completed the game.</>
           ) : (

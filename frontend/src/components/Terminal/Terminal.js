@@ -34,14 +34,14 @@ export default function Terminal({
   );
 
   const getTitle = (index) => {
-    if (index == 0) {
+    if (index === 0) {
       return "OBJECTIVE: ";
-    } else if (index == 1) {
+    } else if (index === 1) {
       return "YOUR JOB: ";
-    } else if (index == 2) {
+    } else if (index === 2) {
       return "YOUR TASK: ";
-    } else if (index == 3) {
-    } else if (index == 4) {
+    } else if (index === 3) {
+    } else if (index === 4) {
     }
   };
 
@@ -55,7 +55,7 @@ export default function Terminal({
   return (
     <div
       className={classNames(
-        "mockup-code h-full w-full shadow-lg border-r border-r-[rgba(255,255,255,0.1)] overflow-auto pb-0 bg-[#191D24]",
+        "mockup-code h-full w-full min-w-0 shadow-lg border-r border-r-[rgba(255,255,255,0.1)] overflow-auto pb-0 bg-[#191D24]",
         notRounded ? "rounded-none" : "",
       )}
     >
@@ -104,12 +104,12 @@ export default function Terminal({
                 <p className="text-warning">machine[1]</p>
                 <p className="text-primary">({line.time}s)</p>
               </code> */}
-              <p className="w-[233px] text-white text-[16px] font-bold font-primary">
+              <p className=" text-white md:text-[10px] xl:text-[12px] xxl:text-[14px] font-bold font-primary mb-2">
                 {getTitle(i)}
               </p>
               <code
                 className={classNames(
-                  "whitespace-normal flex-1 font-primary word-spacing-2",
+                  "whitespace-normal text-white flex-1 font-primary md:text-[11px] xl:text-[13px] xxl:text-[16px]",
                   textTypeClass(line.type),
                 )}
               >

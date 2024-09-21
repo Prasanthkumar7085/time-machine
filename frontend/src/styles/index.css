@@ -47,6 +47,26 @@ media-gesture[action="seek:10"] {
   height: 100%;
   z-index: 1;
 }
+
+/* scrollbar styles */
+::-webkit-scrollbar {
+  width: 5px; 
+  height: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #6b7280; /* Color of the scrollbar */
+  border-radius: 6px; /* Round the edges */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #4b5563; /* Change color on hover */
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f3f4f680; /* Scrollbar track */
+}
+
 @font-face {
   font-family: 'Roboto Mono';
   font-weight: normal;

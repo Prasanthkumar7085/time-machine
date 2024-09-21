@@ -314,9 +314,9 @@ export default function Question() {
   }, [answers]);
 
   return (
-    <div className="flex w-full h-[calc(100%-5rem)] pl-3 pr-3 flex-col">
-      <div className="flex justify-center items-center p-5 absolute top-0 left-[35%]">
-        <p>Progress:</p>
+    <div className="flex w-full h-[calc(100%-5rem)] pl-3 pr-3 flex-col ">
+      <div className="flex justify-center items-center p-5 absolute top-0 left-0 right-0 ">
+        <p className="md:text-[12px] xl:text-[14px] xxl:text-[17px] font-semibold">Progress</p>
         <ul className="steps">
           <li
             data-content="1"
@@ -356,7 +356,7 @@ export default function Question() {
         </ul>
       </div>
       <div className="h-full w-full flex relative shadow-md rounded-md overflow-hidden bg-[#191D24]">
-        <div className="h-full w-[28%] relative">
+        <div className="h-full w-[20%] relative">
           {hasResult ? (
             <div className="w-full h-full left-0 top-0 flex justify-center items-center backdrop-blur-[2px]">
               <Results
@@ -385,7 +385,7 @@ export default function Question() {
           )}
         </div>
         <div
-          className="w-[72%] h-full relative top-0 right-0 flex items-center justify-center bg-[#191D24] px-8 flex-col "
+          className="w-[80%] h-full  flex items-center justify-start bg-[#191D24] px-8 flex-col overflow-y-auto  "
           ref={ref}
           onClick={(e) => {
             e.preventDefault();
@@ -396,23 +396,24 @@ export default function Question() {
             }
           }}
         >
-          <div className="flex flex-row bg-transparent w-full mt-4">
+          <div className="flex flex-row bg-transparent w-full mt-10">
             <div className="stat flex flex-col gap-4">
               <div
                 className="tooltip tooltip-bottom"
                 data-tip="Predict next year's data point. If you're spot on, you get 60 points. For every 1% off, you lose 0.6 points."
               >
-                <div className="flex gap-7 whitespace-normal text-left opacity-50 text-white text-[17px] font-normal font-['SF Pro Display'] leading-[20px]">
+                <div className="flex gap-7 whitespace-normal text-left opacity-50 text-white md:text-[12px] xl:text-[15px] xxl:text-[18px] font-secondary font-normal  leading-[20px]">
                   Average Predictive
-                  <br />
+                  
                   Accuracy
                   <InfoIcon />
                 </div>
               </div>
-              <div className="stat-value mt-2 flex font-primary">
+              <div className="stat-value  flex font-primary  md:text-[20px] xl:text-[23px] xxl:text-[27px] ">
                 {averagePredictiveAccuracy}
-                <div className="ml-1 text-info font-primary">/60</div>
+                <div className="ml-1 text-info font-primary md:text-[20px] xl:text-[23px] xxl:text-[27px]">/60</div>
               </div>
+
             </div>
 
             <div className="stat flex flex-col gap-4 border-x-2">
@@ -420,15 +421,15 @@ export default function Question() {
                 className="tooltip tooltip-bottom"
                 data-tip="Guess a range for the data point. If it's within, you get 30 points; if not, you get 0."
               >
-                <div className="flex gap-7 whitespace-normal text-left opacity-50 text-white text-[17px] font-normal font-['SF Pro Display'] leading-[20px]">
-                  Average Confidence <br />
+                <div className="flex gap-7 whitespace-normal text-left opacity-50  font-normal text-white md:text-[12px] xl:text-[15px] xxl:text-[18px] font-secondary leading-[20px]">
+                  Average Confidence 
                   Band Accuracy
                   <InfoIcon />
                 </div>
               </div>
-              <div className="stat-value mt-2 flex font-primary">
+              <div className="stat-value  flex font-primary md:text-[20px] xl:text-[23px] xxl:text-[27px]">
                 {averageConfidentBandAccuracy}
-                <div className="ml-1 text-info  font-semibold font-primary">
+                <div className="ml-1 text-info  font-semibold font-primary md:text-[20px] xl:text-[23px] xxl:text-[27px]">
                   /30
                 </div>
               </div>
@@ -439,15 +440,15 @@ export default function Question() {
                 className="tooltip tooltip-bottom"
                 data-tip="Set a narrow range for better precision. If it's tighter than a set standard, you get 10 points. If wider, your points decrease proportionally."
               >
-                <div className="flex gap-7 whitespace-normal text-left opacity-50 text-white text-[17px] font-normal font-['SF Pro Display'] leading-[20px]">
-                  Average Precision of <br />
+                <div className="flex gap-7 whitespace-normal text-left opacity-50 text-white  md:text-[12px] xl:text-[15px] xxl:text-[18px] font-secondary font-normal  leading-[20px]">
+                  Average Precision of 
                   Confidence Band
                   <InfoIcon />
                 </div>
               </div>
-              <div className="stat-value mt-2 flex font-primary">
+              <div className="stat-value  flex font-primary md:text-[20px] xl:text-[23px] xxl:text-[27px]">
                 {averagePercisionOfConfidentBand}
-                <div className="ml-1 text-info  font-semibold font-primary">
+                <div className="ml-1 text-info  font-semibold font-primary md:text-[20px] xl:text-[23px] xxl:text-[27px]">
                   /10
                 </div>
               </div>
@@ -455,7 +456,7 @@ export default function Question() {
           </div>
           <div
             className={classNames(
-              "w-full flex-grow",
+              "w-full flex-grow mb-14",
               hasResult
                 ? "pointer-events-none cursor-not-allowed"
                 : "pointer-events-auto",
