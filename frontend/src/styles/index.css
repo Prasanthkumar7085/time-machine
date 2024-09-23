@@ -48,6 +48,14 @@ media-gesture[action="seek:10"] {
   z-index: 1;
 }
 
+.step::before {
+  height: 0.2rem !important;
+}
+.step-success::after{
+  background-color: #06c270 !important;
+  color: white !important;
+}
+
 /* scrollbar styles */
 ::-webkit-scrollbar {
   width: 5px; 

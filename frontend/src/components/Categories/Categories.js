@@ -159,7 +159,7 @@ export default function Categories() {
           </figure>
           <div className="card-body mt-[30%] w-25">
             <h3 className="text-white font-primary md:text-[20px] xl:text-[22px] xxl:text-[26px] font-normal leading-8  lining-nums tabular-nums">
-              CO2 <br />
+              CO<sub>2</sub> <br />
               Concentrations
             </h3>
             <p className="font-primary opacity-80 text-[#fff] md:text-[9px] xl:text-[12px] xxl:text-[14px] uppercase ">
@@ -167,7 +167,7 @@ export default function Categories() {
             </p>
           </div>
         </div>
- 
+
         <div
           className="card p-2 box-border w-full h-full bg-[#0d0d0d] shadow-xl border-e border-[#FFFFFF1A] rounded-none  cursor-pointer"
           onClick={() => {

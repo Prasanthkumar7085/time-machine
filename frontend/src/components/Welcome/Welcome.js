@@ -71,15 +71,15 @@ export default function Welcome() {
             <Space count={1000} colors={colors.sunnyRainbow} />
           </Canvas>
         </div>
-          <button
-            class="btn   md:text-[14px] xl:text-[16px] xxl:text-[19px] font-primary absolute top-[47%] left-[45%] w-[144px] h-10 bg-white bg-opacity-10 rounded-[23px] border border-white backdrop-blur-[2px] text-[#fff] hover:bg-white/10 "
-            onClick={() => {
-              navigate("/intro");
-            }}
-          >
-            Enter game
-          </button>
-        
+        <button
+          class="btn md:text-[14px] xl:text-[16px] xxl:text-[19px] font-primary absolute top-[47%] left-[45%] w-[144px] h-10 bg-white bg-opacity-10 rounded-[23px] border border-white backdrop-blur-[2px] border-r-0 text-[#fff] hover:bg-white/10 "
+          onClick={() => {
+            navigate("/intro");
+          }}
+        >
+          Enter game
+        </button>
+
         <div className="w-full mb-4">
           <img
             src={TimeMachineImage}

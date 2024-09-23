@@ -316,27 +316,27 @@ export default function Question() {
   return (
     <div className="flex w-full h-[calc(100%-5rem)] pl-3 pr-3 flex-col ">
       <div className="flex justify-center items-center p-5 absolute top-0 left-0 right-0 ">
-        <p className="md:text-[12px] xl:text-[14px] xxl:text-[17px] font-semibold">
+        <p className="md:text-[12px] xl:text-[14px] xxl:text-[17px] font-semibold opacity-50 text-white">
           Progress
         </p>
         <ul className="steps">
           <li
             data-content="1"
-            className={classNames("step step-neutral ", {
+            className={classNames("step step-neutral", {
               "step-success": answers.length > 0,
             })}
             {...(answers.length > 0 && { "data-content": "✓" })}
           ></li>
           <li
             data-content="2"
-            className={classNames("step before:h-[1px] step-neutral ", {
+            className={classNames("step step-neutral ", {
               "step-success": answers.length > 1,
             })}
             {...(answers.length > 1 && { "data-content": "✓" })}
           ></li>
           <li
             data-content="3"
-            className={classNames("step step-neutral before:h-[1px]", {
+            className={classNames("step step-neutral", {
               "step-success": answers.length > 2,
             })}
             {...(answers.length > 2 && { "data-content": "✓" })}
