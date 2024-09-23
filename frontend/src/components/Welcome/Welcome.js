@@ -1,9 +1,9 @@
-import { OrbitControls, Stars } from "@react-three/drei";
+import { OrbitControls } from "@react-three/drei";
 import { Canvas, extend } from "@react-three/fiber";
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import Landing from "../../assets/images/Landing.webp";
+import TimeMachineImage from "../../assets/images/TimeMachineImage.png";
 import { MeshLine, MeshLineMaterial } from "../Intro/MeshLine";
 import Space from "../Intro/Space";
 extend({ MeshLine, MeshLineMaterial, OrbitControls });
@@ -57,6 +57,7 @@ export default function Welcome() {
           Please step into the time machine
         </h3>
       </div>
+
       <figure className={figStyle}>
         <div className="absolute w-full h-full">
           <Canvas
@@ -68,8 +69,8 @@ export default function Welcome() {
             }}
           >
             <Space count={1000} colors={colors.sunnyRainbow} />
-            <Stars radius={100} depth={50} count={5000} factor={2} />
           </Canvas>
+        </div>
           <button
             class="btn   md:text-[14px] xl:text-[16px] xxl:text-[19px] font-primary absolute top-[47%] left-[45%] w-[144px] h-10 bg-white bg-opacity-10 rounded-[23px] border border-white backdrop-blur-[2px] text-[#fff] hover:bg-white/10 "
             onClick={() => {
@@ -78,10 +79,10 @@ export default function Welcome() {
           >
             Enter game
           </button>
-        </div>
-        <div className="w-full h-[calc(100vh-11rem)]">
+        
+        <div className="w-full mb-4">
           <img
-            src={Landing}
+            src={TimeMachineImage}
             alt="US Poverty"
             className="object-fill h-full w-[100%]"
           />
