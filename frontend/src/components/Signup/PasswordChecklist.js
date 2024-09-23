@@ -39,13 +39,13 @@ export default function PasswordChecklist({
       <li className="flex items-center">
         {number ? <GreenCheck /> : <NeutralCheck />}
         <p className="flex-shrink-0 flex-grow opacity-70 text-white text-[11px] font-normal font-primary leading-none ">
-          At least one number
+          At least 1 number
         </p>
       </li>
       <li className="flex items-center">
         {letter ? <GreenCheck /> : <NeutralCheck />}
         <p className="flex-shrink-0 flex-grow opacity-70 text-white text-[11px] font-normal font-primary leading-none ">
-          At least one letter
+          At least 1 letter
         </p>
       </li>
       <li className="flex items-center">

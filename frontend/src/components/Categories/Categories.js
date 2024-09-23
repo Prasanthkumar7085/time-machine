@@ -105,7 +105,7 @@ export default function Categories() {
               US <br />
               Poverty
             </h3>
-            <p className="font-primary opacity-80 text-[#fff] md:text-[9px] xl:text-[12px] xxl:text-[14px] ">
+            <p className="font-primary opacity-80 text-[#fff] md:text-[9px] xl:text-[12px] xxl:text-[14px] uppercase ">
               {getIndicatorText(gamesHistory["us-poverty"])}
             </p>
           </div>
@@ -133,7 +133,7 @@ export default function Categories() {
             <h3 className="text-[#fff] font-primary md:text-[20px] xl:text-[22px] xxl:text-[26px] font-normal leading-8  lining-nums tabular-nums">
               Non-State <br /> Conflict
             </h3>
-            <p className="font-primary opacity-80 text-[#fff] md:text-[9px] xl:text-[12px] xxl:text-[14px] ">
+            <p className="font-primary opacity-80 text-[#fff] md:text-[9px] xl:text-[12px] xxl:text-[14px] uppercase ">
               {getIndicatorText(gamesHistory["non-state-conflict"])}
             </p>
           </div>
@@ -162,7 +162,7 @@ export default function Categories() {
               CO2 <br />
               Concentrations
             </h3>
-            <p className="font-primary opacity-80 text-[#fff] md:text-[9px] xl:text-[12px] xxl:text-[14px] ">
+            <p className="font-primary opacity-80 text-[#fff] md:text-[9px] xl:text-[12px] xxl:text-[14px] uppercase ">
               {getIndicatorText(gamesHistory["co2-concentrations"])}
             </p>
           </div>
@@ -191,7 +191,7 @@ export default function Categories() {
               Infant <br />
               Mortality Rate
             </h3>
-            <p className="font-primary opacity-80 text-[#fff] md:text-[9px] xl:text-[12px] xxl:text-[14px] ">
+            <p className="font-primary opacity-80 text-[#fff] md:text-[9px] xl:text-[12px] xxl:text-[14px] uppercase ">
               {getIndicatorText(gamesHistory["infant-mortality-rate"])}
             </p>
           </div>

@@ -24,7 +24,7 @@ export default function Welcome() {
   const navigate = useNavigate();
 
   const figStyle =
-    "relative w-full transition-all duration-300 cursor-pointer group cursor-pointer indicator ";
+    "relative w-full transition-all duration-300 group indicator ";
 
   useEffect(() => {
     if (!scientistName) {
@@ -50,10 +50,10 @@ export default function Welcome() {
   return (
     <div className="flex flex-col justify-center items-center gap-10 w-full ">
       <div className="flex flex-col justify-center items-center">
-        <h3 className="text-white font-blod font-primary   md:text-[15px] xl:text-[17px] xxl:text-[20px] ">
+        <h3 className="text-white font-[700] font-primary   md:text-[15px] xl:text-[17px] xxl:text-[20px] ">
           Welcome, Dr.{scientistName}.
         </h3>
-        <h3 className="text-white  leading-8 font-primary md:text-[15px] xl:text-[17px] xxl:text-[20px]  font-bold ">
+        <h3 className="text-white  leading-8 font-primary md:text-[15px] xl:text-[17px] xxl:text-[20px]  font-[700] ">
           Please step into the time machine
         </h3>
       </div>
@@ -71,7 +71,7 @@ export default function Welcome() {
             <Stars radius={100} depth={50} count={5000} factor={2} />
           </Canvas>
           <button
-            class="btn  bg-[#1e1e1e] md:text-[14px] xl:text-[16px] xxl:text-[19px] font-primary absolute top-[47%] left-[45%] w-[144px] h-9 bg-white/10 rounded-[23px] border border-white backdrop-blur-sm text-[#fff] hover:bg-white/10 "
+            class="btn   md:text-[14px] xl:text-[16px] xxl:text-[19px] font-primary absolute top-[47%] left-[45%] w-[144px] h-10 bg-white bg-opacity-10 rounded-[23px] border border-white backdrop-blur-[2px] text-[#fff] hover:bg-white/10 "
             onClick={() => {
               navigate("/intro");
             }}

@@ -89,7 +89,7 @@ export default function Signup() {
                 <label className="flex flex-col">
                   <input
                     type="password"
-                    placeholder="Repeat Password"
+                    placeholder="Repeat password"
                     className="input input-bordered font-primary input-md text-white bg-[#3b3b3b]"
                     {...register("confirmPassword")}
                     required

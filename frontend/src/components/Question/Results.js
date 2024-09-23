@@ -32,7 +32,7 @@ const Results = ({
         </div>
         <div className="divider my-1"></div>
         <h3 className="uppercase font-primary font-bold md:text-[11px] xl:text-[13px] xxl:text-[15px] text-[#fff]">
-          Your score :
+          Your score:
         </h3>
         {answer && (
           <p className=" py-2  text-base text-[#fff] md:text-[11px] xl:text-[13px] xxl:text-[15px] font-primary leading-4">

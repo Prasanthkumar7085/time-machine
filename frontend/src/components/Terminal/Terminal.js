@@ -122,8 +122,10 @@ export default function Terminal({
         <>
           <div className="flex mb-3 px-4 min-h-[100px]" onKeyUp={onKeyPress}>
             <textarea
-              className="w-full h-full bg-transparent resize-none focus:outline-none font-primary md:text-[11px] xl:text-[13px] xxl:text-[16px]"
+              placeholder="Enter text"
+  className="w-full h-full bg-transparent resize-none focus:outline-none font-primary md:text-[11px] xl:text-[13px] xxl:text-[16px] placeholder-gray-500"
               ref={textareaRef}
+              
               value={currentValue}
               onChange={(e) => {
                 if (e.target.value.length < 2) {
@@ -143,7 +145,7 @@ export default function Terminal({
                 setCurrentValue("> ");
               }}
             >
-              Let's see how you did!
+              Let's see how you did
             </button>
           </div>
         </>

@@ -49,7 +49,7 @@ export default function ScientistName() {
       <div className="flex flex-col gap-32 justify-center items-center">
         <input
           type="text"
-          className="bg-transparent outline-none text-warning    placeholder-center text-center font-primary md:text-[20px] xl:text-[22px] xxl:text-[25px]"
+          className="bg-transparent outline-none text-white    placeholder-center text-center font-primary md:text-[20px] xl:text-[22px] xxl:text-[25px]"
           autoFocus
           value={scientistName}
           placeholder="Enter name"
